@@ -286,25 +286,77 @@ def table_blue_ocean(d26, out):
     out.append("")
 
 
-def table_disagreement(d26, out):
+def table_disagreement(d25, d26, out):
     out.append("## 评审分歧与结果\n")
-    b = collections.defaultdict(Tally)
-    for p in d26:
-        st = norm_status(p.get("status"))
-        r = rating_avg(p)
-        if st not in ("accept", "reject") or not r or len(r) < 2:
+    out.append(
+        "**先看不控制均分的原始相关，它会误导。** 两年的方向是相反的：\n"
+    )
+    out.append("| 评分标准差 | ICLR 2025 论文数 | 2025 接收率 | ICLR 2026 论文数 | 2026 接收率 |")
+    out.append("|---:|---:|---:|---:|---:|")
+    raw = {}
+    for name, data in (("2025", d25), ("2026", d26)):
+        b = collections.defaultdict(Tally)
+        for p in data:
+            st = norm_status(p.get("status"))
+            r = rating_avg(p)
+            if st not in ("accept", "reject") or not r or len(r) < 2:
+                continue
+            key = round(r[1] * 2) / 2
+            b[key][st] += 1
+            b[key]["all"] += 1
+        raw[name] = b
+    for k in sorted(set(raw["2025"]) | set(raw["2026"])):
+        c25, c26 = raw["2025"].get(k, Tally()), raw["2026"].get(k, Tally())
+        if max(c25["all"], c26["all"]) < 100:
             continue
-        key = round(r[1] * 2) / 2
-        b[key][st] += 1
-        b[key]["all"] += 1
-    out.append("| 评分标准差 | 论文数 | 接收率(决策口径) |")
-    out.append("|---:|---:|---:|")
-    for k in sorted(b):
-        v = b[k]
-        if v["all"] < 100:
-            continue
-        out.append(f"| {k:.1f} | {v['all']:,} | {pct(v.acc_decided())} |")
+        f = lambda c: (f"{c['all']:,}", pct(c.acc_decided())) if c["all"] >= 100 else ("—", "—")
+        n25, r25 = f(c25)
+        n26, r26 = f(c26)
+        out.append(f"| {k:.1f} | {n25} | {r25} | {n26} | {r26} |")
     out.append("")
+    out.append(
+        "方向相反是因为**标准差和均分在这两套刻度下是耦合的**。2025 年的 "
+        "{1,3,5,6,8,10} 步长不等：全给 6 分（分歧为 0）落在录用线之上，而 5 与 6 混合"
+        "（分歧 0.5）恰好落在边缘地带，于是原始相关呈锯齿状。要看分歧本身的作用，"
+        "必须控制均分。\n"
+    )
+    out.append("控制均分后，分歧的作用取决于论文落在录用线的哪一侧：\n")
+    for name, data, means in (
+        ("ICLR 2025（rebuttal 后分数）", d25, [5.0, 5.5, 6.0]),
+        ("ICLR 2026（rebuttal 前分数）", d26, [4.0, 4.5, 5.0, 5.5]),
+    ):
+        cell = collections.defaultdict(Tally)
+        for p in data:
+            st = norm_status(p.get("status"))
+            r = rating_avg(p)
+            if st not in ("accept", "reject") or not r or len(r) < 2:
+                continue
+            m = round(r[0] * 2) / 2
+            bucket = "低分歧" if r[1] < 1.0 else ("中" if r[1] < 1.75 else "高分歧")
+            cell[(m, bucket)][st] += 1
+            cell[(m, bucket)]["all"] += 1
+        out.append(f"**{name}**\n")
+        out.append("| 平均分 | 低分歧 (std<1.0) | 中 (1.0–1.75) | 高分歧 (std≥1.75) |")
+        out.append("|---:|---:|---:|---:|")
+        for m in means:
+            row = []
+            for bucket in ("低分歧", "中", "高分歧"):
+                c = cell.get((m, bucket))
+                row.append(f"{pct(c.acc_decided())} (n={c['all']:,})" if c and c["all"] >= 40 else "样本不足")
+            out.append(f"| {m:.1f} | " + " | ".join(row) + " |")
+        out.append("")
+    out.append(
+        "结论：**均分是主导因素，分歧只是二阶效应，而且方向随位置翻转。** 落在录用线下方时，"
+        "分歧略微有利（有人愿意为你说话）；落在录用线上方时，分歧明显不利（一个反对者足以"
+        "把你拖下来）。ICLR 2025 均分 6.0 的论文，低分歧组 71.9% vs 高分歧组 57.3%，"
+        "差了 14.6 个百分点。\n"
+    )
+    out.append(
+        "> **重要限定**：ICLR 2026 的评分因安全事件被**重置回 rebuttal 之前的状态**"
+        "（官方 retrospective），所以 2026 的所有分数分析反映的是**初审分数**而非最终分数，"
+        "且 AC 是在冻结的讨论记录上推断结果。2026 的分数与结果的关系比正常年份更嘈杂，"
+        "也无法用它来衡量 rebuttal 的效果。ICLR 2025 是正常年份，可作对照。\n"
+    )
 
 
 def table_icml(icml, out):
@@ -375,7 +427,7 @@ def main():
     table_areas(d26, out)
     table_keyword_yoy(d25, d26, out)
     table_blue_ocean(d26, out)
-    table_disagreement(d26, out)
+    table_disagreement(d25, d26, out)
     table_orals(d26, out)
     table_icml(icml, out)
 
