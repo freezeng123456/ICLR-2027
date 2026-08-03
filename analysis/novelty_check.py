@@ -2,6 +2,8 @@
 
 用法：
     python3 novelty_check.py              # 跑内置的候选选题清单
+    python3 novelty_check.py --theory     # 跑理论方向清单（自动限定 cs 分类）
+    python3 novelty_check.py --all        # 两组都跑
     python3 novelty_check.py 'abs:"..."'  # 跑自定义 query
 
 query 语法见 https://info.arxiv.org/help/api/user-manual.html#query_details
@@ -55,6 +57,38 @@ CANDIDATES = {
         'abs:"outdated" OR abs:"stale")',
 }
 
+# 理论方向（见 docs/05-理论方向.md）。这些查询会自动加上 cs 分类限制，
+# 否则 "self-consistency"、"modal" 之类的词会被物理论文淹没。
+THEORY = {
+    "T1   best-of-N / self-consistency 的理论界":
+        '(abs:"best-of-n" OR abs:"self-consistency" OR abs:"majority voting") AND '
+        '(abs:"bound" OR abs:"provable" OR abs:"theoretical analysis" OR abs:"asymptotic")',
+    "T2   不完美 verifier 的极限":
+        '(abs:"imperfect verifier" OR abs:"noisy verifier" OR '
+        'abs:"reward model" AND abs:"overoptimization") AND '
+        '(abs:"theory" OR abs:"bound" OR abs:"limit")',
+    "T3   test-time compute 的理论":
+        'abs:"test-time" AND (abs:"scaling" OR abs:"compute") AND '
+        '(abs:"theory" OR abs:"theoretical" OR abs:"provably" OR abs:"upper bound")',
+    "T4   长时程误差累积 vs 自我纠错":
+        '(abs:"compounding error" OR abs:"error propagation" OR abs:"horizon") AND '
+        '(abs:"self-correction" OR abs:"recovery") AND (abs:"agent" OR abs:"LLM")',
+    "T5   成功率随任务时长衰减的刻画":
+        '(abs:"long-horizon" OR abs:"multi-step") AND (abs:"success rate" OR abs:"failure") '
+        'AND (abs:"exponential" OR abs:"decay" OR abs:"phase transition")',
+    "T6   任务时长曲线（METR 那条）的理论解释":
+        '(abs:"task length" OR abs:"time horizon") AND '
+        '(abs:"doubling" OR abs:"exponential trend" OR abs:"50% success")',
+    "T7   agent 的 Markov / MDP 抽象与界":
+        'abs:"LLM agent" AND (abs:"Markov" OR abs:"MDP" OR abs:"regret" OR '
+        'abs:"sample complexity")',
+    "T8   Transformer 表达能力（拥挤度对照组）":
+        'abs:"transformer" AND (abs:"expressivity" OR abs:"expressive power" OR '
+        'abs:"circuit complexity")',
+}
+
+CS_FILTER = "(cat:cs.LG OR cat:cs.AI OR cat:cs.CL OR cat:stat.ML OR cat:cs.CC)"
+
 
 def search(query, n=12):
     url = "http://export.arxiv.org/api/query?" + urllib.parse.urlencode({
@@ -87,13 +121,25 @@ def run(label, query):
 
 
 def main():
-    if len(sys.argv) > 1:
-        run("自定义 query", sys.argv[1])
+    args = sys.argv[1:]
+    if args and args[0] not in ("--theory", "--all"):
+        run("自定义 query", args[0])
         return
-    for i, (label, query) in enumerate(CANDIDATES.items()):
-        if i:
-            time.sleep(3)  # arXiv API 要求请求之间留间隔
-        run(label, query)
+
+    groups = []
+    if not args or args[0] == "--all":
+        groups.append(("选题候选", CANDIDATES, False))
+    if args and args[0] in ("--theory", "--all"):
+        groups.append(("理论方向", THEORY, True))
+
+    first = True
+    for title, queries, cs_only in groups:
+        print(f"\n{'#' * 102}\n# {title}\n{'#' * 102}")
+        for label, query in queries.items():
+            if not first:
+                time.sleep(3)  # arXiv API 要求请求之间留间隔
+            first = False
+            run(label, f"{CS_FILTER} AND ({query})" if cs_only else query)
 
 
 if __name__ == "__main__":

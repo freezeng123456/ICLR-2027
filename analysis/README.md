@@ -12,9 +12,11 @@ python3 hardware_budget.py       # 按 roofline 估算算力预算（默认 2x H
 
 无第三方依赖，Python 3.8+ 即可。
 
-`novelty_check.py` 内置了 [选题建议](../docs/02-选题建议.md) 里全部候选的检索式，也可以
-传自己的 query：`python3 novelty_check.py 'abs:"..." AND abs:"..."'`。建议在定稿前重跑
-—— 从这次的结果看，2026 年一个"明显的空白"被占掉大约只需要两个月。
+`novelty_check.py` 内置两组检索式：默认跑 [选题建议](../docs/02-选题建议.md) 里的候选，
+`--theory` 跑 [理论方向](../docs/05-理论方向.md) 里的（会自动加 cs 分类限制，否则
+"self-consistency"、"modal"之类的词会被物理论文淹没），`--all` 两组都跑。也可以传自己的
+query：`python3 novelty_check.py 'abs:"..." AND abs:"..."'`。建议在定稿前重跑 ——
+从这次的结果看，2026 年一个"明显的空白"被占掉大约只需要两个月。
 
 `hardware_budget.py` 回答三个排期问题：大 batch 下解码卡在带宽还是算力、一次 prefill
 要多久、到截止日能跑出多少 token。支持 h20 / h100 / h200 / a100 和任意模型规模：
