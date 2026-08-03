@@ -19,10 +19,21 @@ query：`python3 novelty_check.py 'abs:"..." AND abs:"..."'`。建议在定稿�
 从这次的结果看，2026 年一个"明显的空白"被占掉大约只需要两个月。
 
 `hardware_budget.py` 回答三个排期问题：大 batch 下解码卡在带宽还是算力、一次 prefill
-要多久、到截止日能跑出多少 token。支持 h20 / h100 / h200 / a100 和任意模型规模：
-`python3 hardware_budget.py --gpu h100 --params 32 --mfu 0.3`。**输出是理论上限，实测
-通常只有 30–60%**，第一周测完真实吞吐后应该把 `--mfu` 换成实测值重算。结论见
-[04-算力约束下的方案.md](../docs/04-算力约束下的方案.md)。
+要多久、到截止日能跑出多少 token。支持 h20 / h100 / h200 / a100、任意模型规模、
+以及 MoE 与量化：
+
+```bash
+python3 hardware_budget.py --params 32                      # dense 32B BF16
+python3 hardware_budget.py --params 30 --active 3 --bits 8  # Qwen3-30B-A3B FP8
+python3 hardware_budget.py --gpu h100 --params 8 --mfu 0.3  # 换卡、用实测 MFU
+```
+
+MoE 的处理是关键：**算力只按激活参数走，访存按总参数走**。这解释了为什么一个
+30B-A3B 的 MoE 在 H20 上比 32B dense 快一个数量级——显存大算力弱的卡天然偏爱 MoE。
+
+**输出是理论上限，实测通常只有 30–60%**，第一周测完真实吞吐后应该把 `--mfu` 换成实测值
+重算。结论见 [04-算力约束下的方案.md](../docs/04-算力约束下的方案.md) 与
+[05-理论方向.md](../docs/05-理论方向.md) 第五节。
 
 ## 数据来源
 

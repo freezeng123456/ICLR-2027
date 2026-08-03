@@ -30,20 +30,23 @@ GPUS = {
 SHAPES = {8: (32, 4096), 14: (48, 5120), 32: (64, 5120), 70: (80, 8192)}
 
 
-def decode(params_b, gpu, n_gpus, mfu):
-    """解码阶段的 roofline：读权重是固定开销，算数随 batch 线性增长。"""
+def decode(params_b, gpu, n_gpus, mfu, active_b=None, bytes_per_param=2):
+    """解码阶段的 roofline：读权重是固定开销，算数随 batch 线性增长。
+
+    MoE 的关键区别：**算力只随激活参数走，访存却要按整个模型算**（大 batch 下不同
+    token 会点亮不同专家，最坏情况要读全部权重）。H20 显存大带宽高、算力弱，
+    这个组合恰好对 MoE 特别有利。
+    """
     _, bw, tflops = GPUS[gpu]
-    weight_bytes = params_b * 1e9 * 2                       # BF16
-    t_bandwidth = weight_bytes / (bw * 1e12)                # 每步读一遍权重，与 batch 无关
-    t_compute_per_batch = 2 * params_b * 1e9 / (tflops * 1e12 * mfu)
-    crossover = t_bandwidth / t_compute_per_batch
-    peak_per_gpu = 1 / t_compute_per_batch                  # batch 足够大时的封顶吞吐
+    active_b = active_b or params_b
+    # 访存按全部权重估（大 batch 下的保守上界）；算力按激活参数估
+    t_bandwidth = params_b * 1e9 * bytes_per_param / (bw * 1e12 * n_gpus)
+    t_compute_per_batch = 2 * active_b * 1e9 / (tflops * 1e12 * mfu * n_gpus)
     return {
         "t_bandwidth_ms": t_bandwidth * 1e3,
         "t_compute_per_batch_ms": t_compute_per_batch * 1e3,
-        "crossover_batch": crossover,
-        "peak_tok_s_per_gpu": peak_per_gpu,
-        "peak_tok_s_total": peak_per_gpu * n_gpus,
+        "crossover_batch": t_bandwidth / t_compute_per_batch,
+        "peak_tok_s_total": 1 / t_compute_per_batch,
     }
 
 
@@ -65,7 +68,11 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--gpu", default="h20", choices=sorted(GPUS))
     p.add_argument("--gpus", type=int, default=2, help="卡数")
-    p.add_argument("--params", type=float, default=8, help="模型参数量（十亿）")
+    p.add_argument("--params", type=float, default=8, help="模型总参数量（十亿）")
+    p.add_argument("--active", type=float, default=None,
+                   help="MoE 的激活参数量（十亿）。dense 模型留空")
+    p.add_argument("--bits", type=int, default=16, choices=[16, 8, 4],
+                   help="权重精度，影响显存与访存")
     p.add_argument("--mfu", type=float, default=0.40, help="有效算力利用率，实测后替换")
     p.add_argument("--ctx", type=int, nargs="+", default=[8192, 32768, 131072])
     p.add_argument("--deadline", default="2026-09-25")
@@ -74,23 +81,28 @@ def main():
     a = p.parse_args()
 
     mem, bw, tflops = GPUS[a.gpu]
-    print(f"=== {a.gpus} x {a.gpu.upper()} | {a.params:g}B 模型 BF16 | MFU {a.mfu:.0%} ===")
+    bpp = a.bits / 8
+    kind = f"MoE {a.params:g}B-A{a.active:g}B" if a.active else f"dense {a.params:g}B"
+    print(f"=== {a.gpus} x {a.gpu.upper()} | {kind} | {a.bits}-bit | MFU {a.mfu:.0%} ===")
     print(f"单卡 {mem} GB / {bw} TB/s / {tflops} TFLOPS BF16 稠密")
     print(f"合计 {mem*a.gpus} GB / {bw*a.gpus:.1f} TB/s / {tflops*a.gpus} TFLOPS")
-    print(f"算术强度 {tflops*1e12/(bw*1e12):.0f} FLOP/byte"
-          f"（对照 H100 {989/3.35:.0f}）")
+    print(f"算术强度 {tflops/bw:.0f} FLOP/byte（对照 H100 {989/3.35:.0f}）")
 
-    w = a.params * 2
-    print(f"\n权重占 {w:.0f} GB，两卡剩 {mem*a.gpus - w:.0f} GB 给 KV cache 与激活")
+    w = a.params * bpp
+    free = mem * a.gpus - w
+    verdict = "装不下" if free < 0 else ("KV 空间紧张，并发上不去" if free < 40 else "宽裕")
+    print(f"\n权重占 {w:.0f} GB，{a.gpus} 卡剩 {free:.0f} GB 给 KV cache 与激活 —— {verdict}")
 
-    d = decode(a.params, a.gpu, a.gpus, a.mfu)
-    print("\n--- 解码（大 batch 离线推理）---")
+    d = decode(a.params, a.gpu, a.gpus, a.mfu, a.active, bpp)
+    print("\n--- 解码（大 batch 离线推理，两卡合计）---")
     print(f"  读权重耗时         {d['t_bandwidth_ms']:.2f} ms/步（与 batch 无关）")
     print(f"  算数耗时           {d['t_compute_per_batch_ms']:.3f} ms/步/batch")
     print(f"  带宽/算力 crossover  batch ≈ {d['crossover_batch']:.0f}"
           f"  —— 超过它就是算力瓶颈，带宽优势不再兑现")
-    print(f"  封顶吞吐           {d['peak_tok_s_per_gpu']:,.0f} tok/s/卡"
-          f"，{d['peak_tok_s_total']:,.0f} tok/s 合计")
+    print(f"  封顶吞吐           {d['peak_tok_s_total']:,.0f} tok/s")
+    if a.active:
+        print(f"  （MoE 的算力只按 {a.active:g}B 激活参数走，访存按 {a.params:g}B 全量估——"
+              f"这正是 H20 这种显存大、算力弱的卡偏爱 MoE 的原因）")
 
     print("\n--- prefill（纯算力，注意力项 O(n²)）---")
     print(f"  {'上下文':>10} {'FLOPs':>12} {'单卡耗时':>12} {'注意力占比':>10}")
