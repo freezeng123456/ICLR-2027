@@ -17,9 +17,12 @@
 
 ## 一页纸结论
 
-调研基于两部分材料：ICLR 2025/2026 与 ICML 2026 全部投稿的原始数据（共 5.1 万篇，
-含评分、状态、领域、关键词，我自己做的统计见 [analysis/results/conference-stats.md](analysis/results/conference-stats.md)），
-以及各会议官方公布的政策与统计。
+调研基于三部分材料：ICLR 2025/2026 与 ICML 2026 全部投稿的原始数据（共 5.1 万篇，含评分、
+状态、领域、关键词，我自己做的统计见
+[analysis/results/conference-stats.md](analysis/results/conference-stats.md)）；
+ICLR / ICML / NeurIPS / CVPR / ACL / AAAI 官方公布的政策与统计；以及对每个候选选题跑的
+arXiv 查重。找不到权威数据的地方留空而不是猜 —— 例如 NeurIPS 2026 的投稿总量，网上流传
+的"1.5 万"和"4 万"两种说法都没有可靠来源，本报告不采信。
 
 **1. 盘子翻倍，但真正变化的是评审制度，不是接收率。**
 ICLR 投稿一年从 11,677 涨到 19,814（+69.7%），接收率从 31.9% 降到 28.3% —— 只降了 3.6
