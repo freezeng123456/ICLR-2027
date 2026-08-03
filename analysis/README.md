@@ -7,6 +7,7 @@ cd analysis
 python3 fetch_data.py data       # 下载约 175 MB 原始数据（data/ 已 gitignore）
 python3 analyze.py data results  # 生成 results/conference-stats.md
 python3 novelty_check.py         # 对候选选题做 arXiv 查重
+python3 hardware_budget.py       # 按 roofline 估算算力预算（默认 2x H20）
 ```
 
 无第三方依赖，Python 3.8+ 即可。
@@ -14,6 +15,12 @@ python3 novelty_check.py         # 对候选选题做 arXiv 查重
 `novelty_check.py` 内置了 [选题建议](../docs/02-选题建议.md) 里全部候选的检索式，也可以
 传自己的 query：`python3 novelty_check.py 'abs:"..." AND abs:"..."'`。建议在定稿前重跑
 —— 从这次的结果看，2026 年一个"明显的空白"被占掉大约只需要两个月。
+
+`hardware_budget.py` 回答三个排期问题：大 batch 下解码卡在带宽还是算力、一次 prefill
+要多久、到截止日能跑出多少 token。支持 h20 / h100 / h200 / a100 和任意模型规模：
+`python3 hardware_budget.py --gpu h100 --params 32 --mfu 0.3`。**输出是理论上限，实测
+通常只有 30–60%**，第一周测完真实吞吐后应该把 `--mfu` 换成实测值重算。结论见
+[04-算力约束下的方案.md](../docs/04-算力约束下的方案.md)。
 
 ## 数据来源
 
