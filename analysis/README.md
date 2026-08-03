@@ -4,11 +4,16 @@
 
 ```bash
 cd analysis
-python3 fetch_data.py data      # 下载约 175 MB 原始数据（data/ 已 gitignore）
-python3 analyze.py data results # 生成 results/conference-stats.md
+python3 fetch_data.py data       # 下载约 175 MB 原始数据（data/ 已 gitignore）
+python3 analyze.py data results  # 生成 results/conference-stats.md
+python3 novelty_check.py         # 对候选选题做 arXiv 查重
 ```
 
 无第三方依赖，Python 3.8+ 即可。
+
+`novelty_check.py` 内置了 [选题建议](../docs/02-选题建议.md) 里全部候选的检索式，也可以
+传自己的 query：`python3 novelty_check.py 'abs:"..." AND abs:"..."'`。建议在定稿前重跑
+—— 从这次的结果看，2026 年一个"明显的空白"被占掉大约只需要两个月。
 
 ## 数据来源
 
