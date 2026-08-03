@@ -85,6 +85,25 @@ THEORY = {
     "T8   Transformer 表达能力（拥挤度对照组）":
         'abs:"transformer" AND (abs:"expressivity" OR abs:"expressive power" OR '
         'abs:"circuit complexity")',
+    # logits 方向（见 docs/06-logits方向.md）
+    "L1   softmax bottleneck":
+        'abs:"softmax bottleneck"',
+    "L2   logits 的低秩结构":
+        'abs:"low-rank" AND (abs:"logits" OR abs:"output distribution") AND '
+        'abs:"language model"',
+    "L3   后训练对分布/多样性的影响":
+        '(abs:"post-training" OR abs:"RLHF" OR abs:"RLVR") AND '
+        '(abs:"diversity collapse" OR abs:"entropy collapse" OR abs:"mode collapse") AND '
+        '(abs:"rank" OR abs:"spectrum" OR abs:"distribution")',
+    "L4   token 级概率 vs 序列级答案概率":
+        '(abs:"token-level" AND abs:"sequence-level") AND '
+        '(abs:"probability" OR abs:"likelihood" OR abs:"confidence")',
+    "L5   self-consistency 与模型自身置信度":
+        'abs:"self-consistency" AND (abs:"confidence" OR abs:"calibration" OR '
+        'abs:"probability")',
+    "L6   谱指数与 scaling law 的关系":
+        '(abs:"power law" AND abs:"spectrum") AND (abs:"scaling law" OR '
+        'abs:"neural scaling") AND (abs:"exponent" OR abs:"universal")',
 }
 
 CS_FILTER = "(cat:cs.LG OR cat:cs.AI OR cat:cs.CL OR cat:stat.ML OR cat:cs.CC)"
