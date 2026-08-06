@@ -14,11 +14,12 @@ import urllib.request
 RAW = "https://raw.githubusercontent.com/papercopilot/paperlists/main/{}"
 LFS = "https://media.githubusercontent.com/media/papercopilot/paperlists/main/{}"
 
-# ICLR 2025/2026 存为 LFS 指针，必须走 media 端点；ICML 是普通文件。
+# ICLR 2025/2026 存为 LFS 指针，必须走 media 端点；ICML 和 NeurIPS 是普通文件。
 FILES = [
     ("iclr/iclr2025.json", True),
     ("iclr/iclr2026.json", True),
     ("icml/icml2026.json", False),
+    ("nips/nips2025.json", False),   # oral_themes.py 用它做跨会议对照
 ]
 
 

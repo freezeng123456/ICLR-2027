@@ -4,10 +4,11 @@
 
 ```bash
 cd analysis
-python3 fetch_data.py data       # 下载约 175 MB 原始数据（data/ 已 gitignore）
-python3 analyze.py data results  # 生成 results/conference-stats.md
-python3 novelty_check.py         # 对候选选题做 arXiv 查重
-python3 hardware_budget.py       # 按 roofline 估算算力预算（默认 2x H20）
+python3 fetch_data.py data          # 下载约 213 MB 原始数据（data/ 已 gitignore）
+python3 analyze.py data results     # 生成 results/conference-stats.md
+python3 oral_themes.py data results # 生成 results/oral-themes.md
+python3 novelty_check.py            # 对候选选题做 arXiv 查重
+python3 hardware_budget.py          # 按 roofline 估算算力预算（默认 2x H20）
 ```
 
 无第三方依赖，Python 3.8+ 即可。
@@ -44,8 +45,9 @@ contribution/presentation，以及最终状态（Oral / Poster / Reject / Withdr
 | 文件 | 记录数 | 说明 |
 |---|---:|---|
 | `iclr2025.json` | 11,677 | 全部投稿，含被拒和撤回 |
-| `iclr2026.json` | 19,814 | 全部投稿，含被拒和撤回 |
+| `iclr2026.json` | 19,814 | 全部投稿，含被拒和撤回；224 篇 Oral |
 | `icml2026.json` | 6,341 | **仅录用论文**（ICML 不公开被拒稿件） |
+| `nips2025.json` | 6,212 | 录用论文 + 自愿公开的 400 篇拒稿；93 篇 Oral |
 
 ICLR 的文件在仓库里是 Git LFS 指针，`fetch_data.py` 走 `media.githubusercontent.com`
 端点取真实内容。
@@ -72,7 +74,11 @@ ICLR 官方公布的 27.4% 接收率，分母是**有效投稿数**（含中途�
   是因为这批作者对社区惯例不熟，而不是"deep learning"这个词本身有害。跨方向比较时应该
   看趋势和量级，不要当成因果效应。
 - **ICML 只有录用论文**，算不了接收率。脚本用 spotlight 率（spotlight / 该领域录用数）
-  作为替代信号，回答"同样是录用论文，哪个领域更被当回事"。
+  作为替代信号，回答"同样是录用论文，哪个领域更被当回事"。**NeurIPS 2025 同理**：
+  它的对照池实际上就是录用论文，所以 `oral_themes.py` 的放大倍数统一用录用论文做分母，
+  否则两个会议不可比。
+- **主题聚类是正则匹配，不是语义聚类**。一篇论文可命中多个主题，边界主题（如"优化器"
+  与"理论"）会重叠。放大倍数应看量级和排序，不要抠小数点；Oral 少于 8 篇的行噪声很大。
 - **2025 与 2026 的 ICLR 评分不可直接比较**：刻度从 {1,3,5,6,8,10} 改成了
   {0,2,4,6,8,10}。要比的是分数所处的百分位。
 - **抓取时点差异**导致本地统计与官方数字有小幅出入（如本地 19,814 篇 vs 官方 19,525 篇
