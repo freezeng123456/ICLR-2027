@@ -18,7 +18,12 @@
 
 ### 1.0 大白话版：这到底是什么
 
-**PFN（TabPFN 那一类）是不训练的模型。** 平常你有一张表想预测某一列，做法是拿 XGBoost 在这份数据上训一遍、调调参。
+**PFN = Prior-Data Fitted Network，"用先验数据拟合出来的网络"。**
+Prior 指任务的先验（下面说的假数据生成器），Data 指从该先验采样出的合成数据，Fitted 指网络是在这些合成数据上拟合的。
+出自 Müller 等人 ICLR 2022 的 *Transformers Can Do Bayesian Inference*。TabPFN 即表格版的 PFN；
+同一范式还有时序的 TimePFN / ForecastPFN、贝叶斯优化的 PFN4BO、因果推断的 Do-PFN，区别只在先验里写了什么。
+
+**PFN 是不训练的模型。** 平常你有一张表想预测某一列，做法是拿 XGBoost 在这份数据上训一遍、调调参。
 TabPFN 不这么干：你把整张表直接当输入喂进一个预训练好的 Transformer，一次前向传播就出预测，没有梯度更新、没有调参，几百毫秒出结果。
 
 **它是靠假数据练出来的。** 作者写了一个"假数据生成器"，随机造几千万张假表——随机生成因果结构、函数关系、噪声、缺失值——
