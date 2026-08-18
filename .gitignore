@@ -5,3 +5,6 @@ __pycache__/
 train*.log
 train.log
 .venv/
+datasets.pkl
+real_*.pkl
+noisy_*.pkl
