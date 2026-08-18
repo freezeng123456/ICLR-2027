@@ -17,6 +17,7 @@
 | [docs/05-理论方向.md](docs/05-理论方向.md) | 理论路线的可行性论证与方向拥挤度排序 |
 | **[docs/06-logits方向.md](docs/06-logits方向.md)** | **当前主推方案：把 logit 谱当作观察后训练的透镜** |
 | [docs/07-oral清单与趋势.md](docs/07-oral清单与趋势.md) | 317 篇 Oral 的主题分布、放大倍数与形态分析 |
+| [docs/08-PFN基线盘点.md](docs/08-PFN基线盘点.md) | PFN 先验掰动实验现有基线的盘点与缺口（审计 `cursor/iclr-2027-research-direction-8ba3` 分支） |
 | [analysis/](analysis/) | 可复现的数据分析脚本与生成的统计表 |
 
 > **阅读顺序**：01 是趋势事实，02 是不考虑约束的完整选题分析，04 加入算力约束，
