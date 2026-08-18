@@ -1,0 +1,10 @@
+pfn_gp.pt
+pfn_*.pt
+*.pyc
+__pycache__/
+train*.log
+train.log
+.venv/
+datasets.pkl
+real_*.pkl
+noisy_*.pkl
