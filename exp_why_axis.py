@@ -26,6 +26,7 @@
 噪声几乎一定是 SCM 先验里的显式参数，而「函数是否平滑」不是。
 """
 
+import os
 import sys
 import time
 
@@ -116,12 +117,18 @@ def make_batch(rng, bs, ells, noises):
     return torch.tensor(xs, dtype=torch.float32), torch.tensor(ys, dtype=torch.float32)
 
 
-def train(name, ells, noises, steps, bs=48, lr=3e-4):
+def ckpt_path(name):
+    """Stable filename. Do not slice name[0]: 'C_long' would overwrite 'C'."""
+    return "pfn_" + name.split("(")[0].strip() + ".pt"
+
+
+def train(name, ells, noises, steps, bs=48, lr=3e-4, save_path=None):
     model = PFN()
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=steps, pct_start=0.1)
     rng = np.random.default_rng(0)
     t0, losses = time.time(), []
+    save_path = save_path or ckpt_path(name)
     for step in range(steps):
         n_ctx = int(rng.integers(4, N_POINTS - 8))
         x, y = make_batch(rng, bs, ells, noises)
@@ -134,14 +141,21 @@ def train(name, ells, noises, steps, bs=48, lr=3e-4):
         losses.append(loss.item())
         if (step + 1) % 2500 == 0:
             print(f"    [{name}] {step + 1}/{steps}  loss {np.mean(losses[-300:]):7.4f}"
-                  f"  {time.time() - t0:5.0f}s", flush=True)
-    torch.save(model.state_dict(), f"pfn_{name[0]}.pt")
+                  f"  {time.time() - t0:5.0f}s  -> {save_path}", flush=True)
+            torch.save(model.state_dict(), save_path)
+    torch.save(model.state_dict(), save_path)
+    print(f"    [{name}] saved {save_path}", flush=True)
     return model
 
 
 if __name__ == "__main__":
     steps = int(sys.argv[1]) if len(sys.argv) > 1 else 15000
+    force = "--force" in sys.argv
     for name, (ells, noises) in PRIORS.items():
+        path = ckpt_path(name)
+        if os.path.exists(path) and not force:
+            print(f"  skip {name}（{path} 已存在，需要重训请加 --force）", flush=True)
+            continue
         print(f"  训练 {name}：尺度候选 {len(ells)} 个，噪声候选 {len(noises)} 个", flush=True)
-        train(name, ells, noises, steps)
+        train(name, ells, noises, steps, save_path=path)
     print("  三个模型训练完成")

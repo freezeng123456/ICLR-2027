@@ -17,7 +17,7 @@ anchor 一律远置（与查询区相隔很远，函数相关性实际为零）�
 import numpy as np
 import torch
 
-from exp_why_axis import PFN, PRIORS, mixture_posterior, sample_gp
+from exp_why_axis import PFN, PRIORS, ckpt_path, mixture_posterior, sample_gp
 
 N_TRIALS = 200
 N_Q, N_LOCAL, N_ANCHOR = 10, 5, 20
@@ -97,7 +97,7 @@ def main():
     table = {}
     for name, (ells, noises) in PRIORS.items():
         model = PFN()
-        model.load_state_dict(torch.load(f"pfn_{name[0]}.pt", map_location="cpu"))
+        model.load_state_dict(torch.load(ckpt_path(name), map_location="cpu"))
         model.eval()
         varies = ("尺度" if len(ells) > 1 else "") + \
                  ("+" if len(ells) > 1 and len(noises) > 1 else "") + \

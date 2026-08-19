@@ -20,13 +20,13 @@ from exp_why_axis import PFN
 
 STEPS = int(sys.argv[1]) if len(sys.argv) > 1 else 45000
 
-CKPT = "pfn_C.pt"   # train() 按名字首字母存盘，C_long 与 C 同名，故复用同一路径
+CKPT = "pfn_C_45k.pt"
 
 if __name__ == "__main__":
     ells, noises = PRIORS["C(都变)"]
     if "--eval-only" not in sys.argv:
         print(f"  把 C 训到 {STEPS} 步（原为 15000）", flush=True)
-        train("C_long", ells, noises, STEPS)
+        train("C_long", ells, noises, STEPS, save_path=CKPT)
 
     model = PFN()
     model.load_state_dict(torch.load(CKPT, map_location="cpu"))

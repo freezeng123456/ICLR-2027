@@ -21,7 +21,7 @@ import torch
 
 from eval_why_axis import (A_HI, A_LO, ELL_MID, ELL_SMOOTH, ELL_WIGGLY, N_ANCHOR,
                            NOISE_HIGH, NOISE_LOW, build, pfn_out)
-from exp_why_axis import PFN, PRIORS, mixture_posterior, sample_gp
+from exp_why_axis import PFN, PRIORS, ckpt_path, mixture_posterior, sample_gp
 
 N_TRIALS = 200
 
@@ -75,7 +75,7 @@ def main():
               f"{'相关':>10}{'斜率':>8}{'PFN(贝叶斯)':>16}")
         for name, (ells, noises) in PRIORS.items():
             model = PFN()
-            model.load_state_dict(torch.load(f"pfn_{name[0]}.pt", map_location="cpu"))
+            model.load_state_dict(torch.load(ckpt_path(name), map_location="cpu"))
             model.eval()
             rng = np.random.default_rng(2024)
             r = both_readouts(model, ells, noises, manip, rng)

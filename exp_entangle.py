@@ -25,7 +25,7 @@ NOISE_FIXED = np.array([0.1])
 if __name__ == "__main__":
     if "--eval-only" not in sys.argv:
         print(f"  训练 A144：144 个长度尺度、噪声固定、{STEPS} 步", flush=True)
-        train("Z", ELLS_144, NOISE_FIXED, STEPS)   # 存为 pfn_Z.pt
+        train("Z", ELLS_144, NOISE_FIXED, STEPS, save_path="pfn_Z.pt")
 
     model = PFN()
     model.load_state_dict(torch.load("pfn_Z.pt", map_location="cpu"))
