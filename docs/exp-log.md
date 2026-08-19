@@ -148,3 +148,5 @@ python eval_gp_prior_tilt.py       # 需要 pfn_gp.pt
 
 `eval_misattribution.py` 用新的 C@15k：A 在噪声操纵下均值相关仍是 +0.802，B 在尺度操纵下标准差相关仍是 +0.931。错误归因签名还在；C 两个轴都更弱，与纠缠表一致。
 
+干预方式的理论分类见 [`theory-interventions.md`](theory-interventions.md)。分类问题上拧噪声隐变量与温度缩放几乎同一族映射，这就是数字接近的原因；回归上同一干预会动均值，输出映射做不到。
+
