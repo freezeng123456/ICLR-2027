@@ -15,7 +15,7 @@ import sys
 import numpy as np
 import torch
 
-from exp_gp_prior_tilt import train as train_gp
+from exp_gp_prior_tilt import train as train_gp_pfn
 from exp_why_axis import PRIORS, train
 
 
@@ -45,7 +45,7 @@ def train_z():
 
 def train_gp():
     print("  训练 GP-PFN @ 15000 步 -> pfn_gp.pt", flush=True)
-    train_gp(15000)
+    train_gp_pfn(15000)
     print(f"  pfn_gp.pt md5={md5('pfn_gp.pt')}", flush=True)
 
 
