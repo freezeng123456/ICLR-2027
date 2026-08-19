@@ -83,13 +83,25 @@ def metrics(p, y):
 
 def load_openml(data_id, name):
     from sklearn.datasets import fetch_openml
-    ds = fetch_openml(data_id=data_id, as_frame=True, parser="auto")
-    X = ds.data
-    y = ds.target
-    # numeric features only; drop rows with NA
-    X = X.select_dtypes(include=[np.number]).to_numpy(dtype=float)
-    y = y.to_numpy()
-    # map to 0/1
+    ds = fetch_openml(data_id=data_id, as_frame=False, parser="liac-arff")
+    X = np.asarray(ds.data, dtype=float)
+    y = np.asarray(ds.target)
+    if X.ndim != 2:
+        raise ValueError(f"{name} has unexpected X shape {X.shape}")
+    # keep numeric columns only
+    numeric = []
+    for j in range(X.shape[1]):
+        col = X[:, j]
+        try:
+            col_f = col.astype(float)
+        except (TypeError, ValueError):
+            continue
+        if np.isfinite(col_f).mean() < 0.9:
+            continue
+        numeric.append(col_f)
+    if not numeric:
+        raise ValueError(f"{name} has no numeric features")
+    X = np.column_stack(numeric)
     classes = np.unique(y)
     if len(classes) != 2:
         raise ValueError(f"{name} is not binary ({len(classes)} classes)")
@@ -121,7 +133,9 @@ def try_openml():
         (44, "spambase"),
         (1462, "banknote"),
         (1489, "phoneme"),
-        (40994, "climate-model"),
+        (1464, "blood-transfusion"),
+        (1063, "kc2"),
+        (1510, "wdbc"),
     ]
     out = []
     for data_id, name in catalog:
@@ -145,6 +159,10 @@ def split_xy(X, y, rng):
         random_state=int(rng.integers(1e9)))
     if len(yte) < MIN_TEST:
         return None
+    if len(yte) > 400:
+        Xte, _, yte, _ = train_test_split(
+            Xte, yte, train_size=400, stratify=yte,
+            random_state=int(rng.integers(1e9)))
     if min(ytr.mean(), ycal.mean(), yte.mean()) < 0.10:
         return None
     if max(ytr.mean(), ycal.mean(), yte.mean()) > 0.90:
