@@ -1,0 +1,6 @@
+# 原始数据集（约 175 MB），用 analysis/fetch_data.py 重新下载
+analysis/data/
+
+__pycache__/
+*.pyc
+.DS_Store
