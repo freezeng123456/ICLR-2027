@@ -13,9 +13,10 @@ ICLR 2027 投稿的工作仓库。
 - [`docs/direction-shortlist-no-llm.md`](docs/direction-shortlist-no-llm.md) — **主方案**：非大模型的快迭代方向候选（单次实验 ≤10 分钟）
 - [`docs/direction-shortlist.md`](docs/direction-shortlist.md) — 备选：大模型路线，以及与方向无关的选型判据与排除项
 - [`docs/submission-checklist.md`](docs/submission-checklist.md) — ICLR 2027 硬性规则（页数、配额、评审义务、AI 披露）
+- [`docs/theory-interventions.md`](docs/theory-interventions.md) — 推理期干预的对象、可达集、和还没做的格子
+- [`docs/how-others-write.md`](docs/how-others-write.md) — 两篇该精读的稿：Müller ICLR 2022、SPN ICML 2026，以及九页该怎么套
+- [`papers/`](papers/README.md) — 上述两篇 PDF
 
 ## 当前状态
 
-方向待拍板。推荐首选：**PFN 的先验错配——把上下文样本理解为先验倾斜算子**（见主方案 §1）。
-第一个关卡是 8/21 前完成 48 小时验证实验：用解析可算的 GP 先验，验证追加 anchor 样本是否让隐含后验朝理论预测的方向移动。
-方向不符就换题，不要调参。
+主线是 PFN 先验错配。机制半篇（隐变量纠缠 / 错误归因）在补训后的检查点上可以复现。方法半篇已经对照过温度缩放：有 ID 校准点时温度赢；few-shot 没有校准集时，在训练点上拟合 T 会把 log loss 打爆，far-anchor 不受影响。记录见 [`docs/exp-log.md`](docs/exp-log.md)。
