@@ -14,7 +14,8 @@ ICLR 2027 投稿的工作仓库。
 - [`docs/direction-shortlist.md`](docs/direction-shortlist.md) — 备选：大模型路线，以及与方向无关的选型判据与排除项
 - [`docs/submission-checklist.md`](docs/submission-checklist.md) — ICLR 2027 硬性规则（页数、配额、评审义务、AI 披露）
 - [`docs/theory-interventions.md`](docs/theory-interventions.md) — 推理期干预的对象、可达集、和还没做的格子
-- [`docs/exp-log.md`](docs/exp-log.md) — 校准对照与检查点补训的实验记录
+- [`docs/how-others-write.md`](docs/how-others-write.md) — 两篇该精读的稿：Müller ICLR 2022、SPN ICML 2026，以及九页该怎么套
+- [`papers/`](papers/README.md) — 上述两篇 PDF
 
 ## 当前状态
 
