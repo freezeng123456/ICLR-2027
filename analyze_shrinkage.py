@@ -68,6 +68,13 @@ def main(path):
     dv = np.array([r["dlogvar"] for r in rows])
     ms = np.array([r["mean_slope"] for r in rows])
     gap = np.array([r["gap"] for r in rows])
+    ex = np.array([r["excess_var"] for r in rows])
+    me = np.array([r["mean_err2"] for r in rows])
+    ratio = ex / me
+    print(f"    方差膨胀与自身均值误差的比：中位数 {np.median(ratio):.3f}，"
+          f"四分位区间 {np.percentile(ratio, 25):.3f} – {np.percentile(ratio, 75):.3f}，"
+          f"落在 [0.5, 2] 内的格子 {int(((ratio > 0.5) & (ratio < 2)).sum())}/{len(ratio)}，"
+          f"方差膨胀为正的格子 {int((ex > 0).sum())}/{len(ex)}")
     print(f"    方差对数之差与预测均值斜率的 Spearman：{spearmanr(dv, ms).statistic:+.3f}")
     print(f"    方差对数之差与差距的 Spearman：{spearmanr(dv, gap).statistic:+.3f}")
 

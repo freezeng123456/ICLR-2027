@@ -306,14 +306,16 @@ def update_deficit(rows):
 if __name__ == "__main__":
     n_tasks = int(sys.argv[1]) if len(sys.argv) > 1 else N_TASKS
     ckpt = sys.argv[2] if len(sys.argv) > 2 else CKPT
-    OUT_PATH = Path(f"results/conditioning_{Path(ckpt).stem}.json")
 
     model, d_model = load_pfn(ckpt)
     print(f"    检查点 {ckpt}，宽度 {d_model}", flush=True)
 
     cells = sweep_cells()
+    suffix = ""
     if len(sys.argv) > 3:
         cells = cells[:int(sys.argv[3])]
+        suffix = f"_first{len(cells)}"  # 部分运行不能覆盖完整结果
+    OUT_PATH = Path(f"results/conditioning_{Path(ckpt).stem}{suffix}.json")
 
     quad_err = quadrature_check(model)
     ell_grid, sig_grid = quad_grids()
