@@ -1,5 +1,7 @@
+import json
 import sys
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -99,18 +101,66 @@ def load_pfn(path):
     return model, d_model
 
 
-def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=D_MODEL):
+def ctx_size_weights(pilot_path):
+    """按试跑模型实测的偏离，重新分配上下文点数上的训练权重。
+
+    上下文点数的分布是辅助的：它不改变每个任务的贝叶斯最优解，
+    所以这样重分配之后，超额 KL 的比较仍然严格成立，改变的只是容量花在哪里。
+    """
+    rows = json.loads(Path(pilot_path).read_text())["rows"]
+    ns = sorted({r["n_ctx"] for r in rows})
+    gaps = [float(np.mean([r["gap"] for r in rows if r["n_ctx"] == n])) for n in ns]
+    grid = np.arange(6, N_POINTS - N_QUERY + 1)
+    w = np.interp(grid, ns, gaps)
+    return grid, w / w.sum()
+
+
+DISTILL_GRID = (12, 8)
+
+
+def exact_targets(x, y, n_ctx):
+    """每个任务的精确后验预测（矩匹配高斯）。
+
+    标准的 PFN 损失用单个采样标签去估计这个目标，方差极大；
+    先验有闭式时可以直接把目标算出来，梯度信号里就不含标签噪声。
+    """
+    from identifiability import mixture_posterior
+    ell_grid = np.exp(np.linspace(np.log(ELL_LO), np.log(ELL_HI), DISTILL_GRID[0]))
+    sig_grid = np.exp(np.linspace(np.log(SIG_LO), np.log(SIG_HI), DISTILL_GRID[1]))
+    xs, ys = x.numpy().astype(np.float64), y.numpy().astype(np.float64)
+    mus, vars_ = np.empty(xs[:, n_ctx:].shape), np.empty(xs[:, n_ctx:].shape)
+    for b in range(len(xs)):
+        m, v, _ = mixture_posterior(xs[b, :n_ctx], ys[b, :n_ctx], xs[b, n_ctx:],
+                                    ell_grid, sig_grid)
+        mus[b], vars_[b] = m, v
+    return (torch.tensor(mus, dtype=torch.float32),
+            torch.tensor(vars_, dtype=torch.float32))
+
+
+def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=D_MODEL, pilot=None, distill=False):
     model = PFN(d_model, n_head=max(1, d_model // 32))
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=steps, pct_start=0.1)
     rng = np.random.default_rng(0)
+    grid, probs = ctx_size_weights(pilot) if pilot else (None, None)
+    if pilot:
+        print(f"    上下文点数按实测偏离加权：{grid[0]} 的权重 {probs[0]:.4f}，"
+              f"{grid[-1]} 的权重 {probs[-1]:.4f}", flush=True)
+    if distill:
+        print(f"    目标改用精确后验预测，求积网格 {DISTILL_GRID[0]}x{DISTILL_GRID[1]}", flush=True)
     t0, losses = time.time(), []
     for step in range(steps):
-        n_ctx = int(rng.integers(6, N_POINTS - N_QUERY + 1))
+        n_ctx = int(rng.choice(grid, p=probs)) if pilot \
+            else int(rng.integers(6, N_POINTS - N_QUERY + 1))
         x, y = make_batch(rng, bs, n_ctx)
         mu, logv = model(x, y, n_ctx)
-        tgt = y[:, n_ctx:]
-        loss = (0.5 * (logv + (tgt - mu) ** 2 / logv.exp())).mean()
+        if distill:
+            mt, vt = exact_targets(x, y, n_ctx)
+            # 损失就是精确后验与网络输出之间的高斯 KL，也就是网络多付的那部分 NLL
+            loss = (0.5 * (logv - vt.log() + (vt + (mt - mu) ** 2) / logv.exp() - 1)).mean()
+        else:
+            tgt = y[:, n_ctx:]
+            loss = (0.5 * (logv + (tgt - mu) ** 2 / logv.exp())).mean()
         opt.zero_grad()
         loss.backward()
         nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -187,9 +237,11 @@ if __name__ == "__main__":
         steps = int(sys.argv[1]) if len(sys.argv) > 1 else 20000
         ckpt = sys.argv[2] if len(sys.argv) > 2 else CKPT
         d_model = int(sys.argv[3]) if len(sys.argv) > 3 else D_MODEL
+        pilot = sys.argv[4] if len(sys.argv) > 4 and sys.argv[4] != "-" else None
+        distill = "--distill" in sys.argv
         n_par = sum(p.numel() for p in PFN(d_model, max(1, d_model // 32)).parameters())
         print(f"  训练 PFN（宽度 {d_model}，{n_par / 1e6:.2f}M 参数），"
               f"{steps} 步，先验 ell ∈ [{ELL_LO}, {ELL_HI}]、sigma ∈ [{SIG_LO}, {SIG_HI}]",
               flush=True)
-        train(steps, ckpt=ckpt, d_model=d_model)
+        train(steps, ckpt=ckpt, d_model=d_model, pilot=pilot, distill=distill)
         print(f"  已存到 {ckpt}")
