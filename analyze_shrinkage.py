@@ -82,6 +82,40 @@ def main(path):
         b = np.array([b for b, r in zip(betas, rows) if r["design"] == design])
         print(f"    {design} 设计的 beta 中位数：{np.median(b):.3f}")
 
+    context_trend(rows)
+
+
+def context_trend(rows):
+    """差距随上下文点数是升还是降。分界应当落在上下文的采样分辨率附近。"""
+    by = {}
+    for r in rows:
+        by.setdefault((r["design"], r["ell"], r["sigma"]), {})[r["n_ctx"]] = r["gap"]
+    ns = sorted({r["n_ctx"] for r in rows})
+    print(f"\n    差距随上下文点数的走向（点数 {ns}）")
+    print(f"    {'design':>9}{'ell':>8}{'sigma':>7}"
+          + "".join(f"{f'n={n}':>10}" for n in ns) + f"{'末比首':>10}{'走向':>7}")
+    up, down, ratios, bounds = 0, 0, [], {}
+    for (design, ell, sigma), d in sorted(by.items()):
+        if len(d) < len(ns):
+            continue
+        g = [d[n] for n in ns]
+        ratio = g[-1] / g[0]
+        rising = ratio > 1
+        up += int(rising)
+        down += int(not rising)
+        ratios.append(ratio)
+        b = bounds.setdefault(design, {"rise_max": 0.0, "fall_min": np.inf})
+        if rising:
+            b["rise_max"] = max(b["rise_max"], ell)
+        else:
+            b["fall_min"] = min(b["fall_min"], ell)
+        print(f"    {design:>9}{ell:>8.3f}{sigma:>7.2f}"
+              + "".join(f"{x:>10.4f}" for x in g)
+              + f"{ratio:>10.2f}{'升' if rising else '降':>7}")
+    print(f"\n    上升 {up} 条，下降 {down} 条，最大增幅 {max(ratios):.1f} 倍。")
+    for design, b in bounds.items():
+        print(f"    {design} 设计的分界落在长度尺度 {b['rise_max']:.3f} 与 {b['fall_min']:.3f} 之间")
+
 
 if __name__ == "__main__":
     main(sys.argv[1] if len(sys.argv) > 1 else "results/conditioning_pfn_cond.json")
