@@ -89,7 +89,7 @@ def make_batch(rng, bs, n_ctx):
     return torch.tensor(xs, dtype=torch.float32), torch.tensor(ys, dtype=torch.float32)
 
 
-def train(steps, bs=48, lr=3e-4):
+def train(steps, bs=48, lr=3e-4, ckpt=CKPT):
     model = PFN()
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=steps, pct_start=0.1)
@@ -110,8 +110,8 @@ def train(steps, bs=48, lr=3e-4):
         if (step + 1) % 1000 == 0:
             print(f"    {step + 1}/{steps}  loss {np.mean(losses[-400:]):8.4f}"
                   f"  {time.time() - t0:6.0f}s", flush=True)
-            torch.save(model.state_dict(), CKPT)
-    torch.save(model.state_dict(), CKPT)
+            torch.save(model.state_dict(), ckpt)
+    torch.save(model.state_dict(), ckpt)
     return model
 
 
@@ -175,8 +175,9 @@ if __name__ == "__main__":
         geometry_table()
     else:
         steps = int(sys.argv[1]) if len(sys.argv) > 1 else 20000
+        ckpt = sys.argv[2] if len(sys.argv) > 2 else CKPT
         print(f"  训练 PFN（{sum(p.numel() for p in PFN().parameters()) / 1e6:.2f}M 参数），"
               f"{steps} 步，先验 ell ∈ [{ELL_LO}, {ELL_HI}]、sigma ∈ [{SIG_LO}, {SIG_HI}]",
               flush=True)
-        train(steps)
-        print(f"  已存到 {CKPT}")
+        train(steps, ckpt=ckpt)
+        print(f"  已存到 {ckpt}")
