@@ -7,8 +7,8 @@ import torch
 from scipy.optimize import minimize
 from scipy.stats import spearmanr
 
-from exp_conditioning import (CKPT, ELL_HI, ELL_LO, N_QUERY, PFN, PRIOR_PREC, SIG_HI, SIG_LO,
-                              X_HALF, draw_design, sample_gp, sweep_cells)
+from exp_conditioning import (CKPT, ELL_HI, ELL_LO, N_QUERY, PRIOR_PREC, SIG_HI, SIG_LO,
+                              X_HALF, draw_design, load_pfn, sample_gp, sweep_cells)
 from identifiability import conditioning, gauss_kl, gp_posterior, mixture_posterior
 
 N_TASKS = 40
@@ -308,10 +308,8 @@ if __name__ == "__main__":
     ckpt = sys.argv[2] if len(sys.argv) > 2 else CKPT
     OUT_PATH = Path(f"results/conditioning_{Path(ckpt).stem}.json")
 
-    model = PFN()
-    model.load_state_dict(torch.load(ckpt, map_location="cpu"))
-    model.eval()
-    print(f"    检查点 {ckpt}", flush=True)
+    model, d_model = load_pfn(ckpt)
+    print(f"    检查点 {ckpt}，宽度 {d_model}", flush=True)
 
     cells = sweep_cells()
     if len(sys.argv) > 3:

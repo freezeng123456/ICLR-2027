@@ -21,15 +21,15 @@ PRIOR_PREC = np.array([log_uniform_precision(ELL_LO, ELL_HI),
 
 
 class PFN(nn.Module):
-    def __init__(self):
+    def __init__(self, d_model=D_MODEL, n_head=N_HEAD):
         super().__init__()
-        self.x_enc = nn.Linear(1, D_MODEL)
-        self.y_enc = nn.Linear(1, D_MODEL)
-        self.q_tok = nn.Parameter(torch.randn(D_MODEL) * 0.02)
-        layer = nn.TransformerEncoderLayer(D_MODEL, N_HEAD, 4 * D_MODEL, batch_first=True,
+        self.x_enc = nn.Linear(1, d_model)
+        self.y_enc = nn.Linear(1, d_model)
+        self.q_tok = nn.Parameter(torch.randn(d_model) * 0.02)
+        layer = nn.TransformerEncoderLayer(d_model, n_head, 4 * d_model, batch_first=True,
                                            norm_first=True, dropout=0.0)
         self.enc = nn.TransformerEncoder(layer, N_LAYER)
-        self.head = nn.Linear(D_MODEL, 2)
+        self.head = nn.Linear(d_model, 2)
 
     def forward(self, x, y, n_ctx):
         S = x.shape[1]
@@ -89,8 +89,18 @@ def make_batch(rng, bs, n_ctx):
     return torch.tensor(xs, dtype=torch.float32), torch.tensor(ys, dtype=torch.float32)
 
 
-def train(steps, bs=48, lr=3e-4, ckpt=CKPT):
-    model = PFN()
+def load_pfn(path):
+    """从检查点自行推断容量，免得评估端还要重复记一遍配置。"""
+    state = torch.load(path, map_location="cpu")
+    d_model = state["x_enc.weight"].shape[0]
+    model = PFN(d_model, n_head=max(1, d_model // 32))
+    model.load_state_dict(state)
+    model.eval()
+    return model, d_model
+
+
+def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=D_MODEL):
+    model = PFN(d_model, n_head=max(1, d_model // 32))
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=steps, pct_start=0.1)
     rng = np.random.default_rng(0)
@@ -176,8 +186,10 @@ if __name__ == "__main__":
     else:
         steps = int(sys.argv[1]) if len(sys.argv) > 1 else 20000
         ckpt = sys.argv[2] if len(sys.argv) > 2 else CKPT
-        print(f"  训练 PFN（{sum(p.numel() for p in PFN().parameters()) / 1e6:.2f}M 参数），"
+        d_model = int(sys.argv[3]) if len(sys.argv) > 3 else D_MODEL
+        n_par = sum(p.numel() for p in PFN(d_model, max(1, d_model // 32)).parameters())
+        print(f"  训练 PFN（宽度 {d_model}，{n_par / 1e6:.2f}M 参数），"
               f"{steps} 步，先验 ell ∈ [{ELL_LO}, {ELL_HI}]、sigma ∈ [{SIG_LO}, {SIG_HI}]",
               flush=True)
-        train(steps, ckpt=ckpt)
+        train(steps, ckpt=ckpt, d_model=d_model)
         print(f"  已存到 {ckpt}")
