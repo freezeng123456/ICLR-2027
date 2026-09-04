@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>PFN 与它自己的贝叶斯最优解</title>
+<style>
+  :root { --ink:#16181d; --dim:#6b7280; --line:#e5e7eb; --bad:#b91c1c; --good:#15803d; --acc:#1d4ed8; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:40px 24px 72px; font:15px/1.65 -apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+         color:var(--ink); max-width:980px; margin-inline:auto; }
+  h1 { font-size:26px; margin:0 0 6px; letter-spacing:-.01em; }
+  h2 { font-size:17px; margin:44px 0 12px; padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .lede { color:var(--dim); margin:0 0 8px; }
+  .claim { border-left:3px solid var(--acc); padding:12px 16px; background:#f8fafc; margin:20px 0; }
+  .claim b { color:var(--acc); }
+  img { width:100%; border:1px solid var(--line); border-radius:6px; margin:14px 0 4px; }
+  figcaption { color:var(--dim); font-size:13px; margin-bottom:8px; }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; margin:12px 0; }
+  th,td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); }
+  th { font-weight:600; color:var(--dim); font-size:12.5px; text-transform:none; }
+  td.num,th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .no { color:var(--bad); font-weight:600; }
+  .yes { color:var(--good); font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin:16px 0; }
+  .card { border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
+  .card .k { font-size:26px; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .card .l { color:var(--dim); font-size:12.5px; margin-top:2px; }
+  code { background:#f3f4f6; padding:1px 5px; border-radius:4px; font-size:13px; }
+  @media (max-width:640px){ body{padding:24px 14px 48px;} h1{font-size:21px;} }
+</style>
+</head>
+<body>
+
+<h1>PFN 与它自己的贝叶斯最优解相差多少</h1>
+<p class="lede">先验完全正确、数据严格来自先验。96 个格子，四个训练设置，跨 8 倍算力。</p>
+
+<div class="claim">
+  <b>上下文数据越多，网络离它自己先验下的贝叶斯最优预测越远。</b>
+  这个偏离只受算力影响：超额 KL 正比于算力的 −0.371 次幂，减半要 6.5 倍算力。
+  四条看起来该管用的捷径逐一被否。
+</div>
+
+<div class="grid">
+  <div class="card"><div class="k">15.9×</div><div class="l">上下文点数从 8 到 24，偏离的最大增幅</div></div>
+  <div class="card"><div class="k">−0.371</div><div class="l">超额 KL 的算力标度指数（R² = 0.983）</div></div>
+  <div class="card"><div class="k">6.5×</div><div class="l">把偏离减半所需的算力倍数</div></div>
+  <div class="card"><div class="k">0/4</div><div class="l">四条捷径中成立的条数</div></div>
+</div>
+
+<figure>
+  <img src="findings.png" alt="左：偏离随上下文点数上升。右：偏离随算力的标度律。">
+  <figcaption>左：均匀设计、σ=0.05。长度尺度小于采样分辨率时曲线向上。
+    右：四个设置的标度律，两条干预落在曲线之上。</figcaption>
+</figure>
+
+<h2>偏离在隐变量空间里的形状</h2>
+<p>把网络输出与精确后验分别投影回单个隐变量的 GP 后验族。判据是按真值落在先验均值哪一侧分组。</p>
+<table>
+  <tr><th>坐标</th><th>分组</th><th class="num">w64@20k</th><th class="num">w64@40k</th>
+      <th class="num">w128@20k</th><th class="num">w128@40k</th><th>判定</th></tr>
+  <tr><td>log ℓ</td><td>先验均值下方</td><td class="num">0.832</td><td class="num">0.890</td>
+      <td class="num">0.906</td><td class="num">0.929</td>
+      <td rowspan="2">两侧都小于 1，与方向无关：<b>真正的更新不足</b></td></tr>
+  <tr><td>log ℓ</td><td>先验均值上方</td><td class="num">0.717</td><td class="num">0.746</td>
+      <td class="num">0.794</td><td class="num">0.840</td></tr>
+  <tr><td>log σ</td><td>先验均值下方</td><td class="num">0.749</td><td class="num">0.751</td>
+      <td class="num">0.803</td><td class="num">0.849</td>
+      <td rowspan="2">跨过 1：<b>隐含噪声被一律推高</b></td></tr>
+  <tr><td>log σ</td><td>先验均值上方</td><td class="num">1.088</td><td class="num">1.041</td>
+      <td class="num">1.032</td><td class="num">1.001</td></tr>
+</table>
+<p>方差膨胀与网络自身均值误差的比值中位数是 1.006 / 1.072 / 0.933 / 0.837，即同量级。
+   <b>PFN 的预测方差不是贝叶斯后验方差</b>，多出来的那部分是网络自己的逼近误差，
+   而它被算进了噪声那一维。</p>
+
+<h2>四条不成立的捷径</h2>
+<table>
+  <tr><th>做法</th><th class="num">效果</th><th>为什么不成立</th></tr>
+  <tr><td>推理期输出修正<br><span style="color:var(--dim);font-size:12.5px">用网络自己的先验采样拟合，不重训</span></td>
+      <td class="num no">1.05×</td>
+      <td>网络已在先验平均 NLL 的最优点上；偏离量级由逐任务误差主导</td></tr>
+  <tr><td>上下文切分的贝叶斯委员会</td><td class="num no">4.6×</td>
+      <td>各份携带同一份关于函数的信息，精度相加等于重复计数</td></tr>
+  <tr><td>按偏离加权上下文点数</td><td class="num no">1.03×</td>
+      <td>零和：最差格子改善 3%，n=8 变差 13%</td></tr>
+  <tr><td>等算力的精确目标蒸馏</td><td class="num no">1.50×</td>
+      <td>优化受限于步数，不是目标方差（每步贵 3.06 倍）</td></tr>
+  <tr><td>成对紧邻的上下文设计</td><td class="num yes">0.58–0.72×</td>
+      <td>摊销误差确实降了，但总误差变差 +0.17 nat（t≈+3.5）：不是免费午餐</td></tr>
+</table>
+
+<h2>被否掉的预测量</h2>
+<p>我原本提出一个训练前可算的条件数
+   <code>κ = λ_max((F+Λ)⁻¹G)</code>，四个候选在 96 格上形状彼此不同，所以这是判别而非拟合。</p>
+<table>
+  <tr><th>预测量</th><th class="num">Spearman（20k / 40k）</th><th class="num">log-log R²</th></tr>
+  <tr><td>tr G</td><td class="num">0.619 / 0.604</td><td class="num">0.356 / 0.335</td></tr>
+  <tr><td>tr F</td><td class="num">0.354 / 0.310</td><td class="num">0.157 / 0.124</td></tr>
+  <tr><td>tr((F+Λ)⁻¹G)</td><td class="num">0.166 / 0.203</td><td class="num">0.022 / 0.039</td></tr>
+  <tr><td>κ = λ_max((F+Λ)⁻¹G)</td><td class="num no">0.135 / 0.174</td><td class="num">0.010 / 0.021</td></tr>
+</table>
+<p>误差方向还与它相反：落在 κ 峰值方向的占比 0.399，各方向等概率的零假设是 0.5。</p>
+
+<h2>空缺是真的</h2>
+<table>
+  <tr><th>已有工作</th><th>做的事</th><th>没做的事</th></tr>
+  <tr><td>Müller 2022</td><td>PFN 的最优解等于先验下的后验预测</td><td>没有量化真实网络与它的差距</td></tr>
+  <tr><td>Nagler 2023</td><td>证明存在不随样本量消失的偏差</td><td>没测出大小、方向、随数据量的走向</td></tr>
+  <tr><td>TabPFN 不确定性分解 2026</td><td>把预测方差分解为偶然与认知</td><td>原文自陈缺乏与贝叶斯规则接近程度的理解</td></tr>
+</table>
+
+<p style="color:var(--dim);font-size:13px;margin-top:36px">
+  全部数字与判据：<code>docs/pfn-vs-its-own-bayes.md</code>。
+  图由 <code>plot_findings.py</code> 生成。
+</p>
+
+</body>
+</html>
