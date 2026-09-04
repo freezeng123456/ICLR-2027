@@ -8,7 +8,7 @@ from scipy.optimize import minimize
 from scipy.stats import spearmanr
 
 from exp_conditioning import (CKPT, ELL_HI, ELL_LO, N_QUERY, PFN, PRIOR_PREC, SIG_HI, SIG_LO,
-                              X_HALF, cell_geometry, sample_gp, sweep_cells)
+                              X_HALF, draw_design, sample_gp, sweep_cells)
 from identifiability import conditioning, gauss_kl, gp_posterior, mixture_posterior
 
 N_TASKS = 40
@@ -47,14 +47,17 @@ def implied_latent(xc, yc, xq, mu_t, var_t):
         r = minimize(obj, z0, method="L-BFGS-B", bounds=bounds)
         if r.fun < best_val:
             best, best_val = r.x, r.fun
-    return best
+    edge = any(min(abs(best[i] - lo), abs(best[i] - hi)) < 1e-3
+               for i, (lo, hi) in enumerate(bounds))
+    return best, edge
 
 
-def run_cell(model, ell, sigma, n_ctx, ell_grid, sig_grid, n_tasks=N_TASKS, seed=0):
+def run_cell(model, ell, sigma, n_ctx, design, ell_grid, sig_grid, n_tasks=N_TASKS, seed=0):
     rng = np.random.default_rng(seed)
     gaps, bayes_nll, frac_v1, geo = [], [], [], []
+    n_edge = 0
     for _ in range(n_tasks):
-        xc = rng.uniform(-X_HALF, X_HALF, n_ctx)
+        xc = draw_design(rng, n_ctx, design)
         xq = rng.uniform(-X_HALF, X_HALF, N_QUERY)
         allx = np.concatenate([xc, xq])
         f = sample_gp(rng, allx, ell)
@@ -71,18 +74,23 @@ def run_cell(model, ell, sigma, n_ctx, ell_grid, sig_grid, n_tasks=N_TASKS, seed
         vals, vecs, F, G = conditioning(xc, xq, ell, sigma, PRIOR_PREC)
         A = F + np.diag(PRIOR_PREC)
         V = vecs / np.sqrt(np.einsum("ia,ij,ja->a", vecs, A, vecs))  # 归一到 A 范数为 1
-        z_hat = implied_latent(xc, yc, xq, mu_p, var_p)
-        z_star = implied_latent(xc, yc, xq, mu_e, var_e)
-        c = np.linalg.solve(V, z_hat - z_star)
-        if c @ c > 1e-12:
-            frac_v1.append(float(c[0] ** 2 / (c @ c)))
+        z_hat, edge_hat = implied_latent(xc, yc, xq, mu_p, var_p)
+        z_star, edge_star = implied_latent(xc, yc, xq, mu_e, var_e)
+        # 两个拟合都顶在先验盒子边界上时，两者之差不再携带方向信息
+        if edge_hat and edge_star:
+            n_edge += 1
+        else:
+            c = np.linalg.solve(V, z_hat - z_star)
+            if c @ c > 1e-12:
+                frac_v1.append(float(c[0] ** 2 / (c @ c)))
         geo.append((vals[0], vals.sum(), np.trace(F), np.trace(G)))
 
     geo = np.mean(geo, axis=0)
-    return {"ell": ell, "sigma": sigma, "n_ctx": n_ctx,
+    return {"ell": ell, "sigma": sigma, "n_ctx": n_ctx, "design": design,
             "gap": float(np.mean(gaps)), "gap_se": float(np.std(gaps) / np.sqrt(len(gaps))),
             "bayes_nll": float(np.mean(bayes_nll)),
-            "frac_v1": float(np.mean(frac_v1)), "n_dir": len(frac_v1),
+            "frac_v1": float(np.mean(frac_v1)) if frac_v1 else float("nan"),
+            "n_dir": len(frac_v1), "n_edge": n_edge,
             "kappa": float(geo[0]), "trace_ratio": float(geo[1]),
             "trF": float(geo[2]), "trG": float(geo[3])}
 
@@ -108,19 +116,21 @@ def quadrature_check(model):
 def report(rows, quad_err):
     keys = ["kappa", "trace_ratio", "trF", "trG", "bayes_nll"]
     gap = np.array([r["gap"] for r in rows])
-    print(f"\n    {'n_ctx':>6}{'ell':>8}{'sigma':>7}{'gap':>10}{'±se':>9}"
-          f"{'kappa':>9}{'tr A^-1G':>10}{'tr F':>9}{'tr G':>8}{'误差在 v1 的占比':>18}")
-    last_n = None
+    print(f"\n    {'design':>9}{'n_ctx':>6}{'ell':>8}{'sigma':>7}{'gap':>10}{'±se':>9}"
+          f"{'kappa':>9}{'tr A^-1G':>10}{'tr F':>9}{'tr G':>8}{'v1 占比':>10}{'边界':>6}")
+    last = None
     for r in rows:
-        if last_n is not None and r["n_ctx"] != last_n:
+        if last is not None and (r["n_ctx"], r["design"]) != last:
             print()
-        last_n = r["n_ctx"]
-        print(f"    {r['n_ctx']:>6}{r['ell']:>8.3f}{r['sigma']:>7.2f}{r['gap']:>10.4f}"
-              f"{r['gap_se']:>9.4f}{r['kappa']:>9.3f}{r['trace_ratio']:>10.3f}"
-              f"{r['trF']:>9.2f}{r['trG']:>8.3f}{r['frac_v1']:>18.3f}")
+        last = (r["n_ctx"], r["design"])
+        print(f"    {r['design']:>9}{r['n_ctx']:>6}{r['ell']:>8.3f}{r['sigma']:>7.2f}"
+              f"{r['gap']:>10.4f}{r['gap_se']:>9.4f}{r['kappa']:>9.3f}"
+              f"{r['trace_ratio']:>10.3f}{r['trF']:>9.2f}{r['trG']:>8.3f}"
+              f"{r['frac_v1']:>10.3f}{r['n_edge']:>6}")
 
     print(f"\n    差距的动态范围 {gap.min():.4f} – {gap.max():.4f}"
           f"（求积误差 {quad_err:.2e}，相差 {gap.min() / max(quad_err, 1e-12):.0f} 倍以上）")
+
     print(f"\n    {'预测量':<14}{'Spearman':>10}{'log-log 斜率':>14}{'log-log R^2':>13}")
     stats = {}
     for k in keys:
@@ -137,12 +147,43 @@ def report(rows, quad_err):
     slope = float((kap @ gap) / (kap @ kap))
     resid = gap - slope * kap
     r2_lin = 1 - (resid ** 2).sum() / ((gap - gap.mean()) ** 2).sum()
+    stats["linear_through_origin"] = {"a": slope, "r2": r2_lin, "eps": 2 * slope}
     print(f"\n    过原点线性拟合 gap = a * kappa：a = {slope:.4f}，R^2 = {r2_lin:.3f}"
           f"，隐含信息缺口 eps = 2a = {2 * slope:.4f} nat")
 
     fr = np.array([r["frac_v1"] for r in rows])
-    print(f"    误差落在 v1 方向的占比：均值 {fr.mean():.3f}"
-          f"（各方向等概率的零假设为 0.500），{len(fr)} 个格子里 {int((fr > 0.5).sum())} 个超过 0.5")
+    ok = ~np.isnan(fr)
+    print(f"    误差落在 v1 方向的占比：均值 {fr[ok].mean():.3f}"
+          f"（各方向等概率的零假设为 0.500），{ok.sum()} 个可用格子里"
+          f" {int((fr[ok] > 0.5).sum())} 个超过 0.5")
+    stats["frac_v1"] = {"mean": float(fr[ok].mean()), "n_cells": int(ok.sum()),
+                        "n_above_half": int((fr[ok] > 0.5).sum())}
+
+    # 设计交叉：同样的点数、同样的先验，只改上下文点的位置
+    print(f"\n    设计交叉（正号表示成对设计更差）\n"
+          f"    {'n_ctx':>6}{'ell':>8}{'sigma':>7}{'kappa 之差':>13}{'gap 之差':>12}"
+          f"{'±se':>9}{'tr F 之差':>12}{'符号一致':>10}")
+    agree = 0
+    pairs = {}
+    for r in rows:
+        pairs.setdefault((r["n_ctx"], r["ell"], r["sigma"]), {})[r["design"]] = r
+    cross = []
+    for key, d in pairs.items():
+        if len(d) < 2:
+            continue
+        u, p = d["uniform"], d["paired"]
+        dk, dg = p["kappa"] - u["kappa"], p["gap"] - u["gap"]
+        se = np.hypot(p["gap_se"], u["gap_se"])
+        df = p["trF"] - u["trF"]
+        same = np.sign(dk) == np.sign(dg)
+        agree += int(same)
+        cross.append({"n_ctx": key[0], "ell": key[1], "sigma": key[2],
+                      "d_kappa": dk, "d_gap": dg, "d_gap_se": float(se), "d_trF": df,
+                      "sign_agree": bool(same)})
+        print(f"    {key[0]:>6}{key[1]:>8.3f}{key[2]:>7.2f}{dk:>+13.3f}{dg:>+12.4f}"
+              f"{se:>9.4f}{df:>+12.2f}{'是' if same else '否':>10}")
+    print(f"\n    kappa 与实测差距的符号一致：{agree}/{len(cross)} 格")
+    stats["crossover"] = {"rows": cross, "n_agree": agree, "n_total": len(cross)}
     return stats
 
 
@@ -159,8 +200,8 @@ if __name__ == "__main__":
     quad_err = quadrature_check(model)
     ell_grid, sig_grid = quad_grids()
     rows = []
-    for i, (ell, sigma, n_ctx) in enumerate(cells):
-        rows.append(run_cell(model, ell, sigma, n_ctx, ell_grid, sig_grid, n_tasks))
+    for i, (ell, sigma, n_ctx, design) in enumerate(cells):
+        rows.append(run_cell(model, ell, sigma, n_ctx, design, ell_grid, sig_grid, n_tasks))
         print(f"    格子 {i + 1}/{len(cells)} 完成", flush=True)
     stats = report(rows, quad_err)
     OUT_PATH.write_text(json.dumps({"rows": rows, "stats": stats,
