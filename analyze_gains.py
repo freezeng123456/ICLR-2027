@@ -146,9 +146,26 @@ def scaling_law(scal):
         r2 = 1 - ((y - A @ coef) ** 2).sum() / ((y - y.mean()) ** 2).sum()
         alpha = -coef[0]
         need = 2 ** (1 / alpha)
-        out[label] = {"alpha": float(alpha), "r2": float(r2), "compute_to_halve": float(need)}
+        target = 0.01
+        extra = (pts[-1][idx] / target) ** (1 / alpha)
+        out[label] = {"alpha": float(alpha), "r2": float(r2), "compute_to_halve": float(need),
+                      "compute_to_reach_0.01": float(extra)}
         print(f"    {label}：超额 KL 正比于 算力^(-{alpha:.3f})，R^2 = {r2:.3f}，"
-              f"要减半需要 {need:.1f} 倍算力")
+              f"要减半需要 {need:.1f} 倍算力，"
+              f"要降到 {target} nat 需要在最大那一档之上再加 {extra:.0f} 倍")
+
+    # 两个干预落在曲线之上还是之下
+    print(f"\n    干预相对标度律的位置（算力按等价的参数量乘步数算）")
+    y = np.log([p[1] for p in pts])
+    coef = np.polyfit(c, y, 1)
+    for name, comp in (("宽 128 @20k 加权", 1.19 * 20000), ("宽 128 等算力蒸馏", 1.19 * 20000)):
+        if name not in scal:
+            continue
+        pred = float(np.exp(np.polyval(coef, np.log(comp))))
+        got = scal[name]["mean"]
+        out[name] = {"predicted": pred, "measured": got, "ratio": got / pred}
+        print(f"    {name:<18}标度律预测 {pred:.4f}，实测 {got:.4f}，"
+              f"比值 {got / pred:.3f}")
     return out
 
 
