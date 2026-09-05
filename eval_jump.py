@@ -167,14 +167,19 @@ def report(rows, quad_err):
         rising = g[-1] > g[0]
         up += int(rising)
         ratios.append(g[-1] / g[0])
-        b = bounds.setdefault(design, {"rise_min": np.inf, "fall_max": 0.0})
+        # 跳变速率与长度尺度方向相反：速率高等于结构细，对应上升那一侧
+        b = bounds.setdefault(design, {"rise_min": np.inf, "fall_max": -np.inf})
         if rising:
             b["rise_min"] = min(b["rise_min"], rate)
         else:
             b["fall_max"] = max(b["fall_max"], rate)
     print(f"\n    走向：{tot} 个组合里 {up} 个随上下文点数上升，最大增幅 {max(ratios):.1f} 倍")
     for design, b in bounds.items():
-        print(f"    {design} 设计的分界落在跳变速率 {b['fall_max']:.2f} 与 {b['rise_min']:.2f} 之间")
+        if b["fall_max"] < 0:
+            print(f"    {design} 设计：全部组合都上升，先验里没有下降的一侧")
+        else:
+            print(f"    {design} 设计：速率不低于 {b['rise_min']:.2f} 的都上升，"
+                  f"下降的只出现在速率不高于 {b['fall_max']:.2f} 处")
 
     # 形状：两个坐标分别按真值落在先验均值哪一侧分组
     print(f"\n    收缩系数（按该坐标自己那一维分组）")
