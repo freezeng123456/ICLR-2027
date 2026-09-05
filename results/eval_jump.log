@@ -1,0 +1,32 @@
+/workspace/exp_conditioning.py:33: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+    检查点 pfn_jump.pt，宽度 128
+    求积网格 16x10 相对 26x16 的 KL：2.28e-05
+    格子 1/96 完成
+    格子 2/96 完成
+    格子 3/96 完成
+    格子 4/96 完成
+    格子 5/96 完成
+    格子 6/96 完成
+    格子 7/96 完成
+    格子 8/96 完成
+/workspace/prior_jump.py:75: RuntimeWarning: divide by zero encountered in log
+  logZ += np.log(s)
+/workspace/prior_jump.py:76: RuntimeWarning: invalid value encountered in divide
+  alpha[i] = a / s
+/workspace/prior_jump.py:81: RuntimeWarning: invalid value encountered in divide
+  beta[i] = b / b.sum()
+Traceback (most recent call last):
+  File "/workspace/eval_jump.py", line 255, in <module>
+    rows.append(run_cell(model, rate, sigma, n_ctx, design, grids, n_tasks))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/eval_jump.py", line 117, in run_cell
+    z_star, edge_star, res_star = implied_latent(xc, yc, xq, mu_e, var_e)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/eval_jump.py", line 66, in implied_latent
+    edge = any(min(abs(best[i] - lo), abs(best[i] - hi)) < 1e-3
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/eval_jump.py", line 66, in <genexpr>
+    edge = any(min(abs(best[i] - lo), abs(best[i] - hi)) < 1e-3
+                       ~~~~^^^
+TypeError: 'NoneType' object is not subscriptable
