@@ -13,6 +13,9 @@ pfn_*.pt
 !pfn_cond_rw.pt
 !pfn_cond_distill.pt
 !pfn_jump.pt
+!pfn_jump_40k.pt
+!pfn_jump_w64.pt
+!pfn_jump_w64_40k.pt
 *.pyc
 __pycache__/
 train*.log

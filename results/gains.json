@@ -85,6 +85,27 @@
    "ratio": 1.589826330815247
   }
  },
+ "jump_scaling_law": {
+  "均值": {
+   "alpha": 0.14601008305983695,
+   "r2": 0.8514040532851055,
+   "compute_to_halve": 115.26750681301408
+  },
+  "最差格子": {
+   "alpha": 0.01621554398074093,
+   "r2": 0.2358801443676375,
+   "compute_to_halve": 3.666789447662007e+18
+  },
+  "insensitive_cells": {
+   "spearman_second_vs_ratio": -0.5578676071622355,
+   "spearman_bayes_nll_vs_ratio": -0.5431904503526859,
+   "gp_spearman_bayes_nll_vs_ratio": 0.15009495387954422,
+   "ratio_median": 0.601092884943174,
+   "gp_ratio_median": 0.4551824405701866,
+   "n_improved": 90,
+   "n_cells": 96
+  }
+ },
  "design": {
   "宽 64 @20k": {
    "ratio_by_n": [

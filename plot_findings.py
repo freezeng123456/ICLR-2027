@@ -47,36 +47,41 @@ def panel_trend(ax, path, key, fmt, title, ylabel=True):
     ax.grid(alpha=0.25, which="both")
 
 
+JUMP_SETTINGS = {"w64 @20k": ("results/jump_pfn_jump_w64.json", 0.30 * 20000),
+                 "w64 @40k": ("results/jump_pfn_jump_w64_40k.json", 0.30 * 40000),
+                 "w128 @20k": ("results/jump_pfn_jump.json", 1.19 * 20000),
+                 "w128 @40k": ("results/jump_pfn_jump_40k.json", 1.19 * 40000)}
+
+
 def panel_scaling(ax):
-    """超额 KL 随算力的标度，以及两条干预落在曲线之上。"""
-    pts = sorted((c, np.mean([x["gap"] for x in rows(p)]),
-                  max(x["gap"] for x in rows(p)), k)
-                 for k, (p, c) in SETTINGS.items())
-    comp = np.array([p[0] for p in pts]) / pts[0][0]
-    for vals, label, color, mk in ((np.array([p[1] for p in pts]), "mean over 96 cells",
-                                    "tab:blue", "o"),
-                                   (np.array([p[2] for p in pts]), "worst cell",
-                                    "tab:red", "s")):
-        coef = np.polyfit(np.log(comp), np.log(vals), 1)
-        xx = np.linspace(comp.min() * 0.85, comp.max() * 1.9, 50)
-        ax.plot(xx, np.exp(np.polyval(coef, np.log(xx))), color=color, lw=1.2, alpha=0.65)
-        ax.plot(comp, vals, mk, color=color, ms=7,
-                label=f"{label}: $\\propto$ compute$^{{{coef[0]:.3f}}}$")
+    """两个先验上超额 KL 随算力的标度。指数差 2.5 倍，最差格子那一条更悬殊。"""
+    base = min(c for _, c in SETTINGS.values())
+    series = [(SETTINGS, "GP prior", "tab:blue", "o", "-"),
+              (JUMP_SETTINGS, "jump prior", "tab:orange", "^", "--")]
+    for cfg, name, color, mk, ls in series:
+        pts = sorted((c, np.mean([x["gap"] for x in rows(p)]),
+                      max(x["gap"] for x in rows(p))) for p, c in cfg.values())
+        comp = np.array([p[0] for p in pts]) / base
+        for idx, kind, alpha in ((1, "mean", 1.0), (2, "worst cell", 0.45)):
+            vals = np.array([p[idx] for p in pts])
+            coef = np.polyfit(np.log(comp), np.log(vals), 1)
+            xx = np.linspace(comp.min() * 0.85, comp.max() * 1.6, 50)
+            ax.plot(xx, np.exp(np.polyval(coef, np.log(xx))), color=color, lw=1.2,
+                    ls=ls, alpha=0.55 * alpha)
+            ax.plot(comp, vals, mk, color=color, ms=7, alpha=alpha,
+                    label=f"{name}, {kind}: $\\propto$ compute$^{{{coef[0]:.3f}}}$")
 
     for (name, (p, c)), dy in zip(OFF_CURVE.items(), (7, -13)):
         v = np.mean([x["gap"] for x in rows(p)])
-        ax.plot(c / pts[0][0], v, "x", color="k", ms=9, mew=2)
-        ax.annotate(f"{name} (off curve)", (c / pts[0][0], v),
+        ax.plot(c / base, v, "x", color="k", ms=9, mew=2)
+        ax.annotate(f"{name} (off curve)", (c / base, v),
                     textcoords="offset points", xytext=(10, dy), fontsize=7)
 
-    for c, m, _, k in pts:
-        ax.annotate(k, (c / pts[0][0], m), textcoords="offset points",
-                    xytext=(4, -11), fontsize=7, color="tab:blue")
     ax.set_xscale("log"); ax.set_yscale("log")
     ax.set_xlabel("relative compute (params $\\times$ steps)")
     ax.set_ylabel("excess KL over exact Bayes (nats)")
-    ax.set_title("The price of the deviation\nhalving it costs 6.5$\\times$ compute", fontsize=10)
-    ax.legend(fontsize=7.5, loc="lower left", frameon=False)
+    ax.set_title("The price is prior-dependent\n0.371 on GP, 0.146 on jump", fontsize=10)
+    ax.legend(fontsize=6.5, loc="lower left", frameon=False)
     ax.grid(alpha=0.25, which="both")
 
 

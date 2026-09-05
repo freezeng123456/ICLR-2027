@@ -169,12 +169,111 @@ def scaling_law(scal):
     return out
 
 
+JUMP = {"jump w64 @20k": ("results/jump_pfn_jump_w64.json", 0.30 * 20000),
+        "jump w64 @40k": ("results/jump_pfn_jump_w64_40k.json", 0.30 * 40000),
+        "jump w128 @20k": ("results/jump_pfn_jump.json", 1.19 * 20000),
+        "jump w128 @40k": ("results/jump_pfn_jump_40k.json", 1.19 * 40000)}
+
+
+def jump_scaling_law():
+    """标度指数是否跨先验稳定。跳变过程先验上重复同一个 2x2 网格。"""
+    pts = []
+    for k, (p, c) in JUMP.items():
+        if not Path(p).exists():
+            continue
+        g = np.array([x["gap"] for x in load(p)])
+        pts.append((c, float(g.mean()), float(g.max()), k))
+    if len(pts) < 3:
+        print("\n    跳变先验的标度拟合需要至少三个点")
+        return {}
+    pts.sort()
+    print(f"\n    跳变过程先验上的算力标度")
+    print(f"    {'设置':<18}{'相对算力':>10}{'超额 KL 均值':>14}{'最差格子':>11}")
+    for comp, mean, mx, k in pts:
+        print(f"    {k:<18}{comp / pts[0][0]:>10.2f}{mean:>14.4f}{mx:>11.4f}")
+    c = np.log([p[0] for p in pts])
+    out = {}
+    for label, idx in (("均值", 1), ("最差格子", 2)):
+        y = np.log([p[idx] for p in pts])
+        A = np.vstack([c, np.ones(len(c))]).T
+        coef, *_ = np.linalg.lstsq(A, y, rcond=None)
+        r2 = 1 - ((y - A @ coef) ** 2).sum() / ((y - y.mean()) ** 2).sum()
+        alpha = -coef[0]
+        out[label] = {"alpha": float(alpha), "r2": float(r2),
+                      "compute_to_halve": float(2 ** (1 / alpha))}
+        print(f"    {label}：超额 KL 正比于 算力^(-{alpha:.3f})，R^2 = {r2:.3f}，"
+              f"要减半需要 {2 ** (1 / alpha):.1f} 倍算力")
+
+    # 算力在哪些格子上买不到东西：检验是否由预测分布的多峰性造成
+    from scipy.stats import spearmanr
+    lo = {(x["rate"], x["sigma"], x["n_ctx"], x["design"]): x
+          for x in load(JUMP["jump w64 @20k"][0])}
+    hi = {(x["rate"], x["sigma"], x["n_ctx"], x["design"]): x
+          for x in load(JUMP["jump w128 @40k"][0])}
+    keys = [k for k in lo if k in hi]
+    ratio = np.array([hi[k]["gap"] / lo[k]["gap"] for k in keys])
+    second = np.array([hi[k]["second_weight"] for k in keys])
+    rate = np.array([k[0] for k in keys])
+    print(f"\n    8 倍算力带来的逐格子改善（比值越小越好）")
+    print(f"    中位数 {np.median(ratio):.3f}，四分位区间 "
+          f"{np.percentile(ratio, 25):.3f} – {np.percentile(ratio, 75):.3f}，"
+          f"变好的格子 {int((ratio < 1).sum())}/{len(ratio)}")
+    print(f"    改善比值与次峰权重的 Spearman {spearmanr(second, ratio).statistic:+.3f}"
+          f"（负号表示预测分布越多峰，算力买到的越多）")
+    print(f"    改善比值与跳变速率的 Spearman {spearmanr(rate, ratio).statistic:+.3f}")
+    # 真正的解释：后验越尖锐，KL 里的均值误差被 1/方差放得越大，算力越买不到东西
+    bnll = np.array([hi[k]["bayes_nll"] for k in keys])
+    print(f"    改善比值与贝叶斯 NLL 的 Spearman {spearmanr(bnll, ratio).statistic:+.3f}"
+          f"（负号表示后验越尖锐、算力越买不到东西）")
+    q = np.percentile(bnll, [0, 33, 67, 100])
+    print(f"\n    {'贝叶斯 NLL 区间':<20}{'格子数':>8}{'改善比值中位数':>16}{'次峰权重中位数':>16}")
+    for a, b in zip(q[:-1], q[1:]):
+        m = (bnll >= a) & (bnll <= b)
+        if m.sum():
+            print(f"    {f'[{a:+.2f}, {b:+.2f}]':<20}{int(m.sum()):>8}"
+                  f"{np.median(ratio[m]):>16.3f}{np.median(second[m]):>16.3f}")
+    # 更精确的解释：跳变先验的最优预测要做一个离散判断（查询点落在哪个平台），
+    # 判错就付一整个水平间距，误差因此重尾。重尾的格子靠算力压不下去。
+    n_tasks = 40
+    cv = np.array([hi[k]["gap_se"] * np.sqrt(n_tasks) / hi[k]["gap"] for k in keys])
+    print(f"\n    逐任务误差的重尾程度（标准差比均值）：中位数 {np.median(cv):.2f}")
+    print(f"    与改善比值的 Spearman {spearmanr(cv, ratio).statistic:+.3f}"
+          f"（正号表示越重尾、算力越买不到东西）")
+
+    # 同一关系在高斯过程先验上是否也成立
+    glo = {(x["ell"], x["sigma"], x["n_ctx"], x["design"]): x
+           for x in load("results/conditioning_pfn_cond_w64.json")}
+    ghi = {(x["ell"], x["sigma"], x["n_ctx"], x["design"]): x
+           for x in load("results/conditioning_pfn_cond_40k.json")}
+    gk = [k for k in glo if k in ghi]
+    gratio = np.array([ghi[k]["gap"] / glo[k]["gap"] for k in gk])
+    gbnll = np.array([ghi[k]["bayes_nll"] for k in gk])
+    print(f"\n    同一关系在高斯过程先验上：改善比值与贝叶斯 NLL 的 Spearman "
+          f"{spearmanr(gbnll, gratio).statistic:+.3f}，"
+          f"改善比值中位数 {np.median(gratio):.3f}")
+    print(f"    两个先验的贝叶斯 NLL 范围：跳变 {bnll.min():+.2f} – {bnll.max():+.2f}，"
+          f"高斯过程 {gbnll.min():+.2f} – {gbnll.max():+.2f}")
+    gcv = np.array([ghi[k]["gap_se"] * np.sqrt(n_tasks) / ghi[k]["gap"] for k in gk])
+    print(f"    逐任务误差的重尾程度：跳变中位数 {np.median(cv):.2f}，"
+          f"高斯过程中位数 {np.median(gcv):.2f}")
+
+    out["insensitive_cells"] = {
+        "spearman_second_vs_ratio": float(spearmanr(second, ratio).statistic),
+        "spearman_bayes_nll_vs_ratio": float(spearmanr(bnll, ratio).statistic),
+        "gp_spearman_bayes_nll_vs_ratio": float(spearmanr(gbnll, gratio).statistic),
+        "ratio_median": float(np.median(ratio)),
+        "gp_ratio_median": float(np.median(gratio)),
+        "n_improved": int((ratio < 1).sum()), "n_cells": len(ratio)}
+    return out
+
+
 if __name__ == "__main__":
     scal = scaling_table()
     law = scaling_law(scal)
+    jump = jump_scaling_law()
     des = design_rule()
     tot = design_total_error()
     Path("results/gains.json").write_text(
-        json.dumps({"scaling": scal, "scaling_law": law, "design": des, "design_total": tot},
-                   ensure_ascii=False, indent=1))
+        json.dumps({"scaling": scal, "scaling_law": law, "jump_scaling_law": jump,
+                    "design": des, "design_total": tot}, ensure_ascii=False, indent=1))
     print(f"\n    结果写到 results/gains.json")
