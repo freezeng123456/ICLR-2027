@@ -1,0 +1,53 @@
+  训练 C @ 15000 步 -> pfn_C_15k.pt
+/workspace/exp_why_axis.py:94: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+    [C_15k] 2500/15000  loss -0.7009    134s  -> pfn_C_15k.pt
+    [C_15k] 5000/15000  loss -0.8774    267s  -> pfn_C_15k.pt
+    [C_15k] 7500/15000  loss -0.9240    399s  -> pfn_C_15k.pt
+    [C_15k] 10000/15000  loss -0.9894    531s  -> pfn_C_15k.pt
+    [C_15k] 12500/15000  loss -1.0340    661s  -> pfn_C_15k.pt
+    [C_15k] 15000/15000  loss -1.0478    797s  -> pfn_C_15k.pt
+    [C_15k] saved pfn_C_15k.pt
+  已复制为 pfn_C.pt  md5=1181b481cd317dfff92a0a6d8e07fccf
+  训练 A144 / Z @ 15000 步 -> pfn_Z.pt
+/workspace/exp_why_axis.py:94: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+    [Z] 2500/15000  loss -0.9477    141s  -> pfn_Z.pt
+    [Z] 5000/15000  loss -1.1232    276s  -> pfn_Z.pt
+    [Z] 7500/15000  loss -1.1308    410s  -> pfn_Z.pt
+    [Z] 10000/15000  loss -1.1821    546s  -> pfn_Z.pt
+    [Z] 12500/15000  loss -1.2082    670s  -> pfn_Z.pt
+    [Z] 15000/15000  loss -1.1958    801s  -> pfn_Z.pt
+    [Z] saved pfn_Z.pt
+  pfn_Z.pt md5=d50178d2884390badc13bf0aa3aed674
+  训练 GP-PFN @ 15000 步 -> pfn_gp.pt
+Traceback (most recent call last):
+  File "/workspace/train_missing.py", line 66, in <module>
+    JOBS[name]()
+  File "/workspace/train_missing.py", line 48, in train_gp
+    train_gp(15000)
+TypeError: train_gp() takes 0 positional arguments but 1 was given
+  训练 GP-PFN @ 15000 步 -> pfn_gp.pt
+/workspace/exp_gp_prior_tilt.py:85: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+  step    500/15000  loss -0.1472   已用    26s
+  step   1000/15000  loss -0.4115   已用    52s
+  step   1500/15000  loss -0.5829   已用    78s
+  step   2000/15000  loss -0.8946   已用   104s
+  step   2500/15000  loss -0.9333   已用   130s
+  step   3000/15000  loss -0.9304   已用   156s
+  step   3500/15000  loss -1.0270   已用   181s
+  step   4000/15000  loss -1.0110   已用   207s
+  step   4500/15000  loss -1.0405   已用   232s
+  step   5000/15000  loss -1.1047   已用   258s
+  step   5500/15000  loss -1.1082   已用   285s
+  step   6000/15000  loss -1.0827   已用   311s
+  step   6500/15000  loss -1.1145   已用   337s
+  step   7000/15000  loss -1.0834   已用   363s
+  step   7500/15000  loss -1.1324   已用   389s
+  step   8000/15000  loss -1.0872   已用   415s
+  step   8500/15000  loss -1.1001   已用   441s
+  step   9000/15000  loss -1.1440   已用   466s
+  step   9500/15000  loss -1.1272   已用   492s
+  step  10000/15000  loss -1.2001   已用   518s
+  step  10500/15000  loss -1.1481   已用   545s

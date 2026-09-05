@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>PFN 与它自己的贝叶斯最优解</title>
+<style>
+  :root { --ink:#16181d; --dim:#6b7280; --line:#e5e7eb; --bad:#b91c1c; --good:#15803d; --acc:#1d4ed8; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:40px 24px 72px; font:15px/1.65 -apple-system,"Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+         color:var(--ink); max-width:980px; margin-inline:auto; }
+  h1 { font-size:26px; margin:0 0 6px; letter-spacing:-.01em; }
+  h2 { font-size:17px; margin:44px 0 12px; padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .lede { color:var(--dim); margin:0 0 8px; }
+  .claim { border-left:3px solid var(--acc); padding:12px 16px; background:#f8fafc; margin:20px 0; }
+  .claim b { color:var(--acc); }
+  img { width:100%; border:1px solid var(--line); border-radius:6px; margin:14px 0 4px; }
+  figcaption { color:var(--dim); font-size:13px; margin-bottom:8px; }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; margin:12px 0; }
+  th,td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); }
+  th { font-weight:600; color:var(--dim); font-size:12.5px; text-transform:none; }
+  td.num,th.num { text-align:right; font-variant-numeric:tabular-nums; }
+  .no { color:var(--bad); font-weight:600; }
+  .yes { color:var(--good); font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px; margin:16px 0; }
+  .card { border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
+  .card .k { font-size:26px; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .card .l { color:var(--dim); font-size:12.5px; margin-top:2px; }
+  code { background:#f3f4f6; padding:1px 5px; border-radius:4px; font-size:13px; }
+  @media (max-width:640px){ body{padding:24px 14px 48px;} h1{font-size:21px;} }
+</style>
+</head>
+<body>
+
+<h1>PFN 与它自己的贝叶斯最优解相差多少</h1>
+<p class="lede">先验完全正确、数据严格来自先验。96 个格子，四个训练设置，跨 8 倍算力。</p>
+
+<div class="claim">
+  <b>上下文数据越多，网络离它自己先验下的贝叶斯最优预测越远。</b>
+  这个偏离只受算力影响：超额 KL 正比于算力的 −0.371 次幂，减半要 6.5 倍算力。
+  四条看起来该管用的捷径逐一被否。
+</div>
+
+<div class="grid">
+  <div class="card"><div class="k">30/32</div><div class="l">非高斯先验上随上下文点数上升的组合</div></div>
+  <div class="card"><div class="k">−0.371</div><div class="l">超额 KL 的算力标度指数（R² = 0.983）</div></div>
+  <div class="card"><div class="k">6.5×</div><div class="l">把偏离减半所需的算力倍数</div></div>
+  <div class="card"><div class="k">0/4</div><div class="l">四条捷径中成立的条数</div></div>
+</div>
+
+<figure>
+  <img src="findings.png" alt="三张面板：两个先验上偏离随上下文点数的走向，以及算力标度律。">
+  <figcaption>左与中：均匀设计、σ=0.05，按结构那一维的隐变量上色。
+    高斯过程先验（预测分布单峰）8 条里 4 条上升；跳变过程先验（多峰）8 条全部上升。
+    右：四个设置的算力标度律，两条干预落在曲线之上。</figcaption>
+</figure>
+
+<h2>偏离在隐变量空间里的形状</h2>
+<p>把网络输出与精确后验分别投影回单个隐变量的 GP 后验族。判据是按真值落在先验均值哪一侧分组。</p>
+<table>
+  <tr><th>坐标</th><th>分组</th><th class="num">w64@20k</th><th class="num">w64@40k</th>
+      <th class="num">w128@20k</th><th class="num">w128@40k</th><th>判定</th></tr>
+  <tr><td>log ℓ</td><td>先验均值下方</td><td class="num">0.832</td><td class="num">0.890</td>
+      <td class="num">0.906</td><td class="num">0.929</td>
+      <td rowspan="2">两侧都小于 1，与方向无关：<b>真正的更新不足</b></td></tr>
+  <tr><td>log ℓ</td><td>先验均值上方</td><td class="num">0.717</td><td class="num">0.746</td>
+      <td class="num">0.794</td><td class="num">0.840</td></tr>
+  <tr><td>log σ</td><td>先验均值下方</td><td class="num">0.749</td><td class="num">0.751</td>
+      <td class="num">0.803</td><td class="num">0.849</td>
+      <td rowspan="2">跨过 1：<b>隐含噪声被一律推高</b></td></tr>
+  <tr><td>log σ</td><td>先验均值上方</td><td class="num">1.088</td><td class="num">1.041</td>
+      <td class="num">1.032</td><td class="num">1.001</td></tr>
+</table>
+<p>方差膨胀与网络自身均值误差的比值中位数是 1.006 / 1.072 / 0.933 / 0.837，即同量级。
+   <b>PFN 的预测方差不是贝叶斯后验方差</b>，多出来的那部分是网络自己的逼近误差，
+   而它被算进了噪声那一维。</p>
+
+<h2>四条不成立的捷径</h2>
+<table>
+  <tr><th>做法</th><th class="num">效果</th><th>为什么不成立</th></tr>
+  <tr><td>推理期输出修正<br><span style="color:var(--dim);font-size:12.5px">用网络自己的先验采样拟合，不重训</span></td>
+      <td class="num no">1.05×</td>
+      <td>网络已在先验平均 NLL 的最优点上；偏离量级由逐任务误差主导</td></tr>
+  <tr><td>上下文切分的贝叶斯委员会</td><td class="num no">4.6×</td>
+      <td>各份携带同一份关于函数的信息，精度相加等于重复计数</td></tr>
+  <tr><td>按偏离加权上下文点数</td><td class="num no">1.03×</td>
+      <td>零和：最差格子改善 3%，n=8 变差 13%</td></tr>
+  <tr><td>等算力的精确目标蒸馏</td><td class="num no">1.50×</td>
+      <td>优化受限于步数，不是目标方差（每步贵 3.06 倍）</td></tr>
+  <tr><td>成对紧邻的上下文设计</td><td class="num yes">0.58–0.72×</td>
+      <td>摊销误差确实降了，但总误差变差 +0.17 nat（t≈+3.5）：不是免费午餐</td></tr>
+</table>
+
+<h2>被否掉的预测量</h2>
+<p>我原本提出一个训练前可算的条件数
+   <code>κ = λ_max((F+Λ)⁻¹G)</code>，四个候选在 96 格上形状彼此不同，所以这是判别而非拟合。</p>
+<table>
+  <tr><th>预测量</th><th class="num">Spearman（20k / 40k）</th><th class="num">log-log R²</th></tr>
+  <tr><td>tr G</td><td class="num">0.619 / 0.604</td><td class="num">0.356 / 0.335</td></tr>
+  <tr><td>tr F</td><td class="num">0.354 / 0.310</td><td class="num">0.157 / 0.124</td></tr>
+  <tr><td>tr((F+Λ)⁻¹G)</td><td class="num">0.166 / 0.203</td><td class="num">0.022 / 0.039</td></tr>
+  <tr><td>κ = λ_max((F+Λ)⁻¹G)</td><td class="num no">0.135 / 0.174</td><td class="num">0.010 / 0.021</td></tr>
+</table>
+<p>误差方向还与它相反：落在 κ 峰值方向的占比 0.399，各方向等概率的零假设是 0.5。</p>
+
+<h2>换一个非高斯过程的先验</h2>
+<p>高斯过程的预测分布永远单峰，所以「网络只能输出均值与方差」几乎无损。
+   换成函数在 5 个离散水平间按泊松速率跳变的先验，预测分布是多峰的高斯混合
+   （25.4% 的查询点次峰权重超过 0.15），这条限制才真的咬人。
+   精确后验用前向后向算法加求积算出，并按穷举校验到机器精度（最大绝对差 2.2×10⁻¹⁶）。</p>
+<table>
+  <tr><th></th><th class="num">高斯过程先验</th><th class="num">跳变过程先验</th><th>判定</th></tr>
+  <tr><td>32 个组合里随点数上升的</td><td class="num">20</td><td class="num yes">30</td>
+      <td>走向<b>更强</b>，几乎整个先验</td></tr>
+  <tr><td>超额 KL 均值</td><td class="num">0.0681</td><td class="num">0.0948</td>
+      <td>同架构同步数下偏离更大</td></tr>
+  <tr><td>噪声维的加性偏移</td><td class="num">+0.174</td><td class="num yes">+0.424</td>
+      <td>隐含噪声从 1.19 倍升到 <b>1.53 倍</b></td></tr>
+  <tr><td>结构维（先验均值下方 / 上方）</td><td class="num">0.906 / 0.794</td>
+      <td class="num">1.034 / 0.757</td>
+      <td>两侧收缩 vs 单向下推：<b>形态依赖先验</b></td></tr>
+  <tr><td>均值的标度指数</td><td class="num">0.371 (R² 0.983)</td>
+      <td class="num no">0.146 (R² 0.851)</td><td>标度指数<b>不是先验不变的</b></td></tr>
+  <tr><td>最差格子的标度指数</td><td class="num">0.441 (R² 0.971)</td>
+      <td class="num no">0.016 (R² 0.236)</td><td>8 倍算力只降 4%，几乎不动</td></tr>
+</table>
+<p>共同的是「结构维被系统性地推错，方向可复现」；究竟是收缩还是单向推，不能跨先验照搬。</p>
+
+<h2>算力在哪里买不到东西</h2>
+<p>跳变先验上逐格子看算力并没有失效（90/96 个格子变好，改善比值中位数 0.601）。
+   低指数来自 10 个格子在支配均值与最大值，它们全部落在<b>低跳变速率加低噪声</b>这一角，
+   也就是「长平台加干净观测」。高斯过程先验上这样的格子是 0/96。</p>
+<table>
+  <tr><th>格子</th><th>设置</th><th class="num">方差对数之差</th>
+      <th class="num">KL 方差项</th><th class="num">KL 均值项</th></tr>
+  <tr><td rowspan="2">速率 0.50、σ 0.05</td><td>宽 64 @20k</td><td class="num">−0.353</td>
+      <td class="num">0.1809</td><td class="num">0.0227</td></tr>
+  <tr><td>宽 128 @40k</td><td class="num no">−0.521</td>
+      <td class="num no">0.2614</td><td class="num yes">0.0112</td></tr>
+  <tr><td rowspan="2">速率 25.9、σ 0.20</td><td>宽 64 @20k</td><td class="num">+0.073</td>
+      <td class="num">0.0425</td><td class="num">0.0223</td></tr>
+  <tr><td>宽 128 @40k</td><td class="num">−0.029</td>
+      <td class="num yes">0.0278</td><td class="num yes">0.0107</td></tr>
+</table>
+<p><b>算力把点预测练好了，同时把不确定性练坏了。</b>
+   在那一角，均值项随算力下降（0.0227 → 0.0112），方差项随算力上升（0.1809 → 0.2614），
+   因为网络越训越自信。两项相加，总的 KL 停在原地。</p>
+<p>那一角的贝叶斯最优解要保留「查询点与最近观测之间是否发生过跳变」这份残余怀疑，
+   而网络把怀疑丢掉。水平间距是 0.80，判错一次的代价极大。
+   排掉的两个解释：不是多峰性（次峰权重越高改善越大，Spearman −0.558），
+   也不是误差重尾（Spearman 只有 +0.259，两个先验的重尾程度接近）。</p>
+<p><b>实用推论</b>：放大后的 PFN，点预测变好而不确定性变坏，
+   而且恰好发生在结构清晰、噪声低的那一类任务上。不能把点精度的提升读成校准的提升。</p>
+
+<h2>算力单调地让网络更自信</h2>
+<p>那一角不是孤例。方差对数之差为负表示网络比精确后验更自信：</p>
+<table>
+  <tr><th>先验</th><th class="num">最低算力</th><th class="num">最高算力</th>
+      <th class="num">逐格子变小的</th><th class="num">起点已为负</th><th class="num">其中变差的</th></tr>
+  <tr><td>高斯过程</td><td class="num">+0.112</td><td class="num">+0.044</td>
+      <td class="num">81/96</td><td class="num">13/96</td><td class="num">0/13</td></tr>
+  <tr><td>跳变过程</td><td class="num">+0.094</td><td class="num">+0.025</td>
+      <td class="num">94/96</td><td class="num">25/96</td><td class="num no">6/25</td></tr>
+</table>
+<p>原本不够自信的地方，这是改进；原本已经过度自信的地方，这是变坏。跳变先验过度自信的格子数是高斯过程的近两倍，
+   而且起点越自信、算力买到的越少（Spearman −0.380；高斯过程上 +0.086，无关系）。
+   这就是两个先验标度指数分道扬镳的原因。</p>
+
+<h2>一个真能压小最差格子的做法，以及它选不出来</h2>
+<p>机制给出一个不含可调参数的做法：<b>取大模型的均值、两个模型方差的逐点较大者</b>。只需要两个已训好的模型。</p>
+<table>
+  <tr><th>变体（跳变先验）</th><th class="num">平均留出 NLL</th><th class="num">最差区域 NLL</th>
+      <th class="num">超额 KL 均值</th><th class="num">最差格子</th><th class="num">变好的格子</th></tr>
+  <tr><td>大模型（基线）</td><td class="num">0.7152</td><td class="num">3.5622</td>
+      <td class="num">0.0768</td><td class="num">0.2965</td><td class="num">—</td></tr>
+  <tr><td>均值取大、方差取几何平均</td><td class="num">0.7168</td><td class="num">3.0456</td>
+      <td class="num yes">0.0714 (0.931×)</td><td class="num yes">0.2320 (0.783×)</td>
+      <td class="num">41/96</td></tr>
+  <tr><td>均值取大、方差取较大者</td><td class="num">0.7428</td><td class="num">2.3433</td>
+      <td class="num yes">0.0708 (0.923×)</td><td class="num yes"><b>0.1735 (0.585×)</b></td>
+      <td class="num">28/96</td></tr>
+</table>
+<p>但这个增益<b>选不出来</b>。同一做法在高斯过程先验上把超额 KL 弄差了（均值 1.391×、最差格子 2.044×），
+   因为那里网络几乎处处不够自信。三个只靠先验采样、不需要精确后验的判据都识别不出该用哪一个：</p>
+<table>
+  <tr><th>判据</th><th>它选什么</th><th>问题</th></tr>
+  <tr><td>平均留出 NLL</td><td>两个先验都选原始大模型</td>
+      <td>必然如此，网络本来就在这个目标上训出来的</td></tr>
+  <tr><td>最差区域 NLL</td><td>两个先验都选方差取较大者</td>
+      <td class="no">包括它明显有害的高斯过程先验</td></tr>
+  <tr><td>先验采样上的覆盖率</td><td>按覆盖率不足的区间开门</td>
+      <td class="no">指错区间：跳变先验上覆盖率不足的是方差 0.52–1.10（0.861 / 0.875），
+          而增益来自方差约 0.0025 的格子，那一档覆盖率 0.948 反而偏保守。两个先验上都成空操作</td></tr>
+</table>
+<p>准确的说法是：最差格子上的增益是真的、机制清楚的，但要判断该不该用它需要精确后验——
+   而那正是部署时没有的东西。受损区域是先验里很薄的一片，没有汇总统计量把它分出来。</p>
+
+<h2>空缺是真的</h2>
+<table>
+  <tr><th>已有工作</th><th>做的事</th><th>没做的事</th></tr>
+  <tr><td>Müller 2022</td><td>PFN 的最优解等于先验下的后验预测</td><td>没有量化真实网络与它的差距</td></tr>
+  <tr><td>Nagler 2023</td><td>证明存在不随样本量消失的偏差</td><td>没测出大小、方向、随数据量的走向</td></tr>
+  <tr><td>TabPFN 不确定性分解 2026</td><td>把预测方差分解为偶然与认知</td><td>原文自陈缺乏与贝叶斯规则接近程度的理解</td></tr>
+</table>
+
+<p style="color:var(--dim);font-size:13px;margin-top:36px">
+  全部数字与判据：<code>docs/pfn-vs-its-own-bayes.md</code>。
+  图由 <code>plot_findings.py</code> 生成。
+</p>
+
+</body>
+</html>
