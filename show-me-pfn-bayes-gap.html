@@ -151,6 +151,49 @@
 <p><b>实用推论</b>：放大后的 PFN，点预测变好而不确定性变坏，
    而且恰好发生在结构清晰、噪声低的那一类任务上。不能把点精度的提升读成校准的提升。</p>
 
+<h2>算力单调地让网络更自信</h2>
+<p>那一角不是孤例。方差对数之差为负表示网络比精确后验更自信：</p>
+<table>
+  <tr><th>先验</th><th class="num">最低算力</th><th class="num">最高算力</th>
+      <th class="num">逐格子变小的</th><th class="num">起点已为负</th><th class="num">其中变差的</th></tr>
+  <tr><td>高斯过程</td><td class="num">+0.112</td><td class="num">+0.044</td>
+      <td class="num">81/96</td><td class="num">13/96</td><td class="num">0/13</td></tr>
+  <tr><td>跳变过程</td><td class="num">+0.094</td><td class="num">+0.025</td>
+      <td class="num">94/96</td><td class="num">25/96</td><td class="num no">6/25</td></tr>
+</table>
+<p>原本不够自信的地方，这是改进；原本已经过度自信的地方，这是变坏。跳变先验过度自信的格子数是高斯过程的近两倍，
+   而且起点越自信、算力买到的越少（Spearman −0.380；高斯过程上 +0.086，无关系）。
+   这就是两个先验标度指数分道扬镳的原因。</p>
+
+<h2>一个真能压小最差格子的做法，以及它选不出来</h2>
+<p>机制给出一个不含可调参数的做法：<b>取大模型的均值、两个模型方差的逐点较大者</b>。只需要两个已训好的模型。</p>
+<table>
+  <tr><th>变体（跳变先验）</th><th class="num">平均留出 NLL</th><th class="num">最差区域 NLL</th>
+      <th class="num">超额 KL 均值</th><th class="num">最差格子</th><th class="num">变好的格子</th></tr>
+  <tr><td>大模型（基线）</td><td class="num">0.7152</td><td class="num">3.5622</td>
+      <td class="num">0.0768</td><td class="num">0.2965</td><td class="num">—</td></tr>
+  <tr><td>均值取大、方差取几何平均</td><td class="num">0.7168</td><td class="num">3.0456</td>
+      <td class="num yes">0.0714 (0.931×)</td><td class="num yes">0.2320 (0.783×)</td>
+      <td class="num">41/96</td></tr>
+  <tr><td>均值取大、方差取较大者</td><td class="num">0.7428</td><td class="num">2.3433</td>
+      <td class="num yes">0.0708 (0.923×)</td><td class="num yes"><b>0.1735 (0.585×)</b></td>
+      <td class="num">28/96</td></tr>
+</table>
+<p>但这个增益<b>选不出来</b>。同一做法在高斯过程先验上把超额 KL 弄差了（均值 1.391×、最差格子 2.044×），
+   因为那里网络几乎处处不够自信。三个只靠先验采样、不需要精确后验的判据都识别不出该用哪一个：</p>
+<table>
+  <tr><th>判据</th><th>它选什么</th><th>问题</th></tr>
+  <tr><td>平均留出 NLL</td><td>两个先验都选原始大模型</td>
+      <td>必然如此，网络本来就在这个目标上训出来的</td></tr>
+  <tr><td>最差区域 NLL</td><td>两个先验都选方差取较大者</td>
+      <td class="no">包括它明显有害的高斯过程先验</td></tr>
+  <tr><td>先验采样上的覆盖率</td><td>按覆盖率不足的区间开门</td>
+      <td class="no">指错区间：跳变先验上覆盖率不足的是方差 0.52–1.10（0.861 / 0.875），
+          而增益来自方差约 0.0025 的格子，那一档覆盖率 0.948 反而偏保守。两个先验上都成空操作</td></tr>
+</table>
+<p>准确的说法是：最差格子上的增益是真的、机制清楚的，但要判断该不该用它需要精确后验——
+   而那正是部署时没有的东西。受损区域是先验里很薄的一片，没有汇总统计量把它分出来。</p>
+
 <h2>空缺是真的</h2>
 <table>
   <tr><th>已有工作</th><th>做的事</th><th>没做的事</th></tr>
