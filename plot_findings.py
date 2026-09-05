@@ -21,25 +21,28 @@ def rows(path):
     return json.loads(Path(path).read_text())["rows"]
 
 
-def panel_trend(ax, path):
-    """上下文点数越多、偏离越大。按长度尺度上色，均匀设计、sigma = 0.05。"""
+def panel_trend(ax, path, key, fmt, title, ylabel=True):
+    """上下文点数越多、偏离越大。按结构那一维的隐变量上色，均匀设计、sigma = 0.05。"""
     r = [x for x in rows(path) if x["design"] == "uniform" and x["sigma"] == 0.05]
-    ells = sorted({x["ell"] for x in r})
-    cmap = plt.cm.viridis(np.linspace(0, 0.92, len(ells)))
-    for ell, c in zip(ells, cmap):
-        sub = sorted([x for x in r if x["ell"] == ell], key=lambda x: x["n_ctx"])
+    vals = sorted({x[key] for x in r})
+    cmap = plt.cm.viridis(np.linspace(0, 0.92, len(vals)))
+    n_up = 0
+    for v, c in zip(vals, cmap):
+        sub = sorted([x for x in r if x[key] == v], key=lambda x: x["n_ctx"])
         ns = [x["n_ctx"] for x in sub]
         g = [x["gap"] for x in sub]
-        se = [x["gap_se"] for x in sub]
-        ax.errorbar(ns, g, yerr=se, marker="o", ms=4, lw=1.6, color=c,
-                    label=f"$\\ell$ = {ell:.3f}")
+        n_up += int(g[-1] > g[0])
+        ax.errorbar(ns, g, yerr=[x["gap_se"] for x in sub], marker="o", ms=4, lw=1.6,
+                    color=c, label=fmt.format(v))
     ax.set_xscale("log"); ax.set_yscale("log")
     ax.set_xticks([8, 16, 24]); ax.set_xticklabels([8, 16, 24])
     ax.set_xticks([], minor=True)
     ax.set_xlim(7.2, 27)
+    ax.set_ylim(0.008, 0.55)
     ax.set_xlabel("context points")
-    ax.set_ylabel("excess KL over exact Bayes (nats)")
-    ax.set_title("More context, larger deviation\n(prior is exactly correct)", fontsize=10)
+    if ylabel:
+        ax.set_ylabel("excess KL over exact Bayes (nats)")
+    ax.set_title(f"{title}\n{n_up}/{len(vals)} curves rise", fontsize=10)
     ax.legend(fontsize=6.5, ncol=2, loc="upper left", frameon=False)
     ax.grid(alpha=0.25, which="both")
 
@@ -78,9 +81,12 @@ def panel_scaling(ax):
 
 
 def main():
-    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4.3))
-    panel_trend(axes[0], SETTINGS["w128 @20k"][0])
-    panel_scaling(axes[1])
+    fig, axes = plt.subplots(1, 3, figsize=(14.4, 4.3))
+    panel_trend(axes[0], SETTINGS["w128 @20k"][0], "ell", "$\\ell$ = {:.3f}",
+                "GP prior (unimodal predictive)")
+    panel_trend(axes[1], "results/jump_pfn_jump.json", "rate", "rate = {:.2f}",
+                "Jump prior (multimodal predictive)", ylabel=False)
+    panel_scaling(axes[2])
     plt.tight_layout()
     fig.savefig("findings.png", dpi=170)
     print("已保存 findings.png")

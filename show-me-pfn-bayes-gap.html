@@ -41,16 +41,17 @@
 </div>
 
 <div class="grid">
-  <div class="card"><div class="k">15.9×</div><div class="l">上下文点数从 8 到 24，偏离的最大增幅</div></div>
+  <div class="card"><div class="k">30/32</div><div class="l">非高斯先验上随上下文点数上升的组合</div></div>
   <div class="card"><div class="k">−0.371</div><div class="l">超额 KL 的算力标度指数（R² = 0.983）</div></div>
   <div class="card"><div class="k">6.5×</div><div class="l">把偏离减半所需的算力倍数</div></div>
   <div class="card"><div class="k">0/4</div><div class="l">四条捷径中成立的条数</div></div>
 </div>
 
 <figure>
-  <img src="findings.png" alt="左：偏离随上下文点数上升。右：偏离随算力的标度律。">
-  <figcaption>左：均匀设计、σ=0.05。长度尺度小于采样分辨率时曲线向上。
-    右：四个设置的标度律，两条干预落在曲线之上。</figcaption>
+  <img src="findings.png" alt="三张面板：两个先验上偏离随上下文点数的走向，以及算力标度律。">
+  <figcaption>左与中：均匀设计、σ=0.05，按结构那一维的隐变量上色。
+    高斯过程先验（预测分布单峰）8 条里 4 条上升；跳变过程先验（多峰）8 条全部上升。
+    右：四个设置的算力标度律，两条干预落在曲线之上。</figcaption>
 </figure>
 
 <h2>偏离在隐变量空间里的形状</h2>
@@ -100,6 +101,25 @@
   <tr><td>κ = λ_max((F+Λ)⁻¹G)</td><td class="num no">0.135 / 0.174</td><td class="num">0.010 / 0.021</td></tr>
 </table>
 <p>误差方向还与它相反：落在 κ 峰值方向的占比 0.399，各方向等概率的零假设是 0.5。</p>
+
+<h2>换一个非高斯过程的先验</h2>
+<p>高斯过程的预测分布永远单峰，所以「网络只能输出均值与方差」几乎无损。
+   换成函数在 5 个离散水平间按泊松速率跳变的先验，预测分布是多峰的高斯混合
+   （25.4% 的查询点次峰权重超过 0.15），这条限制才真的咬人。
+   精确后验用前向后向算法加求积算出，并按穷举校验到机器精度（最大绝对差 2.2×10⁻¹⁶）。</p>
+<table>
+  <tr><th></th><th class="num">高斯过程先验</th><th class="num">跳变过程先验</th><th>判定</th></tr>
+  <tr><td>32 个组合里随点数上升的</td><td class="num">20</td><td class="num yes">30</td>
+      <td>走向<b>更强</b>，几乎整个先验</td></tr>
+  <tr><td>超额 KL 均值</td><td class="num">0.0681</td><td class="num">0.0948</td>
+      <td>同架构同步数下偏离更大</td></tr>
+  <tr><td>噪声维的加性偏移</td><td class="num">+0.174</td><td class="num yes">+0.424</td>
+      <td>隐含噪声从 1.19 倍升到 <b>1.53 倍</b></td></tr>
+  <tr><td>结构维（先验均值下方 / 上方）</td><td class="num">0.906 / 0.794</td>
+      <td class="num">1.034 / 0.757</td>
+      <td>两侧收缩 vs 单向下推：<b>形态依赖先验</b></td></tr>
+</table>
+<p>共同的是「结构维被系统性地推错，方向可复现」；究竟是收缩还是单向推，不能跨先验照搬。</p>
 
 <h2>空缺是真的</h2>
 <table>
