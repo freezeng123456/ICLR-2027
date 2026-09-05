@@ -106,6 +106,26 @@
    "n_cells": 96
   }
  },
+ "confidence_trend": {
+  "高斯过程": {
+   "dlogvar_low": 0.1117261817644585,
+   "dlogvar_high": 0.04434173386792456,
+   "n_fell": 81,
+   "n_cells": 96,
+   "n_start_negative": 13,
+   "n_worse_among_negative": 0,
+   "spearman_dv0_vs_gap_ratio": 0.0858654367878459
+  },
+  "跳变过程": {
+   "dlogvar_low": 0.09428604796319845,
+   "dlogvar_high": 0.02514242685092103,
+   "n_fell": 94,
+   "n_cells": 96,
+   "n_start_negative": 25,
+   "n_worse_among_negative": 6,
+   "spearman_dv0_vs_gap_ratio": -0.3795984807379273
+  }
+ },
  "design": {
   "宽 64 @20k": {
    "ratio_by_n": [

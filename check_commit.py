@@ -42,7 +42,8 @@ def run(model, rate, sigma, n_ctx, design, grids, seed=0):
 
 
 if __name__ == "__main__":
-    ckpts = sys.argv[1:] or ["pfn_jump_w64.pt", "pfn_jump_40k.pt"]
+    ckpts = sys.argv[1:] or ["pfn_jump_w64.pt", "pfn_jump_w64_40k.pt",
+                             "pfn_jump.pt", "pfn_jump_40k.pt"]
     grids = quad_grids()
     # 前两格是算力买不到东西的那一角，后两格是正常改善的一角
     cells = [(0.50, 0.05, 16, "uniform"), (0.97, 0.05, 24, "uniform"),

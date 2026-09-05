@@ -267,13 +267,60 @@ def jump_scaling_law():
     return out
 
 
+GP_ORDER = ["results/conditioning_pfn_cond_w64.json",
+            "results/conditioning_pfn_cond_w64_40k.json",
+            "results/conditioning_pfn_cond.json",
+            "results/conditioning_pfn_cond_40k.json"]
+JUMP_ORDER = ["results/jump_pfn_jump_w64.json", "results/jump_pfn_jump_w64_40k.json",
+              "results/jump_pfn_jump.json", "results/jump_pfn_jump_40k.json"]
+
+
+def confidence_trend():
+    """算力对自信程度的作用，两个先验、全部格子。
+
+    方差对数之差为正表示网络比精确后验更弥散（不够自信），为负表示更自信。
+    """
+    from scipy.stats import spearmanr
+    print(f"\n    算力与自信程度（方差对数之差，为负表示比精确后验更自信）")
+    print(f"    {'先验':<8}{'最低算力':>10}{'最高算力':>10}{'逐格子变小的':>14}"
+          f"{'起点为负的格子':>16}{'其中差距变差的':>16}")
+    out = {}
+    for name, order, keys in (("高斯过程", GP_ORDER, ("ell", "sigma", "n_ctx", "design")),
+                              ("跳变过程", JUMP_ORDER, ("rate", "sigma", "n_ctx", "design"))):
+        sets = [load(p) for p in order]
+        if any(s is None for s in sets):
+            continue
+        idx = [{tuple(x[k] for k in keys): x for x in s} for s in sets]
+        common = [k for k in idx[0] if all(k in d for d in idx)]
+        dv = np.array([[d[k]["dlogvar"] for k in common] for d in idx])
+        gap = np.array([[d[k]["gap"] for k in common] for d in idx])
+        fell = int((dv[-1] < dv[0]).sum())
+        neg0 = dv[0] < 0
+        worse_among_neg = int((gap[-1][neg0] > gap[0][neg0]).sum()) if neg0.any() else 0
+        out[name] = {"dlogvar_low": float(np.median(dv[0])),
+                     "dlogvar_high": float(np.median(dv[-1])),
+                     "n_fell": fell, "n_cells": len(common),
+                     "n_start_negative": int(neg0.sum()), "n_worse_among_negative": worse_among_neg,
+                     "spearman_dv0_vs_gap_ratio": float(
+                         spearmanr(dv[0], gap[-1] / gap[0]).statistic)}
+        print(f"    {name:<8}{np.median(dv[0]):>+10.3f}{np.median(dv[-1]):>+10.3f}"
+              f"{f'{fell}/{len(common)}':>14}{f'{int(neg0.sum())}/{len(common)}':>16}"
+              f"{f'{worse_among_neg}/{int(neg0.sum())}':>16}")
+        print(f"      起点的方差对数之差与 8 倍算力后差距比值的 Spearman "
+              f"{out[name]['spearman_dv0_vs_gap_ratio']:+.3f}"
+              f"（负号表示起点越自信、算力越买不到东西）")
+    return out
+
+
 if __name__ == "__main__":
     scal = scaling_table()
     law = scaling_law(scal)
     jump = jump_scaling_law()
+    conf = confidence_trend()
     des = design_rule()
     tot = design_total_error()
     Path("results/gains.json").write_text(
         json.dumps({"scaling": scal, "scaling_law": law, "jump_scaling_law": jump,
-                    "design": des, "design_total": tot}, ensure_ascii=False, indent=1))
+                    "confidence_trend": conf, "design": des, "design_total": tot},
+                   ensure_ascii=False, indent=1))
     print(f"\n    结果写到 results/gains.json")
