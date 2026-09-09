@@ -27,7 +27,7 @@ tar -xzf "$COMPOSITION_EXTENSION_ARCHIVE" -C work/extension-recovered
 .venv/bin/python audit_extension_results.py --root work/extension-recovered/run --output work/extension-analysis --kind oracle
 .venv/bin/python audit_extension_results.py --root work/extension-recovered/run --output work/extension-analysis --kind learned
 .venv/bin/python scan_without_replacement.py --output work/extension-analysis
-.venv/bin/python plot_extension_results.py --analysis work/extension-analysis --figures work/extension-figures
+.venv/bin/python plot_extension_results.py --analysis work/extension-analysis --figures work/extension-figures --tables work/extension-tables
 ```
 
 The archive auditor recomputes every recovered file hash, checks all 85 successful task exits and resource allocations, and compares recorded source hashes with `git show` at the frozen source commit. The scientific auditor reconstructs Gaussian/mixture references using independent SciPy densities on 131,073 points over `[-16,16]`, checks the original 65,537-point references over `[-12,12]`, recomputes particle metrics, and independently applies the Gaussian variance recursion. Identical reference files are checked by hash across methods. Learned-parameter arrays are compared across paired cells and against forward passes of the saved network.
@@ -44,7 +44,9 @@ Run the following command before modifying a clean clone:
 
 This reproduces both complete manifests, extracts the frozen source, reruns the estimator and Bayes-identity checks, performs a fresh 20-update training smoke check, and executes four representative formal sampling configurations on CPU. Two use the recovered full-training checkpoint and two use oracle factors; they cover unbiased and tail-controlled sampling without replacement. Independent routines verify the rerun metrics. The verifier also regenerates all 936 deterministic certificate configurations, four figure PNGs and the complete grouped tables. It does not repeat the five full GPU trainings or all 2,080 GPU sampling cells, and does not require CPU/GPU random samples to be bitwise identical.
 
-The checked-in extension results and audits are in `results/composition_extension_20260910/`. The main learned figure uses all 25 crossed training-seed/dataset-seed pairs at the preselected finer grid, with the coarser grid retained separately. Dispersion across those pairs is not a standard error based on 25 independent training runs. The U sweep holds K fixed and therefore changes the entire time grid; it cannot identify initialization error alone. Timing includes without-replacement subset selection, but neural parameter prediction occurs once per context and is recorded separately.
+The checked-in extension results and audits are in `results/composition_extension_20260910/`. Passing `--tables` regenerates `learned_tables.tex` directly from all 1,000 audited learned cells. Each of its 40 rows requires exactly the full five-by-five training/dataset seed combination and a common certificate classification. The clean-checkout verifier requires both complete LaTeX tables, including captions, to match the checked-in manuscript byte for byte. Means and sample standard deviations are computed from the individual cells before rounding.
+
+The main learned figure uses all 25 crossed training-seed/dataset-seed pairs at the preselected finer grid, with the coarser grid retained separately. Dispersion across those pairs is not a standard error based on 25 independent training runs. The U sweep holds K fixed and therefore changes the entire time grid; it cannot identify initialization error alone. Timing includes without-replacement subset selection, but neural parameter prediction occurs once per context and is recorded separately.
 
 ## Re-executing the full GPU protocol
 

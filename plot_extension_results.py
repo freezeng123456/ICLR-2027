@@ -130,7 +130,36 @@ def sampling_figure(frame, output):
     plt.close(fig)
 
 
-def main(analysis, figures):
+def learned_tables(frame, output):
+    tables = []
+    for steps in [512, 2048]:
+        lines = [r"\begin{table}[htbp]", r" \centering",
+                 r" \caption{Complete learned-posterior results at $K=" + str(steps) + r"$. W1 values are means $\pm$ sample standard deviations across 25 crossed checkpoint/dataset pairs. Time is mean recorded sampler seconds. F and I denote finite and infinite population normalizers.}",
+                 r" \label{tab:learned-" + str(steps) + "}", r" \small",
+                 r" \begin{tabular}{rrlcllr}", r" \toprule",
+                 r" $G$ & $d$ & Method & Domain & W1 vs learned & W1 vs true & Seconds\\",
+                 r" \midrule", ""]
+        for groups, dimension in [(16, 1), (16, 8), (64, 1), (64, 8)]:
+            for method in METHODS:
+                data = frame[(frame.steps == steps) & (frame.groups == groups) &
+                             (frame.dimension == dimension) & (frame.display_method == method)]
+                assert len(data) == 25
+                assert set(zip(data.training_seed, data.dataset_seed)) == {(a, b) for a in range(5) for b in range(5)}
+                states = data.integrability_certificate.unique()
+                assert len(states) == 1 and states[0] in ["finite", "infinite"]
+                domain = "F" if states[0] == "finite" else "I"
+                learned = f"${data.w1_mean.mean():.4f}\\pm{data.w1_mean.std():.4f}$"
+                true = f"${data.true_w1_mean.mean():.4f}\\pm{data.true_w1_mean.std():.4f}$"
+                lines.append(f"{groups} & {dimension} & {method} & {domain} & {learned} & {true} & {data.seconds.mean():.2f}" + r"\\")
+            if (groups, dimension) != (64, 8):
+                lines.append(r"\midrule")
+        lines.extend([r"\bottomrule", r"\end{tabular}", r"\end{table}"])
+        tables.append("\n".join(lines))
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text("\n\n".join(tables) + "\n")
+
+
+def main(analysis, figures, tables=None):
     figures.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9, "pdf.fonttype": 42})
     frames = {}
@@ -150,6 +179,8 @@ def main(analysis, figures):
     training = json.loads((analysis / "training_audit.json").read_text())
     assert training["status"] == "passed"
     pd.DataFrame(training["rows"]).to_csv(analysis / "training_audited.csv", index=False)
+    if tables is not None:
+        learned_tables(frames["learned"], tables / "learned_tables.tex")
     print(json.dumps({"oracle_cells": len(frames["oracle"]), "learned_cells": len(frames["learned"]), "learned_factor_sets": len(unique), "status": "figures and complete grouped tables written"}))
 
 
@@ -157,5 +188,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--analysis", type=Path, required=True)
     parser.add_argument("--figures", type=Path, required=True)
+    parser.add_argument("--tables", type=Path, help="Output directory for the two complete learned-posterior LaTeX tables")
     args = parser.parse_args()
-    main(args.analysis, args.figures)
+    main(args.analysis, args.figures, args.tables)
