@@ -13,7 +13,8 @@
   "raw_archives": 3,
   "body_pages": 9,
   "complete_pdf_pages": 22,
-  "clean_checkout_analysis_commit": "9a9778f855261940f20b64bc4683d44c85d2840d",
+  "clean_checkout_analysis_commit": "fe6e64d2d3a7184f673104d4a01af6c1befc2775",
+  "latex_table_rows_reproduced_byte_for_byte": 40,
   "passed": [
     "All formal configurations, completion records and successful task exits",
     "All recovered raw file hashes and three archive receipts",
@@ -24,6 +25,7 @@
     "Clean-checkout representative CPU sampling and fresh training",
     "All 936 deterministic certificate configurations reproduced",
     "Four extension figures byte-identical and four derived CSV tables identical",
+    "Both learned-posterior LaTeX tables regenerated from all audited cells and byte-identical; missing or duplicated seed pairs and mixed certificate states rejected before writing output",
     "All 22 manuscript pages visually inspected and independently rebuilt with byte-identical page PNGs",
     "Final SCNet account queue empty"
   ],

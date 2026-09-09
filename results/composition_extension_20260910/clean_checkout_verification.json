@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "analysis_commit": "9a9778f855261940f20b64bc4683d44c85d2840d",
+  "analysis_commit": "fe6e64d2d3a7184f673104d4a01af6c1befc2775",
   "experiment_commit": "4b74724c4225fcfe043fdd749fb740fff4cf33c8",
   "device": "cpu",
   "representative_formal_configuration_reruns": [
@@ -64,6 +64,7 @@
     "936 certificate configurations reproduced",
     "all four extension figure PNGs byte-identical"
   ],
+  "latex_table_rows_byte_identical": 40,
   "failed": [],
   "blocked": [],
   "not_run": [
