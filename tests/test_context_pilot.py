@@ -2,7 +2,7 @@ import numpy as np
 import torch
 
 from exp_conditioning import load_pfn
-from pilot_context import evaluate, fitted_scores, make_tasks
+from pilot_context import evaluate, fitted_scores, make_tasks, load_checkpoint
 
 
 def test_risk_ranker_never_fits_test_labels():
@@ -20,6 +20,9 @@ def test_real_checkpoint_batching_and_context_order():
     torch.set_num_threads(1)
     data = make_tasks("jump", 8, 8, 19)
     model, _ = load_pfn("pfn_jump_40k.pt")
+    compatible = load_checkpoint("pfn_jump_40k.pt")
+    for key, value in model.state_dict().items():
+        torch.testing.assert_close(value, compatible.state_dict()[key], rtol=0, atol=0)
     first = evaluate(model, data, "cpu", batch_size=8)
     data["xc"] = data["xc"][:, ::-1].copy()
     data["yc"] = data["yc"][:, ::-1].copy()

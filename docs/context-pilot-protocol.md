@@ -25,4 +25,6 @@ GP 使用采样得到的真实 length scale/noise 下的闭式条件后验；jum
 
 SCNet 雄衡 xhhgnormal，4 张 GPU 最大并发，每任务 1 GPU、4 CPU，12 个任务各限时 5 分钟，累计计算上限 1 GPU-hour。OMP/MKL/OpenBLAS 线程均为 1。唯一输出目录按 prior/context/seed 隔离。固定源码 commit，保存模型和源码 SHA-256、实际 GPU/节点/解释器、逐任务记录、拟合系数、指标、日志及完成标记。已有其他实验保留运行。
 
+远程 pilot 使用现有 Python 3.10.18 / PyTorch 1.12.1 / NumPy 1.26.4。专用检查点读取入口支持旧版 PyTorch，仅用于该固定仓库内的已记录 SHA-256 的可信模型文件。通用仓库环境仍按 requirements.txt 安装。
+
 参考问题背景：Nagler, Statistical Foundations of Prior-Data Fitted Networks (ICML 2023); Alaa and van der Schaar, Discriminative Jackknife (ICML 2020)。本次实验不把上下文扰动或模型选择本身作为创新结论。

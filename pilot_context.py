@@ -1,4 +1,5 @@
 import argparse
+import inspect
 import json
 import os
 import socket
@@ -15,6 +16,18 @@ import exp_jump as jump
 from identifiability import gp_posterior
 from prior_jump import LEVELS, predict_single, sample_task
 from train_repro import sha256
+
+
+def load_checkpoint(path):
+    # 仓库内已核验哈希的检查点允许使用 SCNet 的 PyTorch 1.12 读取。
+    options = {"map_location": "cpu"}
+    if "weights_only" in inspect.signature(torch.load).parameters:
+        options["weights_only"] = True
+    state = torch.load(path, **options)
+    width = state["x_enc.weight"].shape[0]
+    model = gp.PFN(width, max(1, width // 32))
+    model.load_state_dict(state)
+    return model.eval()
 
 
 def predict(model, xc, yc, xq, device):
@@ -154,8 +167,7 @@ def main():
     for name, filename in files.items():
         if name.endswith("64") and not name.startswith(args.prior):
             continue
-        model, _ = gp.load_pfn(repo / filename)
-        model = model.to(args.device)
+        model = load_checkpoint(repo / filename).to(args.device)
         predictions[name] = evaluate(model, data, args.device)
         print(json.dumps({"model": name, "tasks": args.tasks, "elapsed": time.time() - started}), flush=True)
     arrays = {**data, **{f"{name}_{key}": value for name, pred in predictions.items() for key, value in pred.items()}}
