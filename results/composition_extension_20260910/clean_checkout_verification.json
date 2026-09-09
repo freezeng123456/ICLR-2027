@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "analysis_commit": "9a9778f855261940f20b64bc4683d44c85d2840d",
+  "experiment_commit": "4b74724c4225fcfe043fdd749fb740fff4cf33c8",
+  "device": "cpu",
+  "representative_formal_configuration_reruns": [
+    {
+      "kind": "oracle",
+      "method": "unbiased",
+      "formal_configuration_index": 525,
+      "metrics": {
+        "w1_mean": 0.005886957620608914,
+        "ks_mean": 0.008095786808636651,
+        "mean_absolute_error": 0.0033440955906809504,
+        "variance_relative_error": 0.014791769171849212,
+        "positive_mass_error": 0.002540378241731145
+      }
+    },
+    {
+      "kind": "oracle",
+      "method": "tail",
+      "formal_configuration_index": 531,
+      "metrics": {
+        "w1_mean": 0.01332791603106206,
+        "ks_mean": 0.012710425296607708,
+        "mean_absolute_error": 0.005614118746078572,
+        "variance_relative_error": 0.0747822595231582,
+        "positive_mass_error": 0.0028175841470921004
+      }
+    },
+    {
+      "kind": "learned",
+      "method": "unbiased",
+      "formal_configuration_index": 2,
+      "metrics": {
+        "w1_mean": 0.007613507943896335,
+        "ks_mean": 0.018202584100042163,
+        "mean_absolute_error": 0.0075558915269327565,
+        "variance_relative_error": 0.018995535492175586,
+        "positive_mass_error": 0.0035258564968841943
+      }
+    },
+    {
+      "kind": "learned",
+      "method": "tail",
+      "formal_configuration_index": 4,
+      "metrics": {
+        "w1_mean": 0.013984578960003734,
+        "ks_mean": 0.03360963868598099,
+        "mean_absolute_error": 0.013655408271993186,
+        "variance_relative_error": 0.054757859606110904,
+        "positive_mass_error": 0.0034034909128400764
+      }
+    }
+  ],
+  "training_smoke_updates": 20,
+  "passed": [
+    "clean checkout",
+    "both complete fixed manifests",
+    "frozen source extraction",
+    "estimator and exact Bayes checks",
+    "fresh training with finite changed weights",
+    "four representative CPU trajectories with independent metrics",
+    "936 certificate configurations reproduced",
+    "all four extension figure PNGs byte-identical"
+  ],
+  "failed": [],
+  "blocked": [],
+  "not_run": [
+    "repeat of all 2080 GPU sampling cells",
+    "repeat of five complete GPU training runs",
+    "bitwise CPU/GPU equality"
+  ]
+}

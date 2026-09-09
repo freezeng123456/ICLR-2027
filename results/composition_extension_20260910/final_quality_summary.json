@@ -1,0 +1,50 @@
+{
+  "status": "passed_with_documented_scope_limits",
+  "sampling_cells": 4060,
+  "complete_trajectory_cells_with_raw_particle_audit": 3580,
+  "one_step_cells_with_stored_diagnostic_audit": 480,
+  "complete_training_runs": 5,
+  "updates_per_training_run": 40000,
+  "separate_deterministic_certificate_configurations": 936,
+  "successful_formal_gpu_array_tasks": 125,
+  "formal_allocated_gpu_hours": 7.64,
+  "earlier_failed_attempt_allocated_gpu_hours": 1.0377777777777781,
+  "recovered_file_hashes_verified": 35661,
+  "raw_archives": 3,
+  "body_pages": 9,
+  "complete_pdf_pages": 22,
+  "clean_checkout_analysis_commit": "9a9778f855261940f20b64bc4683d44c85d2840d",
+  "passed": [
+    "All formal configurations, completion records and successful task exits",
+    "All recovered raw file hashes and three archive receipts",
+    "Independent particle metric and reference-density audits",
+    "Five fixed final checkpoints: complete updates, finite changed weights, independent validation and conditional KL",
+    "Exact estimator, Bayes identity and Gaussian recursion cross-checks",
+    "Without-replacement prefix/suffix proof and exhaustive small-system comparisons",
+    "Clean-checkout representative CPU sampling and fresh training",
+    "All 936 deterministic certificate configurations reproduced",
+    "Four extension figures byte-identical and four derived CSV tables identical",
+    "All 22 manuscript pages visually inspected and independently rebuilt with byte-identical page PNGs",
+    "Final SCNet account queue empty"
+  ],
+  "failed_verification_checks": [],
+  "blocked": [],
+  "operational_failures_resolved": [
+    "Earlier home-storage allocation exhausted: 45 failed and 40 cancelled array tasks; unchanged frozen protocol completed in existing private shared storage; failed-attempt logs retained and excluded from formal results"
+  ],
+  "not_run_or_not_covered": [
+    "Complete second execution of all GPU experiments and five full trainings",
+    "Bitwise CPU/GPU equality",
+    "Independent reconstruction of every original one-step particle: protocol retained histograms and top weights only",
+    "Real-world SBI benchmarks or arbitrary neural score architectures",
+    "Noncommuting covariance tails or general-mixture zero-denominator boundary",
+    "Independent human scientific review, GitHub publication or conference submission"
+  ],
+  "scientific_limits": [
+    "Finite population integrability does not imply accurate or faster particle sampling",
+    "The 25 learned checkpoint/dataset pairs are crossed combinations, not 25 independent trainings",
+    "The U sweep changes both initialization level and time grid at fixed K",
+    "Learned-factor parameters are predicted once per context, outside sampler time",
+    "Runtime accounting excludes smoke jobs, packaging and local CPU audits"
+  ]
+}
