@@ -14,7 +14,7 @@ Arruda et al., *Compositional amortized inference for large-scale hierarchical B
 
 第 3.2 节式 (7)–(9) 中 damping 满足 d(0)=1，在高噪声端减弱累积贡献；文中强调直接永久缩放会改变目标后验。第 4.1 节报告大数据规模下校准和 KL 仍会变差，调整调度有所缓解。这是作者结果，尚未复现。
 
-待研究：数值轨迹稳定性与零噪声端学习 score 的条件系统偏差是否可分离；我们的高斯偏差分解只是理解这一问题的基础，尚无超出该文和相关 SBI 理论的贡献。需核查完整证明和官方代码后再作判断。
+官方代码已固定于 `f01a3add0b02e420fcf8b61e629f6b202954b4b6`。针对其允许的指数 damping，已建立局部 score 完全精确时的终点偏差反例，见 `ORACLE_COMPOSITION_AUDIT.md`。这是特定解析条件的独立审计，未复现作者的神经模型与全部超参数实验。
 
 ## R2：分层上下文学习
 
@@ -34,6 +34,18 @@ Volpp et al., *Bayesian Context Aggregation for Neural Processes*，ICLR 2021；
 
 研究助手已核查其 Bayesian aggregation 与 task ambiguity 设定。需要进一步精读才可声称具体定理不覆盖当前候选。仅使用乘积或 Bayesian aggregation 不是足够的方法创新。
 
+## R5：真实扩散后验的修正
+
+Linhart et al., *Diffusion posterior sampling for simulation-based inference in tall data settings*，TMLR 2026，[作者全文 v3](https://arxiv.org/html/2404.07593v3)。
+
+已核查第 2.3、3.1–3.3 节与附录 M。式 (12) 给出 backward-kernel correction，GAUSS/JAC 对真实 Gaussian components 可恢复精确目标 score。JAC 的状态依赖协方差、停止相应梯度与残差 F，以及 GAUSS 的固定协方差近似构成具体边界。独立代数核验 297 个条件通过。一般的 Gaussian path correction 已被覆盖。
+
+## R6：一般组合路径的粒子校正
+
+[Soiffer et al., arXiv:2606.23920v1](https://arxiv.org/html/2606.23920)，2026-06-22 预印本。已核查第 4.1 节与附录 C 的关键公式：已有高斯 ODE 组合偏差分析，并明确区分 inference-time approximation 与 score estimation error；Feynman–Kac 校正已有前作。本项目不把“完美 score 仍存在组合偏差”作为首次发现。
+
+[Lee et al., ACE, arXiv:2512.10339v2](https://arxiv.org/html/2512.10339)，2026-06-01 版本。已核查第 2.4 节 Theorem 2.3，时变指数需要相应粒子权重修正。一般时变 damping 加粒子修正已有先例。尚未核查其全部实现和实验，也没有复现。
+
 ## 候选判定
 
-当前没有已通过新颖性检验的主线。优先检查 R1 的残余统计误差与其已解决的数值误差之间是否存在有价值、可证明的区别，同时追溯 simulation-based calibration 与 approximate likelihood 的相关理论。若强基线已完整覆盖，则结束当前候选；保留解析参照用于下一个有依据的问题。
+当前没有已通过新颖性检验的新算法。正在集中论证方差可控的小批量后验校正。已建立的障碍是无偏 score 代入平方校正会额外偏置；交叉批量估计可以恢复瞬时期望，但其方差和指数权重偏差仍待处理。经典控制变量或随机权重 SMC 若已完整覆盖拟议构造，则结束该候选。具体论证要求见 `ORACLE_COMPOSITION_AUDIT.md`。
