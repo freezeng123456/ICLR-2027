@@ -43,7 +43,7 @@
  =(1+hB)X+\widetilde q(X)+\sqrt{\kappa h}\,\xi,
 \]
 
-其中 \(\xi\sim N(0,1)\) 独立，\(\widetilde q=hq\) 有界。若 \(A=1+hB\)，并且 \(A\ne0\)，则 \(Y\) 的密度满足
+其中 \(\xi\sim N(0,1)\) 独立，\(\widetilde q=hq\) 有界。令 \(A=1+hB\)，则 \(Y\) 的密度满足
 
 \[
  \log p_Y(y)
@@ -54,46 +54,54 @@
 \tag{4}
 \]
 
-若 \(D<0\)，加权 normalizer 无穷大。若 \(D=0\)，仅凭 (1)–(2) 不能作统一判断。\(A=0\) 时线性尾部被有界 drift 截断，输出的 quadratic parameter 不由 (4) 给出，应另行分析。
+若 \(D<0\)，加权 normalizer 无穷大。若 \(D=0\)，仅凭 (1)–(2) 不能作统一判断。\(A=0\) 时，(4) 给出 \(V_Y=\kappa h\)，仍然成立。
 
 ## Proof
 
 由 (1)–(2)，未归一化 tilted density 的对数上下界为
 
 \[
- -\frac{D}{2V}x^2-(L+L_g)|x|-C'
+ -\frac{D}{2V}x^2-(L+hL_g)|x|-C'
  \le \log[p(x)e^{hg(x)}]
  \le
- -\frac{D}{2V}x^2+(L+L_g)|x|+C'.
+ -\frac{D}{2V}x^2+(L+hL_g)|x|+C'.
 \tag{5}
 \]
 
 若 \(D>0\)，两端都是可积的 Gaussian quadratic envelope。配方说明归一化后的上下包络都具有 quadratic coefficient \(D/(2V)\)，即 (3)，线性项只改变 \(O(|x|)\)。若 \(D<0\)，右侧权重在 \(|x|\to\infty\) 时至少按正二次指数增长，左侧下界给出发散积分。\(D=0\) 时只剩线性上下界，线性项的符号和更高阶项决定可积性，不能统一判定。
 
-对输出密度，写 \(a=|A|>0\)、\(K=\|\widetilde q\|_\infty\)、\(\tau^2=\kappa h\)。条件 Gaussian 密度为
+对输出密度，写 \(K=\|\widetilde q\|_\infty\)、\(\tau^2=\kappa h\)。条件 Gaussian 密度为
 
 \[
  p_Y(y)=\int p_X(x)\,
  \varphi_\tau\!\left(y-Ax-\widetilde q(x)\right)\,dx.
 \]
 
-由于 \(|\widetilde q(x)|\le K\)，有逐点上下界
+由于 \(|\widetilde q(x)|\le K\)，令 \(z=y-Ax\)，有逐点上下界
 
 \[
- \varphi_\tau(y-Ax+K)
- \le
- \varphi_\tau(y-Ax-\widetilde q(x))
- \le
- \varphi_\tau(y-Ax-K),
+ e^{-K|z|/\tau^2-K^2/(2\tau^2)}
+ \le \frac{\varphi_\tau(z-\widetilde q(x))}{\varphi_\tau(z)}
+ \le e^{K|z|/\tau^2}.
 \]
 
-其中左、右的 \(K\) 可按 \(y\) 的方向交换；等价地，两侧均可由有限个平移后的 Gaussian convolution 包络。将 (1) 中的线性项拆为两个指数项，并完成平方，Gaussian convolution 的二次系数为
+将 tilted density 的包络乘入，基准 Gaussian 联合密度为 \(\varphi_{\sqrt{V_{\mathrm{tilt}}}}(x)\varphi_\tau(y-Ax)\)。其 \(Y\) 边际方差是
 
 \[
- \left(a^2V_{\mathrm{tilt}}+\tau^2\right)^{-1}.
+ W=A^2V_{\mathrm{tilt}}+\tau^2.
 \]
 
-有界 \(K\) 和所有线性项只改变 \(O(|y|)\)；因此得到 (4)。这个证明只用有界性和 \(\kappa h>0\) 的 Gaussian convolution，不需要 \(q\) 连续或可微。
+条件分布 \(X\mid Y=y\) 为 Gaussian，其均值是 \(AV_{\mathrm{tilt}}y/W\)，方差是 \(V_{\mathrm{tilt}}\tau^2/W\)。对任意固定非负 \(L_1,L_2\)，Gaussian 的绝对值指数矩与三角不等式给出
+\[
+ E[e^{L_1|X|+L_2|y-AX|}\mid Y=y]\le e^{C_1|y|+C_2}.
+\]
+下界由 Jensen 不等式给出
+\[
+ E[e^{-L_1|X|-L_2|y-AX|}\mid Y=y]
+ \ge e^{-L_1E|X|-L_2E|y-AX|}
+ \ge e^{-C_3|y|-C_4}.
+\]
+所以 \(p_Y(y)/\varphi_{\sqrt W}(y)\) 被 \(e^{\pm(C|y|+C')}\) 夹住，得到 (4)。当 \(A=0\) 时同一个论证仍然成立。证明只需要 \(q\) 有界可测及 \(\kappa h>0\)，无需连续性或可微性。
 
 ## 对共享 covariance Gaussian mixtures 的推论
 

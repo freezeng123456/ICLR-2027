@@ -1,0 +1,197 @@
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx,booktabs,microtype}
+\usepackage{hyperref,url}
+\usepackage{etoolbox}
+\hypersetup{hidelinks}
+\makeatletter
+\patchcmd{\@maketitle}{Under review as a conference paper at ICLR 2027}{Research draft in ICLR 2027 format; not submitted}{}{\errmessage{Draft header patch failed}}
+\patchcmd{\@maketitle}{Paper under double-blind review}{Research draft; not submitted}{}{\errmessage{Draft author patch failed}}
+\makeatother
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\Normal}{\mathcal N}
+\newcommand{\Uest}{\mathrm U}
+\title{Integrability of Subsampled Compositional Diffusions}
+\author{Anonymous authors}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Compositional diffusion inference combines many factor scores, making subsampling attractive when evaluating every factor is expensive. For a Feynman--Kac correction, however, an unbiased estimate of the instantaneous potential is exponentiated to obtain a positive particle weight. We study whether the resulting population operator has a finite normalizing constant. For Gaussian factors, we give an exact reachable-variance recursion and reduce its validity check to two extreme batches per time step, independently of every finite batch size. A four-factor example has a finite full-factor update and an infinite subsampled normalizer for every finite batch size, even as the local estimator mean squared error tends to zero. We then construct an unbiased control-variate estimator that preserves the deterministic quadratic tail of equal-component-variance Gaussian mixtures. Its strict integrability domain agrees with that of the full-factor discretization. Controlled oracle-score experiments examine the separation between population integrability, finite-particle behavior, and approximation error. The results identify tail curvature as a validity condition for exponential subsampling, alongside the usual variance and computational-cost criteria.
+\end{abstract}
+
+\section{Introduction}
+Compositional inference uses separately available conditional distributions to build a posterior for multiple observations or groups. This structure is useful in simulation-based inference, where amortized factor models can be reused across datasets. Recent work develops diffusion posterior sampling for tall data \citep{linhart2026}, and compositional amortized inference for large hierarchical models \citep{arruda2026}. Evaluating all factor scores at each particle and diffusion time can nevertheless dominate inference cost. A natural computational question is whether a small random batch of factor scores can replace the full sum.
+
+That question becomes delicate when composition is accompanied by Feynman--Kac weighting. The correction contains a quadratic expression in the composed score. An unbiased estimator of this expression is straightforward to construct with independent, uniformly sampled factor indices. Its exponential is positive, and any finite collection of sampled states produces finite real-valued log weights in exact arithmetic. Neither property guarantees that the population weight can be integrated. A rare batch can create an excessively positive quadratic potential in a Gaussian tail, making its expected exponential infinite.
+
+This paper studies that existence question for a specified weighted Euler discretization. The issue is separate from the established mismatch between composed intermediate distributions and forward-noised target distributions, and from learned score error \citep{linhart2026,soiffer2026}. We use exact factor scores so that these additional approximation sources do not obscure the effect of random exponential weights. We also distinguish finite normalizing constants from small endpoint error: a valid discretization may still be inaccurate, and a finite-particle sample may appear accurate when its population operator is undefined.
+
+Our main result makes this distinction computable. For scalar Gaussian factors with nonnegative residual precisions, the largest variance reachable over all finite batch histories evolves by a two-choice recursion. The choices are batches containing only the weakest or only the strongest factor. These events have positive probability for every finite batch size, so increasing the batch size can reduce estimator mean squared error without changing the integrability certificate. A closed-form four-factor example exhibits this separation in a single step. For non-Gaussian factors with a shared variance within each Gaussian mixture, we preserve the deterministic quadratic tail through an affine control variate. We prove equality of the strict integrability domains of this estimator and the full-factor update. The empirical study reports both the certificates and the observed particle errors.
+
+\section{Compositional flow and random exponential weights}
+Let $\varphi$ be the standard Gaussian density on $\R^d$. Factor density $q_{g,0}$ evolves under the variance-preserving Ornstein--Uhlenbeck process
+\begin{equation}
+ dX_u=-\tfrac12X_u\,du+dW_u,\qquad
+ X_u=e^{-u/2}X_0+\sqrt{1-e^{-u}}\,\xi.
+\end{equation}
+Write $s_g(x,u)=\nabla\log q_{g,u}(x)$, $r_g=s_g+x$, and $R=\sum_{g=1}^G r_g$. The unnormalized compositional path is
+\begin{equation}\label{eq:path}
+ \rho_u(x)=\varphi(x)^{1-G}\prod_{g=1}^Gq_{g,u}(x),\qquad
+ \nabla\log\rho_u=-x+R.
+\end{equation}
+We assume this path is integrable over the interval considered. With reverse time $t=U-u$, define
+\begin{equation}\label{eq:drift-potential}
+ b_\kappa(x,u)=\frac{1+\kappa}{2}R(x,u)-\frac\kappa2x,
+ \qquad
+ g(x,u)=\frac12\left(\|R(x,u)\|^2-\sum_{g=1}^G\|r_g(x,u)\|^2\right),
+\end{equation}
+where $\kappa>0$. Direct differentiation gives
+\begin{equation}\label{eq:fk}
+ -\partial_u\rho_u=-\nabla\cdot(b_\kappa\rho_u)+\frac\kappa2\Delta\rho_u+g\rho_u.
+\end{equation}
+Thus the normalized continuous flow is represented by a Feynman--Kac diffusion whenever its required moments exist. Appendix~\ref{app:flow} derives this identity. Our results concern the following discrete operator; they do not assert that its finite-step target equals $\rho_0$.
+
+For a step $h>0$ at level $u$, independently draw a batch $B=(I_1,\ldots,I_M)$, with each index uniform on $\{1,\ldots,G\}$. For $M\ge2$, define
+\begin{align}
+ \widehat R_B&=\frac GM\sum_{i=1}^M r_{I_i},\label{eq:Rhat}\\
+ \widehat g_{\Uest,B}&=\frac12\left\{
+ \frac{G^2}{M(M-1)}\sum_{i\ne j}r_{I_i}^{\mathsf T}r_{I_j}
+ -\frac GM\sum_i\|r_{I_i}\|^2\right\}.\label{eq:U}
+\end{align}
+Both are conditionally unbiased at every fixed $(x,u)$. The plug-in estimator $\widehat g_{\mathrm N}=\tfrac12(\|\widehat R\|^2-\tfrac GM\sum_i\|r_{I_i}\|^2)$ is also considered. Its conditional bias is $G^2\operatorname{tr}\Cov_I(r_I)/(2M)$.
+
+For either estimator, let $\widehat b_B=(1+\kappa)\widehat R_B/2-\kappa x/2$. The positive kernel and its normalized update are
+\begin{equation}\label{eq:kernel}
+ Q_{u,h}f(x)=\E_{B,\xi}\!\left[e^{h\widehat g_B(x,u)}
+ f\!\left(x+h\widehat b_B(x,u)+\sqrt{\kappa h}\,\xi\right)\right],
+ \qquad \Phi_{u,h}(\eta)(f)=\frac{\eta Q_{u,h}f}{\eta Q_{u,h}1}.
+\end{equation}
+The denominator must belong to $(0,\infty)$. Conditional unbiasedness of $\widehat g$ does not imply $\E_B e^{h\widehat g}=e^{hg}$ or that $\eta Q1$ is finite. We analyze this denominator before making any particle-convergence claim.
+
+\section{A batch-size-independent Gaussian certificate}
+In one dimension, Gaussian factors have $r_g(x,u)=-a_g(u)x+d_g(u)$. At a fixed level, suppress $u$ and suppose $a_g\ge0$. For a batch, put $m=M^{-1}\sum_i a_{I_i}$ and $s^2=M^{-1}\sum_i(a_{I_i}-m)^2$. The drift and potential have the form
+\begin{equation}\label{eq:quadratic}
+ \widehat b_B(x)=-\tfrac12((1+\kappa)\widehat A_B+\kappa)x+\text{constant},
+ \qquad \widehat g_B(x)=\widehat c_Bx^2+\text{linear terms},
+\end{equation}
+where $\widehat A_B=Gm$, and
+\begin{equation}\label{eq:batch-c}
+ \widehat c_{\Uest,B}=\frac12\left[G(G-1)m^2-
+ \left(\frac{G^2}{M-1}+G\right)s^2\right],\qquad
+ \widehat c_{\mathrm N,B}=\frac12[G(G-1)m^2-Gs^2].
+\end{equation}
+For the full-factor update, $A=\sum_g a_g$ and $c=(A^2-\sum_g a_g^2)/2$.
+
+\begin{lemma}[Conditional Gaussian update]\label{lem:gaussian}
+Suppose the normalized state conditional on a batch history is Gaussian with variance $V>0$. Its next conditional normalizer is finite if and only if
+\begin{equation}\label{eq:D}
+ D_B(V)=1-2h\widehat c_B V>0.
+\end{equation}
+When finite, the propagated conditional law is Gaussian with variance
+\begin{equation}\label{eq:variance}
+ F_B(V)=\frac{[1-h((1+\kappa)\widehat A_B+\kappa)/2]^2 V}{D_B(V)}+\kappa h.
+\end{equation}
+The criterion and variance are independent of the Gaussian mean and the linear terms in the potential.
+\end{lemma}
+\begin{proof}
+Multiplication by the weight changes the Gaussian precision from $V^{-1}$ to $V^{-1}-2h\widehat c_B$. A nonpositive precision gives an infinite integral on $\R$, including the zero-precision case. For positive precision, completing the square gives tilted variance $V/D_B(V)$. The affine Euler map and independent Gaussian noise give \eqref{eq:variance}.
+\end{proof}
+
+Every batch history has positive probability. If one of its conditional normalizers is infinite, Tonelli's theorem makes the joint nonnegative integral infinite. If all histories remain finite for a finite number of steps, their finite sum is finite. A direct check appears to require exponentially many histories. The following result removes that enumeration.
+
+\begin{theorem}[Two extreme batches suffice]\label{thm:extreme}
+Fix a finite time grid, $G\ge2$, $M\ge2$, and $\kappa>0$. Assume scalar Gaussian factors with $a_g(u_k)\ge0$ and an initial Gaussian variance $V_0>0$. For either estimator in \eqref{eq:batch-c}, set $V_{\max,0}=V_0$. At step $k$, let $a_-=\min_g a_g(u_k)$, $a_+=\max_g a_g(u_k)$ and define, for $z\in\{a_-,a_+\}$,
+\begin{equation}\label{eq:extreme-recursion}
+ D_z=1-h_kG(G-1)z^2V_{\max,k},\qquad
+ F_z=\frac{[1-h_k((1+\kappa)Gz+\kappa)/2]^2V_{\max,k}}{D_z}+\kappa h_k.
+\end{equation}
+If some $D_z\le0$, the population normalizer is infinite at this step. Otherwise set $V_{\max,k+1}=\max(F_{a_-},F_{a_+})$ and continue. Until failure, this is exactly the largest reachable conditional variance. Consequently the integrability decision is identical for every finite $M\ge2$, for both the plug-in and unbiased estimators.
+\end{theorem}
+\begin{proof}
+Both coefficients in \eqref{eq:batch-c} are at most $G(G-1)m^2/2$, with equality for a constant batch. Since $0\le m\le a_+$, a nonpositive denominator can occur if and only if it occurs for the constant strongest-factor batch at the largest reachable variance. On the common positive-denominator domain, $F_B(V)$ is nondecreasing in $V$ and in $\widehat c_B$ with $\widehat A_B$ fixed. It remains to maximize
+\[
+ f(m)=\frac{V[1-h((1+\kappa)Gm+\kappa)/2]^2}{1-hVG(G-1)m^2},\quad m\in[a_-,a_+].
+\]
+This function is convex. Indeed, with affine $n(m)=\sqrt V[1-h((1+\kappa)Gm+\kappa)/2]$ and positive concave $d(m)=1-hVG(G-1)m^2$,
+\[
+ f(m)=\sup_{z\in\R}\{2zn(m)-z^2d(m)\},
+\]
+the supremum of convex quadratics. Its maximum on the interval occurs at an endpoint. The corresponding constant batches exist for every $M$ and have positive probability. Induction establishes attainability of each maximum and the stated decision.
+\end{proof}
+
+The cost is $O(KG)$ to obtain the extrema and $O(K)$ scalar transitions, with no enumeration over $G^M$ batches. For diagonal product factors, apply the recursion to each coordinate: a single failing coordinate suffices for divergence, while positivity for every coordinate certifies every history.
+
+\subsection{An exact four-factor separation}
+Take zero-mean Gaussian factor precisions $1+\lambda_g$ with $\lambda=(1/10,1/5,2,4)$. At $u=\log2$, the residual precisions are $a=(1/21,1/11,1/2,2/3)$. The normalized compositional density is $\Normal(0,V)$ with $V=154/355$. For $h=1/2$ and $\kappa=1$,
+\begin{equation}\label{eq:counterexample}
+ A=\frac{201}{154},\quad c=\frac{346}{693},\quad
+ D_{\mathrm{full}}=\frac{2503}{3195}>0,\qquad
+ D_{\mathrm{all\ strongest}}=-\frac{167}{1065}<0.
+\end{equation}
+The all-strongest batch occurs with probability $4^{-M}$ and has $\widehat c=8/3$ for either estimator. Thus the subsampled normalizer is infinite for every finite $M$, whereas the full-factor update has log normalizer $-\tfrac12\log(2503/3195)$ and output variance
+\begin{equation}
+ [1-\tfrac12(A+\tfrac12)]^2\frac{154/355}{2503/3195}+\tfrac12.
+\end{equation}
+At each fixed state, both unbiased estimators converge in mean square as $M\to\infty$, because the index distribution has finite support. Their state-averaged mean squared errors also vanish for this Gaussian input. This limit does not interchange with the nonnegative exponential integral. For $P$ independent particle batches, the probability of observing at least one all-strongest batch is $1-(1-4^{-M})^P$; observing such a batch still does not guarantee an extreme sampled state.
+
+\section{Preserving the deterministic quadratic tail}
+Suppose each scalar factor is a finite Gaussian mixture whose components share variance $v_g$ but may have different means. After forward noising, its residual score admits
+\begin{equation}\label{eq:tail-decomposition}
+ r_g(x,u)=r_g^0(x,u)+e_g(x,u),\qquad
+ r_g^0=-a_g(u)x+d_g(u),\qquad \sup_x|e_g(x,u)|<\infty,
+\end{equation}
+where $a_g(u)=[1-e^{-u}+e^{-u}v_g]^{-1}-1$. One may use $d_g=e^{-u/2}\bar\mu_g/[1-e^{-u}+e^{-u}v_g]$, with $\bar\mu_g$ the mixture mean. The bound follows because the posterior component mean lies in the convex hull of finitely many component means. A Gaussian fit using the total mixture variance generally does not satisfy this bounded-residual property.
+
+Write $R_0=\sum_g r_g^0$ and $Q_0=\sum_g\|r_g^0\|^2$. Compute both affine/quadratic functions exactly. The tail-control estimator is
+\begin{align}\label{eq:tail-estimator}
+ \widehat R_{\mathrm T}&=R_0+\frac GM\sum_i e_{I_i},\\
+ \widehat g_{\mathrm T}&=\tfrac12(\|R_0\|^2-Q_0)
+ +R_0^{\mathsf T}\frac GM\sum_i e_{I_i}
+ -\frac GM\sum_i(r_{I_i}^0)^{\mathsf T}e_{I_i}\nonumber\\
+ &\hspace{8mm}+\frac12\left\{\frac{G^2}{M(M-1)}\sum_{i\ne j}e_{I_i}^{\mathsf T}e_{I_j}-\frac GM\sum_i\|e_{I_i}\|^2\right\}.\nonumber
+\end{align}
+Taking conditional expectations proves unbiasedness. Expanding $r_g=r_g^0+e_g$ gives exactly the full potential. Moreover, every batch has the same quadratic coefficient $c$ and the same linear drift coefficient as the full-factor construction; all random contributions to the potential grow at most linearly.
+
+\begin{theorem}[Strict integrability domain of tail control]\label{thm:tail}
+Consider scalar equal-component-variance Gaussian mixture factors, a finite grid with $\kappa>0$, and an initial density satisfying
+\begin{equation}\label{eq:envelope}
+ \log p_0(x)=-x^2/(2V_0)+O(1+|x|).
+\end{equation}
+At each step propagate the full-factor quadratic variance using \eqref{eq:variance} with $(A,c)$. If all resulting denominators are strictly positive, both the full-factor and tail-control population normalizers are finite. If the first nonpositive denominator is strictly negative, both normalizers are infinite there. This statement holds for every finite $M\ge2$. No claim is made at a zero denominator for general mixtures.
+\end{theorem}
+\begin{proof}
+For a density with \eqref{eq:envelope} and a potential $cx^2+O(1+|x|)$, weighting replaces its quadratic variance by $V/(1-2hcV)$ when the denominator is positive; a negative denominator forces an infinite integral. An affine map plus a bounded displacement followed by independent Gaussian noise preserves the quadratic-tail form, with variance \eqref{eq:variance}; Appendix~\ref{app:envelope} proves this step. Equation~\eqref{eq:tail-estimator} makes these quadratic coefficients common to every batch. Induction over the finite histories gives the result.
+\end{proof}
+
+The theorem certifies existence of the discretized population flow. It does not remove Euler error or the effect of exponentiating the bounded residual estimator. Its computational requirement is also explicit: the affine coefficient sums can be prepared once per time level in $O(Gd)$ work, followed by $M$ nonlinear factor evaluations per particle. The control requires known component tail variances, which limits its direct applicability to arbitrary learned score models.
+
+More generally, an arbitrary affine control also admits an exact strict-domain certificate: it suffices to evaluate the $G$ constant batches, each containing one repeated factor. Appendix~\ref{app:general-control} proves this extension and shows that the paired correction has the same strict integrability domain. Thus the moment-matched and tail-matched controls in our experiments can be classified using the same test, although only the latter preserves the full-factor domain by construction.
+
+\section{Experiments}\label{sec:experiments}
+\input{experiments}
+
+\section{Related work}
+Compositional diffusion methods address scalable posterior inference and the behavior of products of score models \citep{linhart2026,arruda2026,soiffer2026}. Our setup isolates an additional failure introduced by replacing a deterministic score-derived potential with an exponentiated random estimator. The compositional Feynman--Kac identity and the existence of path mismatch are background ingredients.
+
+Random-weight particle filters have long treated positive stochastic weights explicitly \citep{fearnhead2010}. Convergence with unbounded importance weights requires moment conditions \citep{mbalawata2016}, and particle stability analyses impose assumptions on the underlying Feynman--Kac flow \citep{whiteley2013}. Subsampling SMC uses approximately unbiased annealed likelihood estimators and auxiliary-variable updates \citep{gunawan2020}. These works establish the relevance of positivity, moments, and exponentiation bias. The contribution here is the two-extreme-batch certificate for a particular compositional weighted Euler operator, its independence of every finite with-replacement batch size, and the preservation of its strict domain through deterministic tail curvature. The Gaussian integral and the unbiased quadratic estimator are classical calculations.
+
+\section{Discussion}
+The certificate distinguishes three questions that are often evaluated together: existence of a population target, accuracy of its time discretization, and behavior of a finite particle approximation. With-replacement subsampling can fail the first question while producing finite samples and decreasing local mean squared error. This sampling assumption is substantive: all without-replacement subset sizes in our four-factor one-step example have finite normalizers (Appendix~\ref{app:without-replacement}). Tail control preserves the full-factor strict integrability domain for the stated mixture class, but its accuracy and wall-clock cost remain empirical questions. The analysis is restricted to scalar or diagonal product tails and a fixed weighted Euler construction. Extending the certificate to noncommuting matrix covariances, adaptive batch selection, and learned models with certified tail behavior requires additional arguments.
+
+\section*{AI use statement}
+An OpenAI coding agent was used for research ideation, literature searches, mathematical derivations, implementation, experiment orchestration, data analysis, and manuscript drafting. The automated verification accompanying this draft includes exact algebraic checks, numerical cross-checks, source and result provenance, and document compilation. This statement does not certify independent human review of the scientific claims. The authors must review the complete manuscript and artifacts before submission.
+
+\bibliography{references}
+\bibliographystyle{iclr2027_conference}
+\appendix
+\input{appendix}
+\end{document}

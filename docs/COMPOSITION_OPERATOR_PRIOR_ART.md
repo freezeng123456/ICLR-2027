@@ -21,9 +21,9 @@ The proposed local calculation separates the second-order contribution into
 \[
 h^2\left[
 \frac12\operatorname{Cov}(\widehat b):\nabla^2f
-\operatorname{Cov}(\widehat b,\widehat g)\!\cdot\!\nabla f
-\frac12\operatorname{Var}(\widehat g)f
-\cdots\right].
++\operatorname{Cov}(\widehat b,\widehat g)\!\cdot\!\nabla f
++\frac12\operatorname{Var}(\widehat g)f
+\right].
 \]
 
 The question is whether existing primary literature has already treated **all three terms together**—random drift, drift/potential correlation, and exponential-potential variance—in a compositional diffusion application with experiments.
@@ -132,4 +132,3 @@ Stop if the terms collapse to an ordinary Taylor identity, are fully explained b
 8. Gobet and Maire, *Sequential Control Variates for Functionals of Markov Processes*: https://doi.org/10.1137/040609124
 9. Del Moral et al., linear variance bounds for particle Feynman–Kac formulae: https://doi.org/10.1016/j.spa.2012.05.008
 10. Song et al., *Score-Based Generative Modeling through Stochastic Differential Equations*: https://arxiv.org/abs/2011.13456
-

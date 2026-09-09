@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "source_commit": "a66b5e3c37c8a33201d515c128157bb8028554e0",
+  "verified_files": 4599,
+  "verified_cells": 720,
+  "verified_slurm_tasks": 12,
+  "independent_metric_maximum_discrepancy": {
+    "w1_mean": 1.0805767558075274e-05,
+    "ks_mean": 2.220446049250313e-16,
+    "mean_absolute_error": 6.661338147750939e-16,
+    "variance_relative_error": 9.71445146547012e-16,
+    "positive_mass_error": 6.288223275419114e-10
+  },
+  "w1_tolerance": "one reference-grid interval; independent SciPy discrete-measure W1",
+  "other_metric_tolerance": 2e-06,
+  "passed": [
+    "all file hashes",
+    "all configs and completion markers",
+    "Slurm completed and exit zero",
+    "one GPU visible per cell",
+    "raw particle metrics via independent numerical routines"
+  ],
+  "failed": [],
+  "blocked": [],
+  "not_run": [
+    "learned neural score benchmarks",
+    "general non-diagonal covariance integrability",
+    "full raw one-step metric recomputation when only diagnostics retained"
+  ]
+}

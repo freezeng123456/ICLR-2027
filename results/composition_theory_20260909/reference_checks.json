@@ -1,0 +1,548 @@
+{
+  "status": "passed",
+  "families_verified": 12,
+  "coordinates_verified": 54,
+  "scope": "Adaptive quadrature over the whole real line using independently constructed SciPy Gaussian-mixture densities; comparison with saved fixed-grid references",
+  "rows": [
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 1,
+      "coordinate": 0,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 1.3877787807814457e-17,
+      "maximum_cdf_discrepancy": 1.1328192717208196e-07,
+      "relative_normalization_error_bound": 3.991712558325893e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 0,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 1.3877787807814457e-17,
+      "maximum_cdf_discrepancy": 1.1328192717208196e-07,
+      "relative_normalization_error_bound": 3.991712558325893e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 1,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 2.0816681711721685e-17,
+      "maximum_cdf_discrepancy": 1.1328192639492585e-07,
+      "relative_normalization_error_bound": 3.9917191287907266e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 2,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 1.3877787807814457e-17,
+      "maximum_cdf_discrepancy": 1.1328192817128269e-07,
+      "relative_normalization_error_bound": 3.991723219009415e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 3,
+      "mean_discrepancy": 3.3306690738754696e-16,
+      "variance_discrepancy": 6.938893903907228e-18,
+      "maximum_cdf_discrepancy": 1.1328192794923808e-07,
+      "relative_normalization_error_bound": 3.9917120102247053e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 4,
+      "mean_discrepancy": 0.0,
+      "variance_discrepancy": 3.469446951953614e-17,
+      "maximum_cdf_discrepancy": 1.1328192939252801e-07,
+      "relative_normalization_error_bound": 3.991710229972863e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 5,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 4.163336342344337e-17,
+      "maximum_cdf_discrepancy": 1.1328192817128269e-07,
+      "relative_normalization_error_bound": 3.991709753424754e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 6,
+      "mean_discrepancy": 2.220446049250313e-16,
+      "variance_discrepancy": 1.3877787807814457e-17,
+      "maximum_cdf_discrepancy": 1.1328192917048341e-07,
+      "relative_normalization_error_bound": 3.991709416825762e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 7,
+      "mean_discrepancy": 5.551115123125783e-16,
+      "variance_discrepancy": 2.0816681711721685e-17,
+      "maximum_cdf_discrepancy": 1.1328192817128269e-07,
+      "relative_normalization_error_bound": 3.9917157431542216e-11
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 1,
+      "coordinate": 0,
+      "mean_discrepancy": 2.220446049250313e-16,
+      "variance_discrepancy": 1.9081958235744878e-17,
+      "maximum_cdf_discrepancy": 4.3960369122686416e-07,
+      "relative_normalization_error_bound": 2.458417343801454e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 0,
+      "mean_discrepancy": 2.220446049250313e-16,
+      "variance_discrepancy": 1.9081958235744878e-17,
+      "maximum_cdf_discrepancy": 4.3960369122686416e-07,
+      "relative_normalization_error_bound": 2.458417343801454e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 1,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 2.7755575615628914e-17,
+      "maximum_cdf_discrepancy": 4.3960369111584185e-07,
+      "relative_normalization_error_bound": 2.4584154608543116e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 2,
+      "mean_discrepancy": 3.3306690738754696e-16,
+      "variance_discrepancy": 2.0816681711721685e-17,
+      "maximum_cdf_discrepancy": 4.39603693003221e-07,
+      "relative_normalization_error_bound": 2.4584151122694507e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 3,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 4.336808689942018e-17,
+      "maximum_cdf_discrepancy": 4.396036922260649e-07,
+      "relative_normalization_error_bound": 2.45841975527398e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 4,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 3.469446951953614e-17,
+      "maximum_cdf_discrepancy": 4.3960369155993106e-07,
+      "relative_normalization_error_bound": 2.4584195206840767e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 5,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 3.469446951953614e-17,
+      "maximum_cdf_discrepancy": 4.3960369167095337e-07,
+      "relative_normalization_error_bound": 2.458419840792919e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 6,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 1.5612511283791264e-17,
+      "maximum_cdf_discrepancy": 4.396036921150426e-07,
+      "relative_normalization_error_bound": 2.458418613253254e-10
+    },
+    {
+      "family": "gaussian",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 7,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 1.9081958235744878e-17,
+      "maximum_cdf_discrepancy": 4.3960369122686416e-07,
+      "relative_normalization_error_bound": 2.4584168295465724e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "coordinate": 0,
+      "mean_discrepancy": 4.0245584642661925e-16,
+      "variance_discrepancy": 6.661338147750939e-16,
+      "maximum_cdf_discrepancy": 5.152371843064607e-08,
+      "relative_normalization_error_bound": 1.0068599048255314e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 0,
+      "mean_discrepancy": 4.0245584642661925e-16,
+      "variance_discrepancy": 6.661338147750939e-16,
+      "maximum_cdf_discrepancy": 5.152371843064607e-08,
+      "relative_normalization_error_bound": 1.0068599048255314e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 1,
+      "mean_discrepancy": 3.0531133177191805e-16,
+      "variance_discrepancy": 4.440892098500626e-16,
+      "maximum_cdf_discrepancy": 5.1524520677803665e-08,
+      "relative_normalization_error_bound": 1.0068286989412463e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 2,
+      "mean_discrepancy": 3.3306690738754696e-16,
+      "variance_discrepancy": 1.1102230246251565e-15,
+      "maximum_cdf_discrepancy": 5.1520601979104796e-08,
+      "relative_normalization_error_bound": 1.006834692947881e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 3,
+      "mean_discrepancy": 1.3877787807814457e-17,
+      "variance_discrepancy": 6.661338147750939e-16,
+      "maximum_cdf_discrepancy": 5.15251631777458e-08,
+      "relative_normalization_error_bound": 1.0068455446244066e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 4,
+      "mean_discrepancy": 0.0,
+      "variance_discrepancy": 1.1102230246251565e-15,
+      "maximum_cdf_discrepancy": 5.1522837371531516e-08,
+      "relative_normalization_error_bound": 1.0068187491180666e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 5,
+      "mean_discrepancy": 6.938893903907228e-17,
+      "variance_discrepancy": 8.881784197001252e-16,
+      "maximum_cdf_discrepancy": 5.152146138887037e-08,
+      "relative_normalization_error_bound": 1.0068339944132047e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 6,
+      "mean_discrepancy": 1.249000902703301e-16,
+      "variance_discrepancy": 6.661338147750939e-16,
+      "maximum_cdf_discrepancy": 5.152567149335763e-08,
+      "relative_normalization_error_bound": 1.0068209991040879e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 7,
+      "mean_discrepancy": 2.914335439641036e-16,
+      "variance_discrepancy": 6.661338147750939e-16,
+      "maximum_cdf_discrepancy": 5.152128268459677e-08,
+      "relative_normalization_error_bound": 1.0068463243529482e-11
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "coordinate": 0,
+      "mean_discrepancy": 5.551115123125783e-17,
+      "variance_discrepancy": 4.440892098500626e-16,
+      "maximum_cdf_discrepancy": 1.744583409957201e-07,
+      "relative_normalization_error_bound": 1.0982284218337758e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 0,
+      "mean_discrepancy": 5.551115123125783e-17,
+      "variance_discrepancy": 4.440892098500626e-16,
+      "maximum_cdf_discrepancy": 1.744583409957201e-07,
+      "relative_normalization_error_bound": 1.0982284218337758e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 1,
+      "mean_discrepancy": 5.551115123125783e-16,
+      "variance_discrepancy": 2.220446049250313e-16,
+      "maximum_cdf_discrepancy": 1.7445834188389853e-07,
+      "relative_normalization_error_bound": 1.0982338535994186e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 2,
+      "mean_discrepancy": 9.992007221626409e-16,
+      "variance_discrepancy": 1.3322676295501878e-15,
+      "maximum_cdf_discrepancy": 1.7445834399332227e-07,
+      "relative_normalization_error_bound": 1.0982338716721531e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 3,
+      "mean_discrepancy": 1.1102230246251565e-16,
+      "variance_discrepancy": 6.661338147750939e-16,
+      "maximum_cdf_discrepancy": 1.7445834232798774e-07,
+      "relative_normalization_error_bound": 1.0982359390109507e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 4,
+      "mean_discrepancy": 1.27675647831893e-15,
+      "variance_discrepancy": 8.881784197001252e-16,
+      "maximum_cdf_discrepancy": 1.7445834243901004e-07,
+      "relative_normalization_error_bound": 1.0982323280479977e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 5,
+      "mean_discrepancy": 1.27675647831893e-15,
+      "variance_discrepancy": 8.881784197001252e-16,
+      "maximum_cdf_discrepancy": 1.7445834443741148e-07,
+      "relative_normalization_error_bound": 1.0982349974964485e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 6,
+      "mean_discrepancy": 5.551115123125783e-17,
+      "variance_discrepancy": 4.440892098500626e-16,
+      "maximum_cdf_discrepancy": 1.744583447704784e-07,
+      "relative_normalization_error_bound": 1.0982336152362206e-10
+    },
+    {
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 7,
+      "mean_discrepancy": 1.27675647831893e-15,
+      "variance_discrepancy": 4.440892098500626e-16,
+      "maximum_cdf_discrepancy": 1.7445834232798774e-07,
+      "relative_normalization_error_bound": 1.0982330016574336e-10
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "coordinate": 0,
+      "mean_discrepancy": 1.0234868508263162e-16,
+      "variance_discrepancy": 1.6653345369377348e-16,
+      "maximum_cdf_discrepancy": 1.7770275237416477e-08,
+      "relative_normalization_error_bound": 1.28913371971786e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 0,
+      "mean_discrepancy": 1.0234868508263162e-16,
+      "variance_discrepancy": 1.6653345369377348e-16,
+      "maximum_cdf_discrepancy": 1.7770275237416477e-08,
+      "relative_normalization_error_bound": 1.28913371971786e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 1,
+      "mean_discrepancy": 3.8163916471489756e-17,
+      "variance_discrepancy": 2.220446049250313e-16,
+      "maximum_cdf_discrepancy": 1.777027527904984e-08,
+      "relative_normalization_error_bound": 1.289132461911243e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 2,
+      "mean_discrepancy": 3.469446951953614e-17,
+      "variance_discrepancy": 1.942890293094024e-16,
+      "maximum_cdf_discrepancy": 1.777027527904984e-08,
+      "relative_normalization_error_bound": 1.2891330287399142e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 3,
+      "mean_discrepancy": 1.1622647289044608e-16,
+      "variance_discrepancy": 1.1102230246251565e-16,
+      "maximum_cdf_discrepancy": 1.7770275181905326e-08,
+      "relative_normalization_error_bound": 1.2891298449498546e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 4,
+      "mean_discrepancy": 4.163336342344337e-17,
+      "variance_discrepancy": 1.942890293094024e-16,
+      "maximum_cdf_discrepancy": 1.7770275195783114e-08,
+      "relative_normalization_error_bound": 1.2891320008526112e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 5,
+      "mean_discrepancy": 4.683753385137379e-17,
+      "variance_discrepancy": 1.942890293094024e-16,
+      "maximum_cdf_discrepancy": 1.7770275320683204e-08,
+      "relative_normalization_error_bound": 1.28913333629399e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 6,
+      "mean_discrepancy": 7.806255641895632e-17,
+      "variance_discrepancy": 8.326672684688674e-17,
+      "maximum_cdf_discrepancy": 1.777027529292763e-08,
+      "relative_normalization_error_bound": 1.2891319298590375e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "coordinate": 7,
+      "mean_discrepancy": 6.245004513516506e-17,
+      "variance_discrepancy": 1.942890293094024e-16,
+      "maximum_cdf_discrepancy": 1.777027527904984e-08,
+      "relative_normalization_error_bound": 1.2891307242806894e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "coordinate": 0,
+      "mean_discrepancy": 1.43982048506075e-16,
+      "variance_discrepancy": 7.771561172376096e-16,
+      "maximum_cdf_discrepancy": 2.7585754402981166e-08,
+      "relative_normalization_error_bound": 1.465429707598136e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 0,
+      "mean_discrepancy": 1.43982048506075e-16,
+      "variance_discrepancy": 7.771561172376096e-16,
+      "maximum_cdf_discrepancy": 2.7585754402981166e-08,
+      "relative_normalization_error_bound": 1.465429707598136e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 1,
+      "mean_discrepancy": 1.97758476261356e-16,
+      "variance_discrepancy": 7.771561172376096e-16,
+      "maximum_cdf_discrepancy": 2.7585754583392408e-08,
+      "relative_normalization_error_bound": 1.4654314807206567e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 2,
+      "mean_discrepancy": 1.5612511283791264e-17,
+      "variance_discrepancy": 9.992007221626409e-16,
+      "maximum_cdf_discrepancy": 2.758575474992586e-08,
+      "relative_normalization_error_bound": 1.4654214541118562e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 3,
+      "mean_discrepancy": 3.469446951953614e-18,
+      "variance_discrepancy": 5.551115123125783e-16,
+      "maximum_cdf_discrepancy": 2.758575444461453e-08,
+      "relative_normalization_error_bound": 1.4654198486631998e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 4,
+      "mean_discrepancy": 1.9081958235744878e-16,
+      "variance_discrepancy": 8.049116928532385e-16,
+      "maximum_cdf_discrepancy": 2.7585754583392408e-08,
+      "relative_normalization_error_bound": 1.465417184517453e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 5,
+      "mean_discrepancy": 9.194034422677078e-17,
+      "variance_discrepancy": 7.771561172376096e-16,
+      "maximum_cdf_discrepancy": 2.758575450012568e-08,
+      "relative_normalization_error_bound": 1.465419017374992e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 6,
+      "mean_discrepancy": 1.249000902703301e-16,
+      "variance_discrepancy": 5.551115123125783e-16,
+      "maximum_cdf_discrepancy": 2.758575476380365e-08,
+      "relative_normalization_error_bound": 1.465429106219948e-11
+    },
+    {
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "coordinate": 7,
+      "mean_discrepancy": 1.3183898417423734e-16,
+      "variance_discrepancy": 6.106226635438361e-16,
+      "maximum_cdf_discrepancy": 2.7585754458492318e-08,
+      "relative_normalization_error_bound": 1.4654230713482203e-11
+    }
+  ]
+}

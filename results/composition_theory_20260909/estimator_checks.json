@@ -1,0 +1,23 @@
+{
+  "unbiased_control_False": 2.7755575615628914e-17,
+  "unbiased_control_True": 1.3877787807814457e-17,
+  "gaussian_control_exactness": 2.842170943040401e-14,
+  "tail_control_unbiasedness": 9.71445146547012e-17,
+  "tail_residual_bound": "passed",
+  "quadrature_moment_difference": 2.220446049250313e-16,
+  "fk_identity_error": 3.122502256758253e-16,
+  "drift_identity_error": 2.7755575615628914e-17,
+  "status": "passed",
+  "runtime": {
+    "python": "3.12.4",
+    "python_executable": "/Users/zenghang/Documents/Codex/2026-09-09/https-github-com-freezeng123456-iclr-2027/work/venv/bin/python",
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "host": "FREEZENG-MC0",
+    "cuda_visible_devices": null,
+    "slurm_job_id": null,
+    "slurm_cpus_per_task": null,
+    "gpu": null,
+    "source_sha256": "123afe544dbf168ac440aead22aca3bf61faedc610fbcfedd5d9f2d5fa9ca4eb"
+  }
+}

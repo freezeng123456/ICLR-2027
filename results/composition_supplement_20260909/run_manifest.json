@@ -1,0 +1,6730 @@
+{
+  "commit": "a66b5e3c37c8a33201d515c128157bb8028554e0",
+  "expected_cells": 720,
+  "tasks": 12,
+  "concurrency": 4,
+  "task_hours_limit": 0.3333333333333333,
+  "maximum_allocated_gpu_hours": 4,
+  "cells": [
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 16,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 1,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 128,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 512,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 0,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 1,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 2,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 3,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "tail",
+      "family": "weak_mixture",
+      "groups": 64,
+      "dimension": 8,
+      "steps": 2048,
+      "seed": 4,
+      "method": "tail_cumulant",
+      "batch": 4,
+      "particles": 8192,
+      "u_max": 20.0,
+      "ess_threshold": 0.5,
+      "diffusion": 1.0
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 0,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 0,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 0,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 0,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 0,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 0,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 1,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 1,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 1,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 1,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 1,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 1,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 2,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 2,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 2,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 2,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 2,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 2,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 3,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 3,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 3,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 3,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 3,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 3,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 4,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 4,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 4,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 4,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 4,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 4,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 5,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 5,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 5,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 5,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 5,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 5,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 6,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 6,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 6,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 6,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 6,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 6,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 7,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 7,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 7,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 7,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 7,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 7,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 8,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 8,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 8,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 8,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 8,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 8,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 9,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 9,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 9,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 9,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 9,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 9,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 10,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 10,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 10,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 10,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 10,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 10,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 11,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 11,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 11,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 11,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 11,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 11,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 12,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 12,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 12,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 12,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 12,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 12,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 13,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 13,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 13,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 13,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 13,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 13,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 14,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 14,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 14,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 14,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 14,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 14,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 15,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 15,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 15,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 15,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 15,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 15,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 16,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 16,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 16,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 16,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 16,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 16,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 17,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 17,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 17,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 17,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 17,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 17,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 18,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 18,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 18,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 18,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 18,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 18,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 19,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 19,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 19,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 19,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 19,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1024,
+      "seed": 19,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 0,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 0,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 0,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 0,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 0,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 0,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 1,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 1,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 1,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 1,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 1,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 1,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 2,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 2,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 2,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 2,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 2,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 2,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 3,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 3,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 3,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 3,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 3,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 3,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 4,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 4,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 4,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 4,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 4,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 4,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 5,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 5,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 5,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 5,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 5,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 5,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 6,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 6,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 6,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 6,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 6,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 6,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 7,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 7,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 7,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 7,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 7,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 7,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 8,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 8,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 8,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 8,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 8,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 8,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 9,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 9,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 9,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 9,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 9,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 9,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 10,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 10,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 10,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 10,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 10,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 10,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 11,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 11,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 11,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 11,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 11,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 11,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 12,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 12,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 12,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 12,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 12,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 12,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 13,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 13,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 13,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 13,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 13,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 13,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 14,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 14,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 14,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 14,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 14,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 14,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 15,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 15,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 15,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 15,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 15,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 15,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 16,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 16,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 16,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 16,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 16,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 16,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 17,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 17,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 17,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 17,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 17,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 17,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 18,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 18,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 18,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 18,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 18,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 18,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 19,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 19,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 19,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 19,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 19,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 16384,
+      "seed": 19,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 0,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 0,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 0,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 0,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 0,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 0,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 1,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 1,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 1,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 1,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 1,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 1,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 2,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 2,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 2,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 2,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 2,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 2,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 3,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 3,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 3,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 3,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 3,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 3,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 4,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 4,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 4,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 4,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 4,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 4,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 5,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 5,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 5,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 5,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 5,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 5,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 6,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 6,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 6,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 6,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 6,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 6,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 7,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 7,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 7,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 7,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 7,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 7,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 8,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 8,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 8,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 8,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 8,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 8,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 9,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 9,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 9,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 9,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 9,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 9,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 10,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 10,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 10,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 10,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 10,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 10,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 11,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 11,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 11,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 11,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 11,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 11,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 12,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 12,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 12,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 12,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 12,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 12,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 13,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 13,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 13,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 13,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 13,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 13,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 14,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 14,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 14,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 14,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 14,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 14,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 15,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 15,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 15,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 15,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 15,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 15,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 16,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 16,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 16,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 16,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 16,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 16,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 17,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 17,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 17,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 17,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 17,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 17,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 18,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 18,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 18,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 18,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 18,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 18,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 19,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 19,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 19,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 19,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 19,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 262144,
+      "seed": 19,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 0,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 0,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 0,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 0,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 0,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 0,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 1,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 1,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 1,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 1,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 1,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 1,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 2,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 2,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 2,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 2,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 2,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 2,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 3,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 3,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 3,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 3,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 3,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 3,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 4,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 4,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 4,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 4,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 4,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 4,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 5,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 5,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 5,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 5,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 5,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 5,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 6,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 6,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 6,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 6,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 6,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 6,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 7,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 7,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 7,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 7,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 7,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 7,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 8,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 8,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 8,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 8,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 8,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 8,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 9,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 9,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 9,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 9,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 9,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 9,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 10,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 10,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 10,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 10,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 10,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 10,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 11,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 11,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 11,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 11,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 11,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 11,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 12,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 12,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 12,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 12,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 12,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 12,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 13,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 13,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 13,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 13,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 13,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 13,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 14,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 14,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 14,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 14,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 14,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 14,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 15,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 15,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 15,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 15,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 15,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 15,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 16,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 16,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 16,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 16,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 16,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 16,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 17,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 17,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 17,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 17,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 17,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 17,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 18,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 18,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 18,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 18,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 18,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 18,
+      "batch": 32,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 19,
+      "batch": 2,
+      "method": "full"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 19,
+      "batch": 2,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 19,
+      "batch": 4,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 19,
+      "batch": 8,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 19,
+      "batch": 16,
+      "method": "unbiased"
+    },
+    {
+      "kind": "one_step",
+      "particles": 1048576,
+      "seed": 19,
+      "batch": 32,
+      "method": "unbiased"
+    }
+  ]
+}

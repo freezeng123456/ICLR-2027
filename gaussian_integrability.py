@@ -7,13 +7,42 @@ from pathlib import Path
 import numpy as np
 
 
-def coefficients(strengths, u, batch, method, exhaustive=False):
+def coefficients(strengths, u, batch, method, exhaustive=False, control_variance=None):
     groups = len(strengths)
     variance = 1 / (1 + strengths)
     a = 1 / (1 - np.exp(-u) + np.exp(-u) * variance) - 1
-    if method == "full":
+    if method == "cv":
+        assert control_variance is not None
+        control_a = 1 / (1 - np.exp(-u) + np.exp(-u) * control_variance) - 1
+        residual = a - control_a
+        control_sum = control_a.sum()
+        control_c = 0.5 * (control_sum ** 2 - (control_a * control_a).sum())
+        if exhaustive:
+            indices = np.array(list(itertools.product(range(groups), repeat=batch)))
+            values = residual[indices]
+            total = values.sum(1)
+            squared = (values * values).sum(1)
+            ahat = control_sum + groups * total / batch
+            chat = control_c + control_sum * groups * total / batch
+            chat -= groups * (control_a[indices] * values).mean(1)
+            chat += 0.5 * (groups ** 2 * (total * total - squared) / (batch * (batch - 1)) - groups * squared / batch)
+        else:
+            ahat = control_sum + groups * residual
+            chat = control_c + groups * (control_sum - control_a) * residual
+            chat += 0.5 * groups * (groups - 1) * residual ** 2
+    elif method == "full":
         ahat = np.array([a.sum()])
         chat = np.array([0.5 * (a.sum() ** 2 - (a * a).sum())])
+    elif method == "without_replacement":
+        assert 2 <= batch <= groups
+        indices = np.array(list(itertools.combinations(range(groups), batch)))
+        values = a[indices]
+        total = values.sum(1)
+        squared = (values * values).sum(1)
+        ahat = groups * total / batch
+        chat = groups * (groups - 1) * (total ** 2 - squared) / (2 * batch * (batch - 1))
+    elif method not in ("naive", "unbiased"):
+        raise ValueError(method)
     elif not exhaustive:
         extremes = np.array([a.min(), a.max()])
         ahat = groups * extremes
@@ -33,14 +62,14 @@ def coefficients(strengths, u, batch, method, exhaustive=False):
     return ahat, chat
 
 
-def audit_path(strengths, steps, batch, method, diffusion=1.0, maximum_u=20, exhaustive=False):
+def audit_path(strengths, steps, batch, method, diffusion=1.0, maximum_u=20, exhaustive=False, control_variance=None):
     grid = np.linspace(np.sqrt(maximum_u), 0, steps + 1) ** 2
     largest_variance = 1.0
     smallest_denominator = 1.0
     rows = []
     for k, (u, unext) in enumerate(zip(grid[:-1], grid[1:])):
         h = u - unext
-        a, c = coefficients(strengths, u, batch, method, exhaustive=exhaustive)
+        a, c = coefficients(strengths, u, batch, method, exhaustive=exhaustive, control_variance=control_variance)
         denominator = 1 - 2 * h * c * largest_variance
         smallest_denominator = min(smallest_denominator, float(denominator.min()))
         if denominator.min() <= 0:
@@ -85,7 +114,30 @@ def verify():
             if key in efficient:
                 np.testing.assert_allclose(efficient[key], exhaustive[key], rtol=1e-10, atol=1e-12)
         comparisons += 1
-    return {"rational_identities": "passed", "unbiased_batch_sizes_checked": [2, 3, 4], "full_denominator": "2503/3195", "bad_batch_denominator": "-167/1065", "extreme_vs_exhaustive_paths": comparisons, "status": "passed"}
+    controlled_comparisons = 0
+    for control_variance, steps, batch in itertools.product(
+        [np.array([1.2, 0.7, 0.6, 0.8]), np.array([0.3, 0.4, 0.5, 0.6])],
+        [16, 64, 128], [2, 3, 4],
+    ):
+        strengths = np.array([0.1, 0.2, 2, 4])
+        efficient = audit_path(strengths, steps, batch, "cv", control_variance=control_variance)
+        exhaustive = audit_path(strengths, steps, batch, "cv", control_variance=control_variance, exhaustive=True)
+        assert efficient["finite_normalizer"] == exhaustive["finite_normalizer"]
+        for key in ("failure_step", "variance_before", "maximum_terminal_component_variance", "smallest_denominator"):
+            if key in efficient:
+                np.testing.assert_allclose(efficient[key], exhaustive[key], rtol=1e-10, atol=1e-12)
+        controlled_comparisons += 1
+    without_replacement = []
+    for batch in (2, 3, 4):
+        values = []
+        for sample in itertools.combinations(a, batch):
+            c = Fraction(12, 2 * batch * (batch - 1)) * (sum(sample) ** 2 - sum(z ** 2 for z in sample))
+            values.append(c)
+        assert sum(values) / len(values) == full_c
+        minimum_denominator = 1 - max(values) * variance
+        assert minimum_denominator > 0
+        without_replacement.append({"batch": batch, "maximum_quadratic_coefficient": str(max(values)), "minimum_denominator": str(minimum_denominator), "finite_one_step_normalizer": True})
+    return {"rational_identities": "passed", "unbiased_batch_sizes_checked": [2, 3, 4], "full_denominator": "2503/3195", "bad_batch_denominator": "-167/1065", "extreme_vs_exhaustive_paths": comparisons, "controlled_vs_exhaustive_paths": controlled_comparisons, "without_replacement_one_step": without_replacement, "status": "passed"}
 
 
 def main():

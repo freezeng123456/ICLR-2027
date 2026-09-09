@@ -1,0 +1,79 @@
+The fixed protocol comprises 1,260 main cells and 720 supplementary cells. It uses exact Gaussian and Gaussian-mixture factor scores, isolating random-weight effects from learned-model approximation. All benchmark cells use 8,192 particles, $M=4$, $G\in\{16,64\}$, $d\in\{1,8\}$, $K\in\{128,512,2048\}$, and five random seeds. The reverse-time grid is $u_k=20(1-k/K)^2$, the initial distribution is $\Normal(0,I)$, and $\kappa=1$. The finite-$U$ initialization is an approximation to the exact compositional path. Reference marginals are computed by numerical quadrature on 65,537 points in $[-12,12]$.
+
+The main comparison includes full-factor weighting, an unweighted composed drift, plug-in weighting, unbiased quadratic weighting, a paired cumulant correction, and two moment-matched Gaussian control variants. The supplementary benchmark evaluates tail control and its paired correction on both mixture families. Paired corrections use two independent batches and the positive weight $\exp\{h(\widehat g_1+\widehat g_2)/2-h^2(\widehat g_1-\widehat g_2)^2/8\}$, with the averaged drift; they therefore require twice as many sampled factor evaluations. This correction is an empirical ablation, with no claim of exact exponential unbiasedness.
+
+For the one-step example in \eqref{eq:counterexample}, the supplementary study uses $P\in\{1{,}024,16{,}384,262{,}144,1{,}048{,}576\}$, $M\in\{2,4,8,16,32\}$, and 20 seeds, together with the full-factor update. We retain histograms and the 1,024 largest normalized particle weights for each one-step cell. The benchmark retains complete particle arrays and reference distributions.
+
+All 1,980 cells completed on SCNet RTX 3080 GPUs. We verified the source versions, 13,506 recovered file hashes, all 40 task exit records, and the complete cell configuration lists. Benchmark metrics were recomputed using independent numerical routines. Adaptive quadrature over the real line also verified all 54 reference coordinates, including analytic Gaussian checks. These are controlled oracle experiments; no learned score network is trained or evaluated.
+
+\subsection{Local error decreases while the normalizer remains infinite}
+Figure~\ref{fig:one-step} shows the one-step experiment. At $P=1{,}048{,}576$, increasing $M$ from 2 to 32 reduces mean potential MSE from $0.46798$ to $0.01857$, approximately a factor of 25. The median ESS fraction rises from $0.000424$ to $0.932706$. Nevertheless, \eqref{eq:counterexample} gives an infinite population normalizer for both batch sizes and every intermediate finite $M$.
+
+For $M=32$, the empirical mean log normalizer is $0.126047$ with standard deviation $0.000259$ across 20 seeds. The full-factor result is $0.122030\pm0.000234$, close to its exact value $0.122049$. No nonintegrable batch was sampled in these 20 runs of $1{,}048{,}576$ particles with $M=32$. The all-strongest event alone has probability $4^{-32}\approx5.42\times10^{-20}$ per batch. Its absence in this finite experiment cannot establish existence of the population target. For $M=2$, the median estimated log normalizer rises from $0.270$ at $P=1{,}024$ to $0.484$ at $P=1{,}048{,}576$, accompanied by severe ESS loss. The proof supplies the divergence result; these finite observations illustrate why it can be visible at small $M$ and inconspicuous at larger $M$.
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=\linewidth]{figures/one_step.pdf}
+ \caption{One-step Gaussian counterexample. Panels (a,b) show medians and interquartile ranges over 20 seeds. The dashed reference is the exact full-factor log normalizer in (a) and the empirical full-factor ESS fraction in (b). Panel (c) shows mean potential MSE with one standard deviation at $P=1{,}048{,}576$. Every subsampled curve has an infinite population normalizer.}
+ \label{fig:one-step}
+\end{figure}
+
+\subsection{Certificates across the benchmark grid}
+Table~\ref{tab:certificates} reports validity over the 12 configurations per family, formed by two group counts, two dimensions, and three time grids. Seeds do not change a certificate. Raw plug-in, unbiased, and paired estimators fail all Gaussian and ordinary-mixture configurations. Moment matching makes the Gaussian estimator exact, but does not certify any ordinary-mixture configuration. Tail matching recovers the full-factor strict domain in both mixture families. The complete configuration-level grid is provided in Appendix~\ref{app:full-results}.
+
+\begin{table}[t]
+ \centering
+ \caption{Number of configurations with finite population normalizers, out of 12 per family. A dash denotes an unrun method; tail matching coincides with the Gaussian control on Gaussian factors. Unweighted updates are Markov kernels with unit weights, so finiteness alone is immediate and does not establish target accuracy.}
+ \label{tab:certificates}
+ \begin{tabular}{lccc}
+ \toprule
+ Method & Gaussian & Mixture & Weak mixture\\
+ \midrule
+ Full & 10/12 & 10/12 & 12/12\\
+ Unweighted & 12/12 & 12/12 & 12/12\\
+ Plug-in & 0/12 & 0/12 & 4/12\\
+ Unbiased & 0/12 & 0/12 & 4/12\\
+ Unbiased + pair & 0/12 & 0/12 & 4/12\\
+ Moment CV & 10/12 & 0/12 & 12/12\\
+ Moment CV + pair & 10/12 & 0/12 & 12/12\\
+ Tail CV & -- & 10/12 & 12/12\\
+ Tail CV + pair & -- & 10/12 & 12/12\\
+ \bottomrule
+ \end{tabular}
+\end{table}
+
+The full-factor discretization also fails for $G=64,K=128$ in the Gaussian and ordinary-mixture families. Its Gaussian denominator first becomes negative at step 100, reaching approximately $-0.003111$. Yet the observed mean marginal W1 is only $0.0141$ in one dimension and $0.0176$ in eight dimensions. Thus a small endpoint sample discrepancy can coexist with an undefined population update even before subsampling. For finite Gaussian configurations, exact weighted-Euler moment recursion separates time error from particle error: at $G=64,K=2048$, the population W1 is approximately $0.000493$, while the eight-dimensional finite-particle mean marginal W1 is $0.0149$.
+
+\subsection{A finite domain does not guarantee accurate or faster inference}
+Figure~\ref{fig:accuracy-time} and Table~\ref{tab:matched} compare actual sampler time and endpoint error. For the difficult eight-dimensional ordinary mixture with $G=64,K=512$, all weighted methods have substantial sampling error. Full-factor W1 is $0.881\pm0.372$, tail control is $1.004\pm0.327$, and paired tail control is $1.358\pm0.188$. Their mean total-variation errors over the 256 coordinate-sign patterns are respectively $0.961$, $0.975$, and $0.998$, confirming poor joint-mode coverage. The paired moment control has lower marginal W1, $0.456\pm0.228$, despite an infinite population normalizer. These outcomes demonstrate that finite integrability, marginal accuracy, and joint coverage are distinct properties.
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=\linewidth]{figures/accuracy_time.pdf}
+ \caption{Observed error versus recorded sampler time at $G=64,d=8$, with $K\in\{128,512,2048\}$. Each point is a median over five seeds. Circles denote finite population normalizers and crosses denote infinite ones. Lines connect a method's three time grids and are not fitted performance models.}
+ \label{fig:accuracy-time}
+\end{figure}
+
+\begin{table}[t]
+ \centering
+ \caption{Matched configuration $G=64,d=8,K=512$. W1 is mean $\pm$ one standard deviation over five seeds; seconds are medians. A superscript $\infty$ marks an infinite population normalizer. All methods use 8,192 particles.}
+ \label{tab:matched}
+ \begin{tabular}{lrrrr}
+ \toprule
+ & \multicolumn{2}{c}{Mixture} & \multicolumn{2}{c}{Weak mixture}\\
+ Method & W1 & Seconds & W1 & Seconds\\
+ \midrule
+ Full & $0.881\pm0.372$ & 1.921 & $0.028\pm0.007$ & 1.909\\
+ Unweighted & $0.404\pm0.003$ & 1.897 & $0.072\pm0.001$ & 1.896\\
+ Plug-in & $1.662\pm0.021^{\infty}$ & 0.822 & $0.053\pm0.051^{\infty}$ & 0.754\\
+ Unbiased & $1.649\pm0.010^{\infty}$ & 0.828 & $0.070\pm0.038^{\infty}$ & 0.764\\
+ Unbiased + pair & $1.608\pm0.099^{\infty}$ & 1.341 & $0.032\pm0.014^{\infty}$ & 1.282\\
+ Moment CV & $0.742\pm0.097^{\infty}$ & 1.077 & $0.052\pm0.040$ & 1.047\\
+ Moment CV + pair & $0.456\pm0.228^{\infty}$ & 1.865 & $0.022\pm0.005$ & 1.850\\
+ Tail CV & $1.004\pm0.327$ & 1.081 & $0.043\pm0.026$ & 1.027\\
+ Tail CV + pair & $1.358\pm0.188$ & 1.876 & $0.025\pm0.005$ & 1.847\\
+ \bottomrule
+ \end{tabular}
+\end{table}
+
+On the weak mixture, paired tail control yields W1 $0.025\pm0.005$, compared with $0.028\pm0.007$ for full weighting, at nearly the same recorded sampler time. Unpaired tail control uses 16 times fewer nonlinear particle--factor evaluations and about $1.86$ times less sampler time, but its W1 rises to $0.043\pm0.026$. We therefore make no general speed--accuracy superiority claim. Gaussian full and exact-control results, complete seed-level metrics, and additional joint diagnostics are retained in the artifacts.

@@ -1,4 +1,13 @@
-# PFN posterior-predictive approximation audit
+# ICLR 2027 research
+
+当前论文：[Integrability of Subsampled Compositional Diffusions](manuscript/main.pdf)。正文研究小批量组合扩散的指数权重可积性，包含完整证明、SCNet 1,980 个实验单元、独立核验结果和适用范围。论文采用 ICLR 2027 格式，状态为完成研究稿、尚未投稿。
+
+- [复现入口与归档校验](docs/COMPOSITION_REPRODUCIBILITY.md)
+- [研究状态与科学结论](docs/RESEARCH_STATUS.md)
+- [主实验核验](results/composition_main_20260909/verification.json)与[补充实验核验](results/composition_supplement_20260909/verification.json)
+- [LaTeX 主文件](manuscript/main.tex)与[数学审查](docs/COMPOSITION_MATHEMATICAL_REVIEW.md)
+
+## PFN posterior-predictive approximation audit
 
 研究有限 PFN 在自身训练先验下的预测近似误差，以及这种误差对不确定性排序的影响。
 目前主要证据来自 RBF GP 和离散水平跳变过程两个受控先验。
