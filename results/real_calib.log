@@ -1,0 +1,48 @@
+  loaded openml diabetes (37)
+  loaded openml credit-g (31)
+  loaded openml spambase (44)
+  loaded openml banknote (1462)
+  loaded openml phoneme (1489)
+  loaded openml blood-transfusion (1464)
+  loaded openml kc2 (1063)
+  loaded openml wdbc (1510)
+  dataset breast_cancer: n=569 d=30 pos=0.63
+    n_splits=10  base ll=0.1438 ece=0.0231 acc=0.942  temp_cal ll=0.2281 ece=0.0296 acc=0.942  id_extra ll=0.1030 ece=0.0163 acc=0.962  ctx_50 ll=0.9046 ece=0.2387 acc=0.444  far_50 ll=0.1645 ece=0.0237 acc=0.937
+  dataset make_classification: n=800 d=20 pos=0.50
+    n_splits=10  base ll=0.3664 ece=0.0485 acc=0.873  temp_cal ll=0.3599 ece=0.0456 acc=0.873  id_extra ll=0.3008 ece=0.0378 acc=0.905  ctx_50 ll=0.8482 ece=0.1852 acc=0.475  far_50 ll=0.3684 ece=0.0476 acc=0.864
+  dataset make_moons: n=800 d=8 pos=0.50
+    n_splits=10  base ll=0.3156 ece=0.0376 acc=0.875  temp_cal ll=0.3103 ece=0.0345 acc=0.875  id_extra ll=0.1871 ece=0.0249 acc=0.930  ctx_50 ll=0.8158 ece=0.1901 acc=0.484  far_50 ll=0.2957 ece=0.0410 acc=0.886
+  dataset diabetes: n=768 d=8 pos=0.35
+    n_splits=10  base ll=0.5455 ece=0.0790 acc=0.738  temp_cal ll=0.5182 ece=0.0449 acc=0.738  id_extra ll=0.4901 ece=0.0544 acc=0.756  ctx_50 ll=0.8896 ece=0.2467 acc=0.432  far_50 ll=0.5191 ece=0.0621 acc=0.734
+  dataset credit-g: n=1000 d=20 pos=0.70
+    n_splits=10  base ll=0.6321 ece=0.0938 acc=0.693  temp_cal ll=0.5916 ece=0.0527 acc=0.693  id_extra ll=0.5302 ece=0.0428 acc=0.734  ctx_50 ll=0.8754 ece=0.2286 acc=0.474  far_50 ll=0.5660 ece=0.0498 acc=0.718
+  dataset spambase: n=4601 d=57 pos=0.39
+    n_splits=10  base ll=0.2932 ece=0.0379 acc=0.881  temp_cal ll=0.2925 ece=0.0376 acc=0.881  id_extra ll=0.2221 ece=0.0295 acc=0.914  ctx_50 ll=0.9622 ece=0.2542 acc=0.462  far_50 ll=0.2974 ece=0.0416 acc=0.887
+  dataset banknote: n=1372 d=4 pos=0.44
+    n_splits=10  base ll=0.0219 ece=0.0100 acc=0.990  temp_cal ll=0.0457 ece=0.0096 acc=0.990  id_extra ll=0.0058 ece=0.0035 acc=0.997  ctx_50 ll=0.9320 ece=0.2533 acc=0.451  far_50 ll=0.0341 ece=0.0134 acc=0.987
+  dataset phoneme: n=5404 d=5 pos=0.29
+    n_splits=10  base ll=0.4552 ece=0.0611 acc=0.771  temp_cal ll=0.4473 ece=0.0501 acc=0.771  id_extra ll=0.4142 ece=0.0436 acc=0.796  ctx_50 ll=0.9297 ece=0.2491 acc=0.474  far_50 ll=0.4512 ece=0.0484 acc=0.767
+  dataset blood-transfusion: n=748 d=4 pos=0.24
+    n_splits=10  base ll=0.5487 ece=0.0669 acc=0.749  temp_cal ll=0.5279 ece=0.0609 acc=0.749  id_extra ll=0.5014 ece=0.0492 acc=0.774  ctx_50 ll=0.9197 ece=0.2309 acc=0.495  far_50 ll=0.5144 ece=0.0469 acc=0.765
+  dataset kc2: n=522 d=21 pos=0.20
+    n_splits=10  base ll=0.4272 ece=0.0522 acc=0.815  temp_cal ll=0.4159 ece=0.0523 acc=0.815  id_extra ll=0.3969 ece=0.0466 acc=0.835  ctx_50 ll=0.8461 ece=0.2725 acc=0.421  far_50 ll=0.4090 ece=0.0440 acc=0.823
+  dataset wdbc: n=569 d=30 pos=0.37
+    n_splits=10  base ll=0.1376 ece=0.0240 acc=0.945  temp_cal ll=0.1791 ece=0.0271 acc=0.945  id_extra ll=0.1017 ece=0.0183 acc=0.959  ctx_50 ll=0.9099 ece=0.2664 acc=0.407  far_50 ll=0.1444 ece=0.0213 acc=0.947
+
+========================================================================================
+真实/半真实表：far-anchor vs 温度缩放 vs 上下文注噪
+========================================================================================
+  数据集                     base ll     temp  id_extra   ctx_50   far_50  far-temp
+  breast_cancer            0.1438   0.2281    0.1030   0.9046   0.1645-0.0636t=-1.1
+  make_classification      0.3664   0.3599    0.3008   0.8482   0.3684+0.0085t=+0.7
+  make_moons               0.3156   0.3103    0.1871   0.8158   0.2957-0.0146t=-1.0
+  diabetes                 0.5455   0.5182    0.4901   0.8896   0.5191+0.0009t=+0.1
+  credit-g                 0.6321   0.5916    0.5302   0.8754   0.5660-0.0256t=-2.8
+  spambase                 0.2932   0.2925    0.2221   0.9622   0.2974+0.0049t=+0.3
+  banknote                 0.0219   0.0457    0.0058   0.9320   0.0341-0.0116t=-0.8
+  phoneme                  0.4552   0.4473    0.4142   0.9297   0.4512+0.0039t=+0.6
+  blood-transfusion        0.5487   0.5279    0.5014   0.9197   0.5144-0.0135t=-1.4
+  kc2                      0.4272   0.4159    0.3969   0.8461   0.4090-0.0069t=-0.7
+  wdbc                     0.1376   0.1791    0.1017   0.9099   0.1444-0.0347t=-1.0
+
+  写到 results/real_calib.json

@@ -1,0 +1,42 @@
+  把 C 训到 45000 步（原为 15000）
+/workspace/exp_why_axis.py:93: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+    [C_long] 2500/45000  loss -0.5173    116s
+    [C_long] 5000/45000  loss -0.7547    220s
+    [C_long] 7500/45000  loss -0.8575    324s
+    [C_long] 10000/45000  loss -0.8813    429s
+    [C_long] 12500/45000  loss -0.9292    533s
+    [C_long] 15000/45000  loss -0.9570    638s
+    [C_long] 17500/45000  loss -0.9385    744s
+    [C_long] 20000/45000  loss -0.9602    851s
+    [C_long] 22500/45000  loss -0.9891    958s
+    [C_long] 25000/45000  loss -0.9988   1064s
+    [C_long] 27500/45000  loss -1.0009   1172s
+    [C_long] 30000/45000  loss -1.0722   1280s
+    [C_long] 32500/45000  loss -0.9959   1385s
+    [C_long] 35000/45000  loss -1.0611   1491s
+    [C_long] 37500/45000  loss -1.0231   1597s
+    [C_long] 40000/45000  loss -1.0747   1703s
+    [C_long] 42500/45000  loss -1.0456   1808s
+    [C_long] 45000/45000  loss -1.0995   1912s
+/workspace/exp_why_axis.py:93: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+
+  重测 C 的两个轴：
+
+    检查点                    尺度轴相关       尺度轴斜率         噪声轴相关       噪声轴斜率
+    C 训 15000 步         +0.760      +0.528        +0.621      +0.468
+Traceback (most recent call last):
+  File "/workspace/exp_c_longer.py", line 33, in <module>
+    model.load_state_dict(torch.load(path, map_location="cpu"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/torch/serialization.py", line 1561, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/torch/serialization.py", line 795, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/torch/serialization.py", line 776, in __init__
+    super().__init__(open(name, mode))  # noqa: SIM115
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'pfn_C_long.pt'

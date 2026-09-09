@@ -1,0 +1,256 @@
+{
+  "prior": "jump",
+  "tasks_per_cell": 2,
+  "seed": 20260910,
+  "coarse_shape": [
+    16,
+    10
+  ],
+  "fine_midpoint_shape": [
+    28,
+    18
+  ],
+  "rows": [
+    {
+      "latent": 0.5,
+      "sigma": 0.02,
+      "n_context": 8,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0014585483186402674,
+      "gap_absolute_change": 0.04610848934846182,
+      "fine_gap": 0.4477697704878108,
+      "relative_gap_change": 0.10297365384498859
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.02,
+      "n_context": 8,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0033992583787252235,
+      "gap_absolute_change": 0.08769453420036467,
+      "fine_gap": 0.5121859030074185,
+      "relative_gap_change": 0.17121621990266786
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.02,
+      "n_context": 24,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0027707680162775555,
+      "gap_absolute_change": 0.06275868772271553,
+      "fine_gap": 0.29676114940192805,
+      "relative_gap_change": 0.21147878638829598
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.02,
+      "n_context": 24,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.001960371827954461,
+      "gap_absolute_change": 0.10480594978686969,
+      "fine_gap": 0.8647854924376983,
+      "relative_gap_change": 0.12119300185232955
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.05,
+      "n_context": 8,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.001152028353292523,
+      "gap_absolute_change": 0.006475480470224792,
+      "fine_gap": 0.19499634328194065,
+      "relative_gap_change": 0.033208214888737916
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.05,
+      "n_context": 8,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0028641353380345867,
+      "gap_absolute_change": 0.052844204010009305,
+      "fine_gap": 0.28185514309673204,
+      "relative_gap_change": 0.18748710216677966
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.05,
+      "n_context": 24,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.001044050289752265,
+      "gap_absolute_change": 0.002843601040721809,
+      "fine_gap": 0.02681449360834836,
+      "relative_gap_change": 0.10604716547160485
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.05,
+      "n_context": 24,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0010301993110725487,
+      "gap_absolute_change": 0.02833454843591221,
+      "fine_gap": 0.19095458097655676,
+      "relative_gap_change": 0.14838370617246832
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.2,
+      "n_context": 8,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0005510000419629464,
+      "gap_absolute_change": 0.006492208610767214,
+      "fine_gap": 0.0956532059981173,
+      "relative_gap_change": 0.06787235768025378
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.2,
+      "n_context": 8,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0018194750082614862,
+      "gap_absolute_change": 0.002661235709937853,
+      "fine_gap": 0.018549746317714125,
+      "relative_gap_change": 0.14346480347262214
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.2,
+      "n_context": 24,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0005682078313649398,
+      "gap_absolute_change": 0.002639839335843358,
+      "fine_gap": 0.018645726019967147,
+      "relative_gap_change": 0.1415787903896278
+    },
+    {
+      "latent": 0.5,
+      "sigma": 0.2,
+      "n_context": 24,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.000521482680584627,
+      "gap_absolute_change": 0.0026073426710695666,
+      "fine_gap": 0.032686913336905474,
+      "relative_gap_change": 0.07976717300271119
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.02,
+      "n_context": 8,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0005497127315892657,
+      "gap_absolute_change": 0.0007897661469480483,
+      "fine_gap": 0.01624656736472616,
+      "relative_gap_change": 0.04861126225732792
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.02,
+      "n_context": 8,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0008116179925988752,
+      "gap_absolute_change": 0.0045632513595442355,
+      "fine_gap": 0.08472351841534886,
+      "relative_gap_change": 0.053860503492942025
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.02,
+      "n_context": 24,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.001671697113950897,
+      "gap_absolute_change": 0.015544321564904196,
+      "fine_gap": 0.06516167020338101,
+      "relative_gap_change": 0.23855007884831128
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.02,
+      "n_context": 24,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0014901192263293873,
+      "gap_absolute_change": 0.018615903858578947,
+      "fine_gap": 0.16688760881719644,
+      "relative_gap_change": 0.1115475498182147
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.05,
+      "n_context": 8,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0005497955192659727,
+      "gap_absolute_change": 0.0006821331649892876,
+      "fine_gap": 0.015717248973040523,
+      "relative_gap_change": 0.0434002900990712
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.05,
+      "n_context": 8,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0007901685489304193,
+      "gap_absolute_change": 0.004530051174875406,
+      "fine_gap": 0.08380106537705337,
+      "relative_gap_change": 0.05405720266792499
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.05,
+      "n_context": 24,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0016702065049610977,
+      "gap_absolute_change": 0.01529805745247001,
+      "fine_gap": 0.06386255704890136,
+      "relative_gap_change": 0.23954658503191248
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.05,
+      "n_context": 24,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0013560898027941762,
+      "gap_absolute_change": 0.01440326837944162,
+      "fine_gap": 0.13741680691491998,
+      "relative_gap_change": 0.10481445976516714
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.2,
+      "n_context": 8,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.0005091084332074988,
+      "gap_absolute_change": 0.0006583051207443534,
+      "fine_gap": 0.011820530358183506,
+      "relative_gap_change": 0.055691673790981826
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.2,
+      "n_context": 8,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.001075746102124811,
+      "gap_absolute_change": 0.005577648145925991,
+      "fine_gap": 0.01996066289712078,
+      "relative_gap_change": 0.27943200958173275
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.2,
+      "n_context": 24,
+      "design": "uniform",
+      "posterior_gaussian_kl": 0.001643185354731385,
+      "gap_absolute_change": 0.014273241272353968,
+      "fine_gap": 0.04913816865688163,
+      "relative_gap_change": 0.29047157560999276
+    },
+    {
+      "latent": 50.0,
+      "sigma": 0.2,
+      "n_context": 24,
+      "design": "paired",
+      "posterior_gaussian_kl": 0.0007227923759633575,
+      "gap_absolute_change": 0.0005019985924704616,
+      "fine_gap": 0.04357249244425368,
+      "relative_gap_change": 0.011520997866089823
+    }
+  ],
+  "limitation": "两种求积规则的差异检查；尚未提供连续先验误差上界"
+}

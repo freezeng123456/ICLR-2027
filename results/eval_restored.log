@@ -1,0 +1,11 @@
+
+  补训检查点对照（相关/斜率；种子 2024，与原表相同）
+
+/workspace/exp_why_axis.py:94: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+  A 12ℓ                  pfn_A.pt         md5=0882ee2e  尺度 +0.863/+0.683  噪声 +0.899/+0.918
+  B 12σ                  pfn_B.pt         md5=2aa03be1  尺度 +0.861/+0.681  噪声 +0.835/+0.741
+  C 12x12 @当前pfn_C       pfn_C.pt         md5=1181b481  尺度 +0.645/+0.354  噪声 +0.528/+0.384
+  C 12x12 @15k           pfn_C_15k.pt     md5=1181b481  尺度 +0.645/+0.354  噪声 +0.528/+0.384
+  C 12x12 @45k           pfn_C_45k.pt     md5=ca27121b  尺度 +0.760/+0.528  噪声 +0.621/+0.468
+  A144 单隐变量              pfn_Z.pt         md5=d50178d2  尺度 +0.906/+0.750  噪声 +0.907/+0.732

@@ -1,0 +1,234 @@
+{
+  "checkpoints": [
+    {
+      "file": "pfn_A.pt",
+      "sha256": "8b468c8e2cca1537b565657203fa1901ac94f0dd9c47d316bb33d7e7e62b4999",
+      "bytes": 4784076,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_B.pt",
+      "sha256": "dde46feb21f03eb209ad20df197155ec0b4583316b9a536f89f71489736de8b6",
+      "bytes": 4784076,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_C.pt",
+      "sha256": "57de4b797f1433f7164b528630cd442974489ebec0395ef2b7a32cb6168261d4",
+      "bytes": 4789408,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_C_15k.pt",
+      "sha256": "57de4b797f1433f7164b528630cd442974489ebec0395ef2b7a32cb6168261d4",
+      "bytes": 4789408,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_C_45k.pt",
+      "sha256": "4405e47d716a6a06301dae91176480799d9033693afd90e70ebf99c1c6cbf69a",
+      "bytes": 4784076,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_Z.pt",
+      "sha256": "688c3da6d1f04a6f6fa9f8c070e58737b411e4ab870354978211cd0dea9b8c34",
+      "bytes": 4784076,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_cond.pt",
+      "sha256": "c602b869a8b16e7a73da3ce23618173cb642dc100d389c3f2ebeeba8712357a3",
+      "bytes": 4789323,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_cond_40k.pt",
+      "sha256": "e77fd018f559f7f91632f2115411963f686ee597f3f0b7573679cfcce032793d",
+      "bytes": 4789663,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_cond_distill.pt",
+      "sha256": "43aea768d267b50cc7f4a430df6b50be125f475ef5ed0c0f3d0dda13bbb7bb0b",
+      "bytes": 4790003,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_cond_rw.pt",
+      "sha256": "d29ab8440d776ae46894196ca867a62d1d48544a3920e9fa0cc105a4140d66db",
+      "bytes": 4789578,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_cond_w64.pt",
+      "sha256": "cab8f587f01b58151745f7ca7391ee2f48afc5e871ae9ee0c6b493d2e51e881d",
+      "bytes": 1228959,
+      "parameters": 300354,
+      "finite": true
+    },
+    {
+      "file": "pfn_cond_w64_40k.pt",
+      "sha256": "2c126555ff870e7d76a59404e643c0515881d254f21188dc5f329f850eed8da3",
+      "bytes": 1229299,
+      "parameters": 300354,
+      "finite": true
+    },
+    {
+      "file": "pfn_gp.pt",
+      "sha256": "61bd4b2d2995e478158e4000edec38488ff6ec20e907f21d7b780be569b5ad41",
+      "bytes": 4784161,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_jump.pt",
+      "sha256": "0322583f14dd1f0d58e27f2d2cc8632b43988a70f92c010051425ef4093b5c37",
+      "bytes": 4789323,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_jump_40k.pt",
+      "sha256": "e657630831e059ba27b3d56a59480ba2984bcb75fec4536628b2cd09c616f09f",
+      "bytes": 4789663,
+      "parameters": 1190530,
+      "finite": true
+    },
+    {
+      "file": "pfn_jump_w64.pt",
+      "sha256": "820021de6ec478c4c73f9780dccc23c3a798b3f687adec3af82625166db98b21",
+      "bytes": 1228959,
+      "parameters": 300354,
+      "finite": true
+    },
+    {
+      "file": "pfn_jump_w64_40k.pt",
+      "sha256": "8fe1b4f6454f4fa10926d24bfe4c39fc78986b6c26fbada565828f1d557c4639",
+      "bytes": 1229299,
+      "parameters": 300354,
+      "finite": true
+    }
+  ],
+  "core_results": [
+    {
+      "checkpoint": "pfn_cond_w64.pt",
+      "width": 64,
+      "result": "results/conditioning_pfn_cond_w64.json",
+      "result_sha256": "94d265301be820dc824cb38644a4701249f0f61dba252708afc8d9d84bda9e00",
+      "cells": 96,
+      "gap_mean": 0.10480433985619615,
+      "gap_max": 0.456870403387569,
+      "rising_8_to_24": 20,
+      "groups": 32,
+      "n_tasks_recorded": 40,
+      "quad_check": 7.081920991438596e-05
+    },
+    {
+      "checkpoint": "pfn_cond_w64_40k.pt",
+      "width": 64,
+      "result": "results/conditioning_pfn_cond_w64_40k.json",
+      "result_sha256": "6c204aec8c79f5660cb5981f141dfadddfcdfb2b36c10196f4146f1d95a459b3",
+      "cells": 96,
+      "gap_mean": 0.08334855889303272,
+      "gap_max": 0.3361047868625032,
+      "rising_8_to_24": 21,
+      "groups": 32,
+      "n_tasks_recorded": 40,
+      "quad_check": 7.081920991438596e-05
+    },
+    {
+      "checkpoint": "pfn_cond.pt",
+      "width": 128,
+      "result": "results/conditioning_pfn_cond.json",
+      "result_sha256": "d0ee407a37f47db06b1ec4cdc42c0fbce707813bdee875a64d36eb9eaf9f675b",
+      "cells": 96,
+      "gap_mean": 0.0681196904192524,
+      "gap_max": 0.2798784598390126,
+      "rising_8_to_24": 20,
+      "groups": 32,
+      "n_tasks_recorded": 40,
+      "quad_check": 7.081920991438596e-05
+    },
+    {
+      "checkpoint": "pfn_cond_40k.pt",
+      "width": 128,
+      "result": "results/conditioning_pfn_cond_40k.json",
+      "result_sha256": "7c2d5708bce5b04ab07257bddad69dc0b38882fd096bfa253e8cdaf770ca678b",
+      "cells": 96,
+      "gap_mean": 0.04772901147247838,
+      "gap_max": 0.1760807416722196,
+      "rising_8_to_24": 18,
+      "groups": 32,
+      "n_tasks_recorded": 40,
+      "quad_check": 7.081920991438596e-05
+    },
+    {
+      "checkpoint": "pfn_jump_w64.pt",
+      "width": 64,
+      "result": "results/jump_pfn_jump_w64.json",
+      "result_sha256": "48910af7a73f4fc4485523d455babe2a14bbe32f87ac68d17f6cabd35ff3833e",
+      "cells": 96,
+      "gap_mean": 0.10805383676867504,
+      "gap_max": 0.3100330535418613,
+      "rising_8_to_24": 29,
+      "groups": 32,
+      "n_tasks_recorded": null,
+      "quad_check": 2.282498540110041e-05
+    },
+    {
+      "checkpoint": "pfn_jump_w64_40k.pt",
+      "width": 64,
+      "result": "results/jump_pfn_jump_w64_40k.json",
+      "result_sha256": "dc845fafc2bcba7c08d9ae260463078bdb11d9a42e71244f5a5ef22adf2534ef",
+      "cells": 96,
+      "gap_mean": 0.09289662390909854,
+      "gap_max": 0.3111537376213971,
+      "rising_8_to_24": 29,
+      "groups": 32,
+      "n_tasks_recorded": null,
+      "quad_check": 2.282498540110041e-05
+    },
+    {
+      "checkpoint": "pfn_jump.pt",
+      "width": 128,
+      "result": "results/jump_pfn_jump.json",
+      "result_sha256": "b5102274bcf6859e8fbca2e651ecc14b53c623a9315d1941a0eff07777accf7d",
+      "cells": 96,
+      "gap_mean": 0.09475881070603964,
+      "gap_max": 0.3182923854293691,
+      "rising_8_to_24": 30,
+      "groups": 32,
+      "n_tasks_recorded": null,
+      "quad_check": 2.282498540110041e-05
+    },
+    {
+      "checkpoint": "pfn_jump_40k.pt",
+      "width": 128,
+      "result": "results/jump_pfn_jump_40k.json",
+      "result_sha256": "b752c7ff47b7f19625e84cecad7789160588c03918ce1e98177dc25e4741626e",
+      "cells": 96,
+      "gap_mean": 0.07675440262085513,
+      "gap_max": 0.2964634378744675,
+      "rising_8_to_24": 29,
+      "groups": 32,
+      "n_tasks_recorded": null,
+      "quad_check": 2.282498540110041e-05
+    }
+  ],
+  "limitations": [
+    "checkpoint 与结果文件的历史对应关系没有原始 hash 记录，本次仅建立现存文件清单",
+    "训练 seed、历史环境和训练预算尚未由原始 provenance 独立确认",
+    "验证主要指标和模型前向，不代表重新训练或重新生成全部实验"
+  ]
+}

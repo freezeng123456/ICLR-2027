@@ -1,0 +1,35 @@
+  训练 GP-PFN @ 15000 步 -> pfn_gp.pt
+/workspace/exp_gp_prior_tilt.py:85: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+  step    500/15000  loss -0.1472   已用    26s
+  step   1000/15000  loss -0.4115   已用    53s
+  step   1500/15000  loss -0.5829   已用    80s
+  step   2000/15000  loss -0.8946   已用   106s
+  step   2500/15000  loss -0.9333   已用   132s
+  step   3000/15000  loss -0.9304   已用   159s
+  step   3500/15000  loss -1.0270   已用   186s
+  step   4000/15000  loss -1.0110   已用   212s
+  step   4500/15000  loss -1.0405   已用   239s
+  step   5000/15000  loss -1.1047   已用   264s
+  step   5500/15000  loss -1.1082   已用   291s
+  step   6000/15000  loss -1.0827   已用   317s
+  step   6500/15000  loss -1.1145   已用   343s
+  step   7000/15000  loss -1.0834   已用   369s
+  step   7500/15000  loss -1.1324   已用   395s
+  step   8000/15000  loss -1.0872   已用   422s
+  step   8500/15000  loss -1.1001   已用   448s
+  step   9000/15000  loss -1.1440   已用   474s
+  step   9500/15000  loss -1.1272   已用   500s
+  step  10000/15000  loss -1.2001   已用   526s
+  step  10500/15000  loss -1.1481   已用   551s
+  step  11000/15000  loss -1.1479   已用   577s
+  step  11500/15000  loss -1.1890   已用   604s
+  step  12000/15000  loss -1.1329   已用   631s
+  step  12500/15000  loss -1.2157   已用   658s
+  step  13000/15000  loss -1.2025   已用   682s
+  step  13500/15000  loss -1.2204   已用   708s
+  step  14000/15000  loss -1.2271   已用   733s
+  step  14500/15000  loss -1.2005   已用   761s
+  step  15000/15000  loss -1.1805   已用   783s
+  pfn_gp.pt md5=6a73dd715860c00c0179dbab9b61c73e
+  requested jobs done

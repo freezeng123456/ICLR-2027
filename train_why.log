@@ -1,0 +1,26 @@
+  训练 A(只有尺度变)：尺度候选 12 个，噪声候选 1 个
+/workspace/exp_why_axis.py:93: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+    [A(只有尺度变)] 2500/15000  loss -0.9158    164s
+    [A(只有尺度变)] 5000/15000  loss -1.0933    266s
+    [A(只有尺度变)] 7500/15000  loss -1.1104    367s
+    [A(只有尺度变)] 10000/15000  loss -1.1654    470s
+    [A(只有尺度变)] 12500/15000  loss -1.1927    574s
+    [A(只有尺度变)] 15000/15000  loss -1.1802    682s
+  训练 B(只有噪声变)：尺度候选 1 个，噪声候选 12 个
+/workspace/exp_why_axis.py:93: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, N_LAYER)
+    [B(只有噪声变)] 2500/15000  loss -0.9428    107s
+    [B(只有噪声变)] 5000/15000  loss -1.0873    212s
+    [B(只有噪声变)] 7500/15000  loss -1.1402    317s
+    [B(只有噪声变)] 10000/15000  loss -1.1874    421s
+    [B(只有噪声变)] 12500/15000  loss -1.2200    527s
+    [B(只有噪声变)] 15000/15000  loss -1.2320    632s
+  训练 C(都变)：尺度候选 12 个，噪声候选 12 个
+    [C(都变)] 2500/15000  loss -0.6612    105s
+    [C(都变)] 5000/15000  loss -0.8653    212s
+    [C(都变)] 7500/15000  loss -0.9161    318s
+    [C(都变)] 10000/15000  loss -0.9856    426s
+    [C(都变)] 12500/15000  loss -1.0325    533s
+    [C(都变)] 15000/15000  loss -1.0486    637s
+  三个模型训练完成
