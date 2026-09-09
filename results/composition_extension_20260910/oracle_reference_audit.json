@@ -1,0 +1,149 @@
+{
+  "('oracle', 'gaussian', 64, 1, None, None)": [
+    {
+      "coordinate": 0,
+      "cdf_discrepancy": 1.0693815258311368e-07,
+      "moment_discrepancy": 3.3306690738754696e-16
+    }
+  ],
+  "('oracle', 'gaussian', 64, 8, None, None)": [
+    {
+      "coordinate": 0,
+      "cdf_discrepancy": 1.0693815258311368e-07,
+      "moment_discrepancy": 3.3306690738754696e-16
+    },
+    {
+      "coordinate": 1,
+      "cdf_discrepancy": 1.0693815258311368e-07,
+      "moment_discrepancy": 1.1102230246251565e-16
+    },
+    {
+      "coordinate": 2,
+      "cdf_discrepancy": 1.0693815241658022e-07,
+      "moment_discrepancy": 5.551115123125783e-17
+    },
+    {
+      "coordinate": 3,
+      "cdf_discrepancy": 1.069381525553581e-07,
+      "moment_discrepancy": 1.6653345369377348e-16
+    },
+    {
+      "coordinate": 4,
+      "cdf_discrepancy": 1.069381525553581e-07,
+      "moment_discrepancy": 1.1102230246251565e-16
+    },
+    {
+      "coordinate": 5,
+      "cdf_discrepancy": 1.0693815249984695e-07,
+      "moment_discrepancy": 5.551115123125783e-17
+    },
+    {
+      "coordinate": 6,
+      "cdf_discrepancy": 1.0693815241658022e-07,
+      "moment_discrepancy": 5.551115123125783e-17
+    },
+    {
+      "coordinate": 7,
+      "cdf_discrepancy": 1.0693815241658022e-07,
+      "moment_discrepancy": 1.1102230246251565e-16
+    }
+  ],
+  "('oracle', 'mixture', 64, 1, None, None)": [
+    {
+      "coordinate": 0,
+      "cdf_discrepancy": 6.052000553480319e-08,
+      "moment_discrepancy": 8.881784197001252e-16
+    }
+  ],
+  "('oracle', 'mixture', 64, 8, None, None)": [
+    {
+      "coordinate": 0,
+      "cdf_discrepancy": 6.052000553480319e-08,
+      "moment_discrepancy": 8.881784197001252e-16
+    },
+    {
+      "coordinate": 1,
+      "cdf_discrepancy": 6.05200055209254e-08,
+      "moment_discrepancy": 4.996003610813204e-16
+    },
+    {
+      "coordinate": 2,
+      "cdf_discrepancy": 6.052000545153646e-08,
+      "moment_discrepancy": 4.996003610813204e-16
+    },
+    {
+      "coordinate": 3,
+      "cdf_discrepancy": 6.052000543765867e-08,
+      "moment_discrepancy": 8.881784197001252e-16
+    },
+    {
+      "coordinate": 4,
+      "cdf_discrepancy": 6.052000568745886e-08,
+      "moment_discrepancy": 3.3306690738754696e-16
+    },
+    {
+      "coordinate": 5,
+      "cdf_discrepancy": 6.052000546541425e-08,
+      "moment_discrepancy": 3.3306690738754696e-16
+    },
+    {
+      "coordinate": 6,
+      "cdf_discrepancy": 6.052000549316983e-08,
+      "moment_discrepancy": 6.661338147750939e-16
+    },
+    {
+      "coordinate": 7,
+      "cdf_discrepancy": 6.052000565970328e-08,
+      "moment_discrepancy": 1.6653345369377348e-16
+    }
+  ],
+  "('oracle', 'weak_mixture', 64, 1, None, None)": [
+    {
+      "coordinate": 0,
+      "cdf_discrepancy": 6.905905403087331e-09,
+      "moment_discrepancy": 5.551115123125783e-17
+    }
+  ],
+  "('oracle', 'weak_mixture', 64, 8, None, None)": [
+    {
+      "coordinate": 0,
+      "cdf_discrepancy": 6.905905403087331e-09,
+      "moment_discrepancy": 5.551115123125783e-17
+    },
+    {
+      "coordinate": 1,
+      "cdf_discrepancy": 6.905905736154239e-09,
+      "moment_discrepancy": 5.551115123125783e-17
+    },
+    {
+      "coordinate": 2,
+      "cdf_discrepancy": 6.905905514109634e-09,
+      "moment_discrepancy": 2.7755575615628914e-17
+    },
+    {
+      "coordinate": 3,
+      "cdf_discrepancy": 6.905905403087331e-09,
+      "moment_discrepancy": 5.551115123125783e-17
+    },
+    {
+      "coordinate": 4,
+      "cdf_discrepancy": 6.905906069221146e-09,
+      "moment_discrepancy": 1.1102230246251565e-16
+    },
+    {
+      "coordinate": 5,
+      "cdf_discrepancy": 6.905905403087331e-09,
+      "moment_discrepancy": 2.220446049250313e-16
+    },
+    {
+      "coordinate": 6,
+      "cdf_discrepancy": 6.905905514109634e-09,
+      "moment_discrepancy": 1.6653345369377348e-16
+    },
+    {
+      "coordinate": 7,
+      "cdf_discrepancy": 6.905905736154239e-09,
+      "moment_discrepancy": 1.6653345369377348e-16
+    }
+  ]
+}

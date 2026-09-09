@@ -64,12 +64,12 @@ def verify(raw, output):
     analysis = output / "analysis"
     shutil.copytree(results, analysis)
     execute([sys.executable, "plot_extension_results.py", "--analysis", str(analysis), "--figures", str(output / "figures")], root, output / "figures.log")
-    for name in ["learned_results", "learned_results_coarse", "extension_sensitivity"]:
+    for name in ["learned_results", "learned_results_coarse", "extension_sensitivity", "extension_sampling"]:
         assert (output / f"figures/{name}.png").read_bytes() == (root / f"manuscript/figures/{name}.png").read_bytes()
     for name in ["oracle_grouped", "learned_grouped", "learned_composition_errors", "training_audited"]:
         pd.testing.assert_frame_equal(pd.read_csv(analysis / f"{name}.csv"), pd.read_csv(results / f"{name}.csv"))
     report = {"status": "passed", "analysis_commit": commit, "experiment_commit": frozen, "device": "cpu", "representative_formal_configuration_reruns": reruns, "training_smoke_updates": 20,
-              "passed": ["clean checkout", "both complete fixed manifests", "frozen source extraction", "estimator and exact Bayes checks", "fresh training with finite changed weights", "four representative CPU trajectories with independent metrics", "936 certificate configurations reproduced", "all three extension figure PNGs byte-identical"],
+              "passed": ["clean checkout", "both complete fixed manifests", "frozen source extraction", "estimator and exact Bayes checks", "fresh training with finite changed weights", "four representative CPU trajectories with independent metrics", "936 certificate configurations reproduced", "all four extension figure PNGs byte-identical"],
               "failed": [], "blocked": [], "not_run": ["repeat of all 2080 GPU sampling cells", "repeat of five complete GPU training runs", "bitwise CPU/GPU equality"]}
     (output / "verification.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(report), flush=True)

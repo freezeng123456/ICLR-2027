@@ -1,6 +1,6 @@
 # Reproducing the compositional integrability paper
 
-The paper is `manuscript/main.pdf`; its source is `manuscript/main.tex`. It is a research draft in the official ICLR 2027 layout. The local wrapper labels it as unsubmitted. The four distributed style files are unchanged. No claim of conference submission, acceptance, human review, or learned-model performance is made.
+The paper is `manuscript/main.pdf`; its source is `manuscript/main.tex`. It is a research draft in the official ICLR 2027 layout. The local wrapper labels it as unsubmitted, and the four distributed style files are unchanged. This document covers the original 1,980-cell oracle baseline. The additional sampling and learned-density protocols have a separate entry point in [EXTENSION_REPRODUCIBILITY.md](EXTENSION_REPRODUCIBILITY.md). No claim of conference submission, acceptance or independent human review is made.
 
 ## Experimental provenance
 
@@ -87,4 +87,4 @@ Use the recorded PyTorch environment for both commands. Run the launcher's `smok
 
 ## Evidence boundaries
 
-The principal theorem concerns a particular exponential weighted Euler discretization, independent sampling with replacement, finite batch sizes, and scalar or diagonal product tails. General mixture zero-denominator cases are excluded. Exact factor scores isolate subsampling from learned-score error. The experiments support a population-validity result, without establishing universal gains in accuracy, joint coverage, or wall-clock performance. The manuscript explicitly reports the difficult mixture's poor particle approximation and the full discretization's own coarse-grid failures.
+The original two-extreme-batch theorem concerns a particular exponential weighted Euler discretization, independent sampling with replacement, finite batch sizes, and scalar or diagonal product tails. General mixture zero-denominator cases are excluded. Exact factor scores in this baseline isolate subsampling from learned-score error. The experiments support a population-validity result, without establishing universal gains in accuracy, joint coverage, or wall-clock performance. The manuscript explicitly reports the difficult mixture's poor particle approximation and the full discretization's own coarse-grid failures. The extension adds a separate without-replacement theorem and a controlled learned-density study; see its protocol for their precise scopes.

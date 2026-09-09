@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "verified_files": 22155,
+  "verified_scheduler_tasks": 85,
+  "allocated_gpu_hours": 5.570555555555556,
+  "source_commit": "4b74724c4225fcfe043fdd749fb740fff4cf33c8",
+  "earlier_storage_failure": {
+    "scheduler_records": 46,
+    "logical_array_tasks": 85,
+    "task_states": {
+      "FAILED": 45,
+      "CANCELLED": 40
+    },
+    "allocated_gpu_hours": 1.0377777777777781,
+    "logs": "failed_attempt/",
+    "scope": "Operational attempt retained separately; cancelled array ranges are expanded for task counts; none of its partial cells enter the formal scientific results"
+  }
+}

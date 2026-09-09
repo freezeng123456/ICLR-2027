@@ -35,7 +35,7 @@ def summarize(frame, keys, output):
 
 
 def learned_figure(frame, steps, output):
-    fig, axes = plt.subplots(2, 4, figsize=(8.4, 4.5), sharey="row")
+    fig, axes = plt.subplots(2, 4, figsize=(6.0, 3.6), sharey=True)
     for column, (groups, dimension) in enumerate([(16, 1), (16, 8), (64, 1), (64, 8)]):
         subset = frame[(frame.groups == groups) & (frame.dimension == dimension) & (frame.steps == steps)]
         for row, metric in enumerate(["w1_mean", "true_w1_mean"]):
@@ -49,7 +49,7 @@ def learned_figure(frame, steps, output):
                     ax.scatter(x + jitter[mask], data[metric].to_numpy()[mask], s=9, color=color, marker=marker, alpha=0.6, linewidths=0.6)
                 ax.plot([x - 0.28, x + 0.28], [data[metric].mean()] * 2, color=color, lw=1.6)
             ax.set_yscale("log")
-            ax.set_xticks(range(5), METHODS, rotation=45, ha="right", fontsize=7)
+            ax.set_xticks(range(5), METHODS if row else [""] * 5, rotation=45, ha="right", fontsize=8)
             ax.grid(axis="y", alpha=0.18)
             if row == 0:
                 ax.set_title(f"G={groups}, d={dimension}", fontsize=10)
@@ -62,7 +62,7 @@ def learned_figure(frame, steps, output):
 
 
 def sensitivity_figure(frame, output):
-    fig, axes = plt.subplots(3, 2, figsize=(7.4, 6.8), sharey="row")
+    fig, axes = plt.subplots(3, 2, figsize=(6.5, 6.0), sharey="row")
     for row, family in enumerate(["gaussian", "mixture", "weak_mixture"]):
         base = frame[(frame.family == family) & (frame.groups == 64) & (frame.dimension == 8) & (frame.steps == 512) & (frame.batch == 4)]
         for column, (variable, mask) in enumerate([("particles", base.u_max == 20), ("u_max", base.particles == 8192)]):
@@ -92,6 +92,44 @@ def sensitivity_figure(frame, output):
     plt.close(fig)
 
 
+def sampling_figure(frame, output):
+    fig, axes = plt.subplots(4, 3, figsize=(6.5, 7.3), sharex=True, sharey="row")
+    for row, (dimension, steps) in enumerate([(1, 512), (1, 2048), (8, 512), (8, 2048)]):
+        for column, family in enumerate(["gaussian", "mixture", "weak_mixture"]):
+            subset = frame[(frame.family == family) & (frame.dimension == dimension) & (frame.steps == steps) & (frame.particles == 8192) & (frame.u_max == 20)]
+            ax = axes[row, column]
+            full = subset[subset.display_method == "Full"].w1_mean
+            assert len(full) == 5
+            ax.axhline(full.median(), color=COLORS[0], lw=1, label=METHODS[0])
+            ax.fill_between([2, 8], full.quantile(0.25), full.quantile(0.75), color=COLORS[0], alpha=0.08)
+            for method, color in zip(METHODS[1:], COLORS[1:]):
+                data = subset[subset.display_method == method]
+                grouped = data.groupby("batch").w1_mean
+                center, low, high = grouped.median(), grouped.quantile(0.25), grouped.quantile(0.75)
+                assert len(data) == 15
+                ax.plot(center.index, center, color=color, lw=1, label=method)
+                ax.fill_between(center.index, low, high, color=color, alpha=0.12)
+                for batch, value in center.items():
+                    states = data[data.batch == batch].integrability_certificate.unique()
+                    assert len(states) == 1
+                    ax.scatter(batch, value, color=color, marker="o" if states[0] == "finite" else "x", s=15, linewidths=0.8)
+            ax.set_yscale("log")
+            ax.set_xticks([2, 4, 8])
+            ax.grid(alpha=0.15)
+            if row == 0:
+                ax.set_title(family.replace("_", " ").capitalize(), fontsize=9)
+            if column == 0:
+                ax.set_ylabel(f"d={dimension}, K={steps}\nW1", fontsize=8)
+            if row == 3:
+                ax.set_xlabel("Batch size M")
+    handles, labels = axes[0, 0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, fontsize=8)
+    fig.tight_layout(rect=(0, 0, 1, 0.96))
+    fig.savefig(output)
+    fig.savefig(output.with_suffix(".png"), dpi=180)
+    plt.close(fig)
+
+
 def main(analysis, figures):
     figures.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9, "pdf.fonttype": 42})
@@ -106,6 +144,7 @@ def main(analysis, figures):
     learned_figure(frames["learned"], 2048, figures / "learned_results.pdf")
     learned_figure(frames["learned"], 512, figures / "learned_results_coarse.pdf")
     sensitivity_figure(frames["oracle"], figures / "extension_sensitivity.pdf")
+    sampling_figure(frames["oracle"], figures / "extension_sampling.pdf")
     unique = frames["learned"].drop_duplicates(["groups", "dimension", "training_seed", "dataset_seed"])
     unique[["groups", "dimension", "training_seed", "dataset_seed", "composed_true_to_learned_kl_mean", "composed_true_to_learned_w1_mean"]].to_csv(analysis / "learned_composition_errors.csv", index=False)
     training = json.loads((analysis / "training_audit.json").read_text())

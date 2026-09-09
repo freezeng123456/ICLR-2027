@@ -1,0 +1,32 @@
+\section{Complete extended sampling results}\label{app:extension-results}
+Figure~\ref{fig:extension-sampling} includes every oracle sampling configuration at $P=8192,U=20$. Across the full 1,080-cell oracle extension, all 600 full-factor or tail-controlled cells have finite normalizers; all 480 raw unbiased cells have infinite normalizers. In particular, $M\in\{2,4,8\}$ remains below the finite thresholds at $G=64$ for these tails. The statement is a certificate calculation, not an inference from observed particle errors.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=\linewidth]{figures/extension_sampling.pdf}
+ \caption{Complete oracle batch-size comparison. Curves show median marginal W1 and interquartile ranges across five seeds. The horizontal black line and band show the full-factor median and interquartile range. Circles denote finite normalizers and crosses infinite ones. Every row uses $G=64,P=8192,U=20$; its dimension and grid size are labeled at left. All four subsampled methods and all three batch sizes are shown.}
+ \label{fig:extension-sampling}
+\end{figure}
+
+\subsection{Particle count and terminal-noise sensitivity}
+Figure~\ref{fig:extension-sensitivity} reports the full sweep at $G=64,d=8,K=512,M=4$. Increasing particles does not guarantee monotone improvement over this range. For the ordinary mixture, full-factor mean W1 decreases from $0.881$ at $P=8192$ to $0.650$ at $P=131072$, while tail control without replacement remains poor, with mean W1 $1.440$ and $1.470$ respectively. For the weak mixture, raw with-replacement weighting improves from $0.0704$ to $0.0098$ while remaining nonintegrable, whereas finite tail control without replacement has mean W1 $0.0250$, $0.0194$ and $0.0357$ across the three particle counts. Thus increasing particles does not repair a failed population certificate, and the observed finite methods need not improve monotonically.
+
+Changing $U$ from 10 through 20 to 30 at fixed $K$ leaves the full-factor and tail-control certificates finite and the raw certificates infinite in every tested cell. Full-factor mean W1 is $0.0265$, $0.0280$ and $0.0282$ for the weak mixture, and $0.801$, $0.881$ and $0.711$ for the ordinary mixture. Because this intervention changes the entire time grid as well as the initialization level, these data cannot identify an initialization-only effect.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=\linewidth]{figures/extension_sensitivity.pdf}
+ \caption{Complete particle-count and terminal-noise sweeps, with median marginal W1 and interquartile ranges across five seeds. Here circles mark every measured setting and do not encode validity: Full, Tail-WR and Tail-WOR are finite throughout; U-WR and U-WOR are infinite throughout. Left panels vary $P$ at $U=20$; right panels vary $U$ at $P=8192$. Both hold $K=512$ fixed.}
+ \label{fig:extension-sensitivity}
+\end{figure}
+
+\subsection{Coarser learned-posterior grid}
+Figure~\ref{fig:learned-coarse} retains all 25 pairs at $K=512$. Both grids have the same certificate classifications, while endpoint errors depend on the grid. Tables~\ref{tab:learned-512} and~\ref{tab:learned-2048} report all configuration means and standard deviations; the released CSVs contain every individual cell, KS and moment diagnostics, prediction time and sampler time. The 100 distinct learned compositions are also retained individually.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{figures/learned_results_coarse.pdf}
+ \caption{Complete learned-posterior comparison at $K=512$, using the same display and validity conventions as Figure~\ref{fig:learned}. All training and dataset seeds are included.}
+ \label{fig:learned-coarse}
+\end{figure}
+\input{learned_tables}

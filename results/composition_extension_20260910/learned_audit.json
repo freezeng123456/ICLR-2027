@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "kind": "learned",
+  "verified_cells": 1000,
+  "unique_references": 100,
+  "metric_maximum_discrepancy": {
+    "w1_mean": 1.9220026909877452e-06,
+    "ks_mean": 4.67447303725832e-07,
+    "mean_absolute_error": 1.2212453270876722e-15,
+    "variance_relative_error": 1.3322676295501878e-15,
+    "positive_mass_error": 5.950608705784788e-08
+  },
+  "scope": "Independent SciPy metrics, doubled/widened quadrature, independent Gaussian variance recursion, configs and raw sample checks; scheduler and recovery hashes audited separately"
+}
