@@ -1,0 +1,139 @@
+{
+  "status": "passed",
+  "cells": [
+    {
+      "cell": "gp_n24_s20260910",
+      "hashes_and_shapes": "passed",
+      "cross_runtime_max_abs_error": {
+        "gp64": {
+          "mean": 8.016824722290039e-06,
+          "variance": 5.900859832763672e-06,
+          "stability": 4.3958425521850586e-07,
+          "loo_nll": 1.1593691312886123e-06
+        },
+        "gp128": {
+          "mean": 1.1056661605834961e-05,
+          "variance": 4.470348358154297e-06,
+          "stability": 5.960464477539062e-07,
+          "loo_nll": 1.595746034865897e-06
+        },
+        "jump128": {
+          "mean": 4.410743713378906e-06,
+          "variance": 3.7550926208496094e-06,
+          "stability": 1.695007085800171e-07,
+          "loo_nll": 2.070728576608616e-06
+        }
+      }
+    },
+    {
+      "cell": "gp_n24_s20260911",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "gp_n24_s20260912",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "gp_n8_s20260910",
+      "hashes_and_shapes": "passed",
+      "cross_runtime_max_abs_error": {
+        "gp64": {
+          "mean": 1.7285346984863281e-06,
+          "variance": 3.725290298461914e-06,
+          "stability": 3.129243850708008e-07,
+          "loo_nll": 1.3079821954420368e-06
+        },
+        "gp128": {
+          "mean": 4.0531158447265625e-06,
+          "variance": 2.041459083557129e-06,
+          "stability": 6.854534149169922e-07,
+          "loo_nll": 7.794479295331058e-07
+        },
+        "jump128": {
+          "mean": 1.2516975402832031e-06,
+          "variance": 2.115964889526367e-06,
+          "stability": 1.1082738637924194e-07,
+          "loo_nll": 6.441719100358512e-07
+        }
+      }
+    },
+    {
+      "cell": "gp_n8_s20260911",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "gp_n8_s20260912",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "jump_n24_s20260910",
+      "hashes_and_shapes": "passed",
+      "cross_runtime_max_abs_error": {
+        "gp128": {
+          "mean": 1.0728836059570312e-05,
+          "variance": 6.616115570068359e-06,
+          "stability": 2.0265579223632812e-06,
+          "loo_nll": 1.849935890030352e-06
+        },
+        "jump64": {
+          "mean": 7.927417755126953e-06,
+          "variance": 4.410743713378906e-06,
+          "stability": 1.3113021850585938e-06,
+          "loo_nll": 3.85306191852397e-06
+        },
+        "jump128": {
+          "mean": 1.52587890625e-05,
+          "variance": 2.181529998779297e-05,
+          "stability": 9.313225746154785e-07,
+          "loo_nll": 2.9542627499878904e-06
+        }
+      }
+    },
+    {
+      "cell": "jump_n24_s20260911",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "jump_n24_s20260912",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "jump_n8_s20260910",
+      "hashes_and_shapes": "passed",
+      "cross_runtime_max_abs_error": {
+        "gp128": {
+          "mean": 2.3245811462402344e-06,
+          "variance": 4.112720489501953e-06,
+          "stability": 9.834766387939453e-07,
+          "loo_nll": 2.555113543412091e-06
+        },
+        "jump64": {
+          "mean": 3.5762786865234375e-06,
+          "variance": 7.927417755126953e-06,
+          "stability": 1.0132789611816406e-06,
+          "loo_nll": 4.1590420618575763e-07
+        },
+        "jump128": {
+          "mean": 4.0531158447265625e-06,
+          "variance": 9.238719940185547e-06,
+          "stability": 5.546025931835175e-07,
+          "loo_nll": 1.0479399923379873e-06
+        }
+      }
+    },
+    {
+      "cell": "jump_n8_s20260911",
+      "hashes_and_shapes": "passed"
+    },
+    {
+      "cell": "jump_n8_s20260912",
+      "hashes_and_shapes": "passed"
+    }
+  ],
+  "completed_jobs": 12,
+  "gpu_seconds": 272,
+  "source_commit": "2d2512cc07037c72d10937fa4844fcf5a8c67a61",
+  "source_archive_sha256": "157a5ec23ed0153868a1f4d730340c62d5994ffe2aec4012e47e03422f7e68ce",
+  "download_sha256": "9dd790a61454372d9e0f664b097cdb935a2a08626725362ab5ac1f5c49eb9281",
+  "cross_runtime_scope": "first 8 tasks in each prior/context condition at seed 20260910; 3 checkpoints per condition"
+}

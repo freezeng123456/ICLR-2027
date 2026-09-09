@@ -1,0 +1,46 @@
+{
+  "prior": "jump",
+  "n_context": 8,
+  "tasks": 512,
+  "seed": 20260912,
+  "bootstrap": 500,
+  "device": "cuda",
+  "output": "/work/home/zenghang/ICLR_CONTEXT_20260909_v2/jump_n8_s20260912",
+  "python": "/work/home/zenghang/miniconda3/envs/pytorch/bin/python",
+  "torch": "1.12.1",
+  "hostname": "e10r03",
+  "gpu": "NVIDIA GeForce RTX 3080",
+  "cuda_visible_devices": "0",
+  "slurm_job_id": "23781378",
+  "commit": "2d2512cc07037c72d10937fa4844fcf5a8c67a61",
+  "source_sha256": {
+    "pilot_context.py": "93f8e89477b39d09738c5a54803014d20a13a4550421eca9c9ce2ea979b0cad0",
+    "train_repro.py": "c56d21ee66d410452d0deb8c37acc4e8163ed66cb8952c00a983dbdbdc126815",
+    "exp_conditioning.py": "674bd57b945da1a34e53a6aee9108587bf087f57d87602ac05167c79a3211596",
+    "exp_jump.py": "a3b282512e4cb0d6c16810080c88144356916043cb138b3350e8b78ced943d40",
+    "prior_jump.py": "3c5f22d00fde738ed4be63a4f379e98ce6db90d4b0142f05d19a0aca930ec438",
+    "identifiability.py": "4a9b00798daff1c7bfab6ab8f658232c349c03fcfc18d8e52af92d39bf1b64da"
+  },
+  "checkpoint_sha256": {
+    "gp64": "cab8f587f01b58151745f7ca7391ee2f48afc5e871ae9ee0c6b493d2e51e881d",
+    "gp128": "e77fd018f559f7f91632f2115411963f686ee597f3f0b7573679cfcce032793d",
+    "jump64": "820021de6ec478c4c73f9780dccc23c3a798b3f687adec3af82625166db98b21",
+    "jump128": "e657630831e059ba27b3d56a59480ba2984bcb75fec4536628b2cd09c616f09f"
+  },
+  "risk_reference": "exact conditional on sampled latent parameters; no hyperparameter quadrature",
+  "fit_labels": "held-out validation squared observation error",
+  "validation_tasks": 256,
+  "coverage_grid": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "bootstrap_unit": "test task"
+}
