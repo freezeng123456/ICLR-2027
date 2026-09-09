@@ -84,6 +84,7 @@ def main():
     print(f"    均值最大绝对差 {np.abs(mu - mu_en).max():.2e}，"
           f"方差最大绝对差 {np.abs(var - var_en).max():.2e}")
     assert np.abs(mu - mu_en).max() < 1e-9, "求积与穷举不一致"
+    assert np.abs(var - var_en).max() < 1e-9, "求积方差与穷举不一致"
 
     print("\n  校验三：小噪声下发射概率不下溢")
     # 隐变量投影会在真实噪声 0.2 的数据上试探 sigma = 0.02，

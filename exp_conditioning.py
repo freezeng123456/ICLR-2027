@@ -93,7 +93,7 @@ def make_batch(rng, bs, n_ctx):
 
 def load_pfn(path):
     """从检查点自行推断容量，免得评估端还要重复记一遍配置。"""
-    state = torch.load(path, map_location="cpu")
+    state = torch.load(path, map_location="cpu", weights_only=True)
     d_model = state["x_enc.weight"].shape[0]
     model = PFN(d_model, n_head=max(1, d_model // 32))
     model.load_state_dict(state)
@@ -137,11 +137,13 @@ def exact_targets(x, y, n_ctx):
             torch.tensor(vars_, dtype=torch.float32))
 
 
-def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=D_MODEL, pilot=None, distill=False):
-    model = PFN(d_model, n_head=max(1, d_model // 32))
+def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=D_MODEL, pilot=None, distill=False,
+          seed=0, device="cpu"):
+    torch.manual_seed(seed)
+    model = PFN(d_model, n_head=max(1, d_model // 32)).to(device)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=steps, pct_start=0.1)
-    rng = np.random.default_rng(0)
+    rng = np.random.default_rng(seed)
     grid, probs = ctx_size_weights(pilot) if pilot else (None, None)
     if pilot:
         print(f"    上下文点数按实测偏离加权：{grid[0]} 的权重 {probs[0]:.4f}，"
@@ -153,9 +155,12 @@ def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=D_MODEL, pilot=None, distill
         n_ctx = int(rng.choice(grid, p=probs)) if pilot \
             else int(rng.integers(6, N_POINTS - N_QUERY + 1))
         x, y = make_batch(rng, bs, n_ctx)
-        mu, logv = model(x, y, n_ctx)
         if distill:
             mt, vt = exact_targets(x, y, n_ctx)
+            mt, vt = mt.to(device), vt.to(device)
+        x, y = x.to(device), y.to(device)
+        mu, logv = model(x, y, n_ctx)
+        if distill:
             # 损失就是精确后验与网络输出之间的高斯 KL，也就是网络多付的那部分 NLL
             loss = (0.5 * (logv - vt.log() + (vt + (mt - mu) ** 2) / logv.exp() - 1)).mean()
         else:

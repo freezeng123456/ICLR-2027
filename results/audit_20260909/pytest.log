@@ -1,0 +1,12 @@
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+tests/test_core.py::test_query_isolation_and_context_permutation
+tests/test_core.py::test_training_reproducibility_and_reload[train0]
+tests/test_core.py::test_training_reproducibility_and_reload[train1]
+tests/test_core.py::test_all_boundary_projection_retains_primary_metrics[eval_conditioning-pfn_cond.pt-2.0]
+tests/test_core.py::test_all_boundary_projection_retains_primary_metrics[eval_jump-pfn_jump.pt-50.0]
+  /Users/zenghang/Documents/Codex/2026-09-09/https-github-com-freezeng123456-iclr-2027/work/ICLR-2027/exp_conditioning.py:33: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.enc = nn.TransformerEncoder(layer, N_LAYER)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 5 warnings in 2.93s

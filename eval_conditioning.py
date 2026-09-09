@@ -105,8 +105,8 @@ def run_cell(model, ell, sigma, n_ctx, design, ell_grid, sig_grid, n_tasks=N_TAS
         geo.append((vals[0], vals.sum(), np.trace(F), np.trace(G)))
 
     geo = np.mean(geo, axis=0)
-    zh = np.array(z_hats) - Z_PRIOR
-    zs = np.array(z_stars) - Z_PRIOR
+    zh = np.asarray(z_hats).reshape(-1, 2) - Z_PRIOR
+    zs = np.asarray(z_stars).reshape(-1, 2) - Z_PRIOR
     return {"ell": ell, "sigma": sigma, "n_ctx": n_ctx, "design": design,
             "gap": float(np.mean(gaps)), "gap_se": float(np.std(gaps) / np.sqrt(len(gaps))),
             "bayes_nll": float(np.mean(bayes_nll)),
@@ -115,10 +115,10 @@ def run_cell(model, ell, sigma, n_ctx, design, ell_grid, sig_grid, n_tasks=N_TAS
             "kappa": float(geo[0]), "trace_ratio": float(geo[1]),
             "trF": float(geo[2]), "trG": float(geo[3]),
             # 逐任务的隐变量位移，用来判定失败模型
-            "shift_net": float(np.mean(np.linalg.norm(zh, axis=1))),
-            "shift_exact": float(np.mean(np.linalg.norm(zs, axis=1))),
+            "shift_net": float(np.mean(np.linalg.norm(zh, axis=1))) if len(zh) else None,
+            "shift_exact": float(np.mean(np.linalg.norm(zs, axis=1))) if len(zs) else None,
             "z_net": zh.tolist(), "z_exact": zs.tolist(),
-            "G_mean": np.mean(Gs, axis=0).tolist(),
+            "G_mean": np.mean(Gs, axis=0).tolist() if Gs else None,
             # 投影残差：网络输出有多少不落在单个隐变量的后验族里
             "fit_resid_net": float(np.mean([a for a, _ in resid])),
             "fit_resid_exact": float(np.mean([b for _, b in resid])),
@@ -231,6 +231,10 @@ def update_deficit(rows):
     z_net 与 z_exact 都是同一批数据的确定性函数，没有测量误差，
     所以回归斜率不受衰减偏差影响。
     """
+    excluded = sum(not r["z_net"] for r in rows)
+    rows = [r for r in rows if r["z_net"]]
+    if not rows:
+        return {"failure_model": {"status": "unavailable_all_boundary", "excluded_cells": excluded}}
     zn = np.vstack([np.array(r["z_net"]) for r in rows])
     ze = np.vstack([np.array(r["z_exact"]) for r in rows])
     B, *_ = np.linalg.lstsq(ze, zn, rcond=None)  # z_net ≈ z_exact @ B
@@ -281,6 +285,7 @@ def update_deficit(rows):
             out.append(0.5 * np.mean(np.einsum("ti,ij,tj->t", d, G, d)))
     print(f"\n    {'失败模型':<28}{'Spearman':>10}{'比值中位数':>12}{'log-log R^2':>13}")
     out = {"B": B.tolist(), "beta_iso": beta_iso, "n_shift_less": n_less,
+           "projection_cells": len(rows), "excluded_cells": excluded,
            "mean_slope_median": float(np.median(ms)), "n_slope_below_one": int((ms < 1).sum()),
            "dlogvar_median": float(np.median(dv)), "n_dlogvar_pos": int((dv > 0).sum()),
            "excess_var_over_mean_err2": float(np.median(ex / me)),

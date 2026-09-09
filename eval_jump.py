@@ -122,16 +122,16 @@ def run_cell(model, rate, sigma, n_ctx, design, grids, n_tasks=N_TASKS, seed=0):
             z_hats.append(z_hat)
             z_stars.append(z_star)
 
-    zh = np.array(z_hats) - Z_PRIOR
-    zs = np.array(z_stars) - Z_PRIOR
+    zh = np.asarray(z_hats).reshape(-1, 2) - Z_PRIOR
+    zs = np.asarray(z_stars).reshape(-1, 2) - Z_PRIOR
     return {"rate": rate, "sigma": sigma, "n_ctx": n_ctx, "design": design,
             "gap": float(np.mean(gaps)), "gap_se": float(np.std(gaps) / np.sqrt(n_tasks)),
             "bayes_nll": float(np.mean(bayes_nll)),
             "mean_slope": mu_num / mu_den, "dlogvar": float(np.mean(dlogv)),
             "excess_var": float(np.mean(excess_var)), "mean_err2": float(np.mean(mean_err2)),
             "second_weight": float(np.mean(second_w)), "n_edge": n_edge,
-            "shift_net": float(np.mean(np.linalg.norm(zh, axis=1))),
-            "shift_exact": float(np.mean(np.linalg.norm(zs, axis=1))),
+            "shift_net": float(np.mean(np.linalg.norm(zh, axis=1))) if len(zh) else None,
+            "shift_exact": float(np.mean(np.linalg.norm(zs, axis=1))) if len(zs) else None,
             "z_net": zh.tolist(), "z_exact": zs.tolist(),
             "fit_resid_net": float(np.mean([a for a, _ in resid])),
             "fit_resid_exact": float(np.mean([b for _, b in resid]))}
@@ -198,10 +198,13 @@ def report(rows, quad_err):
             shape[f"log {key} {side}"] = b
             print(f"      log {key} 真值在先验均值{side}：{b:.3f}（{len(sub)} 个格子）")
 
-    zn = np.vstack([np.array(r["z_net"]) for r in rows if r["z_net"]])
-    ze = np.vstack([np.array(r["z_exact"]) for r in rows if r["z_net"]])
+    zn = np.concatenate([np.asarray(r["z_net"]).reshape(-1, 2) for r in rows])
+    ze = np.concatenate([np.asarray(r["z_exact"]).reshape(-1, 2) for r in rows])
     print(f"\n    {'坐标':<10}{'乘性 beta':>11}{'乘性残差':>11}{'加性偏移':>11}{'加性残差':>11}")
     for coord, name in ((0, "log rate"), (1, "log sigma")):
+        if not len(zn):
+            shape["status"] = "unavailable_all_boundary"
+            break
         a, b_ = ze[:, coord], zn[:, coord]
         beta = float((a @ b_) / (a @ a))
         delta = float(np.mean(b_ - a))

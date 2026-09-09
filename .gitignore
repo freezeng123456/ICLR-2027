@@ -24,3 +24,6 @@ train.log
 datasets.pkl
 real_*.pkl
 noisy_*.pkl
+work/
+.pytest_cache/
+.matplotlib/

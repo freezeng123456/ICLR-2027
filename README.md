@@ -1,42 +1,64 @@
-# ICLR-2027
+# PFN posterior-predictive approximation audit
 
-ICLR 2027 投稿的工作仓库。
+研究有限 PFN 在自身训练先验下的预测近似误差，以及这种误差对不确定性排序的影响。
+目前主要证据来自 RBF GP 和离散水平跳变过程两个受控先验。
 
-## 关键日期（AOE）
+## 研究证据
 
-- **摘要截止：2026-09-18**
-- **正文截止：2026-09-25**
-- 评审发布 2026-11-05，最终决定 2026-12-16
+| 先验 | 宽 64、20k 步：平均 gap | 宽 128、40k 步：平均 gap | 两端最差格子 gap |
+| --- | ---: | ---: | ---: |
+| GP | 0.1048 | 0.0477 | 0.4569 → 0.1761 |
+| 跳变过程 | 0.1081 | 0.0768 | 0.3100 → 0.2965 |
 
-## 文档
+单位为 nat。每个检查点在 96 个条件上评估，每个条件的原实验配置为 40 个任务。
+这些是已保存的探索性结果，未包含独立训练种子的置信区间。
+`gap` 计算数值后验的矩匹配高斯到网络高斯的 KL；它等于相对最佳高斯预测器的条件期望额外 NLL。
+连续先验积分使用数值求积，困难区域的求积收敛需要单独检查。
 
-- [`docs/scope.md`](docs/scope.md) — **先看这个**：收缩后的范围、结论清单、试错清单、下一个实验
-- [`docs/pfn-vs-its-own-bayes.md`](docs/pfn-vs-its-own-bayes.md) — 全部数字与判据
-- [`docs/submission-checklist.md`](docs/submission-checklist.md) — ICLR 2027 硬性规则（页数、配额、评审义务、AI 披露）
-- [`docs/direction-shortlist-no-llm.md`](docs/direction-shortlist-no-llm.md) — 选题判据：单次实验 ≤10 分钟、模型能自己从零训出来
-- [`docs/direction-shortlist.md`](docs/direction-shortlist.md) — 与方向无关的选型判据与排除项
-- [`docs/theory-interventions.md`](docs/theory-interventions.md) — 推理期干预的对象与可达集
-- [`docs/how-others-write.md`](docs/how-others-write.md) — 两篇该精读的稿：Müller ICLR 2022、SPN ICML 2026，以及九页该怎么套
-- [`papers/`](papers/README.md) — 上述两篇 PDF
+- [当前研究范围](docs/scope.md)：允许的结论、数学定义和补充实验。
+- [代码与论文审计](docs/RESEARCH_AUDIT.md)：代码地图、证据缺口、相关工作与 SCNet 实验安排。
+- [历史数值记录](docs/pfn-vs-its-own-bayes.md)：原实验表格与探索解释。
+- [历史先验错配实验](docs/exp-log.md)：远置上下文、温度缩放和检查点恢复。
+- [投稿规则](docs/submission-checklist.md)：摘要 2026-09-18、正文 2026-09-25，均为 AOE；以 [ICLR 官方 CFP](https://iclr.cc/Conferences/2027/CallForPapers) 为准。
 
-## 当前状态
+## 安装与验收
 
-收缩后的一条线：**PFN 的预测不确定性不是它的后验不确定性；上下文越多这件事越糟；
-而放大模型会单调地让它更自信——在原本不够自信的地方是改进，
-在结构清晰、噪声低的地方是变坏。**
+Python 3.12。在仓库根目录运行：
 
-先验完全正确、数据严格来自先验，此时：
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m pytest -q
+.venv/bin/python check_jump_prior.py
+.venv/bin/python audit_artifacts.py --output work/artifact-audit.json
+```
 
-- 上下文越多、偏离越大。跳变先验 30/32 个组合上升，高斯过程 20/32。
-- 网络把自己的逼近误差算进噪声那一维，隐含噪声偏高 1.19 倍（高斯过程）到 1.53 倍（跳变）。
-- 算力单调地让网络更自信（两个先验上 81/96 与 94/96 个格子的方差对数之差变小）。
-- 算力在尖锐区域买不到东西：跳变先验最差格子 8 倍算力只降 4%，
-  那里 KL 的方差项随算力上升（0.1809 → 0.2614）而均值项下降（0.0227 → 0.0112）。
-- 偏离的价格可以量出来但不是先验不变的：高斯过程指数 0.371（$R^2$ 0.983），跳变 0.146。
-- 五条看起来该管用的修法逐一不成立。
+`audit_artifacts.py` 核对 17 个已有检查点的有限参数、8 个主实验模型的前向和 768 个结果格子，
+并生成 SHA-256 清单。它不重新训练历史模型，也无法恢复未记录的历史训练种子。
+TabICL、TabDPT、OpenML 实验另装 `requirements-tabular.txt`，其模型权重和数据由各项目提供。
 
-结论清单、试错清单与下一个实验见 [`docs/scope.md`](docs/scope.md)，
-全部数字见 [`docs/pfn-vs-its-own-bayes.md`](docs/pfn-vs-its-own-bayes.md)。
+## 训练与决策评估
 
-先前那一轮先验错配实验（隐变量纠缠、错误归因、远置探针对照温度缩放）的记录在
-[`docs/exp-log.md`](docs/exp-log.md)，其中的机制结果是同一现象在隐变量维数不足时的情形。
+```bash
+.venv/bin/python train_repro.py --prior gp --seed 0 --steps 20000 --width 128 --device cpu --output work/gp-w128-s0
+.venv/bin/python train_repro.py --prior jump --seed 0 --steps 20000 --width 128 --device cuda --output work/jump-w128-s0
+.venv/bin/python eval_decision.py --prior gp --checkpoints pfn_cond_w64.pt pfn_cond_40k.pt --tasks 200 --output work/decision-gp.json
+.venv/bin/python eval_decision.py --prior jump --checkpoints pfn_jump_w64.pt pfn_jump_40k.pt --tasks 200 --output work/decision-jump.json
+.venv/bin/python check_quadrature.py --prior gp --output work/quadrature-gp.json
+.venv/bin/python check_quadrature.py --prior jump --output work/quadrature-jump.json
+```
+
+每次训练使用新的输出目录；已有目录会触发错误，防止覆盖。
+训练固定 NumPy 与 PyTorch 种子，保存配置、源码 hash、检查点 hash、步数、用时、硬件和状态。
+CPU 与 CUDA 之间的逐位一致性不作保证。CUDA 需要安装适配服务器驱动的 PyTorch。
+
+决策评估使用所有任务和查询点合并后的 coverage，按任务执行 cluster bootstrap。
+分别记录网络方差排序、固定网络均值下的 oracle 排序、Bayes 均值与方差的 oracle 曲线。
+保存逐任务输入和预测，便于重新计算置信区间与求积敏感性。
+
+## 分支整合
+
+主研究继承 `cursor/amortization-conditioning-5ca4`，包含校准对照分支的历史；
+真实表格实验继承 `cursor/iclr-2027-research-direction-8ba3` 的独立末端提交。
+选题趋势分支 `cursor/iclr-2027-research-trends-and-topic-proposals-83c0` 保留为历史材料。
+当前 main 的研究入口和数据定义以上述文档为准。

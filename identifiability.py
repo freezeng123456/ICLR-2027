@@ -127,5 +127,5 @@ def mixture_posterior(xc, yc, xq, ell_grid, sigma_grid):
 
 
 def gauss_kl(mu_p, var_p, mu_q, var_q):
-    """KL(P || Q)，两个都是对角高斯。P 取精确后验，Q 取网络输出。"""
+    """逐查询点的 Gaussian KL；P 可取后验的矩匹配高斯，Q 取网络输出。"""
     return 0.5 * (np.log(var_q / var_p) + (var_p + (mu_p - mu_q) ** 2) / var_q - 1.0)

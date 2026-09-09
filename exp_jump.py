@@ -56,15 +56,17 @@ def make_batch(rng, bs, n_ctx):
     return torch.tensor(xs, dtype=torch.float32), torch.tensor(ys, dtype=torch.float32)
 
 
-def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=128):
-    model = PFN(d_model, n_head=max(1, d_model // 32))
+def train(steps, bs=48, lr=3e-4, ckpt=CKPT, d_model=128, seed=0, device="cpu"):
+    torch.manual_seed(seed)
+    model = PFN(d_model, n_head=max(1, d_model // 32)).to(device)
     opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.OneCycleLR(opt, lr, total_steps=steps, pct_start=0.1)
-    rng = np.random.default_rng(0)
+    rng = np.random.default_rng(seed)
     t0, losses = time.time(), []
     for step in range(steps):
         n_ctx = int(rng.integers(6, N_POINTS - N_QUERY + 1))
         x, y = make_batch(rng, bs, n_ctx)
+        x, y = x.to(device), y.to(device)
         mu, logv = model(x, y, n_ctx)
         tgt = y[:, n_ctx:]
         loss = (0.5 * (logv + (tgt - mu) ** 2 / logv.exp())).mean()
