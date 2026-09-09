@@ -3,12 +3,34 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.integrate import simpson
 from scipy.special import logsumexp
 from scipy.stats import norm
 import torch
 
 from audit_extension_results import sha256, true_parameters
 from learned_sbi import PosteriorMDN
+
+
+def independent_conditional_kl(model, contexts):
+    grid = np.linspace(-16, 16, 16385)
+    values = []
+    with torch.no_grad():
+        for start in range(0, len(contexts), 16):
+            batch = contexts[start:start + 16]
+            v, m, logw = model(torch.tensor(batch, dtype=torch.float32))
+            logw = logw.numpy().astype(float)
+            logw -= logsumexp(logw, axis=-1, keepdims=True)
+            true_v, true_m, true_w = true_parameters(batch)
+            true_logpdf = logsumexp(norm.logpdf(grid[None, :, None], true_m[:, None, :], np.sqrt(true_v)[:, None, None]) + np.log(true_w)[:, None, :], axis=-1)
+            learned_logpdf = logsumexp(norm.logpdf(grid[None, :, None], m.numpy()[:, None, :], np.sqrt(v.numpy())[:, None, None]) + logw[:, None, :], axis=-1)
+            density = np.exp(true_logpdf)
+            np.testing.assert_allclose(simpson(density, x=grid, axis=-1), 1, atol=1e-9)
+            np.testing.assert_allclose(simpson(np.exp(learned_logpdf), x=grid, axis=-1), 1, atol=1e-9)
+            kl = simpson(density * (true_logpdf - learned_logpdf), x=grid, axis=-1)
+            assert kl.min() >= -1e-10
+            values.extend(kl.tolist())
+    return {"contexts": len(contexts), "mean": float(np.mean(values)), "median": float(np.median(values)), "maximum": float(np.max(values)), "values": values}
 
 
 def audit(root, output):
@@ -49,16 +71,21 @@ def audit(root, output):
                 batch = context[start:start + 2048]
                 variance, means, log_weights = model(torch.tensor(batch, dtype=torch.float32))
                 values = theta[start:start + 2048]
-                component = norm.logpdf(values[:, None], means.numpy(), np.sqrt(variance.numpy())[:, None]) + log_weights.numpy()
+                normalized_log_weights = log_weights.numpy().astype(float)
+                normalized_log_weights -= logsumexp(normalized_log_weights, axis=-1, keepdims=True)
+                component = norm.logpdf(values[:, None], means.numpy(), np.sqrt(variance.numpy())[:, None]) + normalized_log_weights
                 nlls.extend((-logsumexp(component, axis=-1)).tolist())
                 v, m, w = true_parameters(batch)
                 oracle_nlls.extend((-logsumexp(norm.logpdf(values[:, None], m, np.sqrt(v)[:, None]) + np.log(w), axis=-1)).tolist())
         differences = np.array(nlls) - oracle_nlls
+        kl = independent_conditional_kl(model, context[:1024])
+        (output / f"training_{seed}_independent_kl.json").write_text(json.dumps(kl, indent=2))
         row = {"training_seed": seed, "updates": summary["updates"], "training_pairs": summary["simulated_training_pairs"],
                "parameter_count": sum(value.numel() for value in final.values()), "parameter_delta_l2": delta, "final_sha256": summary["final_sha256"],
                "recorded_initial_nll": history[0]["validation_nll"], "recorded_final_nll": history[-1]["validation_nll"],
                "independent_nll": float(np.mean(nlls)), "independent_oracle_nll": float(np.mean(oracle_nlls)),
                "independent_excess_nll": float(differences.mean()), "independent_excess_nll_se": float(differences.std(ddof=1) / np.sqrt(n)),
+               "independent_conditional_kl_mean": kl["mean"], "independent_conditional_kl_contexts": kl["contexts"], "recorded_conditional_kl_mean": summary["heldout_kl_mean"],
                "finite_parameters": True, "status": "passed"}
         rows.append(row)
         print(json.dumps(row), flush=True)

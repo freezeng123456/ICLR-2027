@@ -57,6 +57,7 @@ def learned_figure(frame, steps, output):
                 ax.set_ylabel("W1 vs learned" if row == 0 else "W1 vs true")
     fig.tight_layout(pad=0.6)
     fig.savefig(output)
+    fig.savefig(output.with_suffix(".png"), dpi=180)
     plt.close(fig)
 
 
@@ -87,6 +88,7 @@ def sensitivity_figure(frame, output):
     fig.legend(handles, labels, loc="upper center", ncol=5, frameon=False, fontsize=8)
     fig.tight_layout(rect=(0, 0, 1, 0.95))
     fig.savefig(output)
+    fig.savefig(output.with_suffix(".png"), dpi=180)
     plt.close(fig)
 
 

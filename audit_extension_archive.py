@@ -1,4 +1,5 @@
 import argparse
+from collections import Counter
 import csv
 import hashlib
 import json
@@ -45,7 +46,14 @@ def audit(root, output):
         for task in (root / kind).glob("task_*"):
             runtime = json.loads((task / "runtime.json").read_text())
             assert runtime["source_hashes"] == source["source_hashes"]
-    report = {"status": "passed", "verified_files": len(expected_paths), "verified_scheduler_tasks": len(rows), "allocated_gpu_hours": sum(int(row["ElapsedRaw"]) for row in rows) / 3600, "source_commit": manifest["source_commit"]}
+    with (root / "failed_attempt_slurm.tsv").open() as stream:
+        failed_attempt = list(csv.DictReader(stream, delimiter="|"))
+    failed_hours = 0
+    for row in failed_attempt:
+        allocation = dict(item.split("=", 1) for item in row["AllocTRES"].split(",") if "=" in item)
+        failed_hours += int(allocation.get("gres/gpu", 0)) * int(row["ElapsedRaw"]) / 3600
+    report = {"status": "passed", "verified_files": len(expected_paths), "verified_scheduler_tasks": len(rows), "allocated_gpu_hours": sum(int(row["ElapsedRaw"]) for row in rows) / 3600, "source_commit": manifest["source_commit"],
+              "earlier_storage_failure": {"scheduler_tasks": len(failed_attempt), "states": dict(Counter(row["State"] for row in failed_attempt)), "allocated_gpu_hours": failed_hours, "logs": "failed_attempt/", "scope": "Operational attempt retained separately; none of its partial cells enter the formal scientific results"}}
     output.mkdir(parents=True, exist_ok=True)
     (output / "archive_audit.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(report), flush=True)

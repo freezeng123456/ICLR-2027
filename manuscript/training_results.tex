@@ -1,0 +1,21 @@
+\subsection{Independent verification of the trained densities}
+All five networks contain 34,052 parameters and complete the prescribed 40,000 updates. Their initial and final checkpoints have finite weights and distinct hashes, with parameter-change Euclidean norms between 7.48 and 7.79. Table~\ref{tab:training-verification} reports every training seed. The independent conditional KL uses 1,024 new contexts and 16,385 quadrature points on $[-16,16]$; both component-mixture densities integrate to one within the audit tolerance. The original GPU KL diagnostics use different heldout contexts and are retained separately.
+
+\begin{table}[ht]
+ \centering
+ \caption{Fixed final checkpoints. Validation NLL uses the original 100,000-pair GPU validation set. Independent KL is $\E_c[\operatorname{KL}(p(\theta\mid c)\|q_\psi(\theta\mid c))]$ averaged over 1,024 new contexts, with the displayed value multiplied by $10^5$. Every row is independently checked.}
+ \label{tab:training-verification}
+ \begin{tabular}{rrr}
+ \toprule
+ Training seed & Recorded validation NLL & Independent KL $\times10^5$\\
+ \midrule
+ 0 & 1.091306 & 6.477\\
+ 1 & 1.091242 & 4.828\\
+ 2 & 1.091280 & 8.880\\
+ 3 & 1.091315 & 9.242\\
+ 4 & 1.091384 & 12.994\\
+ \bottomrule
+ \end{tabular}
+\end{table}
+
+A separate 100,000-pair Monte Carlo comparison evaluates learned and exact-posterior negative log likelihood on the same fresh samples. Its excess-NLL estimates range from $-2.38\times10^{-5}$ to $1.72\times10^{-4}$, with standard errors between $3.29\times10^{-5}$ and $5.13\times10^{-5}$. A negative finite-sample estimate is compatible with Monte Carlo noise; it is not a negative KL divergence. The integrated conditional KL and the composed-density errors supply separate distribution-level diagnostics.

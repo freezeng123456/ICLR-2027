@@ -1,0 +1,45 @@
+\section{Additional baseline comparisons}\label{app:baseline-tables}
+These tables retain the complete method comparisons summarized in Section~\ref{sec:experiments}.
+
+\begin{table}[ht]
+ \centering
+ \caption{Number of configurations with finite population normalizers, out of 12 per family. A dash denotes an unrun method; tail matching coincides with the Gaussian control on Gaussian factors. Unweighted updates are Markov kernels with unit weights, so finiteness alone is immediate and does not establish target accuracy.}
+ \label{tab:certificates}
+ \begin{tabular}{lccc}
+ \toprule
+ Method & Gaussian & Mixture & Weak mixture\\
+ \midrule
+ Full & 10/12 & 10/12 & 12/12\\
+ Unweighted & 12/12 & 12/12 & 12/12\\
+ Plug-in & 0/12 & 0/12 & 4/12\\
+ Unbiased & 0/12 & 0/12 & 4/12\\
+ Unbiased + pair & 0/12 & 0/12 & 4/12\\
+ Moment CV & 10/12 & 0/12 & 12/12\\
+ Moment CV + pair & 10/12 & 0/12 & 12/12\\
+ Tail CV & -- & 10/12 & 12/12\\
+ Tail CV + pair & -- & 10/12 & 12/12\\
+ \bottomrule
+ \end{tabular}
+\end{table}
+
+\begin{table}[ht]
+ \centering
+ \caption{Matched configuration $G=64,d=8,K=512$. W1 is mean $\pm$ one standard deviation over five seeds; seconds are medians. A superscript $\infty$ marks an infinite population normalizer. All methods use 8,192 particles.}
+ \label{tab:matched}
+ \begin{tabular}{lrrrr}
+ \toprule
+ & \multicolumn{2}{c}{Mixture} & \multicolumn{2}{c}{Weak mixture}\\
+ Method & W1 & Seconds & W1 & Seconds\\
+ \midrule
+ Full & $0.881\pm0.372$ & 1.921 & $0.028\pm0.007$ & 1.909\\
+ Unweighted & $0.404\pm0.003$ & 1.897 & $0.072\pm0.001$ & 1.896\\
+ Plug-in & $1.662\pm0.021^{\infty}$ & 0.822 & $0.053\pm0.051^{\infty}$ & 0.754\\
+ Unbiased & $1.649\pm0.010^{\infty}$ & 0.828 & $0.070\pm0.038^{\infty}$ & 0.764\\
+ Unbiased + pair & $1.608\pm0.099^{\infty}$ & 1.341 & $0.032\pm0.014^{\infty}$ & 1.282\\
+ Moment CV & $0.742\pm0.097^{\infty}$ & 1.077 & $0.052\pm0.040$ & 1.047\\
+ Moment CV + pair & $0.456\pm0.228^{\infty}$ & 1.865 & $0.022\pm0.005$ & 1.850\\
+ Tail CV & $1.004\pm0.327$ & 1.081 & $0.043\pm0.026$ & 1.027\\
+ Tail CV + pair & $1.358\pm0.188$ & 1.876 & $0.025\pm0.005$ & 1.847\\
+ \bottomrule
+ \end{tabular}
+\end{table}
