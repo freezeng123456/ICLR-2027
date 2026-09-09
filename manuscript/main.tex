@@ -130,6 +130,9 @@ the supremum of convex quadratics. Its maximum on the interval occurs at an endp
 
 The cost is $O(KG)$ to obtain the extrema and $O(K)$ scalar transitions, with no enumeration over $G^M$ batches. For diagonal product factors, apply the recursion to each coordinate: a single failing coordinate suffices for divergence, while positivity for every coordinate certifies every history.
 
+\paragraph{Uniform sampling without replacement.}
+For a uniform subset $S$ of size $2\le M\le G$, the unbiased potential is $G(G-1)\sum_{i<j,\,i,j\in S}r_i^{\mathsf T}r_j/[M(M-1)]$. Its exact Gaussian certificate depends on $M$. After sorting $a_1\le\cdots\le a_G$, only the $M+1$ subsets containing the $j$ weakest and $M-j$ strongest factors, $0\le j\le M$, need be checked. Fixing all but one selected strength makes the drift and quadratic potential coefficients affine in the remaining strength; convexity of the squared-affine-over-positive-affine variance map permits an endpoint exchange. Repeated exchanges give these prefix/suffix subsets. Appendix~\ref{app:without-replacement} gives the full theorem and multi-step proof. At $M=G$, this update is the full-factor operator.
+
 \subsection{An exact four-factor separation}
 Take zero-mean Gaussian factor precisions $1+\lambda_g$ with $\lambda=(1/10,1/5,2,4)$. At $u=\log2$, the residual precisions are $a=(1/21,1/11,1/2,2/3)$. The normalized compositional density is $\Normal(0,V)$ with $V=154/355$. For $h=1/2$ and $\kappa=1$,
 \begin{equation}\label{eq:counterexample}

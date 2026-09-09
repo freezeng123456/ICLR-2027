@@ -136,7 +136,49 @@ Distinct indices are sampled, so its pair coefficient differs from \eqref{eq:U}.
  \min D & 47/355 & 659/1065 & 2503/3195
 \end{array}
 \]
-All three without-replacement one-step operators are finite. At $M=G$ the estimator equals the full-factor potential. This analytic comparison shows that the failure established for every finite with-replacement $M$ does not transfer to an arbitrary subsampling scheme. It does not assert multi-step stability of without-replacement updates for other grids or factor sets.
+All three without-replacement one-step operators are finite. At $M=G$ the estimator equals the full-factor potential. For general grids, the following result provides an exact multi-step decision.
+
+\begin{theorem}[Prefix/suffix certificate]\label{thm:without-replacement}
+Assume scalar Gaussian factors, $a_g(u_k)\ge0$, an initial Gaussian variance $V_0>0$, a finite grid, $\kappa>0$, and independent uniform subsets of fixed size $2\le M\le G$ at successive steps. At each level, sort the residual precisions as $a_1\le\cdots\le a_G$ and form
+\[
+ S_j=\{1,\ldots,j\}\cup\{G-(M-j)+1,\ldots,G\},\quad 0\le j\le M.
+\]
+For a subset $S$, define
+\[
+ \widehat A_S=\frac GM\sum_{i\in S}a_i,\qquad
+ \widehat c_S=\frac{G(G-1)}{M(M-1)}\sum_{\substack{i<\ell\\i,\ell\in S}}a_i a_\ell.
+\]
+Starting from $V_{\max,0}=V_0$, evaluate \eqref{eq:D} only on these $M+1$ subsets at the current $V_{\max,k}$. If any denominator is nonpositive, the population normalizer is infinite at that step. Otherwise set
+\[
+ V_{\max,k+1}=\max_{0\le j\le M}F_{S_j}(V_{\max,k}),
+\]
+where $F$ is \eqref{eq:variance}. This recursion gives the largest reachable conditional variance and an exact integrability decision. Repeated strengths are allowed, with ties ordered by index.
+\end{theorem}
+\begin{proof}
+Fix $M-1$ selected elements and vary the last strength $z$. Both $\widehat A(z)$ and $\widehat c(z)$ are affine in $z$, since each term in the distinct-pair sum contains $z$ at most once. First maximize $\widehat c$ over subsets. If a selected index lies strictly between the least and greatest unselected indices, replace it by whichever of those endpoints does not decrease $\widehat c$. The interval between the least and greatest unselected indices strictly shrinks: the removed selected index is interior, and one unselected endpoint disappears. Iterating must terminate, and the remaining unselected indices then form a contiguous block. The selected set is therefore some $S_j$. Consequently a nonpositive denominator exists among all subsets if and only if it exists among these candidates.
+
+Now suppose all candidate denominators are positive, hence all subset denominators are positive. With the other $M-1$ elements fixed, write the affine Euler multiplier as $n(z)$ and the positive affine denominator as $D(z)$. Between any two feasible endpoint strengths the denominator remains positive, and
+\[
+ F(z)-\kappa h=\frac{V n(z)^2}{D(z)}
+ =V\sup_{t\in\R}\{2t n(z)-t^2D(z)\}
+\]
+is convex as a supremum of affine functions of $z$. The same endpoint exchange can therefore be made without decreasing $F$. The strictly shrinking unselected interval again proves that a maximizing subset belongs to the $M+1$ candidates.
+
+Finally, $F_S$ is nondecreasing in $V$ wherever its denominator is positive, because
+\[
+ \frac{d}{dV}\left(\frac{Vn_S^2}{1-2h\widehat c_S V}\right)
+ =\frac{n_S^2}{(1-2h\widehat c_S V)^2}\ge0.
+\]
+Each finite history and each current subset have positive probability. A history attaining the preceding largest variance can thus be concatenated with a maximizing current subset. Induction proves attainability and maximality, while Lemma~\ref{lem:gaussian} and Tonelli's theorem prove the failure criterion.
+\end{proof}
+
+Gaussian means and the linear potential terms do not affect this recursion by Lemma~\ref{lem:gaussian}. For diagonal product factors, the coordinatewise criteria give an exact joint integrability decision: if a coordinate fails, its witnessing history makes the joint nonnegative integral infinite; if every coordinate passes, every history is integrable. The coordinate maxima need not occur on a common history. The same subset reduction supplies the strict tail-envelope certificate for the equal-component-variance mixture class of Appendix~\ref{app:envelope}, leaving zero-denominator mixture cases undecided.
+
+For tail control without replacement, replace the last line of \eqref{eq:tail-estimator} by
+\[
+ \frac{G(G-1)}{M(M-1)}\sum_{\substack{i<j\\i,j\in S}}e_i^{\mathsf T}e_j.
+\]
+The preceding constant and linear estimators retain their forms with sums over $S$. Inclusion probabilities $\Pr(i\in S)=M/G$ and $\Pr(i,j\in S)=M(M-1)/(G(G-1))$ give conditional unbiasedness. Bounded residuals again make the random remainder grow at most linearly, so Theorem~\ref{thm:tail} applies to this sampling scheme as well. These statements concern the specified uniform subset estimator; they do not extend the prefix/suffix ordering argument to arbitrary affine controls.
 
 \section{Complete benchmark certificate}\label{app:full-results}
 Every executed benchmark configuration is classified in Figure~\ref{fig:complete-certificate}. The coordinate-wise tests classify the population operator before inspecting any particle outcome.
