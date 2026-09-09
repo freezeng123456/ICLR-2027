@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "checked_on": "2026-09-09",
+  "main_job": "23785639",
+  "supplement_job": "23785828",
+  "formal_tasks": 40,
+  "formal_cells": 1980,
+  "formal_allocated_gpu_hours": 2.0694444444444446,
+  "all_formal_task_states": "COMPLETED",
+  "all_formal_task_exit_codes": "0:0",
+  "final_squeue_active_jobs_for_user": 0,
+  "queue_check": "squeue -u zenghang -h -o '%i %T %j' returned no rows in the SCNet E-Shell",
+  "main_archive": {
+    "name": "composition-main-185e953-results.tar.gz",
+    "bytes": 457091638,
+    "sha256": "fe0499d452969af80a65c5f6c0fbb673abe41d5fd3ebcb79ccc07be638a78fcf"
+  },
+  "supplement_archive": {
+    "name": "composition-supp-a66b5e3-results.tar.gz",
+    "bytes": 122992902,
+    "sha256": "2dbe4bb9c3c1229723e2a7be8ab9b9aa8815793ad093d2d2ac63b2882c7628dc"
+  },
+  "scope": "Formal-array elapsed GPU hours exclude smoke jobs and local analysis. Both archive hashes were verified remotely and after local download. Per-task exit records are retained beside the audited main and supplementary result tables."
+}

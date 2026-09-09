@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "analysis_commit": "d7eb28024a8ccf8eb3f73440b609c5b4fe4039b9",
+  "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "torch": "2.14.0",
+  "numpy": "2.5.3",
+  "device": "cpu",
+  "benchmark_reruns": [
+    {
+      "family": "gaussian",
+      "method": "full",
+      "w1_mean": 0.022221346907463305,
+      "independent_metrics": {
+        "w1_mean": 0.022222386082419984,
+        "ks_mean": 0.03757654089716858,
+        "mean_absolute_error": 0.022108105596691408,
+        "variance_relative_error": 0.1560930733615582,
+        "positive_mass_error": 0.012574833467624114
+      },
+      "joint": {
+        "joint_sign_total_variation": 0.012574827985560746,
+        "off_diagonal_correlation_rms": 0.0
+      }
+    },
+    {
+      "family": "weak_mixture",
+      "method": "tail",
+      "w1_mean": 0.020908501484611278,
+      "independent_metrics": {
+        "w1_mean": 0.020908956433297182,
+        "ks_mean": 0.016961724797009636,
+        "mean_absolute_error": 0.020747226017141275,
+        "variance_relative_error": 0.007024757311011154,
+        "positive_mass_error": 0.009752100313386691
+      },
+      "joint": {
+        "joint_sign_total_variation": 0.009752100809881342,
+        "off_diagonal_correlation_rms": 0.0
+      }
+    }
+  ],
+  "one_step_reruns": [
+    {
+      "method": "full",
+      "batch": 2,
+      "particles": 1048576,
+      "log_normalizer": 0.12216332662640106,
+      "weighted_variance": 0.50488685807449,
+      "ess_fraction": 0.9600557913220041,
+      "potential_mse": 0.0,
+      "nonintegrable_batch_count": 0
+    },
+    {
+      "method": "unbiased",
+      "batch": 2,
+      "particles": 1048576,
+      "log_normalizer": 0.4279404964492759,
+      "weighted_variance": 0.8299574624389134,
+      "ess_fraction": 0.0015955119827024966,
+      "potential_mse": 0.46838111024167783,
+      "nonintegrable_batch_count": 65429
+    },
+    {
+      "method": "unbiased",
+      "batch": 32,
+      "particles": 1048576,
+      "log_normalizer": 0.12629911763870716,
+      "weighted_variance": 0.509320722394111,
+      "ess_fraction": 0.9326805144328909,
+      "potential_mse": 0.01870836476163441,
+      "nonintegrable_batch_count": 0
+    }
+  ],
+  "passed": [
+    "clean Git checkout",
+    "both fixed manifests reproduced",
+    "historical-source representative CPU reruns",
+    "independent rerun metrics",
+    "exact estimator and integrability checks",
+    "local operator checks",
+    "all three figure PNGs byte-identical",
+    "all three aggregate CSVs equal"
+  ],
+  "failed": [],
+  "blocked": [],
+  "not_run": [
+    "bitwise CPU versus SCNet GPU equality",
+    "full repeat of 1980 SCNet cells"
+  ],
+  "scope": "Reproducible code and analysis from a clean checkout, with representative historical-source CPU reruns; raw SCNet archives are independently verified by audit_composition_results.py."
+}

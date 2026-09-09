@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "analysis_commit": "d7eb28024a8ccf8eb3f73440b609c5b4fe4039b9",
+  "document": "manuscript/main.pdf",
+  "document_sha256": "a97d4fa8ca55917f9de53f780c4a95b4db8cedb9186855ba894a24d82e290c77",
+  "document_bytes": 195254,
+  "total_pages": 13,
+  "main_text_last_page": 8,
+  "references_first_page": 9,
+  "format": "Official ICLR 2027 styles, with main.tex draft-status header wrapper",
+  "publication_status": "research draft; not submitted",
+  "passed": [
+    "all four distributed style files byte-identical to downloaded official template",
+    "Tectonic compilation in working repository",
+    "Tectonic compilation in independent clean Git clone",
+    "all 13 pages rendered with Poppler and visually inspected",
+    "all 13 clean-build page PNGs byte-identical to the visually reviewed manuscript",
+    "no missing citations or unresolved cross-references",
+    "no overfull boxes, clipped equations, overlapping figures, or unreadable table text observed",
+    "all three paper figures regenerated from complete checked-in cell summaries",
+    "AI use statement included"
+  ],
+  "nonblocking_observations": [
+    "LaTeX reports underfull spacing warnings; affected pages were visually inspected",
+    "PDF binary changes with build metadata; rendered page PNGs are byte-identical"
+  ],
+  "failed": [],
+  "blocked": [],
+  "not_run": ["independent human scientific review", "conference submission"]
+}
