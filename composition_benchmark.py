@@ -50,11 +50,12 @@ class FactorModel:
         self.marginal_variance = self.variance + (
             self.weights * (self.means - self.mean[..., None]).square()
         ).sum(-1)
+        self.control_variance = self.marginal_variance
 
     def coefficients(self, u):
         alpha = math.exp(-0.5 * u)
         v = 1 - alpha * alpha + alpha * alpha * self.variance
-        cv_v = 1 - alpha * alpha + alpha * alpha * self.marginal_variance
+        cv_v = 1 - alpha * alpha + alpha * alpha * self.control_variance
         a = 1 - 1 / cv_v
         b = alpha * self.mean / cv_v
         return alpha, v, a, b
@@ -184,6 +185,8 @@ def run_cell(config, output):
     (output / "config.json").write_text(json.dumps(config, indent=2))
     generator = torch.Generator(device=config["device"]).manual_seed(config["seed"])
     model = FactorModel(config["groups"], config["dimension"], config["family"], config["device"])
+    if config["method"].startswith("tail"):
+        model.control_variance = model.variance
     reference = model.reference()
     n = config["particles"]
     x = torch.randn(n, config["dimension"], device=config["device"], dtype=DTYPE, generator=generator)
@@ -206,11 +209,11 @@ def run_cell(config, output):
                 drift, potential = model.exact(x, float(u))
                 score_evaluations += n * config["groups"]
             else:
-                control = method.startswith("cv")
+                control = method.startswith(("cv", "tail"))
                 drift, potential = model.estimate(x, float(u), config["batch"], generator, control=control, naive=method == "naive")
                 score_evaluations += n * config["batch"]
             if method.endswith("cumulant"):
-                drift2, potential2 = model.estimate(x, float(u), config["batch"], generator, control=method.startswith("cv"))
+                drift2, potential2 = model.estimate(x, float(u), config["batch"], generator, control=method.startswith(("cv", "tail")))
                 score_evaluations += n * config["batch"]
                 drift = 0.5 * (drift + drift2)
                 increment = 0.5 * h * (potential + potential2) - h * h * (potential - potential2).square() / 8
@@ -283,6 +286,22 @@ def self_check(output):
         gaussian_error.extend([float((b - bhat).abs().max()), float((g - ghat).abs().max())])
     results["gaussian_control_exactness"] = max(gaussian_error)
     assert max(gaussian_error) < 1e-10
+    model.control_variance = model.variance
+    tail_errors = []
+    for point in x:
+        xx = point.repeat(len(all_batches), 1)
+        bhat, ghat = model.estimate(xx, 0.7, 3, generator, control=True, indices=all_batches)
+        b, g = model.exact(point[None], 0.7)
+        tail_errors.extend([float(abs(bhat.mean() - b.item())), float(abs(ghat.mean() - g.item()))])
+    results["tail_control_unbiasedness"] = max(tail_errors)
+    assert max(tail_errors) < 1e-11
+    extreme_states = torch.tensor([[-10000.0], [0.0], [10000.0]], dtype=DTYPE)
+    for u in (0.0, 0.5, 3.0):
+        r, r0 = model.residuals(extreme_states, u)
+        alpha, variance, _, _ = model.coefficients(u)
+        bound = alpha * (model.means - model.mean[..., None]).abs().max(-1).values / variance
+        assert bool(((r - r0).abs() <= bound[None] + 1e-10).all())
+    results["tail_residual_bound"] = "passed"
     reference = model.reference(points=32769)
     reference_fine = model.reference(points=65537)
     moments = []
@@ -320,7 +339,7 @@ def main():
     parser.add_argument("--output")
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--family", choices=["gaussian", "mixture", "weak_mixture"], default="mixture")
-    parser.add_argument("--method", choices=["full", "unweighted", "naive", "unbiased", "cumulant", "cv", "cv_cumulant"], default="full")
+    parser.add_argument("--method", choices=["full", "unweighted", "naive", "unbiased", "cumulant", "cv", "cv_cumulant", "tail", "tail_cumulant"], default="full")
     parser.add_argument("--groups", type=int, default=16)
     parser.add_argument("--dimension", type=int, default=1)
     parser.add_argument("--particles", type=int, default=4096)
