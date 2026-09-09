@@ -9,4 +9,4 @@ tests/test_core.py::test_all_boundary_projection_retains_primary_metrics[eval_ju
     self.enc = nn.TransformerEncoder(layer, N_LAYER)
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-7 passed, 5 warnings in 2.93s
+7 passed, 5 warnings in 2.61s

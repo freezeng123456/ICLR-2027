@@ -89,10 +89,17 @@ def test_all_boundary_projection_retains_primary_metrics(module, checkpoint, lat
     model, _ = load_pfn(checkpoint)
     grids = module.quad_grids(2, 2)
     grid_args = grids if module is eval_conditioning else (grids,)
-    row = module.run_cell(model, latent, 0.5, 24, "paired", *grid_args, n_tasks=1, seed=0)
-    assert row["n_edge"] == 1
-    assert row["z_net"] == row["z_exact"] == []
-    assert row["shift_net"] is None and row["shift_exact"] is None
-    assert np.isfinite(row["gap"])
-    if module is eval_conditioning:
-        assert module.update_deficit([row])["failure_model"]["status"] == "unavailable_all_boundary"
+    # GP 的特征向量符号可随 LAPACK 实现变化，固定真实任务集合验证边界分支。
+    rows = [module.run_cell(model, latent, 0.5, 24, "paired", *grid_args, n_tasks=1, seed=seed)
+            for seed in range(8)]
+    assert any(row["n_edge"] == 1 for row in rows)
+    for row in rows:
+        assert np.isfinite(row["gap"])
+        if row["n_edge"] == 1:
+            assert row["z_net"] == row["z_exact"] == []
+            assert row["shift_net"] is None and row["shift_exact"] is None
+            if module is eval_conditioning:
+                assert module.update_deficit([row])["failure_model"]["status"] == "unavailable_all_boundary"
+        else:
+            assert len(row["z_net"]) == len(row["z_exact"]) == 1
+            assert np.isfinite(row["shift_net"]) and np.isfinite(row["shift_exact"])
