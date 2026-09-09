@@ -208,6 +208,8 @@ def audit(root, output, kind):
             tolerance = 0.0007 if key == "w1_mean" else 1e-5
             assert difference < tolerance, (cell, key, difference)
         result = {key: value for key, value in summary.items() if key != "runtime"}
+        result.update({"recorded_" + key: summary[key] for key in metrics})
+        result.update(metrics)
         result.update({"integrability_certificate": "finite" if certificate["finite_normalizer"] else "infinite", "relative_path": str(cell.relative_to(root))})
         if kind == "learned":
             true_metrics = independent_metrics(samples, particle_weights, references[reference_key]["true"])

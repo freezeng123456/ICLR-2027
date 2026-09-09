@@ -51,6 +51,9 @@ def audit(root, output):
         config = json.loads((directory / "config.json").read_text())
         summary = json.loads((directory / "summary.json").read_text())
         history = json.loads((directory / "training.json").read_text())
+        runtime = config["runtime"]
+        assert runtime["gpu"] == "NVIDIA GeForce RTX 3080"
+        assert len(runtime["cuda_visible_devices"].split(",")) == 1 and runtime["slurm_cpus_per_task"] == "4"
         assert config["seed"] == seed and config["updates"] == 40000 and config["batch"] == 2048
         assert summary["updates"] == 40000 and summary["simulated_training_pairs"] == 81920000
         assert [item["step"] for item in history] == list(range(0, 40001, 2000))
@@ -82,6 +85,7 @@ def audit(root, output):
         (output / f"training_{seed}_independent_kl.json").write_text(json.dumps(kl, indent=2))
         row = {"training_seed": seed, "updates": summary["updates"], "training_pairs": summary["simulated_training_pairs"],
                "parameter_count": sum(value.numel() for value in final.values()), "parameter_delta_l2": delta, "final_sha256": summary["final_sha256"],
+               "training_gpu": runtime["gpu"], "training_python": runtime["python"], "training_torch": runtime["torch"],
                "recorded_initial_nll": history[0]["validation_nll"], "recorded_final_nll": history[-1]["validation_nll"],
                "independent_nll": float(np.mean(nlls)), "independent_oracle_nll": float(np.mean(oracle_nlls)),
                "independent_excess_nll": float(differences.mean()), "independent_excess_nll_se": float(differences.std(ddof=1) / np.sqrt(n)),
