@@ -1,0 +1,31 @@
+\section{Extended sampling and learned-posterior protocols}\label{app:extension-protocol}
+The extension protocol is frozen separately from the 1,980-cell baseline. Its oracle matrix contains 1,080 unique sampling cells. For each of the three factor families, it uses $G=64$, $d\in\{1,8\}$, $K\in\{512,2048\}$, five seeds, $P=8192$ and $U=20$. The methods are full weighting, unbiased weighting with and without replacement, and tail control with and without replacement. Each subsampled method uses $M\in\{2,4,8\}$; the full baseline is shared across batch sizes. This gives 780 cells. At $G=64,d=8,K=512,M=4$, the sensitivity study adds $P\in\{32768,131072\}$ at $U=20$ and $U\in\{10,30\}$ at $P=8192$ for every family, method and seed, adding 300 cells. Varying $U$ with $K$ fixed changes both initialization and the time grid, so this comparison does not isolate initialization error alone.
+
+Without-replacement batches use independent double-precision uniform random keys for all $G$ factors and select the $M$ smallest keys. The resulting subset is uniform under the ideal continuous-key law. Selection requires $O(PG)$ work and is included in recorded sampler time. The displayed particle--factor evaluation count measures the selected scores and does not imply that subset selection is independent of $G$.
+
+\subsection{Conditional density learning}
+We use mixture density networks \citep{bishop1994} in a controlled neural-posterior setting; conditional density learning from simulator samples is established in simulation-based inference \citep{papamakarios2016}. The simulator is
+\[
+ \theta\sim\Normal(0,1),\quad Z\sim\operatorname{Uniform}\{-1,+1\},\quad
+ y=\theta+Zb+\sigma\epsilon,\quad \epsilon\sim\Normal(0,1).
+\]
+During training, $\sigma\sim\operatorname{Uniform}[0.45,1.2]$ and $b\sim\operatorname{Uniform}[0.3,1.3]$. A network with three hidden layers of width 128 and SiLU activations maps $(y/3,\log\sigma,b)$ to four outputs. These parameterize two component means as center plus or minus a softplus separation, one common variance as $0.02+0.96\operatorname{sigmoid}(v)$, and two positive mixture weights using one logit. The variance restriction gives nonnegative residual tail precisions for the certificate. It is an architectural assumption, not an estimated property of a general score network.
+
+Five independent training seeds each use 40,000 Adam updates with batches of 2,048 fresh joint simulator samples, giving 81,920,000 training pairs per seed. The learning rate decreases from $3\times10^{-4}$ to $3\times10^{-5}$ by a cosine schedule. Training minimizes conditional negative log likelihood and receives no exact posterior or score labels. We use the fixed final checkpoint for every seed. Validation on 100,000 fixed heldout pairs is recorded every 2,000 updates; it does not select checkpoints. Initial and final weights, loss histories and final checkpoint hashes are retained. A separate local audit evaluates the saved final networks on 100,000 newly generated heldout pairs and compares their negative log likelihood with the exact posterior value on those same pairs.
+
+The exact conditional posterior, used only for evaluation, has common variance $v=\sigma^2/(1+\sigma^2)$, means $(y-b)/(1+\sigma^2)$ and $(y+b)/(1+\sigma^2)$, and weights proportional to
+\[
+ \exp\!\left(-\frac{(y-b)^2}{2(1+\sigma^2)}\right),\qquad
+ \exp\!\left(-\frac{(y+b)^2}{2(1+\sigma^2)}\right).
+\]
+An independent likelihood-times-prior calculation checks this identity. The learned factors are mixtures with a closed-form Ornstein--Uhlenbeck convolution, so their evolving scores and tail variances are available exactly conditional on the trained network. The experiment therefore tests learned conditional densities with known tail structure, and does not certify arbitrary neural score models.
+
+\subsection{Grouped datasets and error decomposition}
+For each of five dataset seeds, $G\in\{16,64\}$ and $d\in\{1,8\}$, generate one shared $\theta_j\sim\Normal(0,1)$ per coordinate and $G$ conditionally independent observations. With $\alpha_{gj}=2\pi(g+0.37j)/G$, use
+\[
+ \sigma_{gj}=0.45+0.75(0.5+0.5\sin\alpha_{gj}),\qquad
+ b_{gj}=0.8+0.5\cos(2\alpha_{gj}).
+\]
+Each observation has an independent sign and Gaussian noise. The same dataset and learned factor parameters are used by all five sampling methods. Every checkpoint/dataset pair is evaluated at $K\in\{512,2048\}$ with $P=32768$, $M=4$, $U=20$, $\kappa=1$, standard Gaussian initialization, and the baseline resampling rule. This gives 1,000 sampling cells, across five training seeds, five dataset seeds, four $(G,d)$ configurations, two grids and five methods.
+
+We distinguish particle W1 against the normalized composition of learned factors, particle W1 against the true posterior composition, and the W1/KL discrepancy between the true and learned compositions. The two particle errors do not add to an exact decomposition of W1. Means and standard deviations across the 25 crossed checkpoint/dataset pairs describe dispersion; those pairs are not 25 independent training runs. The main figure uses the preselected finer grid, with the coarser grid retained in the appendix and complete tables. Network parameters are predicted once per context, before particle sampling. Setup time is recorded separately, and these timings do not measure repeated neural-network evaluations at evolving particle states.

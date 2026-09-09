@@ -9,8 +9,10 @@ import numpy as np
 from scipy.integrate import cumulative_trapezoid, simpson, trapezoid
 from scipy.special import logsumexp
 from scipy.stats import norm, wasserstein_distance
+import torch
 
 from audit_composition_references import parameters as oracle_parameters
+from learned_sbi import PosteriorMDN
 
 
 def sha256(path):
@@ -128,6 +130,8 @@ def audit(root, output, kind):
     manifest = json.loads((root / kind / "manifest.json").read_text())
     output.mkdir(parents=True, exist_ok=True)
     references, certificates, true_references = {}, {}, {}
+    learned_models, parameter_cache, reference_hashes = {}, {}, {}
+    torch.set_num_threads(1)
     rows, reference_report, discrepancies = [], {}, {}
     for cell in sorted((root / kind).glob("task_*/cell_*")):
         config = json.loads((cell / "config.json").read_text())
@@ -152,6 +156,19 @@ def audit(root, output, kind):
             assert np.all(weights > 0)
             np.testing.assert_allclose(weights.sum(-1), 1, atol=1e-12)
         if reference_key not in references:
+            reference_hashes[reference_key] = sha256(cell / "reference.npz")
+            if kind == "learned":
+                training_seed = config["training_seed"]
+                if training_seed not in learned_models:
+                    network = PosteriorMDN()
+                    network.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
+                    network.eval()
+                    learned_models[training_seed] = network
+                with torch.no_grad():
+                    predicted_v, predicted_m, predicted_logw = learned_models[training_seed](torch.tensor(context, dtype=torch.float32))
+                for saved, predicted in [(variance, predicted_v.numpy()), (means, predicted_m.numpy()), (weights, predicted_logw.double().softmax(-1).numpy())]:
+                    np.testing.assert_allclose(saved, predicted, atol=2e-5, rtol=2e-5)
+                parameter_cache[reference_key] = (variance.copy(), means.copy(), weights.copy(), context.copy())
             independent = reference_arrays(variance, means, weights)
             reference_report[str(reference_key)] = compare_reference(cell / "reference.npz", independent)
             references[reference_key] = {"learned": independent}
@@ -162,6 +179,13 @@ def audit(root, output, kind):
                 independent_true = true_references[true_key]
                 reference_report[str(reference_key) + "_true"] = compare_reference(cell / "true_reference.npz", independent_true)
                 references[reference_key]["true"] = independent_true
+                reference_hashes[reference_key + ("true",)] = sha256(cell / "true_reference.npz")
+        else:
+            assert sha256(cell / "reference.npz") == reference_hashes[reference_key]
+            if kind == "learned":
+                assert sha256(cell / "true_reference.npz") == reference_hashes[reference_key + ("true",)]
+                for saved, earlier in zip((variance, means, weights, context), parameter_cache[reference_key]):
+                    np.testing.assert_allclose(saved, earlier, atol=1e-12, rtol=1e-12)
         reference = references[reference_key]["learned"]
         full_certificate = config["method"] in ["full", "tail"]
         cert_key = reference_key + (config["steps"], "full" if full_certificate else config["sampling"], 0 if full_certificate else config["batch"], config["u_max"])

@@ -1,0 +1,11 @@
+# Extension reporting plan
+
+Recorded before downloading or inspecting the formal extension metrics. The source-frozen protocol is `EXTENSION_PROTOCOL.md`; this file fixes presentation choices and does not change any experimental configuration.
+
+- Main learned comparison: all four combinations of G in {16,64} and d in {1,8}, using the protocol's finer grid K=2048. Show all five methods and all 25 training-seed/dataset-seed pairs, with mean and standard deviation described as crossed-pair dispersion rather than 25 independent training replicates. Report W1 against learned factors and true factors separately, together with composed true-to-learned W1 and KL. Include K=512 in the appendix and machine-readable tables.
+- Main sampling comparison: report the smallest certified without-replacement batch size for every G and K in the deterministic scan. Dimensions 1 and 8 have identical thresholds in this factor construction; disclose that equality. The scan is a separate deterministic calculation and is not counted as GPU sampling cells.
+- Appendix sampling comparison: all oracle sampling configurations, methods, batch sizes, dimensions, time grids and five seeds. Do not select only favorable families or batch sizes.
+- Sensitivity display: three families and all five methods at G=64,d=8,K=512,M=4. Plot the three particle counts at U=20 and the three U values at P=8192 in separate panels. Changing U with K fixed changes the time grid as well as initialization; the U sweep is a combined numerical sensitivity check and cannot isolate initialization bias alone.
+- Training: all five fixed final checkpoints, complete 40000-update histories, saved-checkpoint validation, original conditional KL diagnostics, and fresh independent heldout validation. No checkpoint or seed selection.
+- Runtime: retain measured sampler runtime and model-setup time. The learned model predicts mixture parameters once per context; no claim of per-particle neural-network speedup follows. Without-replacement random-key selection has O(PG) work, included in recorded runtime.
+- Report certificate counts alongside finite-particle errors. Any failed audit remains a failure until its cause is resolved against retained raw data.

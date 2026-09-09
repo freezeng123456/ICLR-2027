@@ -1,0 +1,18 @@
+\subsection{Without replacement: batch size changes the finite domain}\label{sec:without-replacement-results}
+The prefix/suffix certificate permits an exhaustive scan over batch sizes without enumerating subsets. Table~\ref{tab:batch-thresholds} reports the smallest finite batch size among all $2\le M\le G$ for the benchmark tails. This separate deterministic calculation comprises 936 configurations and agrees with direct subset enumeration in nine smaller cross-checks. The ordinary mixture shares the Gaussian component variances, and dimensions one and eight give identical thresholds here. All larger batch sizes are finite in each displayed case with a finite threshold; this observed ordering is not claimed as a general monotonicity theorem. At $G=64,K=512$, switching from replacement to a uniform subset of size four remains below either family's threshold. Thus removing repeated indices changes the certificate but does not by itself make a small batch valid.
+
+\begin{table}[t]
+ \centering
+ \caption{Smallest certified finite without-replacement batch size, with $U=20$, $\kappa=1$ and initial variance one. A dash means no finite batch exists, including $M=G$. The mixture rows use the strict tail certificate.}
+ \label{tab:batch-thresholds}
+ \begin{tabular}{lrccc}
+ \toprule
+ Tail family & $G$ & $K=128$ & $K=512$ & $K=2048$\\
+ \midrule
+ Gaussian / ordinary mixture & 16 & 13 & 12 & 12\\
+ Gaussian / ordinary mixture & 64 & -- & 60 & 59\\
+ Weak mixture & 16 & 3 & 2 & 2\\
+ Weak mixture & 64 & 22 & 18 & 17\\
+ \bottomrule
+ \end{tabular}
+\end{table}

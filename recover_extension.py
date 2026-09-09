@@ -53,8 +53,28 @@ def recover(root, output):
                 "status": "recovered and scheduler verified; independent scientific audit pending"}
     (root / "recovery_manifest.json").write_text(json.dumps(recovery, indent=2))
     assert not output.exists()
+    canonical = {}
+    checksums = {item["path"]: (item["sha256"], item["bytes"]) for item in files}
     with tarfile.open(output, "w:gz", compresslevel=1) as archive:
-        archive.add(root, arcname=root.name, recursive=True)
+        archive.add(root, arcname=root.name, recursive=False)
+        for path in sorted(root.rglob("*")):
+            relative = str(path.relative_to(root))
+            name = str(Path(root.name) / relative)
+            if path.is_dir():
+                archive.add(path, arcname=name, recursive=False)
+                continue
+            info = archive.gettarinfo(str(path), arcname=name)
+            key = checksums.get(relative)
+            if key is not None and key in canonical:
+                info.type = tarfile.LNKTYPE
+                info.linkname = canonical[key]
+                info.size = 0
+                archive.addfile(info)
+            else:
+                with path.open("rb") as stream:
+                    archive.addfile(info, stream)
+                if key is not None:
+                    canonical[key] = name
     checksum = digest(output)
     output.with_suffix(output.suffix + ".sha256").write_text(f"{checksum}  {output.name}\n")
     print(json.dumps({"archive": str(output), "bytes": output.stat().st_size, "sha256": checksum, "files": len(files), "gpu_hours": recovery["allocated_gpu_hours"]}), flush=True)

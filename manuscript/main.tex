@@ -25,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-Compositional diffusion inference combines many factor scores, making subsampling attractive when evaluating every factor is expensive. For a Feynman--Kac correction, however, an unbiased estimate of the instantaneous potential is exponentiated to obtain a positive particle weight. We study whether the resulting population operator has a finite normalizing constant. For Gaussian factors, we give an exact reachable-variance recursion and reduce its validity check to two extreme batches per time step, independently of every finite batch size. A four-factor example has a finite full-factor update and an infinite subsampled normalizer for every finite batch size, even as the local estimator mean squared error tends to zero. We then construct an unbiased control-variate estimator that preserves the deterministic quadratic tail of equal-component-variance Gaussian mixtures. Its strict integrability domain agrees with that of the full-factor discretization. Controlled oracle-score experiments examine the separation between population integrability, finite-particle behavior, and approximation error. The results identify tail curvature as a validity condition for exponential subsampling, alongside the usual variance and computational-cost criteria.
+Compositional diffusion inference combines many factor scores, making subsampling attractive when evaluating every factor is expensive. For a Feynman--Kac correction, however, an unbiased estimate of the instantaneous potential is exponentiated to obtain a positive particle weight. We study whether the resulting population operator has a finite normalizing constant. For Gaussian factors sampled with replacement, we give an exact reachable-variance recursion requiring only two extreme batches per step, independently of every finite batch size. A four-factor example has a finite full-factor update and an infinite subsampled normalizer for every finite batch size, even as local estimator mean squared error tends to zero. For uniform sampling without replacement, an exact prefix/suffix recursion instead depends on batch size. We also construct an unbiased control-variate estimator that preserves the deterministic quadratic tail of equal-component-variance Gaussian mixtures. Its strict integrability domain agrees with that of the full-factor discretization. Controlled oracle-score experiments examine the separation between population integrability, finite-particle behavior, and approximation error. The results identify tail curvature as a validity condition for exponential subsampling, alongside the usual variance and computational-cost criteria.
 \end{abstract}
 
 \section{Introduction}
@@ -77,7 +77,7 @@ For either estimator, let $\widehat b_B=(1+\kappa)\widehat R_B/2-\kappa x/2$. Th
 \end{equation}
 The denominator must belong to $(0,\infty)$. Conditional unbiasedness of $\widehat g$ does not imply $\E_B e^{h\widehat g}=e^{hg}$ or that $\eta Q1$ is finite. We analyze this denominator before making any particle-convergence claim.
 
-\section{A batch-size-independent Gaussian certificate}
+\section{Gaussian integrability certificates}
 In one dimension, Gaussian factors have $r_g(x,u)=-a_g(u)x+d_g(u)$. At a fixed level, suppress $u$ and suppose $a_g\ge0$. For a batch, put $m=M^{-1}\sum_i a_{I_i}$ and $s^2=M^{-1}\sum_i(a_{I_i}-m)^2$. The drift and potential have the form
 \begin{equation}\label{eq:quadratic}
  \widehat b_B(x)=-\tfrac12((1+\kappa)\widehat A_B+\kappa)x+\text{constant},
