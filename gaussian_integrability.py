@@ -35,7 +35,11 @@ def coefficients(strengths, u, batch, method, exhaustive=False, control_variance
         chat = np.array([0.5 * (a.sum() ** 2 - (a * a).sum())])
     elif method == "without_replacement":
         assert 2 <= batch <= groups
-        indices = np.array(list(itertools.combinations(range(groups), batch)))
+        if exhaustive:
+            indices = np.array(list(itertools.combinations(range(groups), batch)))
+        else:
+            order = np.argsort(a)
+            indices = np.array([np.concatenate((order[:k], order[groups - batch + k:])) for k in range(batch + 1)])
         values = a[indices]
         total = values.sum(1)
         squared = (values * values).sum(1)

@@ -179,12 +179,13 @@ def measure(samples, weights, reference):
     return {"w1_mean": float(np.mean(w1)), "ks_mean": float(np.mean(ks)), "mean_absolute_error": float(np.mean(means)), "variance_relative_error": float(np.mean(variances)), "positive_mass_error": float(np.mean(sign_error))}
 
 
-def run_cell(config, output):
+def run_cell(config, output, model=None):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     (output / "config.json").write_text(json.dumps(config, indent=2))
     generator = torch.Generator(device=config["device"]).manual_seed(config["seed"])
-    model = FactorModel(config["groups"], config["dimension"], config["family"], config["device"])
+    if model is None:
+        model = FactorModel(config["groups"], config["dimension"], config["family"], config["device"])
     if config["method"].startswith("tail"):
         model.control_variance = model.variance
     reference = model.reference()
