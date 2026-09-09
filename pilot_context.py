@@ -156,7 +156,7 @@ def main():
               "hostname": socket.gethostname(), "gpu": torch.cuda.get_device_name(0) if args.device == "cuda" else None,
               "cuda_visible_devices": os.environ.get("CUDA_VISIBLE_DEVICES"), "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
               "commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo, text=True).strip(),
-              "source_sha256": {p: sha256(repo / p) for p in ["pilot_context.py", "exp_conditioning.py", "exp_jump.py", "prior_jump.py", "identifiability.py"]},
+              "source_sha256": {p: sha256(repo / p) for p in ["pilot_context.py", "train_repro.py", "exp_conditioning.py", "exp_jump.py", "prior_jump.py", "identifiability.py"]},
               "checkpoint_sha256": {key: sha256(repo / path) for key, path in files.items()},
               "risk_reference": "exact conditional on sampled latent parameters; no hyperparameter quadrature",
               "fit_labels": "held-out validation squared observation error", "validation_tasks": args.tasks // 2,
