@@ -27,7 +27,8 @@
     "Four extension figures byte-identical and four derived CSV tables identical",
     "Both learned-posterior LaTeX tables regenerated from all audited cells and byte-identical; missing or duplicated seed pairs and mixed certificate states rejected before writing output",
     "All 22 manuscript pages visually inspected and independently rebuilt with byte-identical page PNGs",
-    "Final SCNet account queue empty"
+    "Final SCNet account queue empty",
+    "Direct FKC prior-art attribution corrected; Appendix A specialization checked algebraically and in 27 finite test cases"
   ],
   "failed_verification_checks": [],
   "blocked": [],
@@ -47,6 +48,15 @@
     "The 25 learned checkpoint/dataset pairs are crossed combinations, not 25 independent trainings",
     "The U sweep changes both initialization level and time grid at fixed K",
     "Learned-factor parameters are predicted once per context, outside sampler time",
-    "Runtime accounting excludes smoke jobs, packaging and local CPU audits"
-  ]
+    "Runtime accounting excludes smoke jobs, packaging and local CPU audits",
+    "Continuous Feynman-Kac product construction is prior work; novelty is scoped to the stated subsampled weighted Euler certificates and is not guaranteed by the targeted literature search"
+  ],
+  "scientific_self_review": {
+    "report": "docs/SCIENTIFIC_REVIEW_20260910.md",
+    "status": "completed_with_scoped_conclusions",
+    "independent_human_review": false,
+    "prior_art_attribution_corrected": true,
+    "new_gpu_jobs": 0,
+    "theorems_or_reported_results_changed": false
+  }
 }

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "analysis_commit": "9a9778f",
+  "analysis_commit": "955746f4d78ecb124bd6c38987f0ffe16fa88886",
   "body_pages": 9,
   "total_pages": 22,
   "visual_review_pages": [
@@ -27,10 +27,12 @@
     21,
     22
   ],
+  "visual_review_method": "Pages 8-22 directly inspected after revision; pages 1-7 byte-identical to the previously inspected final renders",
   "clean_build_page_pngs_byte_identical": 22,
-  "pdf_sha256": "6af3e3778b7b7c01c68f94759cb0509d0f2f5dba57fc7a229de5aa0575677d74",
+  "render_dpi": 110,
+  "pdf_sha256": "db5188f10a1be60174047b2677c0b721253d5753e5a3053522836ed7dc60064b",
   "undefined_reference_text": false,
   "failed": [],
   "blocked": [],
-  "scope": "Tectonic clean build, all rendered pages compared at 110 dpi with visually reviewed final pages; does not certify conference submission or human scientific review"
+  "scope": "Tectonic clean build and all 22 rendered pages compared; visual self-review does not certify conference submission or independent human scientific review"
 }
