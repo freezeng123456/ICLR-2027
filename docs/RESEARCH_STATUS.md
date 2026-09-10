@@ -2,6 +2,8 @@
 
 日期：2026-09-10。论文为 `Integrability of Subsampled Compositional Diffusions`，当前完整研究稿为 9 页正文、22 页 PDF，尚未投稿。全部源码、证明、图表和引用位于 `manuscript/`。
 
+本次科学自审补正了直接相关文献归属：相关工作新增 Skreta 等的 Feynman–Kac correctors 和 Thornton 等的组合 SMC；附录 A 明确写出连续流公式与已有加权乘积公式的对应。新贡献限定为指定随机批量 Euler 算子的可积性判定，不把连续 Feynman–Kac 构造本身作为创新。详细来源、代数对应、理论与代码检查及未解决边界见 `SCIENTIFIC_REVIEW_20260910.md`。本次没有改变定理、实验数据或报告数值，也没有新增 GPU 作业。
+
 ## 科学问题与结论
 
 组合扩散把多个因子的 score 相加，而 Feynman–Kac 修正把随机势放入指数。瞬时势无偏、均方误差下降和有限粒子的 ESS 提高，都不能保证总体归一化常数有限。本文对指定的 weighted Euler 算子给出精确判定，并区分总体算子存在、离散误差、粒子误差及条件密度学习误差。
