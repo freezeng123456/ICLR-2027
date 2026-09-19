@@ -38,9 +38,10 @@ def reference_job(job):
     return name, dict(reference=checks, true_reference=true_checks)
 
 
-def validate_inputs(cells, manifest, training_root):
+def validate_inputs(cells, manifest, training_root, context_atol=0.0):
     networks, parameter_cache, hashes, contexts = {}, {}, {}, {}
     identifiers = []
+    context_error = 0.0
     for cell in cells:
         config = json.loads((cell / "config.json").read_text())
         identifiers.append(config["cell_id"])
@@ -74,7 +75,8 @@ def validate_inputs(cells, manifest, training_root):
             contexts[data_seed] = dataset(config["groups"], config["dimension"], data_seed)
         theta, context = contexts[data_seed]
         np.testing.assert_array_equal(parameters["theta"], theta)
-        np.testing.assert_array_equal(parameters["context"], context)
+        context_error = max(context_error, float(np.max(abs(parameters["context"] - context))))
+        np.testing.assert_allclose(parameters["context"], context, rtol=0, atol=context_atol)
         true_hash = sha256(cell / "true_reference.npz")
         assert true_hash == hashes.setdefault(f"true_{data_seed}", true_hash)
         if name not in parameter_cache:
@@ -88,7 +90,8 @@ def validate_inputs(cells, manifest, training_root):
                 np.testing.assert_array_equal(value, parameter_cache[name][key])
     assert len(identifiers) == len(set(identifiers))
     return dict(checkpoints_reloaded=len(networks), data_seeds_reconstructed=len(contexts),
-                learned_parameter_sets_checked=len(parameter_cache), unique_reference_hashes=len(hashes))
+                learned_parameter_sets_checked=len(parameter_cache), unique_reference_hashes=len(hashes),
+                maximum_context_reconstruction_error=context_error, context_absolute_tolerance=context_atol)
 
 
 def independent_population(variance, config):
