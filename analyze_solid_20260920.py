@@ -10,9 +10,11 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.integrate import trapezoid
+import torch
 
+from audit_composition_references import parameters as oracle_parameters
 from audit_extension_results import compare_reference, independent_metrics, reference_arrays, true_parameters
-from composition_extension import ExtensionModel
+from learned_sbi import PosteriorMDN, dataset
 from run_solid_20260920 import sha256, write_json
 
 
@@ -27,14 +29,66 @@ def reference_job(job):
         true_checks = compare_reference(cell / "true_reference.npz", truth)
         np.savez_compressed(output / f"{name}_true.npz", **truth)
     else:
-        model = ExtensionModel(config["groups"], config["dimension"], config["family"], "cpu")
-        variance, means, weights = [value.numpy() for value in [model.variance, model.means, model.weights]]
+        variance, means, weights = oracle_parameters(config["groups"], config["dimension"], config["family"])
         true_checks = []
     reference = reference_arrays(variance, means, weights)
     checks = compare_reference(cell / "reference.npz", reference)
     np.savez_compressed(output / f"{name}.npz", **reference)
     np.savez_compressed(output / f"{name}_parameters.npz", variance=variance, means=means, weights=weights)
     return name, dict(reference=checks, true_reference=true_checks)
+
+
+def validate_inputs(cells, manifest, training_root):
+    networks, parameter_cache, hashes, contexts = {}, {}, {}, {}
+    identifiers = []
+    for cell in cells:
+        config = json.loads((cell / "config.json").read_text())
+        identifiers.append(config["cell_id"])
+        expected = manifest["cells"][config["cell_id"]]
+        assert all(config[key] == value for key, value in expected.items())
+        assert config["commit"] == manifest["commit"]
+        assert config["device"] == "cuda" and config["runtime"]["gpu"] == "NVIDIA H20"
+        receipt = json.loads((cell / "receipt.json").read_text())
+        required = {"config.json", "summary.json", "samples.npz", "reference.npz", "certificate.json", "metrics.csv", "run.log", "done"}
+        if config["suite"] == "heldout":
+            required |= {"learned_parameters.npz", "true_reference.npz", "true_metrics.json"}
+        assert receipt["status"] == "completed" and set(receipt["files"]) == required
+        assert all(sha256(cell / name) == value for name, value in receipt["files"].items())
+        name = asset_name(config)
+        reference_hash = sha256(cell / "reference.npz")
+        assert reference_hash == hashes.setdefault(name, reference_hash)
+        if config["suite"] != "heldout":
+            continue
+        training_seed = config["training_seed"]
+        checkpoint = training_root / f"training_{training_seed}" / "final.pt"
+        assert sha256(checkpoint) == config["checkpoint_sha256"] == manifest["checkpoints"][str(training_seed)]
+        if training_seed not in networks:
+            network = PosteriorMDN()
+            network.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True), strict=True)
+            networks[training_seed] = network.eval()
+        with np.load(cell / "learned_parameters.npz") as archive:
+            parameters = {key: archive[key] for key in archive.files}
+        assert set(parameters) == {"theta", "context", "variance", "means", "weights"}
+        data_seed = config["dataset_seed"]
+        if data_seed not in contexts:
+            contexts[data_seed] = dataset(config["groups"], config["dimension"], data_seed)
+        theta, context = contexts[data_seed]
+        np.testing.assert_array_equal(parameters["theta"], theta)
+        np.testing.assert_array_equal(parameters["context"], context)
+        true_hash = sha256(cell / "true_reference.npz")
+        assert true_hash == hashes.setdefault(f"true_{data_seed}", true_hash)
+        if name not in parameter_cache:
+            with torch.no_grad():
+                variance, means, log_weights = networks[training_seed](torch.as_tensor(context, dtype=torch.float32))
+            for key, predicted in [("variance", variance.numpy()), ("means", means.numpy()), ("weights", log_weights.double().softmax(-1).numpy())]:
+                np.testing.assert_allclose(parameters[key], predicted, atol=2e-5, rtol=2e-5)
+            parameter_cache[name] = parameters
+        else:
+            for key, value in parameters.items():
+                np.testing.assert_array_equal(value, parameter_cache[name][key])
+    assert len(identifiers) == len(set(identifiers))
+    return dict(checkpoints_reloaded=len(networks), data_seeds_reconstructed=len(contexts),
+                learned_parameter_sets_checked=len(parameter_cache), unique_reference_hashes=len(hashes))
 
 
 def independent_population(variance, config):
@@ -217,9 +271,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--training-root", type=Path, required=True)
     parser.add_argument("--partial", action="store_true")
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
+    torch.set_num_threads(1)
     args.output.mkdir(parents=True, exist_ok=False)
     references_root = args.output / "references"
     references_root.mkdir()
@@ -229,16 +285,21 @@ def main():
     if not args.partial:
         assert len(cells) == manifest["expected_cells"] == 630
         assert (args.root / "launcher.exit").read_text().strip() == "0"
+    input_report = validate_inputs(cells, manifest, args.training_root)
+    write_json(args.output / "input_checks.json", input_report)
     assets = {}
     for cell in cells:
         config = json.loads((cell / "config.json").read_text())
         assets.setdefault(asset_name(config), cell)
     jobs = [(name, cell, references_root) for name, cell in assets.items()]
+    reference_checks = {}
     with ProcessPoolExecutor(max_workers=args.workers) as executor:
-        reference_checks = dict(executor.map(reference_job, jobs))
+        for name, checks in executor.map(reference_job, jobs):
+            reference_checks[name] = checks
+            print(json.dumps(dict(references_completed=len(reference_checks), expected=len(jobs))), flush=True)
     write_json(args.output / "reference_checks.json", reference_checks)
     cache, certs = {}, {}
-    rows, differences = [], []
+    rows, differences, metric_differences = [], [], {}
     for cell in cells:
         config = json.loads((cell / "config.json").read_text())
         expected = manifest["cells"][config["cell_id"]]
@@ -261,7 +322,10 @@ def main():
         assert samples.shape == (config["particles"], config["dimension"])
         metrics = independent_metrics(samples, weights, reference)
         difference = abs(metrics["w1_mean"] - summary["w1_mean"])
-        assert difference < 2 * 24 / 65536, (cell, difference)
+        for key, value in metrics.items():
+            error = abs(value - summary[key])
+            assert error < (2 * 24 / 65536 if key == "w1_mean" else 1e-5), (cell, key, error)
+            metric_differences[key] = max(metric_differences.get(key, 0), error)
         differences.append(difference)
         cert_key = (name, config["method"], config["sampling"], config["batch"], config["steps"], config.get("control_delta"))
         if cert_key not in certs:
@@ -280,9 +344,17 @@ def main():
         if config["suite"] == "heldout":
             with np.load(references_root / f"{name}_true.npz") as archive:
                 truth = {key: archive[key] for key in archive.files}
-            row.update({f"true_{key}": value for key, value in independent_metrics(samples, weights, truth).items()})
+            truth_metrics = independent_metrics(samples, weights, truth)
+            recorded_truth = json.loads((cell / "true_metrics.json").read_text())
+            for key, value in truth_metrics.items():
+                error = abs(value - recorded_truth[key])
+                assert error < (2 * 24 / 65536 if key == "w1_mean" else 1e-5), (cell, key, error)
+                metric_differences[f"true_{key}"] = max(metric_differences.get(f"true_{key}", 0), error)
+            row.update({f"true_{key}": value for key, value in truth_metrics.items()})
             row["learning_w1"] = float(trapezoid(abs(reference["cdf"] - truth["cdf"]), reference["grid"], axis=1).mean())
         rows.append(row)
+        if len(rows) % 25 == 0:
+            print(json.dumps(dict(cells_audited=len(rows), expected=len(cells))), flush=True)
     names = sorted(set().union(*(row.keys() for row in rows)))
     with (args.output / "cells.csv").open("w") as stream:
         writer = csv.DictWriter(stream, fieldnames=names)
@@ -290,16 +362,23 @@ def main():
         writer.writerows(rows)
     report = dict(status="partial_audit_passed" if args.partial else "passed", audited_cells=len(rows), expected=630,
                   independent_references=len(assets), independent_certificates=len(certs),
-                  max_w1_recomputation_difference=max(differences), analysis_sha256=sha256(__file__))
+                  max_w1_recomputation_difference=max(differences), metric_maximum_discrepancies=metric_differences,
+                  input_checks=input_report, analysis_sha256=sha256(__file__))
     if not args.partial:
         sensitivity = json.loads((args.root / "tail_sensitivity.json").read_text())
         assert len(sensitivity) == 66
         for row in sensitivity:
-            model = ExtensionModel(64, 8, row["family"], "cpu")
+            variance, _, _ = oracle_parameters(64, 8, row["family"])
             config = dict(suite="tail_error", method="cv", sampling="with_replacement", batch=4,
                           steps=row["steps"], u_max=20.0, diffusion=1.0, control_delta=row["delta"])
-            independent = independent_population(model.variance.numpy(), config)
+            independent = independent_population(variance, config)
             assert independent["finite_normalizer"] == row["finite_normalizer"]
+            for left, right in zip(independent["coordinates"], row["coordinates"]):
+                assert left["finite_normalizer"] == right["finite_normalizer"]
+                if not left["finite_normalizer"]:
+                    assert left["failure_step"] == right["failure_step"]
+                np.testing.assert_allclose(left["smallest_denominator"], right["smallest_denominator"], rtol=1e-7, atol=1e-9)
+        report["sensitivity_configurations_checked"] = len(sensitivity)
         summary = aggregate(rows)
         write_json(args.output / "statistics.json", summary)
         figures(summary, sensitivity, args.output)
