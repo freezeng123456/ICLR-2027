@@ -1,0 +1,22 @@
+{
+  "kind": "one_step",
+  "particles": 1024,
+  "seed": 14,
+  "batch": 16,
+  "method": "unbiased",
+  "device": "cuda",
+  "commit": "a66b5e3c37c8a33201d515c128157bb8028554e0",
+  "runtime": {
+    "python": "3.10.18",
+    "python_executable": "/work/home/zenghang/miniconda3/envs/pytorch/bin/python",
+    "torch": "1.12.1",
+    "numpy": "1.26.4",
+    "host": "e04r02",
+    "cuda_visible_devices": "0",
+    "slurm_job_id": "23785840",
+    "slurm_cpus_per_task": "4",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "source_sha256": "123afe544dbf168ac440aead22aca3bf61faedc610fbcfedd5d9f2d5fa9ca4eb"
+  },
+  "cell_id": 328
+}
