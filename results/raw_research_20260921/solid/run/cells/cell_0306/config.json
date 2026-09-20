@@ -1,0 +1,32 @@
+{
+  "groups": 64,
+  "dimension": 8,
+  "u_max": 20.0,
+  "ess_threshold": 0.5,
+  "diffusion": 1.0,
+  "batch": 60,
+  "suite": "boundary",
+  "family": "gaussian",
+  "steps": 512,
+  "particles": 8192,
+  "seed": 21,
+  "method": "unbiased",
+  "sampling": "without_replacement",
+  "condition": "at",
+  "critical_batch": 60,
+  "cell_id": 306,
+  "device": "cuda",
+  "commit": "324a2d406707f9daea94ae5b41dbad7950efa93d",
+  "runtime": {
+    "python": "3.12.9",
+    "python_executable": "/data/workspace/iclr-solid-20260920/python312/bin/python",
+    "torch": "2.6.0+cu124",
+    "numpy": "2.2.6",
+    "host": "ts-8b1d89bda0af110f01a0ba670ad5120e-launcher",
+    "cuda_visible_devices": null,
+    "slurm_job_id": null,
+    "slurm_cpus_per_task": null,
+    "gpu": "NVIDIA H20",
+    "source_sha256": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "python": "3.12.9",
+  "python_executable": "/data/workspace/iclr-solid-20260920/python312/bin/python",
+  "torch": "2.6.0+cu124",
+  "numpy": "2.2.6",
+  "host": "ts-8b1d89bda0af110f01a0ba670ad5120e-launcher",
+  "cuda_visible_devices": null,
+  "slurm_job_id": null,
+  "slurm_cpus_per_task": null,
+  "gpu": "NVIDIA H20",
+  "source_sha256": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+  "pid": 4926,
+  "source_hashes": {
+    "run_solid_20260920.py": "a62b9e7f932cec6318aafce36e110dca46139f37b5f9a2fcd24db90ab70eaa9e",
+    "composition_benchmark.py": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+    "composition_extension.py": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+    "gaussian_integrability.py": "45ac1fd3954ac4bc2dd399d2320829e064153b91f464c0448de69b9df0fcae22",
+    "learned_sbi.py": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+    "docs/SOLID_PROTOCOL_20260920.md": "d370fdd8fdd4f4515344880d2147647899409472d7e49401dfcd46b82e46692c",
+    "run_solid_20260920.sh": "8967fc4f12f1cbc99199842907f2e08328717432c1df9bbc0790a234f5281819",
+    "tests/test_solid_20260920.py": "25b12caf5d879e91f3c1451c2b1a6772e57790f725acaa87feabee04c87b9a1e"
+  }
+}
