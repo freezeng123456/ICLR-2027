@@ -1,0 +1,16 @@
+{
+  "schema_version": "2.0",
+  "review_id": "ICLR-AUTHOR-SELF-REVIEW-20260921",
+  "material": {"status": "unpublished_confidential", "contains_personal_or_sensitive_data": false},
+  "authorization": {"basis": "author_request", "documented": true, "local_processing_authorized": true, "external_processing_authorized": false},
+  "reviewer": {
+    "capacity": "author_requested_reader", "human_accountable": true,
+    "competence_areas": ["numerical_analysis", "computational_statistics", "reproducibility"],
+    "competence_limits": ["AI-assisted author self-assessment; no independent human peer review or editorial decision; final scientific judgment remains with the author."],
+    "conflict_status": "none_identified", "conflicts": []
+  },
+  "venue_policy": {"checked": true, "peer_review_model": "double_anonymized", "confidential_editor_notes_supported": true},
+  "ai_use": {"policy": "permitted_with_disclosure", "planned": "approved_ai_assistance", "permission_confirmed": true, "disclosure_planned": true},
+  "handling": {"local_only": true, "external_service_use": false, "data_reuse_permitted": false, "retention_rule": "retain_per_venue_policy", "deletion_or_retention_record_planned": true},
+  "scope": {"manuscript_type": "mathematical_machine_learning", "requested_focus": ["claims", "methods", "statistics", "reproducibility"], "out_of_scope": ["editorial_decision", "submission", "external_publication"], "specialist_review_needed": ["independent_human_theory_review"]}
+}
