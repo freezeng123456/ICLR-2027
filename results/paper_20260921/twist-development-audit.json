@@ -1,0 +1,4935 @@
+{
+  "status": "passed",
+  "source_commit": "c1d8203d23936128cca46103145712803fd780f3",
+  "manifest_sha256": "f9beb61f21ae9ac21d002e0793f34aec60ed0eeff413103b020c65aa8eaeffa0",
+  "auditor_sha256": "f1a7ae35cfc81403a3e3db23683f397c64c8b1ab590db3933ebb2fe1d10cccb6",
+  "helper_sha256": "ad602ff6286d758fa57b593cfd9eddfc772fdc72486188764e4bfbb726f6e6fd",
+  "sources": {
+    "run_twist_pilot_20260921.py": true,
+    "twisted_sensor_sampler_20260921.py": true,
+    "gaussian_twisted_path_20260921.py": true,
+    "nonseparable_sensor_model_20260921.py": true,
+    "nonseparable_sensor_sampler_20260921.py": true,
+    "run_sensor_study_20260921.py": true,
+    "run_anchored_confirmation_20260921.py": true,
+    "run_solid_20260920.py": true,
+    "docs/TWIST_PILOT_PROTOCOL_20260921.md": true
+  },
+  "assets": [
+    {
+      "asset": "d2_ambiguous_1300",
+      "groups": 12,
+      "dimension": 2,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -18.12735757574645,
+      "log_composition_normalizer": 1.619175539465509,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.0020891647251744146,
+        "covariance_error": 0.0015899488465960896,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "grid_mass": 1.000000000000002,
+        "grid_mean_error": 1.560744661173234e-14,
+        "grid_bound": 4.273867476680127,
+        "grid_normalization_pass": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d2_ambiguous_1301",
+      "groups": 12,
+      "dimension": 2,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -18.106806124307557,
+      "log_composition_normalizer": 0.4762665077451196,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.0020187963449266417,
+        "covariance_error": 0.0026702455886645072,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "grid_mass": 0.9999999999999998,
+        "grid_mean_error": 3.2425355437371536e-15,
+        "grid_bound": 4.583539710664645,
+        "grid_normalization_pass": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d2_regular_1300",
+      "groups": 12,
+      "dimension": 2,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -9.653802393604705,
+      "log_composition_normalizer": 3.4507114756382595,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.0006113442522371721,
+        "covariance_error": 0.00045663369189150217,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "grid_mass": 1.000000000000001,
+        "grid_mean_error": 2.220446049250313e-15,
+        "grid_bound": 4.0,
+        "grid_normalization_pass": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d2_regular_1301",
+      "groups": 12,
+      "dimension": 2,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -14.631365629396132,
+      "log_composition_normalizer": 0.2403502896119516,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.004892967995004373,
+        "covariance_error": 0.003213812585348907,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "grid_mass": 0.9999999999999933,
+        "grid_mean_error": 5.148509648780396e-15,
+        "grid_bound": 4.0,
+        "grid_normalization_pass": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d8_ambiguous_1300",
+      "groups": 12,
+      "dimension": 8,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -18.495450202164296,
+      "log_composition_normalizer": -0.5605925658368385,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.008519392025808871,
+        "covariance_error": 0.02448118760432006,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d8_ambiguous_1301",
+      "groups": 12,
+      "dimension": 8,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -24.245620827009226,
+      "log_composition_normalizer": -0.44270445348948684,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.00948410597200252,
+        "covariance_error": 0.04482487766861467,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": false
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d8_regular_1300",
+      "groups": 12,
+      "dimension": 8,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -13.767829020721882,
+      "log_composition_normalizer": 0.5086486626553892,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.008017795271110238,
+        "covariance_error": 0.016011963700882422,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": false
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    },
+    {
+      "asset": "d8_regular_1301",
+      "groups": 12,
+      "dimension": 8,
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "exact": {
+        "probabilities": true,
+        "means": true,
+        "covariance": true,
+        "weights_sum": true
+      },
+      "density_finite": true,
+      "density_matches_saved_mixture": true,
+      "pass": true,
+      "log_sensor_evidence": -16.691922214238744,
+      "log_composition_normalizer": -0.5436195295000985,
+      "reference": {
+        "sample_count": 65536,
+        "mean_error": 0.009758832640128867,
+        "covariance_error": 0.023747242952951685,
+        "truth_quantile_coverage": [
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          },
+          {
+            "lower95": true,
+            "upper95": true
+          }
+        ],
+        "mean_matches_exact": true,
+        "covariance_matches_exact": true,
+        "directions_normalized": true,
+        "regenerated_reference_available": true,
+        "regenerated_first_matches": true,
+        "regenerated_second_matches": true,
+        "directions_matches": true
+      }
+    }
+  ],
+  "cells": [
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0000",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 3.901535902458585e-07,
+      "weight_max": 0.13803031867763466,
+      "finite": true,
+      "effective_sample_size": 37.49175600155601,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.0990242314645263,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.09207020728441587,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.08566287549437802,
+          "discrepancy": 4.3298697960381105e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.02061431059159738,
+          "discrepancy": 3.469446951953614e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.14030809175276104,
+          "discrepancy": 2.1094237467877974e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.275597577786403,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.465403468611341,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0001",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 9.14679267477872e-07,
+      "weight_max": 0.009461395786144319,
+      "finite": true,
+      "effective_sample_size": 1724.658406262411,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.01961383085760518,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.021123667405217254,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.017965730098467525,
+          "discrepancy": 3.2127078775090467e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.018237555277669133,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.14309268500287795,
+          "discrepancy": 1.1657341758564144e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.3299984089669417,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.575718719414458,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0002",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 4.874843468672102e-13,
+      "weight_max": 0.01826456348476863,
+      "finite": true,
+      "effective_sample_size": 761.8886869249857,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.027578360716563576,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.027031215971440876,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.019906826438549702,
+          "discrepancy": 1.366962099069724e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.018080956569974917,
+          "discrepancy": 1.0408340855860843e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.14637834537592867,
+          "discrepancy": 6.38378239159465e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.3648426850181417,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.6274634169097844,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0003",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 8.021427392418951e-14,
+      "weight_max": 0.007000976462404534,
+      "finite": true,
+      "effective_sample_size": 2146.8014994513114,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.01783311485332559,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.018015729181534875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.015597783030739875,
+          "discrepancy": 5.655198531684391e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.018913337623002947,
+          "discrepancy": 3.469446951953614e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.12650717100297978,
+          "discrepancy": 1.1102230246251565e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.2970896949494914,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.5380131471057896,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0004",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 7.519888608607426e-16,
+      "weight_max": 0.017877341163711022,
+      "finite": true,
+      "effective_sample_size": 631.0951238748336,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.024634391224549704,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.02499955626679675,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.011978251083094233,
+          "discrepancy": 3.3775066077268434e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.01589424505563201,
+          "discrepancy": 1.734723475976807e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.1401353914438771,
+          "discrepancy": 1.2212453270876722e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.3703547331246717,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.6161253451415836,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0005",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 4.470657781568297e-05,
+      "weight_max": 0.00040410552817815137,
+      "finite": true,
+      "effective_sample_size": 14999.078110230059,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.009268166890643872,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.009639847101415286,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.005691891796144587,
+          "discrepancy": 9.107298248878237e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.005356298105026914,
+          "discrepancy": 7.892991815694472e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.13323401254981695,
+          "discrepancy": 3.885780586188048e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.270539815645944,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.5201115156335359,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0006",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.0034788783599097803,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.003486530198013538,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.0008693359488241173,
+          "discrepancy": 8.775532384097673e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.001464401913702109,
+          "discrepancy": 7.39425881635114e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.1327932762811862,
+          "discrepancy": 3.3306690738754696e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.291394453573893,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.5523110459391232,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0007",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 5.773786257427721e-06,
+      "weight_max": 0.010232182076034818,
+      "finite": true,
+      "effective_sample_size": 1158.8916227142956,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.02993537918502925,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.029300971076057454,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.025788741289380034,
+          "discrepancy": 8.049116928532385e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.016595065437030102,
+          "discrepancy": 5.204170427930421e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.34656484831483086,
+          "discrepancy": 2.7755575615628914e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.6545759906339903,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.061164522154028,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0008",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 1.0000000000000002,
+      "weight_min": 4.680118543413879e-06,
+      "weight_max": 0.013883125760624665,
+      "finite": true,
+      "effective_sample_size": 1621.2974384250251,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.02069793803506689,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.021794713433539593,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.01193942341732641,
+          "discrepancy": 1.9532986339498848e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.025200269796446458,
+          "discrepancy": 1.2836953722228372e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3288906480605809,
+          "discrepancy": 9.43689570931383e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.61516798937497,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.0303019846033132,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0009",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 2.211028362424309e-09,
+      "weight_max": 0.004491981114003337,
+      "finite": true,
+      "effective_sample_size": 1796.135171605829,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.023942991327125678,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.024791146959583038,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.02670110029321303,
+          "discrepancy": 7.598088824778415e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.009731102202436503,
+          "discrepancy": 6.765421556309548e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.33415285281056484,
+          "discrepancy": 8.326672684688674e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.6374581681238067,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.055673019496287,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0010",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 0.9999999999999998,
+      "weight_min": 2.2252302931561804e-09,
+      "weight_max": 0.0033481776615065834,
+      "finite": true,
+      "effective_sample_size": 3439.1291589457833,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.014884094649872632,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.01643559783343825,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.013930959569973717,
+          "discrepancy": 5.134781488891349e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.00620290822943224,
+          "discrepancy": 1.8995222061946038e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.32228520536469446,
+          "discrepancy": 1.0547118733938987e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.6603283733640186,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.0853514651427587,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0011",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.64308318090155e-11,
+      "weight_max": 0.014973600580929647,
+      "finite": true,
+      "effective_sample_size": 1010.7500204087873,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.05428654665418155,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.05177910978683432,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.058962565448542475,
+          "discrepancy": 1.0269562977782698e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.012529100923773188,
+          "discrepancy": 1.734723475976807e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.36766160416062765,
+          "discrepancy": 8.326672684688674e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.6259757068889982,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.1577559110986684,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0012",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 0.9999999999999999,
+      "weight_min": 4.919416111327237e-05,
+      "weight_max": 0.00037959620944436507,
+      "finite": true,
+      "effective_sample_size": 15533.989386116327,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.021848409142278168,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.020663440131188808,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.020396663834378354,
+          "discrepancy": 4.822531263215524e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.007919050416442494,
+          "discrepancy": 5.377642775528102e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.34370780980886156,
+          "discrepancy": 4.996003610813204e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.6764594484907618,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.0629394351819337,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0013",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.004289025257271698,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.004062608779882236,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.0006077149465316029,
+          "discrepancy": 3.6483403104137224e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.002942253443901206,
+          "discrepancy": 8.847089727481716e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.32089164709031925,
+          "discrepancy": 1.1102230246251565e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.6799970724356474,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.0890190933370434,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0014",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999999,
+      "weight_min": 2.037147745186654e-06,
+      "weight_max": 0.007814484973975607,
+      "finite": true,
+      "effective_sample_size": 1278.2746838671674,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.011311408883694647,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.01214851517775535,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.009915028762758321,
+          "discrepancy": 5.776629175002768e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.005120588418448355,
+          "discrepancy": 3.469446951953614e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.05980182553457904,
+          "discrepancy": 2.636779683484747e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.6270001619812509,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.7688200917751451,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0015",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.1492264509186832e-06,
+      "weight_max": 0.01113993146941279,
+      "finite": true,
+      "effective_sample_size": 1821.5543649675026,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.011532230223914062,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.011030483392437274,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.00932698121415834,
+          "discrepancy": 2.0816681711721685e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.005602592971074331,
+          "discrepancy": 6.938893903907228e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.05632835234601987,
+          "discrepancy": 1.3183898417423734e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.6438751284202455,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.8153368034386143,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0016",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999998,
+      "weight_min": 6.189246134833069e-12,
+      "weight_max": 0.005464973621813987,
+      "finite": true,
+      "effective_sample_size": 1550.3701085088783,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.007439561959978773,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.007486516263307648,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.0022519509182716904,
+          "discrepancy": 9.367506770274758e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.0038590363591300843,
+          "discrepancy": 5.204170427930421e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.054258642163205806,
+          "discrepancy": 3.469446951953614e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.6197259761870395,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.7496099917243536,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0017",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 1.3273581717492754e-12,
+      "weight_max": 0.003794858411720327,
+      "finite": true,
+      "effective_sample_size": 2702.7635586174506,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.007646838539477422,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.007779690314767732,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.008279716992105252,
+          "discrepancy": 4.0419056990259605e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.0016562126090522177,
+          "discrepancy": 5.421010862427522e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.05322446781072515,
+          "discrepancy": 4.163336342344337e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.6410877063360525,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.7937890534147352,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0018",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 4.308046192368575e-12,
+      "weight_max": 0.01905903423879082,
+      "finite": true,
+      "effective_sample_size": 517.1933786546604,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.015881946786396352,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.015506572774513663,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.012613990486891729,
+          "discrepancy": 1.790234627208065e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.004359389383217548,
+          "discrepancy": 3.642919299551295e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.05052802520881622,
+          "discrepancy": 8.881784197001252e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.5985088043247176,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.7170245222005125,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0019",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 0.9999999999999999,
+      "weight_min": 3.249378299943954e-05,
+      "weight_max": 0.004114988891090808,
+      "finite": true,
+      "effective_sample_size": 8692.395729149683,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.03248258600337379,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.03430385412953084,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.03550566373751516,
+          "discrepancy": 3.469446951953614e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.0034057859761833387,
+          "discrepancy": 1.214306433183765e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.03992884226593196,
+          "discrepancy": 2.0816681711721685e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.6296744709794833,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.7903105341417707,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0020",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.0016706351487322875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.0018014190677099467,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.0005966960088668311,
+          "discrepancy": 2.9544509200229996e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.00025561805260990617,
+          "discrepancy": 6.071532165918825e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.0552388481086534,
+          "discrepancy": 2.2898349882893854e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.6525456153551044,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.8081477731648541,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0021",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 6.17336486708446e-10,
+      "weight_max": 0.17262710379815369,
+      "finite": true,
+      "effective_sample_size": 15.846912184621988,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.5471808872215069,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.4817334204067944,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.49029592578669695,
+          "discrepancy": 6.106226635438361e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.3286037294811216,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.9943749860532365,
+          "discrepancy": 1.1102230246251565e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.8303773442364002,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.9561999267712952,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0022",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999999,
+      "weight_min": 7.560019222807851e-14,
+      "weight_max": 0.1921105243833884,
+      "finite": true,
+      "effective_sample_size": 13.095308268951026,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.7883070075806534,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.635309984886181,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.8561838672191892,
+          "discrepancy": 2.886579864025407e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.37700875806748463,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.8407676728215443,
+          "discrepancy": 7.549516567451064e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.497638695564372,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.6890581315288531,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0023",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.9043344774791357e-14,
+      "weight_max": 0.2585959869649981,
+      "finite": true,
+      "effective_sample_size": 11.008039781966135,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.07077210654026526,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.07384249006369611,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.05140400673404722,
+          "discrepancy": 1.5265566588595902e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.031850780449267785,
+          "discrepancy": 8.326672684688674e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3176356438037442,
+          "discrepancy": 1.1102230246251565e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.3600080790521738,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.4198455351255113,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0024",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 1.0612495889956948e-15,
+      "weight_max": 0.07478494237731735,
+      "finite": true,
+      "effective_sample_size": 40.390211430768524,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.16084988568261538,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.14679302063130298,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.15766916742055345,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.026139815135937307,
+          "discrepancy": 5.204170427930421e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.4522136173323683,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.2717261651997127,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.371773060700551,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0025",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0000000000000002,
+      "weight_min": 1.8256868881861873e-29,
+      "weight_max": 0.3223688638115191,
+      "finite": true,
+      "effective_sample_size": 7.372686939167998,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.7387850357931638,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.610176780651813,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.8001810385899941,
+          "discrepancy": 3.219646771412954e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.37908164138384615,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.7048939313773144,
+          "discrepancy": 8.43769498715119e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.36466590245754044,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.41968986623182014,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0026",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 0.9999999999999996,
+      "weight_min": 4.799765738389744e-05,
+      "weight_max": 0.00024399418629044754,
+      "finite": true,
+      "effective_sample_size": 15506.863987268502,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.012836334227031978,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.012643909876044456,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.015625761333858675,
+          "discrepancy": 3.0184188481996443e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.006900459744434827,
+          "discrepancy": 1.734723475976807e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.2503593625849139,
+          "discrepancy": 2.7755575615628914e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.4048658327717507,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.521947611664165,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0027",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.005141612820692793,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.004435079814174859,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.0011257095360005364,
+          "discrepancy": 6.42715047849407e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.0018487979137027056,
+          "discrepancy": 2.203098814490545e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.26680551849092665,
+          "discrepancy": 7.216449660063518e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.4168649685662287,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.5350498138635125,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0028",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.0907558106121187e-05,
+      "weight_max": 0.06048269742596166,
+      "finite": true,
+      "effective_sample_size": 175.61498846030477,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.059012773917766145,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.06248789765765464,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.034335623675744026,
+          "discrepancy": 6.938893903907228e-18,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.05843283405868514,
+          "discrepancy": 6.938893903907228e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3396208433976235,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.6564551553774796,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.0751313455809726,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0029",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999998,
+      "weight_min": 2.1313301201170437e-06,
+      "weight_max": 0.11619936810020191,
+      "finite": true,
+      "effective_sample_size": 67.07354185612449,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.0787460041428177,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.08284871750417988,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.05361328159038004,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.0593262106388425,
+          "discrepancy": 2.0816681711721685e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3712200973139679,
+          "discrepancy": 2.220446049250313e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.5191120586709728,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.0443253480388317,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0030",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 4.0774296414588885e-07,
+      "weight_max": 0.024151090375362474,
+      "finite": true,
+      "effective_sample_size": 647.6735721201763,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.04932261707734002,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.04347615817012006,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.04205447186026608,
+          "discrepancy": 6.245004513516506e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.03512772001205255,
+          "discrepancy": 6.938893903907228e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.29294523698829245,
+          "discrepancy": 1.1102230246251565e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.684335330947559,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.1676236223944216,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0031",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 1.7371555901888757e-07,
+      "weight_max": 0.006940298720437428,
+      "finite": true,
+      "effective_sample_size": 2037.4619482067562,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.021415629870675097,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.022986582764039275,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.014705383851769664,
+          "discrepancy": 9.367506770274758e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.017977018275485774,
+          "discrepancy": 2.0816681711721685e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.318350872842698,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.594526786662587,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.126461777088903,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0032",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 7.818050732048655e-09,
+      "weight_max": 0.020188058188903322,
+      "finite": true,
+      "effective_sample_size": 344.94631004400514,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.06509036302324867,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.06442857049097397,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.06068226997974733,
+          "discrepancy": 2.7755575615628914e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.044212879096378326,
+          "discrepancy": 2.7755575615628914e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.35253572682771395,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.5374513802965124,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.0358173340237817,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0033",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 0.9999999999999994,
+      "weight_min": 1.4528440990905836e-05,
+      "weight_max": 0.0018421285050890595,
+      "finite": true,
+      "effective_sample_size": 10941.801821015366,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.011237172961513536,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.012961161933523353,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.009676294133587528,
+          "discrepancy": 1.8735013540549517e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.008576995415556763,
+          "discrepancy": 1.0928757898653885e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3199186146052113,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.650367093366636,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.1444981661471143,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0034",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.008925895767502627,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.008548798304893034,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.00550770885799864,
+          "discrepancy": 1.3877787807814457e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.006632916716872482,
+          "discrepancy": 1.734723475976807e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3186512000535297,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.6624527692000757,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.1518679135130503,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0035",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 3.466834992639884e-08,
+      "weight_max": 0.21442444271327266,
+      "finite": true,
+      "effective_sample_size": 11.530527819160776,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.3673024643900602,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.3437950616740329,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.23572880939430732,
+          "discrepancy": 1.6653345369377348e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.4324766557020588,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.2919473585408245,
+          "discrepancy": 4.440892098500626e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.8267839178484544,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.1609492622370627,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0036",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999998,
+      "weight_min": 1.7896939872982012e-08,
+      "weight_max": 0.2182093535365906,
+      "finite": true,
+      "effective_sample_size": 15.395673208985206,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.4480175472075929,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.44226029212047435,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.435495165730293,
+          "discrepancy": 1.3877787807814457e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.418116122169045,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.1621844386045828,
+          "discrepancy": 4.440892098500626e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.709206732852828,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.1823716644357556,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0037",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999999,
+      "weight_min": 2.6969929770962735e-12,
+      "weight_max": 0.09496554512993019,
+      "finite": true,
+      "effective_sample_size": 38.42582059916445,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.2959316390097769,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.3017657167411831,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.30115265066652486,
+          "discrepancy": 2.220446049250313e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.3833844100982917,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.366982803930335,
+          "discrepancy": 4.440892098500626e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 3.0202954996667186,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.4558045770782355,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0038",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 2.332950685492049e-12,
+      "weight_max": 0.06880938969344746,
+      "finite": true,
+      "effective_sample_size": 89.38737649839945,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.2794783158997999,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.27570852878624885,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.2860989098359669,
+          "discrepancy": 1.942890293094024e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.36887284503189355,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.6124536069784932,
+          "discrepancy": 2.4424906541753444e-15,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 3.081208628079593,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.5262376054989817,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0039",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0000000000000002,
+      "weight_min": 7.491032453458883e-17,
+      "weight_max": 0.263293124917684,
+      "finite": true,
+      "effective_sample_size": 12.790853407273381,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.5481507788587973,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.5071383783051413,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.4911288248207951,
+          "discrepancy": 3.885780586188048e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.4689226777456355,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.3914544594021854,
+          "discrepancy": 6.661338147750939e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.340896997240243,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.968202755247198,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0040",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 1.0000000000000004,
+      "weight_min": 4.910016233747467e-05,
+      "weight_max": 7.735770650270501e-05,
+      "finite": true,
+      "effective_sample_size": 16332.509011298822,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.014242545278346548,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.014919323905688368,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.009836685903849863,
+          "discrepancy": 4.128641872824801e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.010492888194238081,
+          "discrepancy": 1.734723475976807e-18,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.7361422516007392,
+          "discrepancy": 6.661338147750939e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 3.479112516151529,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 4.062304097927061,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0041",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.01606054101739396,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.014646855570486955,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.013564469609001317,
+          "discrepancy": 6.938893903907228e-18,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.010157035604968548,
+          "discrepancy": 2.3765711620882257e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.749947316705606,
+          "discrepancy": 6.661338147750939e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 3.482042910903944,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 4.049521422929342,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0042",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999999,
+      "weight_min": 2.917582751592153e-09,
+      "weight_max": 0.18892852029976548,
+      "finite": true,
+      "effective_sample_size": 17.65290724682762,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.20321798270860641,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.19385788416968552,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.14406984541052942,
+          "discrepancy": 2.7755575615628914e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.13801161200075368,
+          "discrepancy": 2.7755575615628914e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.2674041291334476,
+          "discrepancy": 2.220446049250313e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.4338863189393602,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.654142526494734,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0043",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 2.1894373132681256e-08,
+      "weight_max": 0.05658647604163226,
+      "finite": true,
+      "effective_sample_size": 144.36138738951868,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.13727674386505823,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.1449644693781292,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.12771246261185593,
+          "discrepancy": 3.608224830031759e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.12516343247781456,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3163644349881427,
+          "discrepancy": 5.551115123125783e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.4724867385995557,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.755209959189815,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0044",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.3911317995498584e-13,
+      "weight_max": 0.04944136368471328,
+      "finite": true,
+      "effective_sample_size": 134.72414354406553,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.11907865357325757,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.1179049095291671,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.09888860948735938,
+          "discrepancy": 3.608224830031759e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.08497976111733685,
+          "discrepancy": 1.3877787807814457e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.3085299465642697,
+          "discrepancy": 3.885780586188048e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.5144627619484745,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.0515948733131446,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0045",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 0.9999999999999998,
+      "weight_min": 8.828232088093214e-15,
+      "weight_max": 0.05614047603997276,
+      "finite": true,
+      "effective_sample_size": 139.58343582047786,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.09199438478204508,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.09315546276938913,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.0661226087191474,
+          "discrepancy": 1.6653345369377348e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.061859671390578554,
+          "discrepancy": 3.469446951953614e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.25856277634788755,
+          "discrepancy": 3.3306690738754696e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.8987796717343903,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.307377199914979,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0046",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.2649193402257041e-24,
+      "weight_max": 0.44526169271085125,
+      "finite": true,
+      "effective_sample_size": 4.997154422836313,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.5677494267530957,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.5448870638202434,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.5840996757614669,
+          "discrepancy": 1.1102230246251565e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.4446368478752923,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.4318581378898879,
+          "discrepancy": 3.3306690738754696e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.9854467709693209,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.1729553914363864,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0047",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 5.157594942496928e-05,
+      "weight_max": 8.67638958581809e-05,
+      "finite": true,
+      "effective_sample_size": 16338.23238449902,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.08011566883592183,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.07313453539190083,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.07390616822160222,
+          "discrepancy": 6.661338147750939e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.03566299662540727,
+          "discrepancy": 4.163336342344337e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.22519366816680567,
+          "discrepancy": 1.1102230246251565e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.0258345200896297,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.458145729754759,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0048",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.0070134807668676795,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.006913282695510959,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.004912636231136396,
+          "discrepancy": 1.5118115093137874e-15,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.003786482913264237,
+          "discrepancy": 3.599551212651875e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.2519693037076392,
+          "discrepancy": 7.216449660063518e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.875,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.1147098328548726,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.523087987480178,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0049",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mean",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.930831325936865e-12,
+      "weight_max": 0.15935175739300245,
+      "finite": true,
+      "effective_sample_size": 14.151098923317893,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.4583700898358881,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.4635357707040243,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.37159495472907544,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.3451745933898814,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.7357430748978865,
+          "discrepancy": 1.1102230246251565e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.75,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.7586333777825693,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 2.057313511679483,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0050",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_anchor",
+      "sample_count": 8192,
+      "weight_sum": 1.0,
+      "weight_min": 1.4318326368925126e-15,
+      "weight_max": 0.2962348279228072,
+      "finite": true,
+      "effective_sample_size": 8.619992584181938,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.6193961796570379,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.6593357372914532,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.6332288398016316,
+          "discrepancy": 2.220446049250313e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.3954939980609136,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.337649998789618,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.375,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.375,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.2753384827970666,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.4811729869272252,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0051",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror",
+      "sample_count": 8192,
+      "weight_sum": 0.9999999999999998,
+      "weight_min": 9.996800316605253e-20,
+      "weight_max": 0.2624080187841821,
+      "finite": true,
+      "effective_sample_size": 6.32777025790637,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.41132802391450884,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.43934313261022934,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.27200518750279296,
+          "discrepancy": 1.1102230246251565e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.3768231026019065,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.8778991461667505,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.625,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.625,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.924235116385308,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.9876176173911355,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0052",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_fine",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 1.1204419679298037e-18,
+      "weight_max": 0.11797639477092933,
+      "finite": true,
+      "effective_sample_size": 20.982457731023224,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.5743980712151229,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.6220970690592851,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.6014007712573469,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.3706091731460031,
+          "discrepancy": 5.551115123125783e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.2600844549202632,
+          "discrepancy": 8.881784197001252e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.5,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 1.5396440981037234,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 1.6403973260280666,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0053",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "twist_mirror_batch8",
+      "sample_count": 8192,
+      "weight_sum": 1.0000000000000002,
+      "weight_min": 1.1957726226281911e-37,
+      "weight_max": 0.7216767606969802,
+      "finite": true,
+      "effective_sample_size": 1.8904534412538203,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.7274543266429281,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.7844959929515749,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.647291213476602,
+          "discrepancy": 3.3306690738754696e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.4156121149920487,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 1.2794025968188865,
+          "discrepancy": 4.440892098500626e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 0.25,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 0.25,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 0.8030882763499531,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 0.9483081561288128,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0054",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "full",
+      "sample_count": 16384,
+      "weight_sum": 1.0000000000000002,
+      "weight_min": 7.0974098756993286e-06,
+      "weight_max": 0.00045813198989078395,
+      "finite": true,
+      "effective_sample_size": 13308.599928945827,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.01794303487101455,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.016572277763411226,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.015793277764931002,
+          "discrepancy": 9.367506770274758e-17,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.015476074602898389,
+          "discrepancy": 3.5908775952719907e-16,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.4738575678673277,
+          "discrepancy": 9.992007221626409e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.7484373290383726,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.166463113695872,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    },
+    {
+      "cell": "/data/workspace/iclr-paper-20260921/run-twist/development/cells/cell_0055",
+      "receipt": {
+        "status": "ok",
+        "checked": 4,
+        "mismatches": []
+      },
+      "status": "completed",
+      "setting_id": "smc",
+      "sample_count": 16384,
+      "weight_sum": 1.0,
+      "weight_min": 6.103515625e-05,
+      "weight_max": 6.103515625e-05,
+      "finite": true,
+      "effective_sample_size": 16384.0,
+      "independent_metrics": {
+        "sliced_w1_32": {
+          "value": 0.009548405914371496,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "w1_mean": {
+          "value": 0.010190879922634313,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "mean_error": {
+          "value": 0.010836154086377016,
+          "discrepancy": 3.95516952522712e-16,
+          "passed": true
+        },
+        "covariance_error": {
+          "value": 0.0066169241814083,
+          "discrepancy": 3.0357660829594124e-17,
+          "passed": true
+        },
+        "state_mse": {
+          "value": 0.47980481912693296,
+          "discrepancy": 3.885780586188048e-16,
+          "passed": true
+        },
+        "coverage90": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "coverage95": {
+          "value": 1.0,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width90": {
+          "value": 2.7505757210026593,
+          "discrepancy": 0.0,
+          "passed": true
+        },
+        "width95": {
+          "value": 3.185130273869442,
+          "discrepancy": 0.0,
+          "passed": true
+        }
+      },
+      "pass": true
+    }
+  ],
+  "matrix_certificates": [
+    {
+      "asset": "d2_ambiguous_1300",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.99115926082945,
+      "final_tail_covariance": [
+        [
+          0.11429830568113045,
+          -0.03890932756082649
+        ],
+        [
+          -0.03890932756082648,
+          0.13293234002286378
+        ]
+      ]
+    },
+    {
+      "asset": "d2_ambiguous_1300",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955819301296406,
+      "final_tail_covariance": [
+        [
+          0.11396075110682966,
+          -0.03880586587191398
+        ],
+        [
+          -0.03880586587191398,
+          0.13254705652321208
+        ]
+      ]
+    },
+    {
+      "asset": "d2_ambiguous_1301",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911592372838306,
+      "final_tail_covariance": [
+        [
+          0.0912219264566115,
+          0.031177821221033488
+        ],
+        [
+          0.031177821221033488,
+          0.18026080175942608
+        ]
+      ]
+    },
+    {
+      "asset": "d2_ambiguous_1301",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955819057788924,
+      "final_tail_covariance": [
+        [
+          0.09094771560870045,
+          0.03109522706023556
+        ],
+        [
+          0.03109522706023556,
+          0.17976116046017554
+        ]
+      ]
+    },
+    {
+      "asset": "d2_regular_1300",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911594346934013,
+      "final_tail_covariance": [
+        [
+          0.027505038988432512,
+          -0.0010660893276908893
+        ],
+        [
+          -0.001066089327690889,
+          0.021999550355175822
+        ]
+      ]
+    },
+    {
+      "asset": "d2_regular_1300",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955821099387785,
+      "final_tail_covariance": [
+        [
+          0.02736346911131712,
+          -0.0010606913625142397
+        ],
+        [
+          -0.0010606913625142394,
+          0.021886083481177588
+        ]
+      ]
+    },
+    {
+      "asset": "d2_regular_1301",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911594497391505,
+      "final_tail_covariance": [
+        [
+          0.02532847493108502,
+          -0.00032436870883628113
+        ],
+        [
+          -0.000324368708836281,
+          0.02351283058968456
+        ]
+      ]
+    },
+    {
+      "asset": "d2_regular_1301",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955821254990102,
+      "final_tail_covariance": [
+        [
+          0.02519556258179317,
+          -0.00032104349761694523
+        ],
+        [
+          -0.0003210434976169451,
+          0.023393001609379224
+        ]
+      ]
+    },
+    {
+      "asset": "d8_ambiguous_1300",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911591003505069,
+      "final_tail_covariance": [
+        [
+          0.6422520704631007,
+          -0.08100832313764944,
+          -0.1457500117828883,
+          0.04534328418684773,
+          0.04171389592273568,
+          -0.2314232208881877,
+          0.002161806972854918,
+          0.11261601004160714
+        ],
+        [
+          -0.08100832313764945,
+          0.45364044366886175,
+          0.06169089514312462,
+          0.08615362388185731,
+          0.11321836236069667,
+          0.08850537857055563,
+          0.06549011161841872,
+          -0.10318920416699752
+        ],
+        [
+          -0.1457500117828882,
+          0.06169089514312461,
+          0.45397676379358126,
+          -0.1148780653005915,
+          0.05892829930841908,
+          0.0035204914674615726,
+          0.04396747898897815,
+          -0.040543405867359536
+        ],
+        [
+          0.045343284186847715,
+          0.08615362388185734,
+          -0.11487806530059147,
+          0.5591757968343188,
+          -0.06821513242280527,
+          0.03513984781579318,
+          0.2002819106535016,
+          0.020859808461698874
+        ],
+        [
+          0.04171389592273566,
+          0.1132183623606967,
+          0.05892829930841907,
+          -0.06821513242280527,
+          0.5080973427435715,
+          0.00937880360837563,
+          0.026280724482182004,
+          -0.12297627613487476
+        ],
+        [
+          -0.23142322088818776,
+          0.08850537857055565,
+          0.0035204914674615757,
+          0.03513984781579318,
+          0.00937880360837563,
+          0.4989404267712737,
+          0.12598021501011755,
+          -0.04921979587386076
+        ],
+        [
+          0.0021618069728549165,
+          0.06549011161841874,
+          0.04396747898897816,
+          0.20028191065350154,
+          0.026280724482182,
+          0.12598021501011752,
+          0.3932421250627904,
+          0.0051876437693897945
+        ],
+        [
+          0.11261601004160712,
+          -0.10318920416699755,
+          -0.040543405867359536,
+          0.02085980846169887,
+          -0.12297627613487476,
+          -0.04921979587386076,
+          0.005187643769389795,
+          0.3311116036778887
+        ]
+      ]
+    },
+    {
+      "asset": "d8_ambiguous_1300",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.995581764163207,
+      "final_tail_covariance": [
+        [
+          0.6413347172923796,
+          -0.08101779403327247,
+          -0.14566873821823825,
+          0.045321547449157513,
+          0.04160436756236382,
+          -0.23129785613971182,
+          0.002096267017699706,
+          0.11255025264066773
+        ],
+        [
+          -0.08101779403327251,
+          0.45277176336867114,
+          0.061654144761596585,
+          0.08606087930253047,
+          0.11312008097350154,
+          0.0884859432508071,
+          0.06547943653741993,
+          -0.10309880826151334
+        ],
+        [
+          -0.14566873821823825,
+          0.061654144761596585,
+          0.45309274743053174,
+          -0.11476412611762699,
+          0.05889422624616017,
+          0.003614339609764871,
+          0.04387217531475095,
+          -0.04055623694468455
+        ],
+        [
+          0.045321547449157513,
+          0.0860608793025305,
+          -0.114764126117627,
+          0.558237701008843,
+          -0.06814635084829052,
+          0.03515335450178379,
+          0.20007998299232466,
+          0.02085587387268197
+        ],
+        [
+          0.04160436756236381,
+          0.11312008097350155,
+          0.058894226246160176,
+          -0.06814635084829053,
+          0.5071303129144409,
+          0.00938415123599324,
+          0.026242717454866,
+          -0.12283275886655518
+        ],
+        [
+          -0.23129785613971188,
+          0.0884859432508071,
+          0.0036143396097648725,
+          0.035153354501783814,
+          0.009384151235993234,
+          0.49808202172717625,
+          0.1258565028995065,
+          -0.049228154272476524
+        ],
+        [
+          0.0020962670176997125,
+          0.06547943653741994,
+          0.043872175314750954,
+          0.2000799829923247,
+          0.026242717454866,
+          0.12585650289950645,
+          0.3924767175634089,
+          0.005147208939359595
+        ],
+        [
+          0.11255025264066772,
+          -0.1030988082615133,
+          -0.04055623694468456,
+          0.02085587387268197,
+          -0.12283275886655518,
+          -0.04922815427247653,
+          0.005147208939359595,
+          0.3303983178238971
+        ]
+      ]
+    },
+    {
+      "asset": "d8_ambiguous_1301",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911591130215697,
+      "final_tail_covariance": [
+        [
+          0.3762726239215913,
+          0.01887668237276124,
+          0.05003295926385635,
+          -0.07327648541828086,
+          0.05039094778726962,
+          0.028272905442720264,
+          -0.13920338888488165,
+          0.030722875844722126
+        ],
+        [
+          0.01887668237276123,
+          0.3309184641782229,
+          -0.09203278761723468,
+          -0.067691875477684,
+          -0.10389013557475889,
+          0.01409437905520526,
+          -0.029061607492186226,
+          0.014271029360111731
+        ],
+        [
+          0.05003295926385634,
+          -0.0920327876172347,
+          0.374306361562176,
+          0.03466916519079404,
+          -0.02907149828318565,
+          0.09908715745353465,
+          -0.030293046836517738,
+          0.04247084569672639
+        ],
+        [
+          -0.07327648541828084,
+          -0.06769187547768397,
+          0.03466916519079405,
+          0.34467214294755666,
+          -0.09452997321958412,
+          0.022832923842641187,
+          0.04011115208737482,
+          0.013137839252440256
+        ],
+        [
+          0.0503909477872696,
+          -0.10389013557475886,
+          -0.02907149828318564,
+          -0.09452997321958409,
+          0.60831258994103,
+          0.029249752989692138,
+          0.054819578925522396,
+          0.06954170835313117
+        ],
+        [
+          0.028272905442720268,
+          0.014094379055205252,
+          0.09908715745353466,
+          0.02283292384264119,
+          0.029249752989692148,
+          0.4905202667950342,
+          -0.050029808192243286,
+          0.03045208187166
+        ],
+        [
+          -0.13920338888488165,
+          -0.029061607492186232,
+          -0.03029304683651773,
+          0.040111152087374834,
+          0.0548195789255224,
+          -0.0500298081922433,
+          0.43010138663690234,
+          -0.07859546102390211
+        ],
+        [
+          0.030722875844722136,
+          0.014271029360111737,
+          0.042470845696726385,
+          0.01313783925244026,
+          0.06954170835313116,
+          0.030452081871660003,
+          -0.07859546102390212,
+          0.384571327517358
+        ]
+      ]
+    },
+    {
+      "asset": "d8_ambiguous_1301",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955817772675498,
+      "final_tail_covariance": [
+        [
+          0.37544478769758594,
+          0.018843627031448703,
+          0.04995379671441588,
+          -0.07318131184264459,
+          0.05034706197511345,
+          0.02827071866806558,
+          -0.13902223039663683,
+          0.03071157742828246
+        ],
+        [
+          0.018843627031448703,
+          0.3301548609532776,
+          -0.09187555512224072,
+          -0.06757049565887575,
+          -0.10375586536692519,
+          0.014051813701579437,
+          -0.02904480555247079,
+          0.014226277324557508
+        ],
+        [
+          0.049953796714415875,
+          -0.09187555512224076,
+          0.37347598685422756,
+          0.0346330495388242,
+          -0.029014291842068562,
+          0.09896786036144742,
+          -0.030275988425369278,
+          0.042415476637108804
+        ],
+        [
+          -0.07318131184264459,
+          -0.06757049565887578,
+          0.03463304953882421,
+          0.3438732416136093,
+          -0.09440864227530482,
+          0.02278576934286736,
+          0.0400653821202728,
+          0.013095303989371327
+        ],
+        [
+          0.05034706197511344,
+          -0.10375586536692519,
+          -0.029014291842068555,
+          -0.09440864227530481,
+          0.6072671146672505,
+          0.029214635346516932,
+          0.054741290203587464,
+          0.06945413093300887
+        ],
+        [
+          0.02827071866806558,
+          0.01405181370157943,
+          0.0989678603614474,
+          0.022785769342867357,
+          0.029214635346516925,
+          0.4895181498911791,
+          -0.049992327461118584,
+          0.030433474565322707
+        ],
+        [
+          -0.13902223039663678,
+          -0.02904480555247078,
+          -0.030275988425369285,
+          0.0400653821202728,
+          0.05474129020358747,
+          -0.04999232746111859,
+          0.42921330874687696,
+          -0.07849404227448455
+        ],
+        [
+          0.03071157742828246,
+          0.014226277324557496,
+          0.0424154766371088,
+          0.013095303989371332,
+          0.06945413093300887,
+          0.03043347456532271,
+          -0.07849404227448455,
+          0.3837057189781306
+        ]
+      ]
+    },
+    {
+      "asset": "d8_regular_1300",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911591136306682,
+      "final_tail_covariance": [
+        [
+          0.2612191614551811,
+          -0.0006568386738845962,
+          0.02977057629999214,
+          0.04309634717929149,
+          -0.016776607118664005,
+          0.07040404581648609,
+          -0.023302582892434965,
+          0.03851191472044046
+        ],
+        [
+          -0.0006568386738846068,
+          0.1978617727303369,
+          0.030608377018858376,
+          -0.020936785223309818,
+          -0.05259406804621105,
+          -0.07089618091450672,
+          -0.04672266398639613,
+          -0.029210150921327803
+        ],
+        [
+          0.029770576299992156,
+          0.030608377018858383,
+          0.121628576216113,
+          -0.05308649924738154,
+          0.023063353829274224,
+          -0.01935536607421264,
+          -0.009982042696879651,
+          -0.0051885717060951
+        ],
+        [
+          0.043096347179291485,
+          -0.020936785223309815,
+          -0.053086499247381506,
+          0.2020942528340115,
+          -0.05964159482109249,
+          0.04923812047682357,
+          0.08529294897934514,
+          0.031888489561999855
+        ],
+        [
+          -0.016776607118664,
+          -0.05259406804621106,
+          0.023063353829274234,
+          -0.059641594821092485,
+          0.16828144275788576,
+          0.015833811792183856,
+          0.009826962437221164,
+          -0.033537158011262586
+        ],
+        [
+          0.07040404581648613,
+          -0.07089618091450674,
+          -0.01935536607421264,
+          0.04923812047682358,
+          0.015833811792183863,
+          0.16838624569100336,
+          0.06424171288018526,
+          0.027365345584844745
+        ],
+        [
+          -0.02330258289243497,
+          -0.04672266398639614,
+          -0.009982042696879658,
+          0.08529294897934514,
+          0.009826962437221165,
+          0.06424171288018526,
+          0.13528187021974405,
+          0.01574021205940793
+        ],
+        [
+          0.038511914720440465,
+          -0.02921015092132782,
+          -0.005188571706095101,
+          0.03188848956199984,
+          -0.0335371580112626,
+          0.027365345584844755,
+          0.015740212059407933,
+          0.07558792770672856
+        ]
+      ]
+    },
+    {
+      "asset": "d8_regular_1300",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955817778974767,
+      "final_tail_covariance": [
+        [
+          0.26016749710644765,
+          -0.0006954889867789277,
+          0.02963874429719051,
+          0.04296178560322682,
+          -0.01672122991280947,
+          0.07016981002457641,
+          -0.023173003592483872,
+          0.03838200078973894
+        ],
+        [
+          -0.0006954889867789383,
+          0.1970514549749179,
+          0.030500424208472054,
+          -0.02090289971958849,
+          -0.05239244170183659,
+          -0.07066513437756008,
+          -0.04658620213088967,
+          -0.02910551296560251
+        ],
+        [
+          0.029638744297190513,
+          0.030500424208472054,
+          0.12108055868926917,
+          -0.05289292344124825,
+          0.02297014963384515,
+          -0.01929447170665289,
+          -0.009978608194344929,
+          -0.0051697877187775795
+        ],
+        [
+          0.04296178560322681,
+          -0.02090289971958848,
+          -0.052892923441248234,
+          0.20127703478603823,
+          -0.059414274598954764,
+          0.04909887320939965,
+          0.0849764660125648,
+          0.031788533687547936
+        ],
+        [
+          -0.016721229912809474,
+          -0.05239244170183659,
+          0.022970149633845145,
+          -0.05941427459895478,
+          0.16754547838955508,
+          0.015766897927193334,
+          0.009788364451246537,
+          -0.033388552651579126
+        ],
+        [
+          0.07016981002457641,
+          -0.07066513437756011,
+          -0.019294471706652896,
+          0.04909887320939965,
+          0.01576689792719334,
+          0.16770432621479284,
+          0.06401940030705507,
+          0.027280513960114564
+        ],
+        [
+          -0.023173003592483858,
+          -0.046586202130889674,
+          -0.00997860819434493,
+          0.0849764660125648,
+          0.009788364451246536,
+          0.06401940030705505,
+          0.13469870029097714,
+          0.015695332227034935
+        ],
+        [
+          0.03838200078973895,
+          -0.0291055129656025,
+          -0.005169787718777583,
+          0.03178853368754793,
+          -0.03338855265157914,
+          0.02728051396011457,
+          0.01569533222703494,
+          0.07523142742710211
+        ]
+      ]
+    },
+    {
+      "asset": "d8_regular_1301",
+      "status": "finite",
+      "steps": 1024,
+      "minimum_precision_eigenvalue": 0.9911591072911305,
+      "final_tail_covariance": [
+        [
+          0.24033151713985554,
+          0.0017611331907097286,
+          0.052681817417199614,
+          -0.09451192315264943,
+          0.11811899519220946,
+          0.13888825003704117,
+          -0.006244130108298285,
+          -0.05038324758361815
+        ],
+        [
+          0.0017611331907097319,
+          0.10170429215680794,
+          0.00480757203387043,
+          -0.01022262680051024,
+          0.008270716150007316,
+          -0.018424327573893395,
+          -0.03028213755928582,
+          -0.023425964701685266
+        ],
+        [
+          0.05268181741719961,
+          0.004807572033870425,
+          0.10187165052321816,
+          -0.007362089747462611,
+          -0.008794488559433605,
+          0.07215841520537154,
+          -0.011067432620240738,
+          -0.01844905064537421
+        ],
+        [
+          -0.09451192315264943,
+          -0.010222626800510235,
+          -0.007362089747462615,
+          0.11508006843722492,
+          -0.08444224157370865,
+          -0.03919498694103295,
+          0.003476472625374331,
+          0.03170265181320267
+        ],
+        [
+          0.11811899519220947,
+          0.008270716150007315,
+          -0.008794488559433603,
+          -0.08444224157370869,
+          0.24566252384810466,
+          0.07261144642445581,
+          0.013003721307583828,
+          0.005589987011982054
+        ],
+        [
+          0.13888825003704117,
+          -0.018424327573893402,
+          0.07215841520537157,
+          -0.03919498694103294,
+          0.07261144642445579,
+          0.23929848987425903,
+          -0.00684281253016482,
+          -0.031265474545951626
+        ],
+        [
+          -0.006244130108298287,
+          -0.030282137559285823,
+          -0.011067432620240738,
+          0.00347647262537433,
+          0.013003721307583828,
+          -0.006842812530164819,
+          0.09003771640546329,
+          -0.007524350586477232
+        ],
+        [
+          -0.05038324758361813,
+          -0.023425964701685266,
+          -0.018449050645374214,
+          0.031702651813202656,
+          0.005589987011982055,
+          -0.03126547454595163,
+          -0.007524350586477233,
+          0.13184232523332784
+        ]
+      ]
+    },
+    {
+      "asset": "d8_regular_1301",
+      "status": "finite",
+      "steps": 2048,
+      "minimum_precision_eigenvalue": 0.9955817713411617,
+      "final_tail_covariance": [
+        [
+          0.23953864311813325,
+          0.0017561359055883504,
+          0.05253517669839611,
+          -0.09424055920767699,
+          0.11781848289851339,
+          0.1385128193333397,
+          -0.006215014051308677,
+          -0.050242851406560325
+        ],
+        [
+          0.0017561359055883526,
+          0.10121558616466407,
+          0.004793061147710206,
+          -0.010182265605847585,
+          0.008229687703541272,
+          -0.018342162162830435,
+          -0.03014414397349518,
+          -0.02332964200827418
+        ],
+        [
+          0.05253517669839609,
+          0.004793061147710201,
+          0.10142011459713794,
+          -0.007369502477557028,
+          -0.008697454191761173,
+          0.07191971411044305,
+          -0.01102512823065449,
+          -0.018408857831706954
+        ],
+        [
+          -0.094240559207677,
+          -0.010182265605847582,
+          -0.0073695024775570295,
+          0.11461148131436469,
+          -0.084187019116532,
+          -0.03913144186995508,
+          0.0034574967331351303,
+          0.03159627779424143
+        ],
+        [
+          0.11781848289851336,
+          0.008229687703541275,
+          -0.008697454191761177,
+          -0.08418701911653201,
+          0.2447322006597986,
+          0.07245543642087594,
+          0.012944506420231705,
+          0.0055340904675008525
+        ],
+        [
+          0.1385128193333397,
+          -0.01834216216283045,
+          0.0719197141104431,
+          -0.03913144186995509,
+          0.07245543642087597,
+          0.23840467578633046,
+          -0.006816294893413468,
+          -0.0311960001114591
+        ],
+        [
+          -0.006215014051308677,
+          -0.03014414397349519,
+          -0.01102512823065449,
+          0.003457496733135131,
+          0.012944506420231707,
+          -0.006816294893413469,
+          0.08959017872468955,
+          -0.007477210058734777
+        ],
+        [
+          -0.050242851406560325,
+          -0.023329642008274185,
+          -0.018408857831706957,
+          0.031596277794241436,
+          0.005534090467500856,
+          -0.031196000111459093,
+          -0.007477210058734777,
+          0.13126279083688341
+        ]
+      ]
+    }
+  ],
+  "means": {
+    "full": {
+      "sliced_w1_32": 0.02499673977626553,
+      "seconds": 1.6334472550079226,
+      "ess_fraction": 0.851848376148404
+    },
+    "twist_anchor": {
+      "sliced_w1_32": 0.2654484351962183,
+      "seconds": 1.0471050324849784,
+      "ess_fraction": 0.08264245777836152
+    },
+    "twist_mirror_fine": {
+      "sliced_w1_32": 0.14606254193661672,
+      "seconds": 3.0123833403922617,
+      "ess_fraction": 0.08099746434556557
+    },
+    "twist_mirror_batch8": {
+      "sliced_w1_32": 0.34275410196704514,
+      "seconds": 1.5668518575839698,
+      "ess_fraction": 0.03862054414661893
+    },
+    "smc": {
+      "sliced_w1_32": 0.00701605938159279,
+      "seconds": 0.1056839064694941,
+      "ess_fraction": 1.0
+    },
+    "twist_mean": {
+      "sliced_w1_32": 0.22191940220088474,
+      "seconds": 1.0507767307572067,
+      "ess_fraction": 0.04134299464748004
+    },
+    "twist_mirror": {
+      "sliced_w1_32": 0.12567424426485208,
+      "seconds": 1.1819101921282709,
+      "ess_fraction": 0.07547841359471089
+    }
+  },
+  "eligible": [],
+  "scope": "independent fixed-cohort development audit; no held-out confirmation claim"
+}

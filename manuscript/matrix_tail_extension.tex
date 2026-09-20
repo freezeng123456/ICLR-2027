@@ -1,0 +1,61 @@
+\section{Matrix-valued bounded tail control}
+\label{sec:matrix-tail-extension}
+
+The strict-domain argument extends to Gaussian mixtures with a shared component covariance within each factor. It uses the finite-dimensional Gaussian quadratic integral and a vector density-envelope argument.
+
+Let $x\in\mathbb R^d$. For factor $g$, assume
+\[
+r_g(x)=-A_gx+d_g+b_g(x),\qquad A_g=A_g^\top,\qquad \|b_g(x)\|\leq B_g.
+\]
+Let $A_\Sigma=\sum_{g=1}^GA_g$ and define
+\[
+C=\frac12\left(A_\Sigma^\top A_\Sigma-\sum_{g=1}^GA_g^\top A_g\right),\qquad
+L=I-\frac h2\left((1+\kappa)A_\Sigma+\kappa I\right).
+\]
+Then $C=C^\top$; simultaneous diagonalization of the matrices $A_g$ is not assumed. The bounded terms and vectors $d_g$ contribute at most linearly to the logarithm of the density ratio and do not change the quadratic coefficient.
+
+Assume that the incoming normalized density satisfies the tail envelope
+\[
+\log p_X(x)=-\frac12x^\top V^{-1}x+O(1+\|x\|),\qquad V\succ0.
+\]
+The conclusion below concerns this Gaussian covariance envelope for a generally non-Gaussian density. Exact Gaussianity is used only for the auxiliary quadratic calculation that identifies the strict precision condition.
+
+\begin{theorem}[Strict matrix tail certificate]
+\label{thm:matrix-tail}
+Let $h>0$ and $\kappa>0$. Suppose that the incoming density satisfies the displayed tail envelope, the potential is $x^\top Cx+O(1+\|x\|)$, and the Euler transition is $Y=LX+q(X)+\sqrt{\kappa h}\,\xi$, with $\sup_x\|q(x)\|<\infty$. Set $H=V^{-1}-2hC$. If $H\succ0$, the conditional weighted integral is finite and the propagated normalized density has tail covariance
+\[
+V^+=LH^{-1}L^\top+\kappa hI\succ0.
+\]
+If $H$ has a strictly negative eigenvalue, the conditional integral is infinite. The positive-semidefinite boundary is unclassified. On a finite grid, if every batch shares the full-factor matrices $C_k,L_k$, the recursion has the same strict-domain decisions for full-factor and tail-controlled weighting, for every fixed finite batch size.
+\end{theorem}
+
+\begin{proof}
+The quadratic part of the incoming tail envelope multiplied by the exponential weight is $-x^\top Hx/2$. If $H\succ0$, completing the square in the Gaussian envelope gives a finite reference integral. Its linear image under $L$ has covariance $LH^{-1}L^\top$, and the independent Euler noise has covariance $\kappa hI$. Thus $V^+\succ0$ because $\kappa h>0$, without requiring $L$ to be invertible. The bounded linear remainder in the incoming log density is absorbed into the $O(1+\|x\|)$ envelope.
+
+If $Hv=\lambda v$ with $\lambda<0$, restrict the integral to a fixed bounded tube around the line $x=tv$. The quadratic exponent on that tube contains $-\lambda t^2/2$, which grows strictly quadratically in $|t|$; linear and bounded-remainder terms contribute at most $O(|t|+1)$. The tube integral is infinite.
+
+For the vector density envelope, use the reference joint Gaussian $X\sim\Normal(0,H^{-1})$, $Y=LX+\sqrt{\kappa h}\,\xi$. Write $W=LH^{-1}L^\top+\kappa hI$. Its conditional mean is $\E[X\mid Y=y]=H^{-1}L^\top W^{-1}y$, and its conditional covariance is independent of $y$. A bounded displacement of norm at most $B$ changes the transition-density ratio by factors between
+\[
+\exp\{-B\|y-Lx\|/(\kappa h)-B^2/(2\kappa h)\}
+\quad\text{and}\quad
+\exp\{B\|y-Lx\|/(\kappa h)\}.
+\]
+Combining this with the weighted input envelope gives conditional density-ratio bounds by constants times
+\[
+\exp\{\pm c_0\pm c_1\|X\|\pm c_2\|y-LX\|\}.
+\]
+The inequality $\|y-LX\|\leq\|y\|+\|L\|\|X\|$ and Gaussian exponential moments give an upper conditional bound $\exp\{C_1\|y\|+C_2\}$. For the lower bound, Jensen's inequality applied to the positive conditional density ratio gives a lower logarithmic bound because conditional Gaussian first moments of $X$ and $y-LX$ grow at most linearly in $\|y\|$. Multiplication by the Gaussian marginal with covariance $V^+$ yields
+\[
+\log p_Y(y)=-\frac12y^\top(V^+)^{-1}y+O(1+\|y\|).
+\]
+The constants are uniform over every fixed finite history set. In the deterministic common-coefficient case, every history therefore has the same strict domain.
+\end{proof}
+
+For an exactly Gaussian incoming density and a purely quadratic potential $x^\top Cx+q^\top x+c_0$, the tilted mean and exact normalizing constant are
+\[
+b=V^{-1}m+hq,\qquad m^+=H^{-1}b,
+\]
+\[
+\log Z=hc_0-\frac12\log\det V-\frac12\log\det H+\frac12b^\top H^{-1}b-\frac12m^\top V^{-1}m.
+\]
+The subsequent affine propagation maps this tilted mean by the Euler transition. The implementation checks the normalizing constant against independent two-dimensional quadrature for a non-diagonal covariance. The common-coefficient recursion does not require commuting matrices. The scalar extreme-batch reduction for uncontrolled subsampling remains a separate result.

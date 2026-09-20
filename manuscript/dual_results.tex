@@ -1,0 +1,35 @@
+\section{Tail-control mechanisms and held-out ablations}\label{app:dual-results}
+The five trained mixture networks are unchanged throughout these studies. Nonlinear factor evaluations use analytic mixture scores after a one-time network parameter prediction. Timing consequently measures the reported mixture implementation, rather than repeated evaluation of a large neural score network.
+
+\paragraph{Complete-kernel random correction.}
+A separate development study compares interpolation and a positive Poisson correction of a surrogate Euler transition. The conditional identity concerns the complete unnormalized kernel. It does not imply unbiased normalized particle estimates or a resampling variance bound. The configuration is selected on eight learned development targets, then fixed for five networks crossed with ten new datasets. Table~\ref{tab:dual-kernel} reports all 250 confirmation cells. The declared joint requirement is an upper one-sided 95\% bound of $0.002$ on W1 degradation and $0.8$ on the time ratio to the optimized full-factor baseline. None of the approximate methods meets both requirements. The positive-kernel correction has mean W1 difference $0.005139$ with 95\% interval $[-0.000150,0.012475]$ and time ratio $1.0563$. Its observed error interval includes zero; the result establishes no matched-quality speedup.
+
+\begin{table}[ht]
+\centering
+\caption{Held-out complete-kernel study. Means over five networks crossed with ten datasets, $G=64,d=8,N=32768,K=2048$. Sampling time includes preparation.}
+\label{tab:dual-kernel}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Learned W1 & True W1 & Seconds & Joint sign TV\\
+\midrule
+Full & 0.018273 & 0.019996 & 6.144 & 0.02770\\
+Fixed-mean tail & 0.116538 & 0.117157 & 4.342 & 0.09258\\
+Interpolation only & 0.019326 & 0.020973 & 3.312 & 0.02987\\
+Surrogate, exact correction & 0.020683 & 0.022729 & 15.119 & 0.02949\\
+Surrogate, Poisson correction & 0.023412 & 0.025032 & 6.489 & 0.03147\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Separable strong baseline.}
+For a product target, coordinatewise full-factor SMC exploits known independence. Each coordinate is independently resampled at the endpoint, then independently permuted to form joint draws. On the difficult mixture at $N=8192,K=512$, this lowers mean marginal W1 from $0.6973$ to $0.2703$ and joint sign TV from $0.9256$ to $0.3685$. On five learned targets, W1 changes from $0.02514$ to $0.01696$. These are diagnostics on eight distinct parameter sets, with five sampling repetitions on each of three oracle families and five learned datasets. They establish a relevant strong baseline and expose remaining mode loss. Coordinatewise coupling is an existing use of the product structure.
+
+\paragraph{Anchored control.}
+On 256 preselected non-anchor state/time points from two trained models and four datasets, exhaustive formula checks and 4096 paired random subsets per point give anchored-to-fixed-mean conditional variance ratios of $0.015397$ for drift and $0.002446$ for potential. The 32 anchor points are reported separately; their zero residual variance follows by construction.
+
+A distinct 150-cell held-out study uses five networks and ten new datasets. Learned-target W1 is $0.016817$ for full weighting, $0.095390$ for fixed-mean tail control, and $0.019673$ for anchored control, all with $N=32768,K=2048,M=4$. The anchored-to-full W1 difference has one-sided 95\% upper bound $0.006076$, exceeding the declared $0.002$ allowance. An algebraically equivalent cache implementation is rerun on the same 50 problems: maximum particle, weight and log-normalizer discrepancies are $1.78\times10^{-15}$, $2.61\times10^{-17}$ and $2.28\times10^{-13}$. Corresponding full, fixed-mean and anchored times are $6.039$, $4.260$ and $3.844$ seconds. The anchored time ratio is $0.63644$ with 95\% interval $[0.63227,0.64048]$. This rerun supplies an implementation comparison on the same cohort, with no additional independent datasets and no change to the failed accuracy criterion.
+
+Post-hoc parameter diagnostics use the saved weighted particles. Full, fixed-mean and anchored posterior-mean MSEs are respectively $0.011167$, $0.027511$ and $0.011664$. Their observed 90\% interval coverages are $88.50\%$, $66.00\%$ and $87.25\%$. These frequencies describe ten data seeds crossed with five trained models; they do not establish population calibration. A separate predeclared development and confirmation study changes the particle, step and batch counts; its results are reported independently.
+
+\paragraph{First and second path moments.}
+For a linear Gaussian proposal without intermediate resampling, write the stacked path as $X=m+L\xi$ and its log weight as $X^\top CX+\ell^\top X+c$. Its $p$th weight moment exists exactly when $I-2pL^\top CL$ is positive definite; a nonpositive eigenvalue makes the Gaussian quadratic integral infinite, including the boundary. The exact log moment follows by completing the square. A fixed $G=4,d=3$, 16-step diagnostic on $u\in[1,0]$ has first-moment minimum eigenvalues between $0.36756$ and $0.36796$, and second-moment minimum eigenvalues between $-0.26488$ and $-0.26409$. The normalizer is finite with exact log value $3.615674$, while the unresampled weight lacks a second moment. This statement concerns that path proposal and supplies no variance theorem for a resampled particle system.

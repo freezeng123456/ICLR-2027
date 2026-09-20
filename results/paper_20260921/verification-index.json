@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "run_cells": 1404,
+  "equivalent_replays": 100,
+  "archive_sha256": {
+    "old/sensor-raw-20260921.tar.gz": "f504b71e2c96166f0a487722c2e2db75b9a0f1713312538793aca462493a2ee6",
+    "new/anchor-raw-20260921.tar.gz": "653e64a844df97781a5d3e179a62d583c6d90a8df6fd0b44f36382c84e9ea18f",
+    "new/twist-raw-20260921.tar.gz": "c254bea3bbdc510e2243ad1dae82cca78955e0b7458cb8adcfc930d0b9e04a17",
+    "new/matched-raw-20260921.tar.gz": "f06663497aafc5f11ae3418b46d5d785a04a53d6838fe5890129b529cf2c1abc"
+  },
+  "report_sha256": {
+    "anchor-development-audit": "0843a44886fad859949e75a3e7d272bfa0838becd3d06f521605edb291424c62",
+    "anchor-confirmation-audit": "397730d16fc6f7544221109137e38a9197cc9f96264eab83b9a69e1dbb69f519",
+    "anchor-matched-audit": "a6a87cb6fb0dd74d8338f25d949b213f93da7bd050f12a4e5c92d1aca87c75c1",
+    "sensor-original-environment-audit": "d02cc653e39c17353c8a683b3e8d0359eb21636c274be0e0e60c707b9badce14",
+    "twist-development-audit": "bcc708d3401d2d47030052f815ea92de0e5f108e8369d9b2d06b9e5cab0b7579"
+  },
+  "original_sensor_runtime": {
+    "numpy": "2.2.6",
+    "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:56:27) [GCC 11.2.0]",
+    "scipy": "1.15.3"
+  },
+  "cross_platform_note": "all local sensor metrics and matrix certificates agree; seeded Gaussian draws are checked in their original environment",
+  "claims": {
+    "predeclared_selected_vs_original_joint": true,
+    "predeclared_selected_vs_original_coordinatewise": false,
+    "matched_budget_diagnostic": {
+      "full": false,
+      "factorized_full": false
+    },
+    "sensor_speed_claim": false,
+    "twist_expansion_eligible": false
+  },
+  "builder_sha256": "c1c21510ca683502b132abdd27e13ca862fc2a66f58ef687da86fd3f0f3d4fec"
+}

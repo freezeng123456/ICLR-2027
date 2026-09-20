@@ -1,0 +1,77 @@
+\section{Tail-matched Gaussian path proposals}
+\label{sec:gaussian-twist-theorem}
+
+Gaussian backward recursion and change-of-measure weighting are classical components of twisted and controlled SMC \citep{whiteley2014,heng2020}. The result below applies these constructions to the shared quadratic tail of our specified finite-step operator. It establishes existence of all positive weight moments, without asserting a useful numerical variance bound.
+
+\begin{theorem}[Finite-horizon weight moments under tail matching]
+\label{thm:gaussian-twist-moments}
+Fix $K<\infty$, positive step lengths $\Delta_k$, and a finite set of batch histories with probability law $\mu$. Let $p_0$ be a nondegenerate Gaussian density. For each history $B$, define
+\[
+ \gamma_B(x_{0:K})=p_0(x_0)\prod_{k=0}^{K-1}
+ e^{\Delta_k g_{B,k}(x_k)}q_{B,k}(x_{k+1}\mid x_k).
+\]
+Assume that, for finite matrices and vectors $L_k,d_k,C_k=C_k^\top,\ell_k,c_k$, and $Q_k\succ0$,
+\begin{align*}
+ q_{B,k}(\cdot\mid x)&=\Normal(L_kx+d_k+\delta_{B,k}(x),Q_k),\\
+ g_{B,k}(x)&=x^\top C_kx+\ell_k^\top x+c_k+v_{B,k}(x),
+\end{align*}
+where $\sup_{B,x}\|\delta_{B,k}(x)\|<\infty$ and
+$|v_{B,k}(x)|\leq a_k+b_k\|x\|$ uniformly in $B$.
+Let $\gamma_0$ set $\delta=v=0$. If $0<Z_0=\int\gamma_0<\infty$, its normalized law $\pi_0=\gamma_0/Z_0$ is nondegenerate Gaussian and
+\[
+ \E_{B\sim\mu,\,X\sim\pi_0} W(B,X)^p<\infty
+ \quad\text{for every fixed }p>0,\qquad
+ W=Z_0\gamma_B/\gamma_0.
+\]
+In particular, $\E W=\sum_B\mu(B)\int\gamma_B$ is the normalizer of the specified random-kernel path law. There is no bound uniform in $K$ or in $p$.
+\end{theorem}
+
+\begin{proof}
+Write $m_k(x)=L_kx+d_k$ and $\delta=\delta_{B,k}(x)$. Equal transition covariances give the exact identity
+\[
+ \log\frac{q_{B,k}(y\mid x)}{q_{0,k}(y\mid x)}
+ =\delta^\top Q_k^{-1}(y-m_k(x))
+   -\tfrac12\delta^\top Q_k^{-1}\delta.
+\]
+Its absolute value is bounded by a finite constant times
+$1+\|x\|+\|y\|$. Adding the potential differences over the finite grid gives
+$|\log(\gamma_B/\gamma_0)|\leq c_0+c_1\|x_{0:K}\|$ uniformly over histories. The quadratic exponential $\gamma_0$ has positive-definite joint precision whenever its integral is finite: a negative eigenvalue forces quadratic growth, and a zero eigenvalue leaves a nonintegrable affine exponential along its null direction. Hence $\pi_0$ is a nondegenerate Gaussian on $\R^{d(K+1)}$ and has $\E_{\pi_0}e^{t\|X\|}<\infty$ for every finite $t$. Thus
+\[
+ \E W^p\leq Z_0^p e^{pc_0}\E_{\pi_0}e^{pc_1\|X\|}<\infty.
+\]
+Finally, change of measure and the finite sum over $B$ give the normalizer identity. Every constant is for a fixed grid.
+\end{proof}
+
+For shared-component-covariance mixtures, the full and tail-controlled scores have bounded corrections to their common affine part. Their potential corrections have at most linear growth, including the without-replacement version. They satisfy the primitive assumptions above whenever the strict full-factor matrix certificate holds. Raw subsampling with batch-dependent quadratic coefficients does not satisfy these assumptions.
+
+\paragraph{Backward Gaussian construction.}
+Let $g_{0,k}(x)=x^\top C_kx+\ell_k^\top x+c_k$. Define
+$\psi_k(x)=\exp(\tfrac12x^\top J_kx+j_k^\top x+a_k)$ with terminal $J_K=0,j_K=0,a_K=0$. For $H_k=Q_k^{-1}-J_{k+1}\succ0$, put
+\[
+ T_k=Q_k^{-1}H_k^{-1}Q_k^{-1}-Q_k^{-1},\qquad
+ \nu_k=Q_k^{-1}H_k^{-1}j_{k+1}.
+\]
+Completing the square in $e^{\Delta_k g_{0,k}}q_{0,k}\psi_{k+1}$ yields
+\begin{align*}
+ J_k&=2\Delta_k C_k+L_k^\top T_kL_k,\\
+ j_k&=\Delta_k\ell_k+L_k^\top(T_kd_k+\nu_k),\\
+ a_k&=\Delta_kc_k+a_{k+1}-\tfrac12\log\det(I-Q_kJ_{k+1})\\
+ &\quad+\tfrac12d_k^\top T_kd_k+\nu_k^\top d_k
+ +\tfrac12j_{k+1}^\top H_k^{-1}j_{k+1}.
+\end{align*}
+For $p_0=\Normal(m,V)$, put $P=V^{-1}-J_0$ and $b=V^{-1}m+j_0$. The reference initial law is $\Normal(P^{-1}b,P^{-1})$ and
+\[
+ \log Z_0=a_0-\tfrac12\log\det V-\tfrac12\log\det P
+ +\tfrac12 b^\top P^{-1}b-\tfrac12m^\top V^{-1}m.
+\]
+The forward conditional reference proposal is
+\[
+ X_{k+1}\mid X_k=x\sim
+ \Normal\bigl(H_k^{-1}[Q_k^{-1}(L_kx+d_k)+j_{k+1}],H_k^{-1}\bigr).
+\]
+Every $H_k$ and $P$ must be positive definite. These Schur-complement conditions are equivalent to strict positivity of the full Gaussian path precision. The implementation rejects a failing reference. Numerically stable forms $T=J+JH^{-1}J$ and $\nu=j+JH^{-1}j$ avoid subtraction of two large matrices as the step size shrinks.
+
+\paragraph{Independent-path consequence and mixtures.}
+For a bounded path observable $f$, independent pairs $(B,X)$ yield consistent self-normalized importance sampling with asymptotic variance $\E[W^2(f-\eta f)^2]/(\E W)^2<\infty$. This follows from the ordinary multivariate central limit theorem and the delta method. It does not establish a resampling-system theorem or guarantee small finite-sample error.
+
+Our optional finite mixture uses reference Gaussian paths with the same joint covariance and different means, with strictly positive fixed mixing probabilities. Relative to any component, its marginal log density differs by a log-sum of affine functions, whose absolute value is at most linear in the path norm. The same argument establishes all positive moments using $W=\gamma_B/\sum_j\omega_j\pi_j$. The sampler evaluates this complete marginal denominator. Weighting by only the selected component would instead be an augmented-component importance construction and must not be confused with this marginal-mixture algorithm or its variance.

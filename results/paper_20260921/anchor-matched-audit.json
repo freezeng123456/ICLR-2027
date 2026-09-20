@@ -1,0 +1,597 @@
+{
+  "status": "passed",
+  "source_commit": "f1cf3409a2f28d7d10b54fab974bc5410196a80e",
+  "sources": {
+    "run_paper_anchor_20260921.py": {
+      "expected": "8252f7e073b01c2fd9d5f8c5334ee56df33f66163c561ea3cbcd043c622b9292",
+      "actual": "8252f7e073b01c2fd9d5f8c5334ee56df33f66163c561ea3cbcd043c622b9292",
+      "passed": true
+    },
+    "optimized_anchored_tail_20260921.py": {
+      "expected": "8ae4816c7baecc3fd91e8b113eb8181ad3e6bca1376961c0239432187cad9bcb",
+      "actual": "8ae4816c7baecc3fd91e8b113eb8181ad3e6bca1376961c0239432187cad9bcb",
+      "passed": true
+    },
+    "anchored_tail_20260921.py": {
+      "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+      "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+      "passed": true
+    },
+    "run_anchored_confirmation_20260921.py": {
+      "expected": "4f97ac6245c74a8cd3a70b30f027366e0c7b8c04bb41533176bcf9099e4374d6",
+      "actual": "4f97ac6245c74a8cd3a70b30f027366e0c7b8c04bb41533176bcf9099e4374d6",
+      "passed": true
+    },
+    "certified_composition_torch.py": {
+      "expected": "d9d7b0a0858ee5378c932ef6685b6ac6a09258ffe243c46a1fe702cf38eef299",
+      "actual": "d9d7b0a0858ee5378c932ef6685b6ac6a09258ffe243c46a1fe702cf38eef299",
+      "passed": true
+    },
+    "factorized_baseline_20260921.py": {
+      "expected": "98c489dfc95867356245b9cfff903c622990b4ad27d310d2eb3fe56b0ce6e1fa",
+      "actual": "98c489dfc95867356245b9cfff903c622990b4ad27d310d2eb3fe56b0ce6e1fa",
+      "passed": true
+    },
+    "composition_benchmark.py": {
+      "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+      "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+      "passed": true
+    },
+    "composition_extension.py": {
+      "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+      "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+      "passed": true
+    },
+    "gaussian_integrability.py": {
+      "expected": "45ac1fd3954ac4bc2dd399d2320829e064153b91f464c0448de69b9df0fcae22",
+      "actual": "45ac1fd3954ac4bc2dd399d2320829e064153b91f464c0448de69b9df0fcae22",
+      "passed": true
+    },
+    "learned_sbi.py": {
+      "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+      "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+      "passed": true
+    },
+    "run_dual_20260921.py": {
+      "expected": "8f6f481eb429c526baad71dfa1e35c0df18109b0dc84c3290708b0d78f70a478",
+      "actual": "8f6f481eb429c526baad71dfa1e35c0df18109b0dc84c3290708b0d78f70a478",
+      "passed": true
+    },
+    "run_solid_20260920.py": {
+      "expected": "a62b9e7f932cec6318aafce36e110dca46139f37b5f9a2fcd24db90ab70eaa9e",
+      "actual": "a62b9e7f932cec6318aafce36e110dca46139f37b5f9a2fcd24db90ab70eaa9e",
+      "passed": true
+    },
+    "docs/PAPER_LEVEL_PROTOCOL_20260921.md": {
+      "expected": "43f67e5d57a4521f3f29baf441d2e509c8d3caad57d8ac23fcbe45f771a53c1f",
+      "actual": "43f67e5d57a4521f3f29baf441d2e509c8d3caad57d8ac23fcbe45f771a53c1f",
+      "passed": true
+    },
+    "run_matched_anchor_20260921.py": {
+      "expected": "b50f5085d06bc47da3ba1d6503ec7d4ffd623eecd2d1acf1328bc117ffec6cec",
+      "actual": "b50f5085d06bc47da3ba1d6503ec7d4ffd623eecd2d1acf1328bc117ffec6cec",
+      "passed": true
+    },
+    "run_twist_pilot_20260921.py": {
+      "expected": "be6dfd26ea9a278aead4606755372a66fb128461921576301d067dbf926ae036",
+      "actual": "be6dfd26ea9a278aead4606755372a66fb128461921576301d067dbf926ae036",
+      "passed": true
+    },
+    "docs/MATCHED_BUDGET_PROTOCOL_20260921.md": {
+      "expected": "e5fe9dd532a0714c33ff70e584b0087e23c45c76f178740889baa9942ebce716",
+      "actual": "e5fe9dd532a0714c33ff70e584b0087e23c45c76f178740889baa9942ebce716",
+      "passed": true
+    }
+  },
+  "inputs": {
+    "cells": 300,
+    "hashed_files": 2000,
+    "unique_parameters": 100,
+    "checkpoints_reloaded": 5
+  },
+  "checks": [
+    {
+      "asset": "learned_0_900",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.112707426683296e-07
+    },
+    {
+      "asset": "learned_0_901",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.858346870206115e-07
+    },
+    {
+      "asset": "learned_0_902",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.331091812842362e-07
+    },
+    {
+      "asset": "learned_0_903",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.781413061975825e-07
+    },
+    {
+      "asset": "learned_0_904",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.876183638553161e-07
+    },
+    {
+      "asset": "learned_0_905",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.220890052700435e-07
+    },
+    {
+      "asset": "learned_0_906",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.773918471217333e-07
+    },
+    {
+      "asset": "learned_0_907",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.529551275849532e-07
+    },
+    {
+      "asset": "learned_0_908",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.5393497876550226e-07
+    },
+    {
+      "asset": "learned_0_909",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.200015308308049e-07
+    },
+    {
+      "asset": "learned_0_910",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.053450253603153e-07
+    },
+    {
+      "asset": "learned_0_911",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.326015214308921e-07
+    },
+    {
+      "asset": "learned_0_912",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.0379738211233058e-06
+    },
+    {
+      "asset": "learned_0_913",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.675754384410701e-07
+    },
+    {
+      "asset": "learned_0_914",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.5347155153076775e-06
+    },
+    {
+      "asset": "learned_0_915",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.000713489995313e-07
+    },
+    {
+      "asset": "learned_0_916",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.785717140377068e-07
+    },
+    {
+      "asset": "learned_0_917",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.306558011163113e-07
+    },
+    {
+      "asset": "learned_0_918",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.404602406883842e-07
+    },
+    {
+      "asset": "learned_0_919",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.09853961937995e-07
+    },
+    {
+      "asset": "learned_1_900",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.1294173256140572e-06
+    },
+    {
+      "asset": "learned_1_901",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.553958527225762e-07
+    },
+    {
+      "asset": "learned_1_902",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.3922580485536433e-07
+    },
+    {
+      "asset": "learned_1_903",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.724439272903394e-07
+    },
+    {
+      "asset": "learned_1_904",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.554713531421342e-07
+    },
+    {
+      "asset": "learned_1_905",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.707493276896653e-07
+    },
+    {
+      "asset": "learned_1_906",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.2390896253280936e-06
+    },
+    {
+      "asset": "learned_1_907",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.982460143308e-07
+    },
+    {
+      "asset": "learned_1_908",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.6548665214416447e-06
+    },
+    {
+      "asset": "learned_1_909",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.330975310548439e-07
+    },
+    {
+      "asset": "learned_1_910",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.575278529135034e-07
+    },
+    {
+      "asset": "learned_1_911",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.901224769555793e-07
+    },
+    {
+      "asset": "learned_1_912",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.24180053063562e-06
+    },
+    {
+      "asset": "learned_1_913",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.8027983253662838e-06
+    },
+    {
+      "asset": "learned_1_914",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.2095824971725695e-07
+    },
+    {
+      "asset": "learned_1_915",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.645350609981587e-07
+    },
+    {
+      "asset": "learned_1_916",
+      "cells": 3,
+      "maximum_metric_discrepancy": 2.5874810962583927e-07
+    },
+    {
+      "asset": "learned_1_917",
+      "cells": 3,
+      "maximum_metric_discrepancy": 2.898518678667167e-07
+    },
+    {
+      "asset": "learned_1_918",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.1780608434939526e-07
+    },
+    {
+      "asset": "learned_1_919",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.656331317141106e-07
+    },
+    {
+      "asset": "learned_2_900",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.723753819305733e-07
+    },
+    {
+      "asset": "learned_2_901",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.1391734399020248e-06
+    },
+    {
+      "asset": "learned_2_902",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.1578169858139642e-06
+    },
+    {
+      "asset": "learned_2_903",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.044166977522744e-07
+    },
+    {
+      "asset": "learned_2_904",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.065128592430916e-07
+    },
+    {
+      "asset": "learned_2_905",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.934625877118601e-07
+    },
+    {
+      "asset": "learned_2_906",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.088504013150974e-07
+    },
+    {
+      "asset": "learned_2_907",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.88749698583152e-07
+    },
+    {
+      "asset": "learned_2_908",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.075296944534682e-07
+    },
+    {
+      "asset": "learned_2_909",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.030693145176821e-07
+    },
+    {
+      "asset": "learned_2_910",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.186160237953153e-07
+    },
+    {
+      "asset": "learned_2_911",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.6964368636469014e-07
+    },
+    {
+      "asset": "learned_2_912",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.0856922678468411e-06
+    },
+    {
+      "asset": "learned_2_913",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.948838904795001e-07
+    },
+    {
+      "asset": "learned_2_914",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.839870288957023e-07
+    },
+    {
+      "asset": "learned_2_915",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.842446515642863e-07
+    },
+    {
+      "asset": "learned_2_916",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.1713030289954574e-06
+    },
+    {
+      "asset": "learned_2_917",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.290890417522509e-07
+    },
+    {
+      "asset": "learned_2_918",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.0342489963621748e-06
+    },
+    {
+      "asset": "learned_2_919",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.162799950816452e-07
+    },
+    {
+      "asset": "learned_3_900",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.6993394088664349e-06
+    },
+    {
+      "asset": "learned_3_901",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.629297639558414e-07
+    },
+    {
+      "asset": "learned_3_902",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.846032231978358e-07
+    },
+    {
+      "asset": "learned_3_903",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.180212963705691e-07
+    },
+    {
+      "asset": "learned_3_904",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.793204925542809e-07
+    },
+    {
+      "asset": "learned_3_905",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.370065528538526e-07
+    },
+    {
+      "asset": "learned_3_906",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.372806009950771e-07
+    },
+    {
+      "asset": "learned_3_907",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.408737504582594e-07
+    },
+    {
+      "asset": "learned_3_908",
+      "cells": 3,
+      "maximum_metric_discrepancy": 2.246774301016552e-07
+    },
+    {
+      "asset": "learned_3_909",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.876089103461131e-07
+    },
+    {
+      "asset": "learned_3_910",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.201633959446786e-07
+    },
+    {
+      "asset": "learned_3_911",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.198435156430179e-07
+    },
+    {
+      "asset": "learned_3_912",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.767195310456112e-07
+    },
+    {
+      "asset": "learned_3_913",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.1431672590717663e-07
+    },
+    {
+      "asset": "learned_3_914",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.137231883798634e-06
+    },
+    {
+      "asset": "learned_3_915",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.1521295211619487e-06
+    },
+    {
+      "asset": "learned_3_916",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.29381370598744e-06
+    },
+    {
+      "asset": "learned_3_917",
+      "cells": 3,
+      "maximum_metric_discrepancy": 3.791085449941778e-07
+    },
+    {
+      "asset": "learned_3_918",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.724671655488791e-07
+    },
+    {
+      "asset": "learned_3_919",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.389176843314305e-07
+    },
+    {
+      "asset": "learned_4_900",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.238357025406926e-07
+    },
+    {
+      "asset": "learned_4_901",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.078774249711062e-06
+    },
+    {
+      "asset": "learned_4_902",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.809052434120997e-07
+    },
+    {
+      "asset": "learned_4_903",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.863664203995672e-07
+    },
+    {
+      "asset": "learned_4_904",
+      "cells": 3,
+      "maximum_metric_discrepancy": 9.449614332933398e-07
+    },
+    {
+      "asset": "learned_4_905",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.008937500755901e-07
+    },
+    {
+      "asset": "learned_4_906",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.1853708207702234e-07
+    },
+    {
+      "asset": "learned_4_907",
+      "cells": 3,
+      "maximum_metric_discrepancy": 4.120122837521223e-07
+    },
+    {
+      "asset": "learned_4_908",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.483542387344943e-07
+    },
+    {
+      "asset": "learned_4_909",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.648254332290327e-07
+    },
+    {
+      "asset": "learned_4_910",
+      "cells": 3,
+      "maximum_metric_discrepancy": 5.96577612782534e-07
+    },
+    {
+      "asset": "learned_4_911",
+      "cells": 3,
+      "maximum_metric_discrepancy": 7.991301918322535e-07
+    },
+    {
+      "asset": "learned_4_912",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.0359847032008485e-06
+    },
+    {
+      "asset": "learned_4_913",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.0442553778286512e-06
+    },
+    {
+      "asset": "learned_4_914",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.181450093895648e-07
+    },
+    {
+      "asset": "learned_4_915",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.642673307660774e-07
+    },
+    {
+      "asset": "learned_4_916",
+      "cells": 3,
+      "maximum_metric_discrepancy": 8.047743204758762e-07
+    },
+    {
+      "asset": "learned_4_917",
+      "cells": 3,
+      "maximum_metric_discrepancy": 1.1604322594643834e-06
+    },
+    {
+      "asset": "learned_4_918",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.158377578967256e-07
+    },
+    {
+      "asset": "learned_4_919",
+      "cells": 3,
+      "maximum_metric_discrepancy": 6.417445393702703e-07
+    }
+  ],
+  "parent_audit_sha256": "397730d16fc6f7544221109137e38a9197cc9f96264eab83b9a69e1dbb69f519",
+  "auditor_sha256": "d6e29c09053b4d7556447451d3bf77369c586172b5c688b462e20fc8c4dacda4",
+  "scope": "all recovered particle metrics and exact anchor replay; same-target reference integration and same-grid population certificate reused from passed parent audit"
+}

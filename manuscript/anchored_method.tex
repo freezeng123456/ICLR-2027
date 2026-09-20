@@ -1,0 +1,8 @@
+\paragraph{Anchoring the bounded remainder.}
+Preserving curvature leaves freedom in the affine intercept. Given a deterministic point $x_\star(u)$, set $r_g^0(x,u)=-A_g(u)x+d_g^\star(u)$ with
+\[
+d_g^\star(u)=r_g(x_\star(u),u)+A_g(u)x_\star(u).
+\]
+Every residual then vanishes at the anchor, while remaining bounded over the state space. The drift and potential estimators are conditionally exact at that point. Away from it, their variances and exponential bias remain nonzero. This construction uses the known tail curvature, with an intercept selected from factor scores; it is a control-variate realization related to gradient anchoring in stochastic-gradient MCMC \citep{baker2019}.
+
+For the diagonal learned experiment, we initialize the anchor at the affine composed-score root and use six fixed Newton updates. The denominator is bounded below by $0.2$, and each coordinate update is clipped to $[-1,1]$. The nonseparable experiment uses the corresponding full Hessian, with eigenvalues bounded below by $0.2$ and an update norm at most one. These choices are fixed before development. Preparation uses only factor parameters and time, with seven residual and six derivative evaluations per factor and time level. No reference posterior or true state enters it. Preparation and device transfers are included in reported sampling time.
