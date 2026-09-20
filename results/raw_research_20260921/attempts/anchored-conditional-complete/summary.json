@@ -1,0 +1,25 @@
+{
+  "anchor_32_point_records": {
+    "count": 32,
+    "drift_variance_mean_by_method": {
+      "original": 64.53143361741687,
+      "anchored": 2.0814142292593457e-27
+    },
+    "potential_variance_mean_by_method": {
+      "original": 1407404.6548064756,
+      "anchored": 9.601783547579291e-27
+    }
+  },
+  "nonanchor_256_point_records": {
+    "count": 256,
+    "drift_variance_mean_by_method": {
+      "original": 64.2903854144507,
+      "anchored": 0.9898527049282563
+    },
+    "potential_variance_mean_by_method": {
+      "original": 1480910.8877476603,
+      "anchored": 3621.796867453855
+    }
+  },
+  "scope": "mechanism diagnostic; no end-to-end accuracy or speed claim"
+}
