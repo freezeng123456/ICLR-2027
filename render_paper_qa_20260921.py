@@ -1,4 +1,5 @@
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import subprocess
@@ -8,8 +9,12 @@ from pypdf import PdfReader
 
 
 root = Path(__file__).resolve().parent
-pdf = root / "work/paper-build/main.pdf"
-output = root / "work/paper-qa/final"
+parser = argparse.ArgumentParser()
+parser.add_argument("--pdf", type=Path, default=root / "work/paper-build/main.pdf")
+parser.add_argument("--output", type=Path, default=root / "work/paper-qa/final")
+args = parser.parse_args()
+pdf = args.pdf.resolve()
+output = args.output.resolve()
 output.mkdir(parents=True, exist_ok=True)
 renderer = "/Users/zenghang/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/pdftoppm"
 subprocess.run([renderer, "-scale-to", "1400", "-png", str(pdf), str(output / "page")], check=True)
@@ -41,6 +46,9 @@ report = {
     "page_resource_fonts": sorted(fonts),
     "rendered_all_pages": True,
     "unresolved_reference_markers": False,
+    "page_text_characters": [len(text) for text in texts],
+    "references_start_pages": [index + 1 for index, text in enumerate(texts) if "REFERENCES" in text],
+    "visual_inspection": "pending; rendering alone is not visual acceptance",
 }
 (output / "render-report.json").write_text(json.dumps(report, indent=2) + "\n")
 print(json.dumps(report, indent=2), flush=True)

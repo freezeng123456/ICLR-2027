@@ -1,6 +1,10 @@
 # ICLR 2027 research
 
-当前论文：[Integrability of Subsampled Compositional Diffusions](manuscript/main.pdf)。论文研究小批量组合扩散的指数权重可积性，包含有放回与无放回的完整证明、SCNet 4,060 个采样实验单元、五次完整条件密度网络训练，以及独立核验结果和适用范围。另有 936 个确定性批量判定配置。论文采用 ICLR 2027 格式，状态为完成研究稿、尚未投稿。
+当前论文：[Integrability of Subsampled Compositional Diffusions](output/pdf/ICLR_2027_research_draft_continued_20260921.pdf)。论文研究小批量组合扩散的指数权重可积性，包含有放回与无放回的完整证明、原 SCNet 4,060 个采样实验单元、五次完整条件密度网络训练及后续 H20 实验。另有 936 个确定性批量判定配置。最新一轮增加 512 个开发配置，两组新方案均未通过预设联合门槛，全部负面结果保留。论文采用 ICLR 2027 格式，状态为研究稿、尚未投稿；当前证据不支持通用高性能采样算法的主张。
+
+- [2026-09-21 最新结果、限制与完整成果入口](docs/CONTINUED_ITERATION_RESULTS_20260921.md)
+- [本轮分析、数值审计、测试与发布回执](results/continued_iteration_20260921/)
+- [完整原始记录分支](https://github.com/freezeng123456/ICLR-2027/tree/results/complete-research-20260921/results)：原始样本、检查点、逐步诊断与失败记录，文件级 SHA-256 清单随各批成果保留。
 
 - [复现入口与归档校验](docs/COMPOSITION_REPRODUCIBILITY.md)
 - [无放回和学习型密度扩展的复现入口](docs/EXTENSION_REPRODUCIBILITY.md)

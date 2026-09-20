@@ -1,0 +1,23 @@
+.ss..................................................................... [ 25%]
+................................................................s....... [ 50%]
+..............................................s......................... [ 75%]
+..............................................................ss........ [100%]
+=============================== warnings summary ===============================
+tests/test_context_pilot.py::test_real_checkpoint_batching_and_context_order
+tests/test_core.py::test_query_isolation_and_context_permutation
+tests/test_core.py::test_training_reproducibility_and_reload[train0]
+tests/test_core.py::test_training_reproducibility_and_reload[train1]
+tests/test_core.py::test_all_boundary_projection_retains_primary_metrics[eval_conditioning-pfn_cond.pt-2.0]
+tests/test_core.py::test_all_boundary_projection_retains_primary_metrics[eval_jump-pfn_jump.pt-50.0]
+  /Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/review-dual-20260921/exp_conditioning.py:33: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.enc = nn.TransformerEncoder(layer, N_LAYER)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_anchored_cuda_20260921.py:45: CUDA confirmation test requires ICLR_TEST_DEVICE=cuda
+SKIPPED [1] tests/test_anchored_cuda_20260921.py:66: CUDA confirmation test requires ICLR_TEST_DEVICE=cuda
+SKIPPED [1] tests/test_learned_factor_bridge_20260921.py:93: explicit CUDA validation required
+SKIPPED [1] tests/test_nonseparable_sensor_sampler_20260921.py:64: requires actual CUDA device
+SKIPPED [1] tests/test_tail_bridge_smc_20260921.py:434: explicit ICLR_TEST_DEVICE=cuda is required
+SKIPPED [1] tests/test_tail_bridge_smc_20260921.py:446: explicit ICLR_TEST_DEVICE=cuda is required
+282 passed, 6 skipped, 6 warnings in 40.64s

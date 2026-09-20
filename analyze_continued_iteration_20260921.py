@@ -69,6 +69,27 @@ def sensor(root, output):
 def learned(root, output):
     selected = json.loads((root / "selection.json").read_text())
     result = dict(selection=selected, scope="development-only" if not selected["expand_confirmation"] else "confirmation required")
+    development = json.loads((root / "development" / "rows.json").read_text())
+    if len(development) != 96 or not (root / "development" / "done").exists():
+        raise RuntimeError("complete learned development required")
+    result["cost_decomposition"] = {name: {key: float(np.mean([r[key] for r in development if r["setting_id"] == name]))
+        for key in ["sampling_seconds", "prediction_seconds", "seconds", "sliced_w1_32"]} for name in selected["means"]}
+    result["assets"] = [json.loads((root / "assets" / f"seed_{seed}" / "summary.json").read_text()) for seed in range(1600, 1604)]
+    paired = []
+    for seed in range(1600, 1604):
+        for repeat in range(3):
+            arrays, components = [], []
+            for name in ["gaussian", "mixture"]:
+                row, = [r for r in development if (r["dataset_seed"], r["repeat"], r["setting_id"]) == (seed, repeat, name)]
+                cell = root / "development" / "cells" / f"cell_{row['cell_id']:04d}"
+                with np.load(cell / "samples.npz") as data:
+                    arrays.append([data["samples"], data["weights"]])
+                diagnostic = json.loads((cell / "diagnostics.json").read_text())
+                components.append(len(diagnostic["reference_parameters"]["weights"]))
+            paired.append(dict(dataset_seed=seed, repeat=repeat, components=components,
+                maximum_sample_difference=float(np.max(np.abs(arrays[0][0] - arrays[1][0]))),
+                maximum_weight_difference=float(np.max(np.abs(arrays[0][1] - arrays[1][1])))))
+    result["gaussian_mixture_paired_output_check"] = paired
     if (root / "confirmation" / "done").exists():
         rows = json.loads((root / "confirmation" / "rows.json").read_text())
         matrix = []

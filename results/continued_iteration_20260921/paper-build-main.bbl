@@ -1,0 +1,143 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Arruda et~al.(2026)Arruda, Pandey, Sherry, Barroso, Intes, Hasenauer,
+  and Radev]{arruda2026}
+Jonas Arruda, Vikas Pandey, Catherine Sherry, Margarida Barroso, Xavier Intes,
+  Jan Hasenauer, and Stefan~T. Radev.
+\newblock Compositional amortized inference for large-scale hierarchical
+  bayesian models.
+\newblock In \emph{International Conference on Learning Representations}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2505.14429v5}.
+
+\bibitem[Baker et~al.(2017)Baker, Fearnhead, Fox, and Nemeth]{baker2019}
+Jack Baker, Paul Fearnhead, Emily~B. Fox, and Christopher Nemeth.
+\newblock Control variates for stochastic gradient mcmc.
+\newblock \emph{arXiv preprint arXiv:1706.05439}, 2017.
+\newblock URL \url{https://arxiv.org/abs/1706.05439}.
+
+\bibitem[Bishop(1994)]{bishop1994}
+Christopher~M. Bishop.
+\newblock Mixture density networks.
+\newblock Technical Report NCRG/94/004, Aston University, 1994.
+\newblock URL
+  \url{https://www.microsoft.com/en-us/research/publication/mixture-density-networks/}.
+
+\bibitem[Cotter et~al.(2013)Cotter, Roberts, Stuart, and White]{cotter2013}
+Simon~L. Cotter, Gareth~O. Roberts, Andrew~M. Stuart, and David White.
+\newblock Mcmc methods for functions: Modifying old algorithms to make them
+  faster.
+\newblock \emph{arXiv preprint arXiv:1202.0709}, 2013.
+\newblock URL \url{https://arxiv.org/html/1202.0709v3}.
+
+\bibitem[Del~Moral et~al.(2006)Del~Moral, Doucet, and Jasra]{delmoral2006}
+Pierre Del~Moral, Arnaud Doucet, and Ajay Jasra.
+\newblock Sequential monte carlo samplers.
+\newblock \emph{Journal of the Royal Statistical Society: Series B},
+  68\penalty0 (3):\penalty0 411--436, 2006.
+\newblock \doi{10.1111/j.1467-9868.2006.00553.x}.
+
+\bibitem[Fearnhead et~al.(2010)Fearnhead, Papaspiliopoulos, Roberts, and
+  Stuart]{fearnhead2010}
+Paul Fearnhead, Omiros Papaspiliopoulos, Gareth~O. Roberts, and Andrew Stuart.
+\newblock Random-weight particle filtering of continuous time processes.
+\newblock \emph{Journal of the Royal Statistical Society: Series B}, 2010.
+\newblock \doi{10.1111/j.1467-9868.2010.00744.x}.
+
+\bibitem[Gunawan et~al.(2020)Gunawan, Dang, Quiroz, Kohn, and
+  Tran]{gunawan2020}
+David Gunawan, Khue-Dung Dang, Matias Quiroz, Robert Kohn, and Minh-Ngoc Tran.
+\newblock Subsampling sequential monte carlo for static bayesian models.
+\newblock \emph{Statistics and Computing}, 30\penalty0 (6):\penalty0
+  1741--1758, 2020.
+\newblock \doi{10.1007/s11222-020-09969-z}.
+\newblock URL \url{https://arxiv.org/abs/1805.03317v3}.
+
+\bibitem[Heng et~al.(2020)Heng, Bishop, Deligiannidis, and Doucet]{heng2020}
+Jeremy Heng, Adrian~N. Bishop, George Deligiannidis, and Arnaud Doucet.
+\newblock Controlled sequential monte carlo.
+\newblock \emph{The Annals of Statistics}, 2020.
+\newblock \doi{10.1214/19-AOS1914}.
+
+\bibitem[Linhart et~al.(2026)Linhart, Cardoso, Gramfort, Le~Corff, and
+  Rodrigues]{linhart2026}
+Julia Linhart, Gabriel~Victorino Cardoso, Alexandre Gramfort, Sylvain Le~Corff,
+  and Pedro L.~C. Rodrigues.
+\newblock Diffusion posterior sampling for simulation-based inference in tall
+  data settings.
+\newblock \emph{Transactions on Machine Learning Research}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2404.07593v3}.
+
+\bibitem[Lu et~al.(2025)Lu, Jia, and Meng]{lu2025}
+Haoyu Lu, Junxiong Jia, and Deyu Meng.
+\newblock Sequential monte carlo with gaussian mixture distributions for
+  infinite-dimensional statistical inverse problems.
+\newblock \emph{arXiv preprint arXiv:2503.16028}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2503.16028v1}.
+
+\bibitem[Mbalawata \& S{\"a}rkk{\"a}(2016)Mbalawata and
+  S{\"a}rkk{\"a}]{mbalawata2016}
+Isambi~S. Mbalawata and Simo S{\"a}rkk{\"a}.
+\newblock Moment conditions for convergence of particle filters with unbounded
+  importance weights.
+\newblock \emph{Signal Processing}, 2016.
+\newblock \doi{10.1016/j.sigpro.2015.06.018}.
+
+\bibitem[Papamakarios \& Murray(2016)Papamakarios and Murray]{papamakarios2016}
+George Papamakarios and Iain Murray.
+\newblock Fast $\epsilon$-free inference of simulation models with bayesian
+  conditional density estimation.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~29, 2016.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2016/file/6aca97005c68f1206823815f66102863-Paper.pdf}.
+
+\bibitem[Skreta et~al.(2025)Skreta, Akhound-Sadegh, Ohanesian, Bondesan,
+  Aspuru-Guzik, Doucet, Brekelmans, Tong, and Neklyudov]{skreta2025}
+Marta Skreta, Tara Akhound-Sadegh, Viktor Ohanesian, Roberto Bondesan, Al{\'a}n
+  Aspuru-Guzik, Arnaud Doucet, Rob Brekelmans, Alexander Tong, and Kirill
+  Neklyudov.
+\newblock Feynman-kac correctors in diffusion: Annealing, guidance, and product
+  of experts.
+\newblock In \emph{Proceedings of the 42nd International Conference on Machine
+  Learning}, volume 267 of \emph{Proceedings of Machine Learning Research},
+  pp.\  55906--55949, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v267/skreta25a.html}.
+
+\bibitem[Soiffer et~al.(2026)Soiffer, Squires, Guan, Hartford, and
+  Ravikumar]{soiffer2026}
+Duncan Soiffer, Chandler Squires, Yuan Guan, Jason Hartford, and Pradeep
+  Ravikumar.
+\newblock Catastrophic compositional generation: Why vanilla diffusion models
+  fail to extrapolate.
+\newblock \emph{arXiv preprint arXiv:2606.23920}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2606.23920v1}.
+
+\bibitem[Thornton et~al.(2025)Thornton, B{\'e}thune, Zhang, Bradley, Nakkiran,
+  and Zhai]{thornton2025}
+James Thornton, Louis B{\'e}thune, Ruixiang Zhang, Arwen Bradley, Preetum
+  Nakkiran, and Shuangfei Zhai.
+\newblock Composition and control with distilled energy diffusion models and
+  sequential monte carlo.
+\newblock In \emph{Proceedings of the 28th International Conference on
+  Artificial Intelligence and Statistics}, volume 258 of \emph{Proceedings of
+  Machine Learning Research}, pp.\  3259--3267, 2025.
+\newblock URL \url{https://proceedings.mlr.press/v258/thornton25a.html}.
+
+\bibitem[Whiteley(2013)]{whiteley2013}
+Nick Whiteley.
+\newblock Stability properties of some particle filters.
+\newblock \emph{The Annals of Applied Probability}, 2013.
+\newblock \doi{10.1214/12-AAP878}.
+
+\bibitem[Whiteley \& Lee(2014)Whiteley and Lee]{whiteley2014}
+Nick Whiteley and Anthony Lee.
+\newblock Twisted particle filters.
+\newblock \emph{The Annals of Statistics}, 2014.
+\newblock \doi{10.1214/13-AOS1167}.
+
+\end{thebibliography}

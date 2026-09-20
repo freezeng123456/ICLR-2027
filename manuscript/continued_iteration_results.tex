@@ -1,0 +1,77 @@
+\section{Additional negative development studies}\label{app:continued-iteration}
+
+These studies ask whether tail information provides a useful reference for static posterior sampling after the negative Gaussian-path pilot. Their targets differ from the finite-grid Feynman--Kac path law in Theorem~\ref{thm:gaussian-twist-moments}. We use standard geometric-bridge SMC and Gaussian-reference pCN \citep{delmoral2006,cotter2013}. Gaussian-mixture pCN and SMC have direct prior work \citep{lu2025}; combining these components is not claimed as a methodological first. Both studies fixed their finite configuration lists, development seeds and stopping rules before execution. Neither passed its joint development gate, so neither opened a new performance-confirmation cohort.
+
+\subsection{Tail-informed static bridges on the sensor task}
+
+Let $\widetilde p$ denote the normalized prior times normalized sensor likelihoods. A reference $q$ gives the bridge $\gamma_\beta=q^{1-\beta}\widetilde p^\beta$, $0\leq\beta\leq1$. Its incremental weight is $\exp\{\Delta\beta(\log\widetilde p-\log q)\}$. Reference covariances are $c\Lambda^{-1}$, where $\Lambda=I+\sum_ga_ga_g^\top/\sigma_g^2$ and $c\in\{1,4\}$. The reference uses one, two or four candidate centers from 32 fixed latent-sign EM iterations. Centers and weights are determined only by the available likelihood and observations; no exact posterior or reference sample enters the sampler. Normalized target heights set the reference mixture weights.
+
+At each move, component $j$ is drawn with its reference responsibility at the current point, followed by a pCN move reversible with respect to that component. The resulting mixture kernel is $q$-reversible. Its Metropolis acceptance uses the complete residual $\beta(\log\widetilde p-\log q)$. Every stage also includes a sign-flip proposal with the complete bridge-density ratio. Adaptive temperatures target ESS fraction $0.8$; all nonfinal stages resample, while final weights are retained through the invariant moves. Adaptation does not establish a finite-particle unbiased normalizer estimate.
+
+The twelve candidates cross the three reference choices, two covariance scales and pCN scales $0.5,1$. Three adaptive-prior controls use scales $0.15,0.35,0.65$. Nine fixed-stage prior-SMC controls cross these scales with 32, 64 and 128 temperatures. Full and anchored diffusion are diagnostics. All 26 settings use $N=16384$. Four fresh data seeds, $1400$--$1403$, cross the two dimensions and noise regimes, yielding sixteen targets and 416 cells. These are four shared seed clusters, not 416 independent problems. GPU process snapshots record the same sole process before and after every cell; they are not continuous isolation measurements.
+
+The baseline is the fastest control within $0.001$ of the best control's mean projected W1. A candidate must be at most $0.002$ worse overall, at most $0.004$ worse in every dimension/noise stratum, and below $80\%$ of the mean time of both that baseline and the original 64-stage control. The selected control uses 32 stages and scale $0.35$. No candidate passes. Table~\ref{tab:static-bridge-development} displays the smallest-error candidate descriptively, without promoting it to confirmation.
+
+\begin{table}[h]
+\centering\small
+\caption{Sensor development only: equal particle counts on sixteen targets. Time includes reference preparation, mode search and returned output. Factor-call counts follow the recorded runner conventions and exclude reference evaluation.}
+\label{tab:static-bridge-development}
+\begin{tabular}{lrrr}
+\toprule
+Method & Projected W1 & Seconds & Factor calls ($10^6$)\\
+\midrule
+Retuned prior-SMC, 32 stages & 0.006626 & 0.06898 & 25.362\\
+Original prior-SMC, 64 stages & 0.007051 & 0.13393 & 50.528\\
+Best-error tail mixture, $c=4$ & 0.010256 & 0.06110 & 3.354\\
+Full diffusion, 2048 steps & 0.018110 & 1.91124 & 402.653\\
+Anchored diffusion, 2048 steps & 0.318881 & 3.69364 & 268.435\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The smallest-error candidate reduces recorded factor calls by $86.8\%$ but elapsed time by only $11.4\%$ against the retuned control. Its W1 difference is $0.003629$, beyond the $0.002$ allowance. The eight-dimensional regular stratum contributes most of this discrepancy: W1 is $0.02209$ versus $0.00756$, including one candidate run at $0.06725$. The other three candidate-stratum means lie between $0.00282$ and $0.00877$. These observations motivate separate checks of reference coverage and implementation overhead; they do not identify a unique causal failure mechanism.
+
+The independent audit passes all sixteen exact-reference assets and all 416 cells. It recomputes nine metrics per cell, checks observation-space evidence against the latent mixture, reproduces the seeded references in the original environment, verifies source and file hashes, and checks bridge temperatures, weight normalization, incremental log normalizers and evaluation counts. The frozen legacy samplers do not retain incremental log-normalizer records, so that particular check is unavailable for them. A numerical audit does not turn the failed performance screen into a successful result.
+
+For this static sensor task, the likelihood is bounded. Consequently prior-reference importance weights already have every positive moment. Tail matching here cannot be interpreted as repairing missing static importance-weight moments. Its practical value would require separate finite-budget accuracy or cost evidence.
+
+\subsection{Composition of independently trained factor models}
+
+We assign the five previously trained checkpoints to five nonorthogonal unit directions in $\R^2$. With $\theta\sim\Normal(0,I_2)$, observations satisfy $y_g=a_g^\top\theta+s_go_g+\sigma_g\epsilon_g$, with equiprobable signs and independent standard Gaussian noise. Direction angles are $(g+1/4)\pi/5$, noise scales are $0.55+0.10g$ and offsets are $0.40+0.15g$, for $g=0,\ldots,4$. Each checkpoint supplies a two-component scalar posterior $\widehat f_g$. The sampler receives only its frozen mixture parameters, defining the prior-corrected target
+\[
+ \widetilde p_{\mathrm{learned}}(\theta)=\varphi_2(\theta)
+ \prod_{g=0}^4\frac{\widehat f_g(a_g^\top\theta)}{\varphi_1(a_g^\top\theta)}.
+\]
+For each unit direction, $\varphi_2(\theta)\widehat f_g(a_g^\top\theta)/\varphi_1(a_g^\top\theta)$ integrates to one; the scalar factor alone is not a normalized density on $\R^2$. The common component precision is $\Lambda=I+\sum_g(v_g^{-1}-1)a_ga_g^\top\succ0$. Enumeration of 32 components supplies the normalized evaluation density. The small factor count also makes enumeration a legitimate competing algorithm, whose preparation and sampling costs are included below. The analytic generating model is used separately to measure learned-target error. Thus the interface is checkpoint-only, but the experiment is still synthetic and analytically tractable.
+
+All methods use $N=4096$. References use sixteen fixed prior starts and fifty latent-component EM iterations, with at most four distinct centers. Three prior-SMC scales, $0.15,0.35,0.65$, receive the same development data. Remaining settings are a single Gaussian, the mixture candidate, direct IS from that mixture, mixture SMC with $10\%$ independent full-reference refreshes, and exact enumeration. Three paired sampler repeats cross four new data seeds, $1600$--$1603$, producing 96 cells. The five heads form one fixed bank, not five training repetitions of this experiment.
+
+The primary candidate is fixed as mixture SMC. Its comparator is the fastest prior-SMC setting within $0.001$ of the best prior-SMC error, here scale $0.65$. The expansion rule again requires mean W1 degradation at most $0.002$ and total-time ratio below $0.8$. The observed difference is $0.000657$, but the ratio is $0.8410$; confirmation therefore remains closed. Diagnostic settings cannot replace the primary candidate after observing these data.
+
+\begin{table}[h]
+\centering\small
+\caption{Checkpoint-only development: four data problems and three paired sampler repeats, with one fixed factor bank. W1 uses the analytic Gaussian-mixture CDF. Total time includes the same measured neural-prediction cost for each method; sampling time includes method-specific reference construction.}
+\label{tab:learned-factor-development}
+\begin{tabular}{lrrr}
+\toprule
+Method & Projected W1 & Sampling seconds & Total seconds\\
+\midrule
+Prior-SMC, scale $0.15$ & 0.012943 & 0.06150 & 0.11932\\
+Prior-SMC, scale $0.35$ & 0.009714 & 0.06687 & 0.12468\\
+Prior-SMC, scale $0.65$ & 0.010056 & 0.06114 & 0.11895\\
+Single-Gaussian SMC & 0.010713 & 0.02869 & 0.08650\\
+Mixture SMC (primary) & 0.010713 & 0.04223 & 0.10004\\
+Mixture direct IS & 0.012924 & 0.01178 & 0.06959\\
+Mixture with global refresh & 0.010865 & 0.02898 & 0.08679\\
+Exact enumeration & 0.011157 & 0.00595 & 0.06376\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reference search retains only one distinct center on each of these four problems. The paired single-Gaussian and mixture outputs consequently agree, so this cohort does not demonstrate a multimodal benefit. Their measured preparation and runtime differences are reported without attributing them to a distinct sampling distribution. The first problem's five neural predictions take $0.22759$ seconds; each of the other three takes about $0.00122$ seconds. The shared mean contribution is $0.05781$ seconds per query. Cold-start cost is retained under the frozen rule; sampling-only and steady-state-serving interpretations are distinct, post-hoc cost questions.
+
+Projected W1 between the learned and generating posteriors ranges from $0.00382$ to $0.01090$. This model error is separate from sampler error against the learned target. The empirical-versus-learned W1 integral uses Gaussian-CDF primitives and interval root finding, avoiding a random reference-sample floor; root-location error and floating-point roundoff remain distinct.
+
+An independent audit passes all four learned/true reference pairs and all 96 cells. It checks direct prior-corrected product densities and two-dimensional numerical normalization, then recomputes sample moments and 32 projected W1 values using separate 32769-node Gaussian-CDF quantizations. The W1 check uses a half-grid-spacing and analytic tail bound, with a $10^{-9}$ numerical allowance that is not a certified floating-point bound. File/source receipts, frozen selection, payload hashes and single-process GPU snapshots are also checked. The learned-versus-generating model-error quadrature is not independently recomputed by this auditor.
+
+Exact enumeration is faster on this small task. The results establish a tested composition interface and a negative development screen, not high-dimensional scaling, a general efficiency advantage or an external application result.

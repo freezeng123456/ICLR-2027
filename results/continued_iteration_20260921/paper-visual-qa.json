@@ -1,0 +1,18 @@
+{
+  "status": "agent_visual_review_passed",
+  "pdf_sha256": "3d5a076d2695c56ecc95dd62e3ca2826b15edbf60910a1d2494bfe7c31104cd8",
+  "pages": 37,
+  "contact_sheet_pages_inspected": "1-37, four sheets of the final render",
+  "final_full_page_images_inspected": [9, 26, 27],
+  "earlier_full_page_images_inspected": [8, 24, 25, 26, 27],
+  "checks": {
+    "visible_text_clipping": false,
+    "overlapping_text_or_tables": false,
+    "broken_math_glyphs_observed": false,
+    "unresolved_references_detected": false,
+    "main_text_ends_page": 8,
+    "reference_section_starts_page": 8,
+    "new_results_in_appendix": "M, pages 24-27"
+  },
+  "limits": "All final pages inspected as contact sheets; selected pages inspected at full rendered resolution. This is agent visual QA, not independent human proofreading, scientific peer review or conference submission."
+}

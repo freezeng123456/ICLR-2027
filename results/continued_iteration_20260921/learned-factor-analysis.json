@@ -1,0 +1,246 @@
+{
+  "selection": {
+    "baseline": "prior_s0.65",
+    "candidate": "mixture",
+    "means": {
+      "prior_s0.15": {
+        "sliced_w1_32": 0.012943192676965363,
+        "seconds": 0.1193175654237469
+      },
+      "prior_s0.35": {
+        "sliced_w1_32": 0.009714033776784082,
+        "seconds": 0.1246816273778677
+      },
+      "prior_s0.65": {
+        "sliced_w1_32": 0.010055556095775473,
+        "seconds": 0.11895478206376235
+      },
+      "gaussian": {
+        "sliced_w1_32": 0.010712692460303012,
+        "seconds": 0.08650055744995673
+      },
+      "mixture": {
+        "sliced_w1_32": 0.010712692460303009,
+        "seconds": 0.1000448598836859
+      },
+      "mixture_direct_is": {
+        "sliced_w1_32": 0.012924086573069357,
+        "seconds": 0.06959484548618396
+      },
+      "mixture_global": {
+        "sliced_w1_32": 0.010864906588469427,
+        "seconds": 0.08679468215753634
+      },
+      "exact_enumeration": {
+        "sliced_w1_32": 0.011157104298701336,
+        "seconds": 0.06376133455584447
+      }
+    },
+    "expand_confirmation": false,
+    "development_only": true,
+    "comparison_scope": "against prior-SMC; exact enumeration also reported"
+  },
+  "scope": "development-only",
+  "cost_decomposition": {
+    "prior_s0.15": {
+      "sampling_seconds": 0.06150271402051052,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.1193175654237469,
+      "sliced_w1_32": 0.012943192676965363
+    },
+    "prior_s0.35": {
+      "sampling_seconds": 0.06686677597463131,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.1246816273778677,
+      "sliced_w1_32": 0.009714033776784082
+    },
+    "prior_s0.65": {
+      "sampling_seconds": 0.061139930660525955,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.11895478206376235,
+      "sliced_w1_32": 0.010055556095775473
+    },
+    "gaussian": {
+      "sampling_seconds": 0.028685706046720345,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.08650055744995673,
+      "sliced_w1_32": 0.010712692460303012
+    },
+    "mixture": {
+      "sampling_seconds": 0.04223000848044952,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.1000448598836859,
+      "sliced_w1_32": 0.010712692460303009
+    },
+    "mixture_direct_is": {
+      "sampling_seconds": 0.011779994082947573,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.06959484548618396,
+      "sliced_w1_32": 0.012924086573069357
+    },
+    "mixture_global": {
+      "sampling_seconds": 0.028979830754299957,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.08679468215753634,
+      "sliced_w1_32": 0.010864906588469427
+    },
+    "exact_enumeration": {
+      "sampling_seconds": 0.005946483152608077,
+      "prediction_seconds": 0.05781485140323639,
+      "seconds": 0.06376133455584447,
+      "sliced_w1_32": 0.011157104298701336
+    }
+  },
+  "assets": [
+    {
+      "seed": 1600,
+      "prediction_seconds": 0.22758707031607628,
+      "network_calls": 5,
+      "learned_to_true_projected_w1": 0.010902907969546707,
+      "exact_components": 32
+    },
+    {
+      "seed": 1601,
+      "prediction_seconds": 0.0012272223830223083,
+      "network_calls": 5,
+      "learned_to_true_projected_w1": 0.005640437562448548,
+      "exact_components": 32
+    },
+    {
+      "seed": 1602,
+      "prediction_seconds": 0.0012269578874111176,
+      "network_calls": 5,
+      "learned_to_true_projected_w1": 0.0038204270254960644,
+      "exact_components": 32
+    },
+    {
+      "seed": 1603,
+      "prediction_seconds": 0.001218155026435852,
+      "network_calls": 5,
+      "learned_to_true_projected_w1": 0.006083609251415715,
+      "exact_components": 32
+    }
+  ],
+  "gaussian_mixture_paired_output_check": [
+    {
+      "dataset_seed": 1600,
+      "repeat": 0,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1600,
+      "repeat": 1,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1600,
+      "repeat": 2,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1601,
+      "repeat": 0,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1601,
+      "repeat": 1,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1601,
+      "repeat": 2,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1602,
+      "repeat": 0,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1602,
+      "repeat": 1,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1602,
+      "repeat": 2,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1603,
+      "repeat": 0,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1603,
+      "repeat": 1,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "dataset_seed": 1603,
+      "repeat": 2,
+      "components": [
+        1,
+        1
+      ],
+      "maximum_sample_difference": 0.0,
+      "maximum_weight_difference": 0.0
+    }
+  ]
+}

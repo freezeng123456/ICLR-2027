@@ -1,11 +1,11 @@
 import argparse
+import base64
 import hashlib
 import json
 import os
 from pathlib import Path
 import subprocess
 import time
-from urllib.request import urlopen
 
 from publication_inventory_20260921 import digest_file
 
@@ -135,18 +135,33 @@ def main():
     expected = {row["path"] for row in report["entries"]}
     if not expected.issubset(set(tree_paths)):
         raise RuntimeError("published tree omits manifest paths")
-    checked = []
+    # 使用 GitHub 内容 API；保持系统证书校验，并逐目录保存下载核验进度。
+    checked = state.get("fresh_github_downloads", []) if state.get("download_revision") == commit else []
+    checked_paths = {row["path"] for row in checked}
+    state.update(status="verifying_github_downloads", download_revision=commit, fresh_github_downloads=checked)
+    save_state()
     for root in report["roots"]:
         choices = [row for row in report["entries"] if row["path"].startswith(root["destination"] + "/") and row["kind"] == "file"]
         if not choices:
             continue
         samples = [row for row in choices if row["path"].endswith("samples.npz")]
         row = (samples or choices)[0]
-        with urlopen("https://raw.githubusercontent.com/freezeng123456/ICLR-2027/" + commit + "/" + row["path"], timeout=90) as response:
-            actual = hashlib.sha256(response.read()).hexdigest()
+        if row["path"] in checked_paths:
+            continue
+        oid = git(target, "rev-parse", commit + ":" + row["path"], capture=True)
+        endpoint = "repos/freezeng123456/ICLR-2027/git/blobs/" + oid
+        blob = json.loads(subprocess.check_output(["gh", "api", endpoint], timeout=60))
+        if blob.get("encoding") != "base64" or blob.get("sha") != oid:
+            raise RuntimeError("unexpected GitHub blob encoding or object identifier")
+        content = base64.b64decode(blob["content"])
+        if len(content) != row["bytes"] or blob["size"] != row["bytes"]:
+            raise RuntimeError("downloaded GitHub blob size differs")
+        actual = hashlib.sha256(content).hexdigest()
         if actual != row["sha256"]:
             raise RuntimeError(f"GitHub download differs: {row['path']}")
-        checked.append(dict(path=row["path"], sha256=actual))
+        checked.append(dict(path=row["path"], sha256=actual, github_blob=oid))
+        save_state()
+        print(json.dumps(dict(download_verified=row["path"], checked_roots=len(checked))), flush=True)
     state.update(status="published_and_verified", commit=commit, remote_commit=remote_head(target, args.branch),
                  published_manifest_paths=len(expected), tree_entries=len(tree_paths), fresh_github_downloads=checked)
     save_state()
