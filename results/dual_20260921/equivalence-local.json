@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "cells": 150,
+  "method_counts": {
+    "full": 50,
+    "tail_fixed": 50,
+    "tail_anchored": 50
+  },
+  "maxima": {
+    "sample_max_abs": 1.7763568394002505e-15,
+    "weight_max_abs": 2.6020852139652106e-17,
+    "logz_abs": 2.2737367544323206e-13
+  },
+  "tolerances": {
+    "sample_max_abs": 1e-08,
+    "weight_max_abs": 1e-10,
+    "logz_abs": 1e-08
+  },
+  "source_sha256": "9655e8147165e08b4de8cabf11e31de9b427483ab472692bf3e29ca3de763155",
+  "scope": "independent local comparison of every recovered particle, weight and log normalizer; same cohort, no additional independent data"
+}

@@ -1,0 +1,37 @@
+{
+  "phase": "development",
+  "settings": {
+    "learned": {
+      "full": {
+        "n": 8,
+        "w1_mean": 0.01698356278269951,
+        "true_w1_mean": 0.018235548987888206,
+        "seconds_including_preparation": 251.335737882182,
+        "sign_joint_tv": 0.04646317582821739,
+        "standardized_offdiagonal_second_rms": 0.06898359060164486,
+        "sliced_w1_32": 0.017178577461904758,
+        "resampling_count": 86.125
+      },
+      "tail": {
+        "n": 8,
+        "w1_mean": 0.13485931539783755,
+        "true_w1_mean": 0.13565432617290313,
+        "seconds_including_preparation": 19.532431676518172,
+        "sign_joint_tv": 0.28673477220702914,
+        "standardized_offdiagonal_second_rms": 1.9204182529948053,
+        "sliced_w1_32": 0.1361115212664194,
+        "resampling_count": 298.25
+      },
+      "tail_anchored": {
+        "n": 8,
+        "w1_mean": 0.02764419345037273,
+        "true_w1_mean": 0.0284522218508756,
+        "seconds_including_preparation": 20.204094328917563,
+        "sign_joint_tv": 0.05982693113925114,
+        "standardized_offdiagonal_second_rms": 0.14527189892567774,
+        "sliced_w1_32": 0.030116784745218922,
+        "resampling_count": 113.125
+      }
+    }
+  }
+}

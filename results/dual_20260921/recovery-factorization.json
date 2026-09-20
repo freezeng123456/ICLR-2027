@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "source_commit": "48f7ad350ea3d11d60c9020679ccb17cf3727ff9",
+  "source_checks": {
+    "run_factorization_diagnostic_20260921.py": true,
+    "factorized_baseline_20260921.py": true,
+    "certified_composition_torch.py": true,
+    "run_dual_20260921.py": true,
+    "docs/FACTORIZATION_DIAGNOSTIC_20260921.md": true
+  },
+  "inputs": {
+    "cells": 40,
+    "hashed_files": 231,
+    "unique_parameters": 8,
+    "checkpoints_reloaded": 1
+  },
+  "maximum_metric_discrepancies": {
+    "w1_mean": 1.346477672359292e-06,
+    "ks_mean": 2.2983758751066174e-07,
+    "mean_absolute_error": 7.216449660063518e-16,
+    "variance_relative_error": 9.159339953157541e-16,
+    "positive_mass_error": 2.3918611605222573e-08,
+    "standardized_offdiagonal_second_rms": 1.27675647831893e-15,
+    "sign_joint_tv": 1.4406291881652322e-07
+  },
+  "phase": "development",
+  "scope": "local recovered raw particles, weights, receipts, checkpoint reload, saved independent reference and joint metrics; true-reference integration and population checks performed by server audit",
+  "verification_source_sha256": "bae0067742b41b39ca07243f9ceb12875a6e5f98f75eb4a70c4370830fa491d9"
+}

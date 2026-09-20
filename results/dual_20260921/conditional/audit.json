@@ -1,0 +1,1478 @@
+{
+  "status": "passed",
+  "scope": "independent local audit of completed anchored conditional run; no rerun of experiment",
+  "input_root": "work/anchored-conditional-run-20260921-final-v3",
+  "pair_count": 8,
+  "expected_pair_count": 8,
+  "summary_original_per_model_not_used_for_training_breakdown": true,
+  "global_failures": [],
+  "source_hash_provenance": {
+    "audit_runner": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/review-dual-20260921/audit_anchored_conditional_20260921.py",
+    "audit_runner_sha256": "5fb403c5ae1950d625cfff2a38f181034f50aaa0b361b03f0c6d2c28458995c4",
+    "classification": "posthoc audit-runner provenance; not part of the original pre-run source hash set"
+  },
+  "strict_requirements": {
+    "cpu_threads": 1,
+    "tmpdir": "work/anchored-conditional-run-20260921-final-v3",
+    "gpu_used": false,
+    "server_used": false,
+    "git_used": false
+  },
+  "pair_audits": [
+    {
+      "pair_id": "training0_dataset600",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          1.1102230246251565e-16,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          6.8833827526759706e-15,
+          3.1086244689504383e-15,
+          3.1086244689504383e-15,
+          2.6645352591003757e-15
+        ],
+        "exact_potential": [
+          6.039613253960852e-14,
+          2.842170943040401e-14,
+          8.526512829121202e-14,
+          1.9895196601282805e-13
+        ],
+        "theoretical_original": [
+          1.3600232051658168e-15,
+          7.105427357601002e-15,
+          8.526512829121202e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_anchored": [
+          1.8973538018496328e-16,
+          8.049116928532385e-16,
+          3.6637359812630166e-15,
+          1.6431300764452317e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 6.8833827526759706e-15,
+          "anchored_drift_mean": 6.8833827526759706e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.2737367544323206e-13,
+          "theoretical_anchored": 1.6431300764452317e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 2.9425779102856896e-10,
+          "anchored_drift_mean": 3.1086244689504383e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.5752581109991924e-14,
+          "theoretical_anchored": 1.4673582037327213e-13
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 2.2737367544323206e-13,
+        "raw_vs_receipt_relative_maximum": 3.1086244689504383e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.01210609705720545,
+          "potential_variance_mean": 7.1138796855205975
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.4510410019755504,
+          "potential_variance_mean": 4888.7358298675745
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 45.156896092573064,
+          "potential_variance_mean": 410251.5719404167
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 181.85988910598212,
+          "potential_variance_mean": 4676673.820179505
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.0011457376647380697,
+          "potential_variance_mean": 0.2523358965690242
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.09968523699384521,
+          "potential_variance_mean": 94.89265988801552
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.9122844788279618,
+          "potential_variance_mean": 2311.9347438039053
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.225175074826936,
+          "potential_variance_mean": 13772.434636434808
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training0_dataset601",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 1.7053025658242404e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          2.220446049250313e-16,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          4.884981308350689e-15,
+          3.1086244689504383e-15,
+          2.886579864025407e-15,
+          4.440892098500626e-15
+        ],
+        "exact_potential": [
+          1.4921397450962104e-13,
+          4.618527782440651e-14,
+          8.526512829121202e-14,
+          1.1368683772161603e-13
+        ],
+        "theoretical_original": [
+          1.6792123247455493e-15,
+          1.4210854715202004e-14,
+          1.1368683772161603e-13,
+          1.7053025658242404e-13
+        ],
+        "theoretical_anchored": [
+          1.4311468676808659e-16,
+          1.4432899320127035e-15,
+          4.6629367034256575e-15,
+          1.1102230246251565e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 4.884981308350689e-15,
+          "anchored_drift_mean": 4.884981308350689e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.7053025658242404e-13,
+          "theoretical_anchored": 1.1102230246251565e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 2.8733449952281978e-11,
+          "anchored_drift_mean": 4.218847493575595e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.1691240533907966e-14,
+          "theoretical_anchored": 9.291277331520795e-14
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 1.7053025658242404e-13,
+        "raw_vs_receipt_relative_maximum": 4.218847493575595e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.029535348523759518,
+          "potential_variance_mean": 44.82443057214253
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 7.876243547303599,
+          "potential_variance_mean": 18603.564598707744
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 83.45649833783065,
+          "potential_variance_mean": 1116082.1042400757
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 291.15037800889024,
+          "potential_variance_mean": 12016544.775563873
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.001088071798477664,
+          "potential_variance_mean": 0.6198000114986948
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.08650993809785695,
+          "potential_variance_mean": 99.71409366999737
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.784791825777,
+          "potential_variance_mean": 2022.4539080383552
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 2.76677745560212,
+          "potential_variance_mean": 12200.903633147866
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training0_dataset602",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.5579538487363607e-13,
+        "points": [
+          4.440892098500626e-16,
+          4.440892098500626e-16,
+          6.938893903907228e-18,
+          2.220446049250313e-16
+        ],
+        "exact_drift": [
+          5.773159728050814e-15,
+          3.3306690738754696e-15,
+          2.6645352591003757e-15,
+          7.993605777301127e-15
+        ],
+        "exact_potential": [
+          6.394884621840902e-14,
+          1.4210854715202004e-14,
+          5.684341886080802e-14,
+          2.5579538487363607e-13
+        ],
+        "theoretical_original": [
+          1.3739009929736312e-15,
+          7.993605777301127e-15,
+          4.263256414560601e-14,
+          1.7053025658242404e-13
+        ],
+        "theoretical_anchored": [
+          1.7737547541862853e-16,
+          1.2351231148954867e-15,
+          8.659739592076221e-15,
+          1.509903313490213e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 7.993605777301127e-15,
+          "anchored_drift_mean": 7.993605777301127e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.7053025658242404e-13,
+          "theoretical_anchored": 1.509903313490213e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 1.6248653764333143e-10,
+          "anchored_drift_mean": 5.773159728050814e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 3.610259793675263e-14,
+          "theoretical_anchored": 2.5037447641300233e-13
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 1.7053025658242404e-13,
+        "raw_vs_receipt_relative_maximum": 5.773159728050814e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.00994297416321678,
+          "potential_variance_mean": 5.334572525416514
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 2.7639902194777806,
+          "potential_variance_mean": 2209.3261701791807
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 38.512408839369996,
+          "potential_variance_mean": 196684.33043629187
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 159.15124911365825,
+          "potential_variance_mean": 2545737.337461129
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.0010514802963958708,
+          "potential_variance_mean": 0.14238833579664079
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.08930775179851397,
+          "potential_variance_mean": 78.76391085134568
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.8461248443067741,
+          "potential_variance_mean": 2001.7631274255637
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.0367857554214077,
+          "potential_variance_mean": 12617.309298476212
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training0_dataset603",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 1.4210854715202004e-13,
+        "points": [
+          4.440892098500626e-16,
+          2.220446049250313e-16,
+          1.1102230246251565e-16,
+          2.220446049250313e-16
+        ],
+        "exact_drift": [
+          5.773159728050814e-15,
+          3.524958103184872e-15,
+          2.6645352591003757e-15,
+          5.329070518200751e-15
+        ],
+        "exact_potential": [
+          4.618527782440651e-14,
+          2.1316282072803006e-14,
+          5.684341886080802e-14,
+          1.4210854715202004e-13
+        ],
+        "theoretical_original": [
+          8.604228440844963e-16,
+          6.217248937900877e-15,
+          2.842170943040401e-14,
+          5.684341886080802e-14
+        ],
+        "theoretical_anchored": [
+          1.5157146371347352e-16,
+          6.106226635438361e-16,
+          3.6637359812630166e-15,
+          1.554312234475219e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 5.773159728050814e-15,
+          "anchored_drift_mean": 5.773159728050814e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 5.684341886080802e-14,
+          "theoretical_anchored": 1.554312234475219e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 1.1394590968592664e-10,
+          "anchored_drift_mean": 5.773159728050814e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.5443176284040397e-14,
+          "theoretical_anchored": 1.255511620803073e-13
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 5.684341886080802e-14,
+        "raw_vs_receipt_relative_maximum": 5.773159728050814e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.012784751747231125,
+          "potential_variance_mean": 8.254837313642213
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.7744168417615938,
+          "potential_variance_mean": 4189.118656979737
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 47.65558072198952,
+          "potential_variance_mean": 279813.0696370554
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 185.3996069877623,
+          "potential_variance_mean": 3329874.556607184
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.0011443142510387937,
+          "potential_variance_mean": 0.25215069849751537
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.09707211825224268,
+          "potential_variance_mean": 93.53341560208466
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.8970142763136395,
+          "potential_variance_mean": 1978.9209672572545
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.35847156866536,
+          "potential_variance_mean": 12316.285258530668
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset600",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          5.551115123125783e-17,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          6.661338147750939e-15,
+          2.6645352591003757e-15,
+          3.1086244689504383e-15,
+          3.1086244689504383e-15
+        ],
+        "exact_potential": [
+          5.684341886080802e-14,
+          2.842170943040401e-14,
+          1.1368683772161603e-13,
+          1.1368683772161603e-13
+        ],
+        "theoretical_original": [
+          1.9567680809018384e-15,
+          1.4210854715202004e-14,
+          2.842170943040401e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_anchored": [
+          3.144186300207963e-16,
+          4.85722573273506e-16,
+          2.7755575615628914e-15,
+          1.2878587085651816e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 6.661338147750939e-15,
+          "anchored_drift_mean": 6.661338147750939e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.2737367544323206e-13,
+          "theoretical_anchored": 1.2878587085651816e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 2.7755575615628914e-10,
+          "anchored_drift_mean": 3.552713678800501e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 3.341460238238651e-14,
+          "theoretical_anchored": 2.1616572851536168e-13
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 2.2737367544323206e-13,
+        "raw_vs_receipt_relative_maximum": 3.552713678800501e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.011984387746924542,
+          "potential_variance_mean": 7.238029721673961
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.449075515130909,
+          "potential_variance_mean": 4910.6508662245105
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 43.84334220660803,
+          "potential_variance_mean": 388384.60989870306
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 174.2894066322716,
+          "potential_variance_mean": 4374406.560969864
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.0011165230084539542,
+          "potential_variance_mean": 0.24859032827507915
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.09623762467265248,
+          "potential_variance_mean": 92.83009704014842
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.8736350911093624,
+          "potential_variance_mean": 2201.053887918613
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.0886841827335054,
+          "potential_variance_mean": 13257.054161966254
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset601",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          1.7763568394002505e-15,
+          8.881784197001252e-16,
+          2.220446049250313e-16,
+          2.7755575615628914e-17
+        ],
+        "exact_drift": [
+          4.440892098500626e-15,
+          2.6645352591003757e-15,
+          5.551115123125783e-15,
+          7.993605777301127e-15
+        ],
+        "exact_potential": [
+          7.105427357601002e-14,
+          6.750155989720952e-14,
+          1.1368683772161603e-13,
+          2.2737367544323206e-13
+        ],
+        "theoretical_original": [
+          4.371503159461554e-16,
+          1.4210854715202004e-14,
+          7.105427357601002e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_anchored": [
+          8.456776945386935e-17,
+          1.3322676295501878e-15,
+          7.105427357601002e-15,
+          2.6645352591003757e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 7.993605777301127e-15,
+          "anchored_drift_mean": 7.993605777301127e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.2737367544323206e-13,
+          "theoretical_anchored": 2.6645352591003757e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 1.4857830534976142e-11,
+          "anchored_drift_mean": 5.551115123125783e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.9521995356083838e-14,
+          "theoretical_anchored": 8.504430695338775e-14
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 2.2737367544323206e-13,
+        "raw_vs_receipt_relative_maximum": 5.551115123125783e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.029500978499897645,
+          "potential_variance_mean": 46.10521137264212
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 7.745668926721489,
+          "potential_variance_mean": 18364.596791942407
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 80.85283303245035,
+          "potential_variance_mean": 1078707.002549454
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 276.68656900605725,
+          "potential_variance_mean": 11071449.040946718
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.001072000326717388,
+          "potential_variance_mean": 0.6076805377944746
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.08287709335552375,
+          "potential_variance_mean": 96.47992001436333
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.7455333746853008,
+          "potential_variance_mean": 1928.5123261111366
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 2.6095344981854844,
+          "potential_variance_mean": 11069.591172724366
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset602",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          4.440892098500626e-16,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          2.6645352591003757e-15,
+          2.3314683517128287e-15,
+          2.6645352591003757e-15,
+          6.8833827526759706e-15
+        ],
+        "exact_potential": [
+          3.907985046680551e-14,
+          2.4868995751603507e-14,
+          7.105427357601002e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_original": [
+          1.4918621893400541e-15,
+          1.0658141036401503e-14,
+          7.105427357601002e-14,
+          1.1368683772161603e-13
+        ],
+        "theoretical_anchored": [
+          1.6534083130403943e-16,
+          7.216449660063518e-16,
+          1.1324274851176597e-14,
+          1.1546319456101628e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 6.8833827526759706e-15,
+          "anchored_drift_mean": 6.8833827526759706e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.1368683772161603e-13,
+          "theoretical_anchored": 1.1546319456101628e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 2.4442287650572846e-10,
+          "anchored_drift_mean": 6.8833827526759706e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 3.912796847180632e-14,
+          "theoretical_anchored": 2.362249030696368e-13
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 1.1368683772161603e-13,
+        "raw_vs_receipt_relative_maximum": 6.8833827526759706e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.009804661058509852,
+          "potential_variance_mean": 5.462523640633345
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 2.7241991599175943,
+          "potential_variance_mean": 2235.9233389146825
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 37.20356176816252,
+          "potential_variance_mean": 185579.75340075188
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 153.1169142027409,
+          "potential_variance_mean": 2379182.315670085
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.0010308653835191103,
+          "potential_variance_mean": 0.14089338608764745
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.08703627044505859,
+          "potential_variance_mean": 77.31610265767263
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.8162261494731788,
+          "potential_variance_mean": 1920.7622532701232
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 2.877940717483547,
+          "potential_variance_mean": 11810.085904648333
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset603",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        },
+        "checkpoint_prediction": {
+          "variance": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "means": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          },
+          "weights": {
+            "max_abs": 0.0,
+            "max_relative": 0.0
+          }
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 1.7053025658242404e-13,
+        "points": [
+          8.881784197001252e-16,
+          0.0,
+          0.0,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          3.552713678800501e-15,
+          3.1086244689504383e-15,
+          3.9968028886505635e-15,
+          5.773159728050814e-15
+        ],
+        "exact_potential": [
+          2.4868995751603507e-14,
+          5.684341886080802e-14,
+          4.263256414560601e-14,
+          1.7053025658242404e-13
+        ],
+        "theoretical_original": [
+          8.257283745649602e-16,
+          5.329070518200751e-15,
+          4.263256414560601e-14,
+          5.684341886080802e-14
+        ],
+        "theoretical_anchored": [
+          1.3465790982269965e-16,
+          3.3306690738754696e-16,
+          3.9968028886505635e-15,
+          1.9539925233402755e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 5.773159728050814e-15,
+          "anchored_drift_mean": 5.773159728050814e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 5.684341886080802e-14,
+          "theoretical_anchored": 1.9539925233402755e-14
+        },
+        "raw_vs_receipt_relative_max": {
+          "original_drift_mean": 3.60609126949937e-11,
+          "anchored_drift_mean": 3.552713678800501e-09,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.5510801644185053e-14,
+          "theoretical_anchored": 1.0637630581473279e-13
+        },
+        "raw_vs_receipt_relative_error_floor": 1e-06,
+        "raw_vs_receipt_maximum": 5.684341886080802e-14,
+        "raw_vs_receipt_relative_maximum": 3.552713678800501e-09
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.01243545697736575,
+          "potential_variance_mean": 8.039098714021732
+        },
+        "original:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.607001480923773,
+          "potential_variance_mean": 3715.6664845105106
+        },
+        "original:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 46.12767156377974,
+          "potential_variance_mean": 267974.4697526904
+        },
+        "original:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 177.30979629330943,
+          "potential_variance_mean": 3012553.1333504664
+        },
+        "anchored:4.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.0011278863092181305,
+          "potential_variance_mean": 0.24579024869360164
+        },
+        "anchored:1.0": {
+          "point_count": 8,
+          "drift_variance_mean": 0.09423271726901056,
+          "potential_variance_mean": 93.13131823355374
+        },
+        "anchored:0.2": {
+          "point_count": 8,
+          "drift_variance_mean": 0.8734215174643585,
+          "potential_variance_mean": 1939.5840417533423
+        },
+        "anchored:0.0": {
+          "point_count": 8,
+          "drift_variance_mean": 3.221150116904999,
+          "potential_variance_mean": 11819.679289616162
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    }
+  ],
+  "recomputed_variance_ratios": {
+    "nonanchor_scope": "variance ratios use point indices 1:9 at each of 4 saved times, including u=0; exactly 8 pairs x 4 times x 8 non-anchor points = 256 records per method",
+    "overall_256_nonanchor_points": {
+      "pair_count": 8,
+      "record_count_per_method": 256,
+      "method_record_count": 512,
+      "original_drift_variance_mean": 64.2903854144507,
+      "anchored_drift_variance_mean": 0.9898527049282562,
+      "anchored_over_original_drift_variance_ratio": 0.015396589996266606,
+      "original_potential_variance_mean": 1480910.8877476605,
+      "anchored_potential_variance_mean": 3621.7968674538547,
+      "anchored_over_original_potential_variance_ratio": 0.0024456548313736147
+    },
+    "per_u": {
+      "4.0": {
+        "pair_count": 8,
+        "record_count_per_method": 64,
+        "method_record_count": 128,
+        "original_drift_variance_mean": 0.016011831971763833,
+        "anchored_drift_variance_mean": 0.0010971098798198725,
+        "anchored_over_original_drift_variance_ratio": 0.06851869803246612,
+        "original_potential_variance_mean": 16.54657294321163,
+        "anchored_potential_variance_mean": 0.31370368040158475,
+        "anchored_over_original_potential_variance_ratio": 0.018958831020672733
+      },
+      "1.0": {
+        "pair_count": 8,
+        "record_count_per_method": 64,
+        "method_record_count": 128,
+        "original_drift_variance_mean": 4.423954586651536,
+        "anchored_drift_variance_mean": 0.09161984386058802,
+        "anchored_over_original_drift_variance_ratio": 0.020709942217091,
+        "original_potential_variance_mean": 7389.697842165793,
+        "anchored_potential_variance_mean": 90.83268974464767,
+        "anchored_over_original_potential_variance_ratio": 0.012291800244707458
+      },
+      "0.2": {
+        "pair_count": 8,
+        "record_count_per_method": 64,
+        "method_record_count": 128,
+        "original_drift_variance_mean": 52.851099070345484,
+        "anchored_drift_variance_mean": 0.843628944744697,
+        "anchored_over_original_drift_variance_ratio": 0.01596237277150691,
+        "original_potential_variance_mean": 490434.6139819299,
+        "anchored_potential_variance_mean": 2038.1231569472866,
+        "anchored_over_original_potential_variance_ratio": 0.004155749000665726
+      },
+      "0.0": {
+        "pair_count": 8,
+        "record_count_per_method": 64,
+        "method_record_count": 128,
+        "original_drift_variance_mean": 199.870476168834,
+        "anchored_drift_variance_mean": 3.02306492122792,
+        "anchored_over_original_drift_variance_ratio": 0.01512511992353631,
+        "original_potential_variance_mean": 5425802.692593602,
+        "anchored_potential_variance_mean": 12357.917919443084,
+        "anchored_over_original_potential_variance_ratio": 0.002277620219458412
+      }
+    },
+    "per_training_seed": {
+      "0": {
+        "pair_count": 4,
+        "record_count_per_method": 128,
+        "method_record_count": 256,
+        "original_drift_variance_mean": 65.64203549937912,
+        "anchored_drift_variance_mean": 1.0127768705558942,
+        "anchored_over_original_drift_variance_ratio": 0.015428785272289029,
+        "original_potential_variance_mean": 1537601.114940085,
+        "anchored_potential_variance_mean": 3724.3860205042774,
+        "anchored_over_original_potential_variance_ratio": 0.002422205593060723
+      },
+      "1": {
+        "pair_count": 4,
+        "record_count_per_method": 128,
+        "method_record_count": 256,
+        "original_drift_variance_mean": 62.938735329522274,
+        "anchored_drift_variance_mean": 0.9669285393006182,
+        "anchored_over_original_drift_variance_ratio": 0.015363011891455454,
+        "original_potential_variance_mean": 1424220.6605552358,
+        "anchored_potential_variance_mean": 3519.2077144034324,
+        "anchored_over_original_potential_variance_ratio": 0.002470970834695981
+      }
+    }
+  },
+  "summary_crossvalidation": {
+    "original_drift_variance_mean": {
+      "audit": 64.2903854144507,
+      "summary": 64.2903854144507,
+      "absolute_error": 0.0,
+      "relative_error": 0.0
+    },
+    "anchored_drift_variance_mean": {
+      "audit": 0.9898527049282562,
+      "summary": 0.9898527049282563,
+      "absolute_error": 1.1102230246251565e-16,
+      "relative_error": 1.121604274148672e-16
+    },
+    "anchored_over_original_drift_variance_ratio": {
+      "audit": 0.015396589996266606,
+      "summary": 0.015396589996266608,
+      "absolute_error": 1.734723475976807e-18,
+      "relative_error": 1.126693297929896e-16
+    },
+    "original_potential_variance_mean": {
+      "audit": 1480910.8877476605,
+      "summary": 1480910.8877476603,
+      "absolute_error": 2.3283064365386963e-10,
+      "relative_error": 1.5722123834742364e-16
+    },
+    "anchored_potential_variance_mean": {
+      "audit": 3621.7968674538547,
+      "summary": 3621.796867453855,
+      "absolute_error": 4.547473508864641e-13,
+      "relative_error": 1.2555849141427808e-16
+    },
+    "anchored_over_original_potential_variance_ratio": {
+      "audit": 0.0024456548313736147,
+      "summary": 0.0024456548313736156,
+      "absolute_error": 8.673617379884035e-19,
+      "relative_error": 3.546541919414053e-16
+    }
+  },
+  "mc_vs_analytic_relative_variance": "descriptive only; raw empirical variance compared with saved analytic WOR drift variance, without inferential claims",
+  "original_summary": {
+    "scope": "mechanism diagnostic; no end-to-end accuracy or speed claim",
+    "per_model_present": true
+  }
+}

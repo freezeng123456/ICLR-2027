@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "source_commit": "261566a82092cdffbcdfcec7d1705855e5adab3e",
+  "source_checks": {
+    "run_dual_20260921.py": true,
+    "composition_benchmark.py": true,
+    "composition_extension.py": true,
+    "learned_sbi.py": true,
+    "run_solid_20260920.py": true,
+    "gaussian_integrability.py": true,
+    "docs/DUAL_PROTOCOL_20260921.md": true,
+    "certified_composition_torch.py": true
+  },
+  "inputs": {
+    "cells": 250,
+    "hashed_files": 1750,
+    "unique_parameters": 50,
+    "checkpoints_reloaded": 5
+  },
+  "maximum_metric_discrepancies": {
+    "w1_mean": 6.379491826885575e-07,
+    "ks_mean": 2.7101263036510836e-07,
+    "mean_absolute_error": 1.0460382560140147e-15,
+    "variance_relative_error": 9.43689570931383e-16,
+    "positive_mass_error": 5.651987757676613e-08,
+    "standardized_offdiagonal_second_rms": 9.325873406851315e-15,
+    "sign_joint_tv": 2.9413942843892205e-07
+  },
+  "phase": "confirmation",
+  "scope": "local recovered raw particles, weights, receipts, checkpoint reload, saved independent reference and joint metrics; true-reference integration and population checks performed by server audit",
+  "verification_source_sha256": "bae0067742b41b39ca07243f9ceb12875a6e5f98f75eb4a70c4370830fa491d9"
+}

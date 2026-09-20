@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "source_commit": "ad030e6467635871dc5f69f0ceaf2d29e5fd4c8c",
+  "source_checks": {
+    "run_anchored_pilot_20260921.py": true,
+    "anchored_tail_20260921.py": true,
+    "composition_benchmark.py": true,
+    "composition_extension.py": true,
+    "run_dual_20260921.py": true,
+    "learned_sbi.py": true,
+    "docs/ANCHORED_PILOT_PROTOCOL_20260921.md": true
+  },
+  "inputs": {
+    "cells": 24,
+    "hashed_files": 208,
+    "unique_parameters": 8,
+    "checkpoints_reloaded": 2
+  },
+  "maximum_metric_discrepancies": {
+    "w1_mean": 1.4279945698067453e-06,
+    "ks_mean": 2.4738062698315133e-07,
+    "mean_absolute_error": 5.204170427930421e-16,
+    "variance_relative_error": 4.163336342344337e-16,
+    "positive_mass_error": 1.7075369326824408e-08,
+    "standardized_offdiagonal_second_rms": 4.440892098500626e-15,
+    "sign_joint_tv": 1.314330079701942e-07
+  },
+  "phase": "development",
+  "scope": "local recovered raw particles, weights, receipts, checkpoint reload, saved independent reference and joint metrics; true-reference integration and population checks performed by server audit",
+  "verification_source_sha256": "bae0067742b41b39ca07243f9ceb12875a6e5f98f75eb4a70c4370830fa491d9"
+}

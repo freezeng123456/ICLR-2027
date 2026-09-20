@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "source_commit": "175b3097759c84e395714103f20f0eba49de283c",
+  "source_checks": {
+    "run_anchored_replay_20260921.py": true,
+    "optimized_anchored_tail_20260921.py": true,
+    "anchored_tail_20260921.py": true,
+    "run_anchored_confirmation_20260921.py": true,
+    "certified_composition_torch.py": true,
+    "composition_benchmark.py": true,
+    "composition_extension.py": true,
+    "run_dual_20260921.py": true,
+    "docs/ANCHORED_EQUIVALENT_REPLAY_20260921.md": true
+  },
+  "inputs": {
+    "cells": 150,
+    "hashed_files": 1150,
+    "unique_parameters": 50,
+    "checkpoints_reloaded": 5
+  },
+  "maximum_metric_discrepancies": {
+    "w1_mean": 8.976219646114614e-07,
+    "ks_mean": 2.438908781737803e-07,
+    "mean_absolute_error": 9.298117831235686e-16,
+    "variance_relative_error": 9.159339953157541e-16,
+    "positive_mass_error": 6.89025529774373e-08,
+    "standardized_offdiagonal_second_rms": 7.993605777301127e-15,
+    "sign_joint_tv": 3.303092037665323e-07
+  },
+  "phase": "confirmation",
+  "scope": "local recovered raw particles, weights, receipts, checkpoint reload, saved independent reference and joint metrics; true-reference integration and population checks performed by server audit",
+  "verification_source_sha256": "bae0067742b41b39ca07243f9ceb12875a6e5f98f75eb4a70c4370830fa491d9"
+}

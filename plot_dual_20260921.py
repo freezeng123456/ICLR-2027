@@ -53,7 +53,7 @@ def main():
         ax.grid(axis="y", alpha=0.18)
         ax.set_axisbelow(True)
     axes[0].legend(frameon=False, fontsize=9)
-    fig.suptitle("Separable-target diagnostic: identical full Euler population target\n5 problems per family; 8,192 particles; 512 steps", fontsize=12)
+    fig.suptitle("Separable-target diagnostic: identical full Euler population target\n5 paired runs per family; 8,192 particles; 512 steps", fontsize=12)
     fig.savefig(args.output / "factorization-diagnostic.png", dpi=220)
     fig.savefig(args.output / "factorization-diagnostic.svg")
     plt.close(fig)
