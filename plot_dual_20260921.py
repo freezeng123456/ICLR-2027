@@ -13,6 +13,8 @@ def main():
     parser.add_argument("--confirmation", type=Path, required=True)
     parser.add_argument("--factorization", type=Path, required=True)
     parser.add_argument("--anchored", type=Path)
+    parser.add_argument("--anchored-stem", default="anchored-confirmation")
+    parser.add_argument("--anchored-title", default="Anchored-tail confirmation: 5 trained models × 10 new datasets")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -71,9 +73,9 @@ def main():
             ax.set_title(title)
             ax.grid(axis="y", alpha=0.18)
             ax.set_axisbelow(True)
-        fig.suptitle("Anchored-tail confirmation: 5 trained models × 10 new datasets\n32,768 particles; 2,048 steps; preparation included; 95% crossed-bootstrap intervals", fontsize=12)
-        fig.savefig(args.output / "anchored-confirmation.png", dpi=220)
-        fig.savefig(args.output / "anchored-confirmation.svg")
+        fig.suptitle(args.anchored_title + "\n32,768 particles; 2,048 steps; preparation included; 95% crossed-bootstrap intervals", fontsize=12)
+        fig.savefig(args.output / (args.anchored_stem + ".png"), dpi=220)
+        fig.savefig(args.output / (args.anchored_stem + ".svg"))
         plt.close(fig)
 
 
