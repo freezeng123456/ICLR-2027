@@ -8,6 +8,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
 import numpy as np
 from scipy.integrate import trapezoid
 import torch
@@ -247,7 +248,8 @@ def figures(summary, sensitivity, output):
             lo, hi = result["w1"]["ci95"]
             ax.vlines(k, lo, hi, linewidth=1)
         ax.set_xticks(range(4), ["Full", "Below", "At", "Tail"], rotation=20)
-        ax.set_title(f"{row['family']}, K={row['steps']}")
+        title = {"gaussian": "Gaussian", "mixture": "Mixture", "weak_mixture": "Weak mixture"}[row["family"]]
+        ax.set_title(f"{title}, K={row['steps']}")
         ax.set_ylabel("W1")
     fig.tight_layout()
     fig.savefig(output / "boundary.pdf")
@@ -258,11 +260,11 @@ def figures(summary, sensitivity, output):
     grid = np.array([[int(next(r["finite_normalizer"] for r in sensitivity if r["family"] == f and r["steps"] == k and r["delta"] == delta))
                       for delta in deltas] for f in families for k in [512, 2048]])
     fig, ax = plt.subplots(figsize=(9, 3.7))
-    ax.imshow(grid, vmin=0, vmax=1, cmap="RdYlGn", aspect="auto")
+    ax.imshow(grid, vmin=0, vmax=1, cmap=ListedColormap(["#f5cdd0", "#d2e9e3"]), aspect="auto")
     ax.set_xticks(range(len(deltas)), [f"{d:+.1%}" for d in deltas], rotation=45)
-    ax.set_yticks(range(6), [f"{f}, K={k}" for f in families for k in [512, 2048]])
+    ax.set_yticks(range(6), [f"{f}, K={k}" for f in ["Gaussian", "Mixture", "Weak mixture"] for k in [512, 2048]])
     for i, j in np.ndindex(grid.shape):
-        ax.text(j, i, "finite" if grid[i, j] else "infinite", ha="center", va="center", fontsize=7)
+        ax.text(j, i, "F" if grid[i, j] else "∞", ha="center", va="center", fontsize=10)
     ax.set_xlabel("Relative error in control component variance")
     fig.tight_layout()
     fig.savefig(output / "tail_sensitivity.pdf")

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "audited_cells": 630,
+  "expected": 630,
+  "independent_references": 103,
+  "independent_certificates": 333,
+  "max_w1_recomputation_difference": 1.610827152869615e-06,
+  "metric_maximum_discrepancies": {
+    "w1_mean": 1.610827152869615e-06,
+    "ks_mean": 2.3343701223421665e-07,
+    "mean_absolute_error": 1.2212453270876722e-15,
+    "variance_relative_error": 9.43689570931383e-16,
+    "positive_mass_error": 4.974155539544389e-08,
+    "true_w1_mean": 6.804567702078934e-07,
+    "true_ks_mean": 2.609386642593581e-07,
+    "true_mean_absolute_error": 9.506284648352903e-16,
+    "true_variance_relative_error": 9.43689570931383e-16,
+    "true_positive_mass_error": 4.8772015096704147e-08
+  },
+  "input_checks": {
+    "checkpoints_reloaded": 5,
+    "data_seeds_reconstructed": 20,
+    "learned_parameter_sets_checked": 100,
+    "unique_reference_hashes": 123
+  },
+  "analysis_sha256": "3a6b333aa43865e4ba21544ced4c9bf6eed2f926719802c22d2195da0c9733d1",
+  "sensitivity_configurations_checked": 66
+}

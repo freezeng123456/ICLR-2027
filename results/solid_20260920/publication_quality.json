@@ -1,0 +1,55 @@
+{
+  "status": "passed_with_documented_scope_limits",
+  "checked_at": "2026-09-20T04:24:18.361024+00:00",
+  "cells": 630,
+  "finite_sampling_cells": 470,
+  "infinite_sampling_cells": 160,
+  "sensitivity_configurations": 66,
+  "finite_sensitivity_configurations": 58,
+  "main_text_pages": 9,
+  "total_pdf_pages": 26,
+  "appendix_pages": [
+    23,
+    24,
+    25,
+    26
+  ],
+  "table_values_checked": true,
+  "undefined_references": false,
+  "overfull_boxes": false,
+  "sampling_commit": "324a2d406707f9daea94ae5b41dbad7950efa93d",
+  "audit_commit": "3df67437832b3f361bf5c0c6de6817bc3e74a48c",
+  "visual_review": "Main-text pages 8-9 and all four added appendix pages reviewed from rendered PNGs",
+  "font_substitution_warnings": [
+    "LaTeX Font Warning: Font shape `TU/ptm/m/n' undefined",
+    "LaTeX Font Warning: Font shape `TU/ptm/m/sc' undefined",
+    "LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined",
+    "LaTeX Font Warning: Font shape `TU/ptm/m/it' undefined",
+    "LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined",
+    "LaTeX Font Warning: Some font shapes were not available, defaults substituted."
+  ],
+  "underfull_box_warnings": [
+    "Underfull \\vbox (badness 2384) has occurred while \\output is active []",
+    "Underfull \\hbox (badness 10000) in paragraph at lines 5--6"
+  ],
+  "files_sha256": {
+    "analyze_solid_20260920.py": "8fc6a59e6d51abcbb6b13e8e359ecb91a0972a5151b015581f51e5985529f8d0",
+    "verify_solid_publication.py": "e617bea0f1143315afccd0be9c3a17a676cb63e1fc79fff570d1c03f5da4f688",
+    "verify_solid_recovery.py": "319f93f8d15116a68e93d2b9bc626dcddeb5d8e5e294a6b69f59196753cbbb06",
+    "manuscript/main.tex": "c8ede3c30418bb00be40447c76e7a0b9eef65230608a0069b9ddfe660f1ec4c8",
+    "manuscript/learned_results.tex": "9901fe39e8a6553fdbd8d412341512df2212f07977c66654c3ddacbfa5ccc55f",
+    "manuscript/solid_results.tex": "b1c1d80ecebedbcdd8aeed9f9d9cf6c0a2f437963dc1ef860aadf77fe5c33a4b",
+    "manuscript/main.pdf": "1c27ddd20c85fda5948f585b226e2ef797fb839de36e985ca2b6f1935ba9769a",
+    "docs/SOLID_RESULTS_20260920.md": "1825bfd72e49e1ec6751554c73d5848d0c3b516209276821fefea962ce7d6c65",
+    "manuscript/figures/solid_heldout.pdf": "75b7ddb2e2c2e914a3adde69c94cbdfe93590d3329b098efa61e6d12720f1cb0",
+    "manuscript/figures/solid_boundary.pdf": "4b676b390ab57ae9e4f33346e9eab400782b04e1dd258f5f39af8266bb7a9b69",
+    "manuscript/figures/solid_tail_sensitivity.pdf": "68faa07534b54d51ced47db221892eebc245935c216d9f6e4f0aecdd15a1ed95"
+  },
+  "limits": [
+    "controlled simulator and explicit Gaussian tails only",
+    "five reused training seeds",
+    "no matched-accuracy speedup demonstrated",
+    "no independent human scientific review",
+    "no external submission or remote git publication performed"
+  ]
+}

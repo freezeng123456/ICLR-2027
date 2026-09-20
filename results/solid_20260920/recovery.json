@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "verified_at": "2026-09-19T20:07:03.091051+00:00",
+  "sampling_commit": "324a2d406707f9daea94ae5b41dbad7950efa93d",
+  "cells": 630,
+  "sensitivity_configurations": 66,
+  "checked_cell_file_hashes": 5940,
+  "formal_run_seconds": 4079.8686823397875,
+  "raw_archive_sha256": "16d7e2e0ad728c32f25f3949179e318fb53c7016d6e7c5d45e5d5ba6a77868f5",
+  "audit_archive_sha256": "fd60d14e364f7b006cb5dc475da7d074a914a23568dd70d9860abe0a4cf55c64",
+  "artifact_sha256": {
+    "audit.json": "c9f34b5bb960d84daedda580ac392825eed4f36bfacee84566ccc5985e31354d",
+    "input_checks.json": "bd6af0bf5c62cc6973cabb21a30669ee0ffae22ac735bc5a0cd1adbf4adcd978",
+    "reference_checks.json": "b9e2386ce684eab4a4b57de208c1fc505930a898048e23d4957aa7105097c860",
+    "statistics.json": "c0370e92371589beb9117d0ae45294498e7f8b518519f7a995b8f18593b7eb8a",
+    "cells.csv": "5ec3d1eb206b05442759f789e1758c6dbe1faac3c2888cf68e3fe52637d11cac",
+    "heldout.pdf": "ebbf24634499036767cf0145fb872a23755a5f40532594c8ae076964f574fa00",
+    "heldout.png": "00e4a2632acf2e536c5f5fedac1c7523b9da4a05572a61afa3f6776e2d34fb70",
+    "boundary.pdf": "9424030c4c34ebb3853ce027e262fe92532d25cf7ead844ac68f5645933e8cc3",
+    "boundary.png": "d1a084399358a5ea9b5e728375e57e6b9f2447520bc79211e2a8b6e614baadc2",
+    "tail_sensitivity.pdf": "79fe5026ef4552b29f76264fa0b8f012ec58ab75d73c59897c7da7e4aa392947",
+    "tail_sensitivity.png": "e210daddb056fe8db2603ca3a98195c1c3c0b269e23cf3a8542968d07ad2ff57"
+  },
+  "raw_root": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/solid-20260920/work/recovered-solid/run",
+  "audit_root": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/solid-20260920/work/recovered-solid/audit_3df6743"
+}
