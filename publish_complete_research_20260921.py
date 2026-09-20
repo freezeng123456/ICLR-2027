@@ -81,10 +81,16 @@ def main():
     parser.add_argument("--target", type=Path, required=True)
     parser.add_argument("--state", type=Path, required=True)
     parser.add_argument("--branch", default="results/complete-research-20260921")
+    parser.add_argument("--manifest-prefix", default="results/raw_research_20260921")
     parser.add_argument("--batch-mib", type=int, default=400)
     args = parser.parse_args()
     plan, report = json.loads(args.plan.read_text()), json.loads(args.inventory.read_text())
     target = args.target.resolve()
+    prefix = Path(args.manifest_prefix)
+    if prefix.is_absolute() or ".." in prefix.parts or prefix.parts[0] != "results":
+        raise ValueError("publication prefix must stay beneath results")
+    if any(not row["path"].startswith(prefix.as_posix() + "/") for row in report["entries"]):
+        raise ValueError("inventory entries must stay beneath their own manifest prefix")
     if git(target, "branch", "--show-current", capture=True) != args.branch:
         raise ValueError("publisher is on the wrong branch")
     if report["oversized"]:
@@ -95,18 +101,21 @@ def main():
         args.state.write_text(json.dumps(state, indent=2) + "\n")
     save_state()
     materialize(plan, report, target)
-    manifest_path = target / "results/raw_research_20260921/FILE_MANIFEST.json"
+    manifest_path = target / prefix / "FILE_MANIFEST.json"
     published = {key: value for key, value in report.items() if key != "roots"}
     published["roots"] = [{key: value for key, value in row.items() if key != "source"} for row in report["roots"]]
     manifest_path.write_text(json.dumps(published, indent=2) + "\n")
     chunks = list(batches(report["entries"], args.batch_mib * 1024 ** 2))
+    if state["batches"] and (state.get("expected_paths") != report["paths"]
+                             or state.get("manifest_sha256") != digest_file(manifest_path)):
+        raise RuntimeError("resume requires the same frozen publication inventory")
     state.update(status="publishing", total_batches=len(chunks), expected_paths=report["paths"], manifest_sha256=digest_file(manifest_path))
     save_state()
     for index, paths in enumerate(chunks):
         if index < len(state["batches"]):
             continue
         if index == 0:
-            paths += ["results/raw_research_20260921/FILE_MANIFEST.json", "results/raw_research_20260921/README.md"]
+            paths += [(prefix / name).as_posix() for name in ("FILE_MANIFEST.json", "README.md")]
         pathspec = args.state.parent / "batch-paths.nul"
         pathspec.write_bytes(b"\0".join(path.encode() for path in paths) + b"\0")
         started = time.monotonic()
@@ -122,7 +131,7 @@ def main():
         save_state()
         print(json.dumps(dict(batch=index + 1, batches=len(chunks), files=len(paths), commit=commit)), flush=True)
     commit = git(target, "rev-parse", "HEAD", capture=True)
-    tree_paths = git(target, "ls-tree", "-r", "--name-only", "HEAD", "results/raw_research_20260921", capture=True).splitlines()
+    tree_paths = git(target, "ls-tree", "-r", "--name-only", "HEAD", prefix.as_posix(), capture=True).splitlines()
     expected = {row["path"] for row in report["entries"]}
     if not expected.issubset(set(tree_paths)):
         raise RuntimeError("published tree omits manifest paths")
