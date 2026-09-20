@@ -1,0 +1,15 @@
+{
+  "dimension": 2,
+  "regime": "regular",
+  "dataset_seed": 1300,
+  "groups": 12,
+  "setting_id": "twist_mean",
+  "kind": "twist",
+  "reference": "mean",
+  "method": "full",
+  "particles": 8192,
+  "steps": 1024,
+  "cell_id": 14,
+  "phase": "development",
+  "line": "twist"
+}

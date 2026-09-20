@@ -1,0 +1,15 @@
+{
+  "dimension": 2,
+  "regime": "ambiguous",
+  "dataset_seed": 1301,
+  "groups": 12,
+  "setting_id": "smc",
+  "kind": "smc",
+  "method": "annealed_smc",
+  "particles": 16384,
+  "stages": 64,
+  "proposal_scale": 0.15,
+  "cell_id": 13,
+  "phase": "development",
+  "line": "twist"
+}

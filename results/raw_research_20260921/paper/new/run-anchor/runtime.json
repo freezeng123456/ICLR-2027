@@ -1,0 +1,12 @@
+{
+  "python": "3.12.13",
+  "python_executable": "/jizhicfs/yuyechen/miniconda3/envs/cl/bin/python",
+  "torch": "2.10.0+cu128",
+  "numpy": "2.2.6",
+  "host": "ts-8b1d81eba0af10aa01a0bf56488919bd-launcher",
+  "cuda_visible_devices": "0",
+  "slurm_job_id": null,
+  "slurm_cpus_per_task": null,
+  "gpu": "NVIDIA H20",
+  "source_sha256": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d"
+}
