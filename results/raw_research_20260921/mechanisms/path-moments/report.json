@@ -1,0 +1,217 @@
+{
+  "scope": "follow-up CPU diagnostic after an observed finite-sample deviation; no performance selection or held-out claim",
+  "particles": 65536,
+  "seed": 759,
+  "grid": [
+    1.0,
+    0.9375,
+    0.875,
+    0.8125,
+    0.75,
+    0.6875,
+    0.625,
+    0.5625,
+    0.5,
+    0.4375,
+    0.375,
+    0.3125,
+    0.25,
+    0.1875,
+    0.125,
+    0.0625,
+    0.0
+  ],
+  "cases": {
+    "original_gaussian": {
+      "first_moment": {
+        "power": 1,
+        "finite": true,
+        "coordinates": [
+          {
+            "coordinate": 0,
+            "minimum_eigenvalue": 0.3679553328911554,
+            "finite": true,
+            "log_moment": 1.2080181734261888
+          },
+          {
+            "coordinate": 1,
+            "minimum_eigenvalue": 0.3675610090262,
+            "finite": true,
+            "log_moment": 1.2026404695992308
+          },
+          {
+            "coordinate": 2,
+            "minimum_eigenvalue": 0.3677065739987955,
+            "finite": true,
+            "log_moment": 1.2050152011637227
+          }
+        ],
+        "log_moment": 3.6156738441891423
+      },
+      "second_moment": {
+        "power": 2,
+        "finite": false,
+        "coordinates": [
+          {
+            "coordinate": 0,
+            "minimum_eigenvalue": -0.2640893342176894,
+            "finite": false,
+            "log_moment": null
+          },
+          {
+            "coordinate": 1,
+            "minimum_eigenvalue": -0.26487798194759976,
+            "finite": false,
+            "log_moment": null
+          },
+          {
+            "coordinate": 2,
+            "minimum_eigenvalue": -0.2645868520024086,
+            "finite": false,
+            "log_moment": null
+          }
+        ],
+        "log_moment": null
+      },
+      "runs": [
+        {
+          "ess_fraction": 0.0,
+          "log_normalizer": 3.5188184532794624,
+          "log_normalizer_difference": -0.09685539090967987,
+          "sample_mean": [
+            0.3490097700894613,
+            0.3704359757308343,
+            0.37030448845970654
+          ],
+          "sample_variance": [
+            0.23571187442110483,
+            0.2117090056018375,
+            0.22444691166497394
+          ],
+          "minimum_coordinate_ess_fraction": 0.01867281147554456,
+          "resampled_coordinates": 3,
+          "raw_file": "original_gaussian_ess0.00.npz",
+          "sha256": "e7dc7a68742e72d6a41cd65790e0a9aa6d0278be3432aad806b69630020854c7"
+        },
+        {
+          "ess_fraction": 0.95,
+          "log_normalizer": 3.646227219679104,
+          "log_normalizer_difference": 0.03055337548996162,
+          "sample_mean": [
+            0.3108138778685521,
+            0.36465090944676265,
+            0.35874012789588444
+          ],
+          "sample_variance": [
+            0.2496559076437001,
+            0.2168760106605634,
+            0.21873535643121014
+          ],
+          "minimum_coordinate_ess_fraction": 0.8372248506810687,
+          "resampled_coordinates": 19,
+          "raw_file": "original_gaussian_ess0.95.npz",
+          "sha256": "ba1920b73b0af14dc68d308af418b3540a6b95a2a33c1ff1cb0381b8c8191863"
+        }
+      ],
+      "relative_variance": null
+    },
+    "weak_gaussian": {
+      "first_moment": {
+        "power": 1,
+        "finite": true,
+        "coordinates": [
+          {
+            "coordinate": 0,
+            "minimum_eigenvalue": 0.961345631269626,
+            "finite": true,
+            "log_moment": 0.3804321379966169
+          },
+          {
+            "coordinate": 1,
+            "minimum_eigenvalue": 0.9613452130975418,
+            "finite": true,
+            "log_moment": 0.38039340759656054
+          },
+          {
+            "coordinate": 2,
+            "minimum_eigenvalue": 0.9613453674424676,
+            "finite": true,
+            "log_moment": 0.3804049889970566
+          }
+        ],
+        "log_moment": 1.141230534590234
+      },
+      "second_moment": {
+        "power": 2,
+        "finite": true,
+        "coordinates": [
+          {
+            "coordinate": 0,
+            "minimum_eigenvalue": 0.9226912625392525,
+            "finite": true,
+            "log_moment": 0.7962452167676257
+          },
+          {
+            "coordinate": 1,
+            "minimum_eigenvalue": 0.9226904261950839,
+            "finite": true,
+            "log_moment": 0.7961667108660023
+          },
+          {
+            "coordinate": 2,
+            "minimum_eigenvalue": 0.9226907348849349,
+            "finite": true,
+            "log_moment": 0.7961922272440388
+          }
+        ],
+        "log_moment": 2.388604154877667
+      },
+      "runs": [
+        {
+          "ess_fraction": 0.0,
+          "log_normalizer": 1.1433277352593745,
+          "log_normalizer_difference": 0.002097200669140431,
+          "sample_mean": [
+            0.7051564479846025,
+            0.6935468826087375,
+            0.7057428671302952
+          ],
+          "sample_variance": [
+            0.732772291106337,
+            0.7417678953404053,
+            0.7285064171701038
+          ],
+          "minimum_coordinate_ess_fraction": 0.9644600825610623,
+          "resampled_coordinates": 3,
+          "raw_file": "weak_gaussian_ess0.00.npz",
+          "sha256": "5f0183393505fdfe09cac6609329977dfd4dd0d14c91170c40b9915eb2c76432"
+        },
+        {
+          "ess_fraction": 0.95,
+          "log_normalizer": 1.1433277352593745,
+          "log_normalizer_difference": 0.002097200669140431,
+          "sample_mean": [
+            0.7051564479846025,
+            0.6935468826087375,
+            0.7057428671302952
+          ],
+          "sample_variance": [
+            0.732772291106337,
+            0.7417678953404053,
+            0.7285064171701038
+          ],
+          "minimum_coordinate_ess_fraction": 0.9644600825610623,
+          "resampled_coordinates": 3,
+          "raw_file": "weak_gaussian_ess0.95.npz",
+          "sha256": "5f0183393505fdfe09cac6609329977dfd4dd0d14c91170c40b9915eb2c76432"
+        }
+      ],
+      "relative_variance": 0.11198097369688663
+    }
+  },
+  "sources": {
+    "run_path_moment_check_20260921.py": "70e71052083f891013289ed8ef30dc16eb0719d2eea8cedcaf468e5c004f1c9b",
+    "gaussian_path_moments_20260921.py": "72f25955d49b6f22721c8cae5b13d64c3bfd0443416bb86a0f085f3d38711d44",
+    "factorized_baseline_20260921.py": "98c489dfc95867356245b9cfff903c622990b4ad27d310d2eb3fe56b0ce6e1fa"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "overall": {
+    "anchor": {
+      "count": 32,
+      "drift_variance_mean_by_method": {
+        "original": 64.53143361741687,
+        "anchored": 2.0814142292593457e-27
+      },
+      "potential_variance_mean_by_method": {
+        "original": 1407404.6548064756,
+        "anchored": 9.601783547579291e-27
+      },
+      "anchored_over_original_drift_variance_ratio": 3.2254269161278596e-29,
+      "anchored_over_original_potential_variance_ratio": 6.822333232157442e-33
+    },
+    "nonanchor": {
+      "count": 256,
+      "drift_variance_mean_by_method": {
+        "original": 64.2903854144507,
+        "anchored": 0.9898527049282563
+      },
+      "potential_variance_mean_by_method": {
+        "original": 1480910.8877476603,
+        "anchored": 3621.796867453855
+      },
+      "anchored_over_original_drift_variance_ratio": 0.015396589996266608,
+      "anchored_over_original_potential_variance_ratio": 0.0024456548313736156
+    }
+  },
+  "per_u": {
+    "4.0": {
+      "anchor": {
+        "count": 8,
+        "drift_variance_mean_by_method": {
+          "original": 0.01471148406674748,
+          "anchored": 5.084533768826408e-27
+        },
+        "potential_variance_mean_by_method": {
+          "original": 17.305726549176207,
+          "anchored": 2.3046336132560484e-26
+        },
+        "anchored_over_original_drift_variance_ratio": 3.4561664518395073e-25,
+        "anchored_over_original_potential_variance_ratio": 1.3317173403307672e-27
+      },
+      "nonanchor": {
+        "count": 64,
+        "drift_variance_mean_by_method": {
+          "original": 0.016011831971763833,
+          "anchored": 0.0010971098798198727
+        },
+        "potential_variance_mean_by_method": {
+          "original": 16.546572943211626,
+          "anchored": 0.3137036804015848
+        },
+        "anchored_over_original_drift_variance_ratio": 0.06851869803246613,
+        "anchored_over_original_potential_variance_ratio": 0.01895883102067274
+      }
+    },
+    "1.0": {
+      "anchor": {
+        "count": 8,
+        "drift_variance_mean_by_method": {
+          "original": 4.396257096116177,
+          "anchored": 1.5821173175718224e-27
+        },
+        "potential_variance_mean_by_method": {
+          "original": 7004.639916815692,
+          "anchored": 3.0823420046535e-27
+        },
+        "anchored_over_original_drift_variance_ratio": 3.5987825165400947e-28,
+        "anchored_over_original_potential_variance_ratio": 4.400428917486357e-31
+      },
+      "nonanchor": {
+        "count": 64,
+        "drift_variance_mean_by_method": {
+          "original": 4.423954586651536,
+          "anchored": 0.09161984386058802
+        },
+        "potential_variance_mean_by_method": {
+          "original": 7389.697842165793,
+          "anchored": 90.83268974464767
+        },
+        "anchored_over_original_drift_variance_ratio": 0.020709942217091,
+        "anchored_over_original_potential_variance_ratio": 0.012291800244707458
+      }
+    },
+    "0.2": {
+      "anchor": {
+        "count": 8,
+        "drift_variance_mean_by_method": {
+          "original": 53.18884569978101,
+          "anchored": 7.757061596166107e-28
+        },
+        "potential_variance_mean_by_method": {
+          "original": 459862.78568955755,
+          "anchored": 3.045765178094755e-27
+        },
+        "anchored_over_original_drift_variance_ratio": 1.4584000637934588e-29,
+        "anchored_over_original_potential_variance_ratio": 6.62320429675055e-33
+      },
+      "nonanchor": {
+        "count": 64,
+        "drift_variance_mean_by_method": {
+          "original": 52.851099070345484,
+          "anchored": 0.843628944744697
+        },
+        "potential_variance_mean_by_method": {
+          "original": 490434.61398192984,
+          "anchored": 2038.1231569472866
+        },
+        "anchored_over_original_drift_variance_ratio": 0.01596237277150691,
+        "anchored_over_original_potential_variance_ratio": 0.004155749000665727
+      }
+    },
+    "0.0": {
+      "anchor": {
+        "count": 8,
+        "drift_variance_mean_by_method": {
+          "original": 200.52592018970353,
+          "anchored": 8.832996710225407e-28
+        },
+        "potential_variance_mean_by_method": {
+          "original": 5162733.88789298,
+          "anchored": 9.232690875008428e-27
+        },
+        "anchored_over_original_drift_variance_ratio": 4.4049151859615595e-30,
+        "anchored_over_original_potential_variance_ratio": 1.788333676593291e-33
+      },
+      "nonanchor": {
+        "count": 64,
+        "drift_variance_mean_by_method": {
+          "original": 199.87047616883405,
+          "anchored": 3.0230649212279204
+        },
+        "potential_variance_mean_by_method": {
+          "original": 5425802.692593602,
+          "anchored": 12357.917919443084
+        },
+        "anchored_over_original_drift_variance_ratio": 0.015125119923536306,
+        "anchored_over_original_potential_variance_ratio": 0.002277620219458412
+      }
+    }
+  },
+  "per_model": {
+    "original": {
+      "anchor": {
+        "count": 32,
+        "drift_variance_mean": 64.53143361741687,
+        "potential_variance_mean": 1407404.6548064756
+      },
+      "nonanchor": {
+        "count": 256,
+        "drift_variance_mean": 64.2903854144507,
+        "potential_variance_mean": 1480910.8877476603
+      }
+    },
+    "anchored": {
+      "anchor": {
+        "count": 32,
+        "drift_variance_mean": 2.0814142292593457e-27,
+        "potential_variance_mean": 9.601783547579291e-27
+      },
+      "nonanchor": {
+        "count": 256,
+        "drift_variance_mean": 0.9898527049282563,
+        "potential_variance_mean": 3621.796867453855
+      }
+    }
+  },
+  "scope": "mechanism diagnostic; no end-to-end accuracy or speed claim"
+}

@@ -1,0 +1,22 @@
+{
+  "seed": 3,
+  "updates": 40000,
+  "batch": 2048,
+  "architecture": "3-128-128-128-4 SiLU",
+  "variance": "0.02+0.96*sigmoid",
+  "learning_rate": 0.0003,
+  "learning_rate_final": 3e-05,
+  "checkpoint_selection": "fixed final update",
+  "runtime": {
+    "python": "3.10.18",
+    "python_executable": "/work/home/zenghang/miniconda3/envs/pytorch/bin/python",
+    "torch": "1.12.1",
+    "numpy": "1.26.4",
+    "host": "e01r02",
+    "cuda_visible_devices": "0",
+    "slurm_job_id": "23791948",
+    "slurm_cpus_per_task": "4",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "source_sha256": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d"
+  }
+}

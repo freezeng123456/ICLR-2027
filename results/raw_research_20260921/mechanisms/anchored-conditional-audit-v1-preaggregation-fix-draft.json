@@ -1,0 +1,1129 @@
+{
+  "status": "passed",
+  "scope": "independent local audit of completed anchored conditional run; no rerun of experiment",
+  "input_root": "work/anchored-conditional-run-20260921-final-v3",
+  "pair_count": 8,
+  "expected_pair_count": 8,
+  "summary_original_per_model_not_used_for_training_breakdown": true,
+  "global_failures": [],
+  "source_hash_provenance": {
+    "audit_runner": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/review-dual-20260921/audit_anchored_conditional_20260921.py",
+    "audit_runner_sha256": "bdbb74f12d449a349009a4f1a37759ab5e92936ee1a0a647fcb1e2dd76cbb1c7",
+    "classification": "posthoc audit-runner provenance; not part of the original pre-run source hash set"
+  },
+  "strict_requirements": {
+    "cpu_threads": 1,
+    "tmpdir": "work/anchored-conditional-run-20260921-final-v3",
+    "gpu_used": false,
+    "server_used": false,
+    "git_used": false
+  },
+  "pair_audits": [
+    {
+      "pair_id": "training0_dataset600",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          1.1102230246251565e-16,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          6.8833827526759706e-15,
+          3.1086244689504383e-15,
+          3.1086244689504383e-15,
+          2.6645352591003757e-15
+        ],
+        "exact_potential": [
+          6.039613253960852e-14,
+          2.842170943040401e-14,
+          8.526512829121202e-14,
+          1.9895196601282805e-13
+        ],
+        "theoretical_original": [
+          1.3600232051658168e-15,
+          7.105427357601002e-15,
+          8.526512829121202e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_anchored": [
+          1.8973538018496328e-16,
+          8.049116928532385e-16,
+          3.6637359812630166e-15,
+          1.6431300764452317e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 6.8833827526759706e-15,
+          "anchored_drift_mean": 6.8833827526759706e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.2737367544323206e-13,
+          "theoretical_anchored": 1.6431300764452317e-14
+        },
+        "raw_vs_receipt_maximum": 2.2737367544323206e-13
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.011945695420103519,
+          "potential_variance_mean": 7.1714486988025055
+        },
+        "original:1.0": {
+          "drift_variance_mean": 3.4471001898728053,
+          "potential_variance_mean": 4869.016243231915
+        },
+        "original:0.2": {
+          "drift_variance_mean": 45.09026844976332,
+          "potential_variance_mean": 404658.13540540286
+        },
+        "original:0.0": {
+          "drift_variance_mean": 182.0226953764021,
+          "potential_variance_mean": 4689682.376715899
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.001018433479767173,
+          "potential_variance_mean": 0.22429857472802153
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.08860909955008463,
+          "potential_variance_mean": 84.34903101156937
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.8109195367359661,
+          "potential_variance_mean": 2055.053105603471
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.866822288735054,
+          "potential_variance_mean": 12242.164121275386
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training0_dataset601",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 1.7053025658242404e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          2.220446049250313e-16,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          4.884981308350689e-15,
+          3.1086244689504383e-15,
+          2.886579864025407e-15,
+          4.440892098500626e-15
+        ],
+        "exact_potential": [
+          1.4921397450962104e-13,
+          4.618527782440651e-14,
+          8.526512829121202e-14,
+          1.1368683772161603e-13
+        ],
+        "theoretical_original": [
+          1.6792123247455493e-15,
+          1.4210854715202004e-14,
+          1.1368683772161603e-13,
+          1.7053025658242404e-13
+        ],
+        "theoretical_anchored": [
+          1.4311468676808659e-16,
+          1.4432899320127035e-15,
+          4.6629367034256575e-15,
+          1.1102230246251565e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 4.884981308350689e-15,
+          "anchored_drift_mean": 4.884981308350689e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.7053025658242404e-13,
+          "theoretical_anchored": 1.1102230246251565e-14
+        },
+        "raw_vs_receipt_maximum": 1.7053025658242404e-13
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.02946772182095778,
+          "potential_variance_mean": 45.204581250147974
+        },
+        "original:1.0": {
+          "drift_variance_mean": 7.870821380121969,
+          "potential_variance_mean": 18455.51583183943
+        },
+        "original:0.2": {
+          "drift_variance_mean": 83.70202313889514,
+          "potential_variance_mean": 1119186.7050360232
+        },
+        "original:0.0": {
+          "drift_variance_mean": 291.64598998548666,
+          "potential_variance_mean": 11954572.350541076
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.0009671749319801457,
+          "potential_variance_mean": 0.5509333435543954
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.07689772275365063,
+          "potential_variance_mean": 88.63474992888654
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.697592734024,
+          "potential_variance_mean": 1797.7368071452045
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.4593577383129954,
+          "potential_variance_mean": 10845.247673909216
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training0_dataset602",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.5579538487363607e-13,
+        "points": [
+          4.440892098500626e-16,
+          4.440892098500626e-16,
+          6.938893903907228e-18,
+          2.220446049250313e-16
+        ],
+        "exact_drift": [
+          5.773159728050814e-15,
+          3.3306690738754696e-15,
+          2.6645352591003757e-15,
+          7.993605777301127e-15
+        ],
+        "exact_potential": [
+          6.394884621840902e-14,
+          1.4210854715202004e-14,
+          5.684341886080802e-14,
+          2.5579538487363607e-13
+        ],
+        "theoretical_original": [
+          1.3739009929736312e-15,
+          7.993605777301127e-15,
+          4.263256414560601e-14,
+          1.7053025658242404e-13
+        ],
+        "theoretical_anchored": [
+          1.7737547541862853e-16,
+          1.2351231148954867e-15,
+          8.659739592076221e-15,
+          1.509903313490213e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 7.993605777301127e-15,
+          "anchored_drift_mean": 7.993605777301127e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.7053025658242404e-13,
+          "theoretical_anchored": 1.509903313490213e-14
+        },
+        "raw_vs_receipt_maximum": 1.7053025658242404e-13
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.009731384204473054,
+          "potential_variance_mean": 5.357067528610882
+        },
+        "original:1.0": {
+          "drift_variance_mean": 2.7596991031372764,
+          "potential_variance_mean": 2222.690532425417
+        },
+        "original:0.2": {
+          "drift_variance_mean": 38.450359992414874,
+          "potential_variance_mean": 192851.84423832933
+        },
+        "original:0.0": {
+          "drift_variance_mean": 158.81172011509338,
+          "potential_variance_mean": 2509277.0823712507
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.0009346491523518851,
+          "potential_variance_mean": 0.126567409597014
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.07938466826534575,
+          "potential_variance_mean": 70.01236520119618
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.7521109727171326,
+          "potential_variance_mean": 1779.3450021560568
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.6993651159301404,
+          "potential_variance_mean": 11215.386043089966
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training0_dataset603",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69",
+          "config_sha256": "1fda093976b0a5756541879afbe97806cd4f86ca1cfe52df28a26e37fc7814a1",
+          "summary_sha256": "d9c29c210587195dc9a507cf64f89c5f033825fb1f9047c3e15b7601fe716a50"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 1.4210854715202004e-13,
+        "points": [
+          4.440892098500626e-16,
+          2.220446049250313e-16,
+          1.1102230246251565e-16,
+          2.220446049250313e-16
+        ],
+        "exact_drift": [
+          5.773159728050814e-15,
+          3.524958103184872e-15,
+          2.6645352591003757e-15,
+          5.329070518200751e-15
+        ],
+        "exact_potential": [
+          4.618527782440651e-14,
+          2.1316282072803006e-14,
+          5.684341886080802e-14,
+          1.4210854715202004e-13
+        ],
+        "theoretical_original": [
+          8.604228440844963e-16,
+          6.217248937900877e-15,
+          2.842170943040401e-14,
+          5.684341886080802e-14
+        ],
+        "theoretical_anchored": [
+          1.5157146371347352e-16,
+          6.106226635438361e-16,
+          3.6637359812630166e-15,
+          1.554312234475219e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 5.773159728050814e-15,
+          "anchored_drift_mean": 5.773159728050814e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 5.684341886080802e-14,
+          "theoretical_anchored": 1.554312234475219e-14
+        },
+        "raw_vs_receipt_maximum": 5.684341886080802e-14
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.012676924930400263,
+          "potential_variance_mean": 8.36512411929428
+        },
+        "original:1.0": {
+          "drift_variance_mean": 3.7768247700404505,
+          "potential_variance_mean": 4181.143820744977
+        },
+        "original:0.2": {
+          "drift_variance_mean": 47.7785329460045,
+          "potential_variance_mean": 278118.1136397985
+        },
+        "original:0.0": {
+          "drift_variance_mean": 185.42246789821732,
+          "potential_variance_mean": 3300815.5415669642
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.0010171682231455944,
+          "potential_variance_mean": 0.22413395422001367
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.08628632733532683,
+          "potential_variance_mean": 83.14081386851969
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.7973460233899018,
+          "potential_variance_mean": 1759.040859784226
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.9853080610358753,
+          "potential_variance_mean": 10947.809118693927
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset600",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          5.551115123125783e-17,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          6.661338147750939e-15,
+          2.6645352591003757e-15,
+          3.1086244689504383e-15,
+          3.1086244689504383e-15
+        ],
+        "exact_potential": [
+          5.684341886080802e-14,
+          2.842170943040401e-14,
+          1.1368683772161603e-13,
+          1.1368683772161603e-13
+        ],
+        "theoretical_original": [
+          1.9567680809018384e-15,
+          1.4210854715202004e-14,
+          2.842170943040401e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_anchored": [
+          3.144186300207963e-16,
+          4.85722573273506e-16,
+          2.7755575615628914e-15,
+          1.2878587085651816e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 6.661338147750939e-15,
+          "anchored_drift_mean": 6.661338147750939e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.2737367544323206e-13,
+          "theoretical_anchored": 1.2878587085651816e-14
+        },
+        "raw_vs_receipt_maximum": 2.2737367544323206e-13
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.011886952561477426,
+          "potential_variance_mean": 7.276207531103534
+        },
+        "original:1.0": {
+          "drift_variance_mean": 3.4394074384839546,
+          "potential_variance_mean": 4839.757331117463
+        },
+        "original:0.2": {
+          "drift_variance_mean": 43.872747383409916,
+          "potential_variance_mean": 384515.6910853451
+        },
+        "original:0.0": {
+          "drift_variance_mean": 174.2756030725642,
+          "potential_variance_mean": 4336026.7252503745
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.000992464896403515,
+          "potential_variance_mean": 0.22096918068895927
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.08554455526457999,
+          "potential_variance_mean": 82.51564181346527
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.7765645254305444,
+          "potential_variance_mean": 1956.4923448165448
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.7454970513186714,
+          "potential_variance_mean": 11784.048143970005
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset601",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          1.7763568394002505e-15,
+          8.881784197001252e-16,
+          2.220446049250313e-16,
+          2.7755575615628914e-17
+        ],
+        "exact_drift": [
+          4.440892098500626e-15,
+          2.6645352591003757e-15,
+          5.551115123125783e-15,
+          7.993605777301127e-15
+        ],
+        "exact_potential": [
+          7.105427357601002e-14,
+          6.750155989720952e-14,
+          1.1368683772161603e-13,
+          2.2737367544323206e-13
+        ],
+        "theoretical_original": [
+          4.371503159461554e-16,
+          1.4210854715202004e-14,
+          7.105427357601002e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_anchored": [
+          8.456776945386935e-17,
+          1.3322676295501878e-15,
+          7.105427357601002e-15,
+          2.6645352591003757e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 7.993605777301127e-15,
+          "anchored_drift_mean": 7.993605777301127e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 2.2737367544323206e-13,
+          "theoretical_anchored": 2.6645352591003757e-14
+        },
+        "raw_vs_receipt_maximum": 2.2737367544323206e-13
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.029339752880980157,
+          "potential_variance_mean": 46.10718043917356
+        },
+        "original:1.0": {
+          "drift_variance_mean": 7.753306495613425,
+          "potential_variance_mean": 18303.369744648895
+        },
+        "original:0.2": {
+          "drift_variance_mean": 80.93053172896185,
+          "potential_variance_mean": 1073326.251059022
+        },
+        "original:0.0": {
+          "drift_variance_mean": 276.91464268000647,
+          "potential_variance_mean": 11012276.754253749
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.0009528891793043449,
+          "potential_variance_mean": 0.5401604780395329
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.07366852742713222,
+          "potential_variance_mean": 85.75992890165628
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.6626963330536007,
+          "potential_variance_mean": 1714.2331787654546
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.3195862206093194,
+          "potential_variance_mean": 9839.636597977214
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset602",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 2.2737367544323206e-13,
+        "points": [
+          8.881784197001252e-16,
+          1.1102230246251565e-16,
+          4.440892098500626e-16,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          2.6645352591003757e-15,
+          2.3314683517128287e-15,
+          2.6645352591003757e-15,
+          6.8833827526759706e-15
+        ],
+        "exact_potential": [
+          3.907985046680551e-14,
+          2.4868995751603507e-14,
+          7.105427357601002e-14,
+          2.2737367544323206e-13
+        ],
+        "theoretical_original": [
+          1.4918621893400541e-15,
+          1.0658141036401503e-14,
+          7.105427357601002e-14,
+          1.1368683772161603e-13
+        ],
+        "theoretical_anchored": [
+          1.6534083130403943e-16,
+          7.216449660063518e-16,
+          1.1324274851176597e-14,
+          1.1546319456101628e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 6.8833827526759706e-15,
+          "anchored_drift_mean": 6.8833827526759706e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 1.1368683772161603e-13,
+          "theoretical_anchored": 1.1546319456101628e-14
+        },
+        "raw_vs_receipt_maximum": 1.1368683772161603e-13
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.009592536335387095,
+          "potential_variance_mean": 5.486439496419241
+        },
+        "original:1.0": {
+          "drift_variance_mean": 2.707070267402578,
+          "potential_variance_mean": 2213.6614638714836
+        },
+        "original:0.2": {
+          "drift_variance_mean": 37.17086749291748,
+          "potential_variance_mean": 182130.1246828341
+        },
+        "original:0.0": {
+          "drift_variance_mean": 153.251345388824,
+          "potential_variance_mean": 2378809.5671983035
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.0009163247853503203,
+          "potential_variance_mean": 0.12523856541124218
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.07736557372894097,
+          "potential_variance_mean": 68.72542458459789
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.72553435508727,
+          "potential_variance_mean": 1707.3442251289985
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.558169526652042,
+          "potential_variance_mean": 10497.854137465185
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    },
+    {
+      "pair_id": "training1_dataset603",
+      "failures": [],
+      "passed": true,
+      "source_hashes": {
+        "docs/ANCHORED_CONDITIONAL_PROTOCOL_20260921.md": {
+          "expected": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "actual": "a8e1c77ef157e7c8d75f9b3408b3bc70e67ed797a1a9cdc44405d7eae025ecd3",
+          "passed": true
+        },
+        "anchored_tail_20260921.py": {
+          "expected": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "actual": "2797a436883917cc31644cce890f0d1dd13e5c5abf45e12e562efdbd3399f7ba",
+          "passed": true
+        },
+        "composition_extension.py": {
+          "expected": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "actual": "9c6d83fd0301c918ac82fe3c473743e34a51518f94b9ad5a22897f4ac2e497ed",
+          "passed": true
+        },
+        "composition_benchmark.py": {
+          "expected": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "actual": "d49681cb2e57a843ef59e76df7e1d93ba05135e0e11706f2f103929c5ea01f9d",
+          "passed": true
+        },
+        "learned_sbi.py": {
+          "expected": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "actual": "b07b39aab748921c79d62a60b6588fc8925389275e1ad428a12788605ab667ac",
+          "passed": true
+        }
+      },
+      "strict_training": {
+        "passed": true,
+        "failures": [],
+        "actual_hashes": {
+          "checkpoint_sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a",
+          "config_sha256": "d40276e5947bf3aa14431911f472bc874799eb53fe2eafc09de4f428483afb7d",
+          "summary_sha256": "99a7d505af74677ff15abe5add9ac6b5ee80e0a8e563a42d13adeae89a457ad1"
+        }
+      },
+      "context_reconstruction": {
+        "theta_max_abs": 0.0,
+        "context_max_abs": 0.0
+      },
+      "discrepancies": {
+        "context_max_abs": 0.0,
+        "theta_max_abs": 0.0,
+        "direction_max_abs": 0.0,
+        "max": 1.7053025658242404e-13,
+        "points": [
+          8.881784197001252e-16,
+          0.0,
+          0.0,
+          1.1102230246251565e-16
+        ],
+        "exact_drift": [
+          3.552713678800501e-15,
+          3.1086244689504383e-15,
+          3.9968028886505635e-15,
+          5.773159728050814e-15
+        ],
+        "exact_potential": [
+          2.4868995751603507e-14,
+          5.684341886080802e-14,
+          4.263256414560601e-14,
+          1.7053025658242404e-13
+        ],
+        "theoretical_original": [
+          8.257283745649602e-16,
+          5.329070518200751e-15,
+          4.263256414560601e-14,
+          5.684341886080802e-14
+        ],
+        "theoretical_anchored": [
+          1.3465790982269965e-16,
+          3.3306690738754696e-16,
+          3.9968028886505635e-15,
+          1.9539925233402755e-14
+        ],
+        "raw_vs_receipt_max": {
+          "original_drift_mean": 5.773159728050814e-15,
+          "anchored_drift_mean": 5.773159728050814e-15,
+          "original_drift_variance": 0.0,
+          "anchored_drift_variance": 0.0,
+          "original_potential_mean": 0.0,
+          "anchored_potential_mean": 0.0,
+          "original_potential_variance": 0.0,
+          "anchored_potential_variance": 0.0,
+          "theoretical_original": 5.684341886080802e-14,
+          "theoretical_anchored": 1.9539925233402755e-14
+        },
+        "raw_vs_receipt_maximum": 5.684341886080802e-14
+      },
+      "ratio_data": {
+        "original:4.0": {
+          "drift_variance_mean": 0.012297822815872382,
+          "potential_variance_mean": 8.079337687442875
+        },
+        "original:1.0": {
+          "drift_variance_mean": 3.612787056952847,
+          "potential_variance_mean": 3690.1540580244537
+        },
+        "original:0.2": {
+          "drift_variance_mean": 46.11368065656173,
+          "potential_variance_mean": 261515.08822657514
+        },
+        "original:0.0": {
+          "drift_variance_mean": 177.2019617415175,
+          "potential_variance_mean": 2991122.205339543
+        },
+        "anchored:4.0": {
+          "drift_variance_mean": 0.0010025656081938939,
+          "potential_variance_mean": 0.21848022106097922
+        },
+        "anchored:1.0": {
+          "drift_variance_mean": 0.0837624153502316,
+          "potential_variance_mean": 82.78339398538111
+        },
+        "anchored:0.2": {
+          "drift_variance_mean": 0.7763746821905408,
+          "potential_variance_mean": 1724.0747037807485
+        },
+        "anchored:0.0": {
+          "drift_variance_mean": 2.863244548359999,
+          "potential_variance_mean": 10506.381590769923
+        }
+      },
+      "finite_raw": true,
+      "failure_count": 0
+    }
+  ],
+  "recomputed_variance_ratios": {
+    "nonanchor_scope": "variance ratios are recomputed from all 256 non-anchor points; point-level anchor/non-anchor separation is retained in pair audit",
+    "overall_256_nonanchor_points": {
+      "pair_count": 8,
+      "original_drift_variance_mean": 19.10845697006349,
+      "anchored_drift_variance_mean": 0.2774358217733644,
+      "anchored_over_original_drift_variance_ratio": 0.014519007066243643,
+      "original_potential_variance_mean": 164800.42957441605,
+      "anchored_potential_variance_mean": 630.8946815918032,
+      "anchored_over_original_potential_variance_ratio": 0.0038282344483023395
+    },
+    "per_u": {
+      "4.0": {
+        "pair_count": 8,
+        "original_drift_variance_mean": 0.015867348871206458,
+        "anchored_drift_variance_mean": 0.0009752087820621091,
+        "anchored_over_original_drift_variance_ratio": 0.061460095821789296,
+        "original_potential_variance_mean": 16.630923343874358,
+        "anchored_potential_variance_mean": 0.2788477159125198,
+        "anchored_over_original_potential_variance_ratio": 0.01676682106861056
+      },
+      "1.0": {
+        "pair_count": 8,
+        "original_drift_variance_mean": 4.420877087703163,
+        "anchored_drift_variance_mean": 0.08143986120941157,
+        "anchored_over_original_drift_variance_ratio": 0.018421652444475245,
+        "original_potential_variance_mean": 7346.913628238004,
+        "anchored_potential_variance_mean": 80.74016866190904,
+        "anchored_over_original_potential_variance_ratio": 0.010989671683573718
+      },
+      "0.2": {
+        "pair_count": 8,
+        "original_drift_variance_mean": 52.8886264736161,
+        "anchored_drift_variance_mean": 0.7498923953286196,
+        "anchored_over_original_drift_variance_ratio": 0.014178708076351902,
+        "original_potential_variance_mean": 487037.74417166633,
+        "anchored_potential_variance_mean": 1811.665028397588,
+        "anchored_over_original_potential_variance_ratio": 0.0037197630986050023
+      }
+    },
+    "per_training_seed": {
+      "0": {
+        "pair_count": 4,
+        "original_drift_variance_mean": 19.411620974718854,
+        "anchored_drift_variance_mean": 0.2827570425465544,
+        "anchored_over_original_drift_variance_ratio": 0.014566379743083238,
+        "original_potential_variance_mean": 168717.4385807827,
+        "anchored_potential_variance_mean": 643.2032223317691,
+        "anchored_over_original_potential_variance_ratio": 0.00381231026112218
+      },
+      "1": {
+        "pair_count": 4,
+        "original_drift_variance_mean": 18.805292965408125,
+        "anchored_drift_variance_mean": 0.2721146010001744,
+        "anchored_over_original_drift_variance_ratio": 0.014470106980025387,
+        "original_potential_variance_mean": 160883.42056804942,
+        "anchored_potential_variance_mean": 618.5861408518373,
+        "anchored_over_original_potential_variance_ratio": 0.0038449340439662754
+      }
+    }
+  },
+  "mc_vs_analytic_relative_variance": "descriptive only; raw empirical variance compared with saved analytic WOR drift variance, without inferential claims",
+  "original_summary": {
+    "scope": "mechanism diagnostic; no end-to-end accuracy or speed claim",
+    "per_model_present": true
+  }
+}
