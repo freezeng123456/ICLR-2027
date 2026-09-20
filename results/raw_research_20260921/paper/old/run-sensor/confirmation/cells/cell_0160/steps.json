@@ -1,0 +1,514 @@
+[
+  {
+    "step": 0,
+    "beta": 0.015625,
+    "ess_fraction": 0.9508646414701899,
+    "acceptance": 0.9764811197916666,
+    "sign_acceptance": 0.96319580078125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 1,
+    "beta": 0.03125,
+    "ess_fraction": 0.9564710714345059,
+    "acceptance": 0.9525553385416666,
+    "sign_acceptance": 0.92529296875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 2,
+    "beta": 0.046875,
+    "ess_fraction": 0.960823804611719,
+    "acceptance": 0.9332275390625,
+    "sign_acceptance": 0.88238525390625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 3,
+    "beta": 0.0625,
+    "ess_fraction": 0.964685306320668,
+    "acceptance": 0.91552734375,
+    "sign_acceptance": 0.83203125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 4,
+    "beta": 0.078125,
+    "ess_fraction": 0.9688278174518137,
+    "acceptance": 0.8965657552083334,
+    "sign_acceptance": 0.791748046875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 5,
+    "beta": 0.09375,
+    "ess_fraction": 0.9725999381175249,
+    "acceptance": 0.8832804361979166,
+    "sign_acceptance": 0.74969482421875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 6,
+    "beta": 0.109375,
+    "ess_fraction": 0.9766121997137366,
+    "acceptance": 0.8686726888020834,
+    "sign_acceptance": 0.70123291015625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 7,
+    "beta": 0.125,
+    "ess_fraction": 0.979722752648008,
+    "acceptance": 0.8578084309895834,
+    "sign_acceptance": 0.651611328125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 8,
+    "beta": 0.140625,
+    "ess_fraction": 0.9827387926390059,
+    "acceptance": 0.84637451171875,
+    "sign_acceptance": 0.61285400390625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 9,
+    "beta": 0.15625,
+    "ess_fraction": 0.9853250871232901,
+    "acceptance": 0.8367716471354166,
+    "sign_acceptance": 0.5692138671875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 10,
+    "beta": 0.171875,
+    "ess_fraction": 0.9875430522753911,
+    "acceptance": 0.8228963216145834,
+    "sign_acceptance": 0.52789306640625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 11,
+    "beta": 0.1875,
+    "ess_fraction": 0.9894527451080235,
+    "acceptance": 0.8213704427083334,
+    "sign_acceptance": 0.48870849609375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 12,
+    "beta": 0.203125,
+    "ess_fraction": 0.990850736711488,
+    "acceptance": 0.8116251627604166,
+    "sign_acceptance": 0.45458984375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 13,
+    "beta": 0.21875,
+    "ess_fraction": 0.9921054496079289,
+    "acceptance": 0.80474853515625,
+    "sign_acceptance": 0.40924072265625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 14,
+    "beta": 0.234375,
+    "ess_fraction": 0.9933162654644737,
+    "acceptance": 0.7918904622395834,
+    "sign_acceptance": 0.3726806640625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 15,
+    "beta": 0.25,
+    "ess_fraction": 0.9939840479720653,
+    "acceptance": 0.78594970703125,
+    "sign_acceptance": 0.35015869140625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 16,
+    "beta": 0.265625,
+    "ess_fraction": 0.9946117301319138,
+    "acceptance": 0.7808634440104166,
+    "sign_acceptance": 0.33001708984375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 17,
+    "beta": 0.28125,
+    "ess_fraction": 0.9951518252525543,
+    "acceptance": 0.7751057942708334,
+    "sign_acceptance": 0.2955322265625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 18,
+    "beta": 0.296875,
+    "ess_fraction": 0.9956673534911223,
+    "acceptance": 0.7686971028645834,
+    "sign_acceptance": 0.26629638671875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 19,
+    "beta": 0.3125,
+    "ess_fraction": 0.9961439702426835,
+    "acceptance": 0.7594401041666666,
+    "sign_acceptance": 0.24444580078125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 20,
+    "beta": 0.328125,
+    "ess_fraction": 0.9964716852050429,
+    "acceptance": 0.7561238606770834,
+    "sign_acceptance": 0.22393798828125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 21,
+    "beta": 0.34375,
+    "ess_fraction": 0.996748520838473,
+    "acceptance": 0.7554931640625,
+    "sign_acceptance": 0.2022705078125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 22,
+    "beta": 0.359375,
+    "ess_fraction": 0.997114339453654,
+    "acceptance": 0.74517822265625,
+    "sign_acceptance": 0.1849365234375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 23,
+    "beta": 0.375,
+    "ess_fraction": 0.9973567658007099,
+    "acceptance": 0.7416178385416666,
+    "sign_acceptance": 0.17169189453125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 24,
+    "beta": 0.390625,
+    "ess_fraction": 0.9974945086380141,
+    "acceptance": 0.73455810546875,
+    "sign_acceptance": 0.15704345703125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 25,
+    "beta": 0.40625,
+    "ess_fraction": 0.9976286276893032,
+    "acceptance": 0.7336832682291666,
+    "sign_acceptance": 0.14068603515625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 26,
+    "beta": 0.421875,
+    "ess_fraction": 0.9978975111820785,
+    "acceptance": 0.7260538736979166,
+    "sign_acceptance": 0.1298828125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 27,
+    "beta": 0.4375,
+    "ess_fraction": 0.9980622734786911,
+    "acceptance": 0.7199910481770834,
+    "sign_acceptance": 0.1192626953125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 28,
+    "beta": 0.453125,
+    "ess_fraction": 0.9981763064426237,
+    "acceptance": 0.719970703125,
+    "sign_acceptance": 0.108154296875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 29,
+    "beta": 0.46875,
+    "ess_fraction": 0.9983065600978276,
+    "acceptance": 0.7096964518229166,
+    "sign_acceptance": 0.09759521484375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 30,
+    "beta": 0.484375,
+    "ess_fraction": 0.9984773947572311,
+    "acceptance": 0.7085367838541666,
+    "sign_acceptance": 0.08905029296875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 31,
+    "beta": 0.5,
+    "ess_fraction": 0.9985770686371486,
+    "acceptance": 0.7082926432291666,
+    "sign_acceptance": 0.0816650390625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 32,
+    "beta": 0.515625,
+    "ess_fraction": 0.9986707410552063,
+    "acceptance": 0.70159912109375,
+    "sign_acceptance": 0.07275390625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 33,
+    "beta": 0.53125,
+    "ess_fraction": 0.998736616710161,
+    "acceptance": 0.6932373046875,
+    "sign_acceptance": 0.0670166015625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 34,
+    "beta": 0.546875,
+    "ess_fraction": 0.9988492063102916,
+    "acceptance": 0.6940511067708334,
+    "sign_acceptance": 0.06109619140625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 35,
+    "beta": 0.5625,
+    "ess_fraction": 0.9989126337301704,
+    "acceptance": 0.6852213541666666,
+    "sign_acceptance": 0.0555419921875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 36,
+    "beta": 0.578125,
+    "ess_fraction": 0.9989707137070264,
+    "acceptance": 0.6876220703125,
+    "sign_acceptance": 0.05096435546875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 37,
+    "beta": 0.59375,
+    "ess_fraction": 0.999022485355469,
+    "acceptance": 0.67828369140625,
+    "sign_acceptance": 0.0440673828125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 38,
+    "beta": 0.609375,
+    "ess_fraction": 0.9990711036882521,
+    "acceptance": 0.6748046875,
+    "sign_acceptance": 0.039306640625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 39,
+    "beta": 0.625,
+    "ess_fraction": 0.9991258709964307,
+    "acceptance": 0.6719563802083334,
+    "sign_acceptance": 0.036865234375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 40,
+    "beta": 0.640625,
+    "ess_fraction": 0.9991903399396156,
+    "acceptance": 0.6682535807291666,
+    "sign_acceptance": 0.033447265625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 41,
+    "beta": 0.65625,
+    "ess_fraction": 0.9992274438150289,
+    "acceptance": 0.6678059895833334,
+    "sign_acceptance": 0.03009033203125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 42,
+    "beta": 0.671875,
+    "ess_fraction": 0.999284241218111,
+    "acceptance": 0.6666666666666666,
+    "sign_acceptance": 0.026123046875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 43,
+    "beta": 0.6875,
+    "ess_fraction": 0.9993297120246178,
+    "acceptance": 0.65838623046875,
+    "sign_acceptance": 0.023681640625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 44,
+    "beta": 0.703125,
+    "ess_fraction": 0.9993698284226075,
+    "acceptance": 0.6572469075520834,
+    "sign_acceptance": 0.02215576171875,
+    "factor_calls": 786432
+  },
+  {
+    "step": 45,
+    "beta": 0.71875,
+    "ess_fraction": 0.999398746301428,
+    "acceptance": 0.65142822265625,
+    "sign_acceptance": 0.019287109375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 46,
+    "beta": 0.734375,
+    "ess_fraction": 0.9994304764297375,
+    "acceptance": 0.6494954427083334,
+    "sign_acceptance": 0.01593017578125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 47,
+    "beta": 0.75,
+    "ess_fraction": 0.9994650976072618,
+    "acceptance": 0.6460367838541666,
+    "sign_acceptance": 0.01446533203125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 48,
+    "beta": 0.765625,
+    "ess_fraction": 0.9994876090335794,
+    "acceptance": 0.64202880859375,
+    "sign_acceptance": 0.0130615234375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 49,
+    "beta": 0.78125,
+    "ess_fraction": 0.9995248802120233,
+    "acceptance": 0.6387532552083334,
+    "sign_acceptance": 0.01251220703125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 50,
+    "beta": 0.796875,
+    "ess_fraction": 0.9995285390587046,
+    "acceptance": 0.6383463541666666,
+    "sign_acceptance": 0.01214599609375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 51,
+    "beta": 0.8125,
+    "ess_fraction": 0.9995521349435613,
+    "acceptance": 0.6333821614583334,
+    "sign_acceptance": 0.0111083984375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 52,
+    "beta": 0.828125,
+    "ess_fraction": 0.999565724631229,
+    "acceptance": 0.6293131510416666,
+    "sign_acceptance": 0.0101318359375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 53,
+    "beta": 0.84375,
+    "ess_fraction": 0.999584093122062,
+    "acceptance": 0.6262410481770834,
+    "sign_acceptance": 0.0093994140625,
+    "factor_calls": 786432
+  },
+  {
+    "step": 54,
+    "beta": 0.859375,
+    "ess_fraction": 0.9995996608079684,
+    "acceptance": 0.6248982747395834,
+    "sign_acceptance": 0.00927734375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 55,
+    "beta": 0.875,
+    "ess_fraction": 0.9996190119165105,
+    "acceptance": 0.6222737630208334,
+    "sign_acceptance": 0.0078125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 56,
+    "beta": 0.890625,
+    "ess_fraction": 0.9996582434304802,
+    "acceptance": 0.6186319986979166,
+    "sign_acceptance": 0.00665283203125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 57,
+    "beta": 0.90625,
+    "ess_fraction": 0.9996505634001888,
+    "acceptance": 0.6181844075520834,
+    "sign_acceptance": 0.00628662109375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 58,
+    "beta": 0.921875,
+    "ess_fraction": 0.9996670278601153,
+    "acceptance": 0.61505126953125,
+    "sign_acceptance": 0.005126953125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 59,
+    "beta": 0.9375,
+    "ess_fraction": 0.9996772352306121,
+    "acceptance": 0.60986328125,
+    "sign_acceptance": 0.005126953125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 60,
+    "beta": 0.953125,
+    "ess_fraction": 0.9996883601815487,
+    "acceptance": 0.6107584635416666,
+    "sign_acceptance": 0.0050048828125,
+    "factor_calls": 786432
+  },
+  {
+    "step": 61,
+    "beta": 0.96875,
+    "ess_fraction": 0.9997042087018522,
+    "acceptance": 0.6049397786458334,
+    "sign_acceptance": 0.00384521484375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 62,
+    "beta": 0.984375,
+    "ess_fraction": 0.9997112010669572,
+    "acceptance": 0.6046956380208334,
+    "sign_acceptance": 0.003662109375,
+    "factor_calls": 786432
+  },
+  {
+    "step": 63,
+    "beta": 1.0,
+    "ess_fraction": 0.999718614305349,
+    "acceptance": 0.6015421549479166,
+    "sign_acceptance": 0.0028076171875,
+    "factor_calls": 786432
+  }
+]

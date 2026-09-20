@@ -1,0 +1,14 @@
+{
+  "dimension": 8,
+  "regime": "ambiguous",
+  "dataset_seed": 1213,
+  "groups": 12,
+  "method": "tail_anchored",
+  "particles": 16384,
+  "steps": 2048,
+  "batch": 8,
+  "setting_id": "tail_anchored_n16384_k2048_m8",
+  "phase": "confirmation",
+  "line": "sensor",
+  "cell_id": 319
+}

@@ -1,0 +1,14 @@
+{
+  "dimension": 8,
+  "regime": "ambiguous",
+  "dataset_seed": 1101,
+  "groups": 12,
+  "method": "tail_anchored",
+  "particles": 8192,
+  "steps": 1024,
+  "batch": 4,
+  "setting_id": "tail_anchored_n8192_k1024_m4",
+  "phase": "development",
+  "line": "sensor",
+  "cell_id": 61
+}
