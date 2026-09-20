@@ -1,0 +1,14 @@
+{
+  "dimension": 2,
+  "regime": "ambiguous",
+  "dataset_seed": 1204,
+  "groups": 12,
+  "method": "annealed_smc",
+  "particles": 16384,
+  "stages": 64,
+  "proposal_scale": 0.15,
+  "setting_id": "smc_k64_scale0.15",
+  "phase": "confirmation",
+  "line": "sensor",
+  "cell_id": 28
+}
