@@ -1,0 +1,55 @@
+{
+  "finite_normalizer": true,
+  "coordinates": [
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.0072039481907153384,
+      "smallest_denominator": 0.8593768760156213,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007184669933668496,
+      "smallest_denominator": 0.8592546342111863,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007208865693388232,
+      "smallest_denominator": 0.8596110415800402,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007287022884951824,
+      "smallest_denominator": 0.8603776912005676,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007186004369395592,
+      "smallest_denominator": 0.859209988912666,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007377964720116481,
+      "smallest_denominator": 0.861312843297275,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007176012630385331,
+      "smallest_denominator": 0.8589420258171162,
+      "coefficient_count": 1
+    },
+    {
+      "finite_normalizer": true,
+      "maximum_terminal_component_variance": 0.007325975890838463,
+      "smallest_denominator": 0.860856789499528,
+      "coefficient_count": 1
+    }
+  ],
+  "certificate_method": "full",
+  "scope": "Gaussian exact; equal-component-variance mixtures strict tail-envelope certificate"
+}
