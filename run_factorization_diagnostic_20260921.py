@@ -66,11 +66,11 @@ def main():
             sample(params, [20, 19.99], 128, 18, method="full", device=args.device)
             if args.device == "cuda":
                 torch.cuda.synchronize()
-            started = time.perf_counter()
+            cell_started = time.perf_counter()
             values = sample(params, grid, config["particles"], config["seed"], method="full", device=args.device)
             if args.device == "cuda":
                 torch.cuda.synchronize()
-            seconds = time.perf_counter() - started
+            seconds = time.perf_counter() - cell_started
         else:
             time_factorized(params, [20, 19.99], 128, 18, args.device)
             values, seconds = time_factorized(params, grid, config["particles"], config["seed"], args.device)
