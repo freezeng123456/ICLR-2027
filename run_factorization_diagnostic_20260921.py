@@ -22,7 +22,11 @@ def main():
     parser.add_argument("--training-root", type=Path, required=True)
     parser.add_argument("--commit", required=True)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument("--hours", type=float, required=True)
     args = parser.parse_args()
+    if not 0 < args.hours <= 4:
+        raise ValueError("hours must be in (0, 4]")
+    started = time.perf_counter()
     torch.set_num_threads(1)
     args.root.mkdir(parents=True, exist_ok=False)
     phase = args.root / "development"
@@ -48,6 +52,9 @@ def main():
     write_json(phase / "runtime.json", runtime())
     grid = np.linspace(math.sqrt(20), 0, 513) ** 2
     for cell_id in order:
+        if time.perf_counter() - started > args.hours * 3600:
+            write_json(args.root / "state.json", dict(status="time_limit", next_cell=cell_id))
+            raise SystemExit(2)
         config = configs[cell_id]
         asset = args.root / "assets" / asset_name(config)
         params, reference = load_npz(asset / "parameters.npz"), load_npz(asset / "reference.npz")
@@ -86,7 +93,8 @@ def main():
         print(json.dumps({key: report[key] for key in ["cell_id", "family", "method", "w1_mean", "seconds"]}), flush=True)
     assert len(list((phase / "cells").glob("*/done"))) == 40
     (phase / "done").write_text("completed\n")
-    write_json(args.root / "state.json", dict(status="completed", completed=40, expected=40))
+    write_json(args.root / "state.json", dict(status="completed", completed=40, expected=40,
+                                             seconds=time.perf_counter()-started))
 
 
 if __name__ == "__main__":

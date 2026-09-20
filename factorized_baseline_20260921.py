@@ -7,7 +7,17 @@ import torch
 from certified_composition_torch import FactorParameters, TimeFactors
 
 
+def product_coupling(values, generator):
+    return torch.stack([values[torch.randperm(len(values), device=values.device, generator=generator), d]
+                        for d in range(values.shape[1])], dim=1)
+
+
 def factorized_sample(parameters, grid, particles, seed, device="cpu", ess_fraction=0.5):
+    grid = np.asarray(grid, dtype=np.float64)
+    if grid.ndim != 1 or len(grid) < 2 or not np.isfinite(grid).all() or not (np.diff(grid) < 0).all():
+        raise ValueError("grid must be finite and strictly decreasing")
+    if (grid < 0).any() or particles < 2 or not 0 <= ess_fraction <= 1:
+        raise ValueError("invalid grid, particles, or ESS fraction")
     p = FactorParameters(parameters["variance"], parameters["means"], parameters["weights"])
     p = FactorParameters(p.variance.to(device), p.means.to(device), p.weights.to(device))
     motion = torch.Generator(device=device).manual_seed(seed)
@@ -45,6 +55,7 @@ def factorized_sample(parameters, grid, particles, seed, device="cpu", ess_fract
             raise FloatingPointError(f"Nonfinite coordinate filter at step {step}")
         records.append(dict(step=step, minimum_coordinate_ess=float(ess.min()) / particles,
                             resampled_coordinates=int(selected.sum()), factor_calls=particles * p.groups))
+    x = product_coupling(x, resampling)
     weights = np.full(particles, 1 / particles)
     return x.cpu().numpy(), weights, float(logz.sum()), records
 
