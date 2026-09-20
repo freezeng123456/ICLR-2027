@@ -632,6 +632,60 @@
       "sha256": "cbed31c451ec1bf22821877bf24a8d385757ed07deb08170a68e5c3bfcab8f46"
     },
     {
+      "path": "results/raw_research_20260921/dual/new/exit-anchored-confirmation.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/exit-anchored-replay.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/exit-explore.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/exit-factorization.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/hardware-explore.csv",
+      "kind": "file",
+      "bytes": 123,
+      "sha256": "a8e502ac0b25b6292df232ebfb3543d815cf3b6bc86699dcda4a8732acf73094"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/launcher-anchored-confirmation.log",
+      "kind": "file",
+      "bytes": 18556,
+      "sha256": "e99089f14d9a660bb8a5de9d58305625daba3ea55d90508d84b26fdc9ffcb6b8"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/launcher-anchored-replay.log",
+      "kind": "file",
+      "bytes": 33135,
+      "sha256": "206af6042af606ff235c165f66cebe8d6aa8f86ec4cfbf1070416147f0869445"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/launcher-explore.log",
+      "kind": "file",
+      "bytes": 60105,
+      "sha256": "71fc23d310908799f84083ebb29fb929bdd51d0344cc25fbb8d2015d22eff35f"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/launcher-factorization.log",
+      "kind": "file",
+      "bytes": 4992,
+      "sha256": "17da815c185c03acce47e8b866fbda2fa429c4d7f8daf553ec2afc2f2bbc4fc2"
+    },
+    {
       "path": "results/raw_research_20260921/dual/new/run-anchored-confirmation/assets/learned_0_700/data.npz",
       "kind": "file",
       "bytes": 10860,
@@ -38851,6 +38905,42 @@
       "sha256": "b50034c790262e587d17a145e915ee9a4b56d67e6bd53693d6416c8632f699f9"
     },
     {
+      "path": "results/raw_research_20260921/dual/new/tests-anchored-confirmation.log",
+      "kind": "file",
+      "bytes": 98,
+      "sha256": "98d40ba1e6367d62dbe16ed7cca1e1f5918c94595abecd522d860bc42a268756"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/tests-anchored-replay.log",
+      "kind": "file",
+      "bytes": 99,
+      "sha256": "f3e20ed8d1063535e06327508cdcc47bf610a4444bb22125c719dd7efa6458e4"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/tests-explore.log",
+      "kind": "file",
+      "bytes": 99,
+      "sha256": "62414da0a6856654de7c0426cda2d36f41324a4f0541b6fe2d2889737222ba36"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/new/tests-factorization.log",
+      "kind": "file",
+      "bytes": 98,
+      "sha256": "92ebc43198433434e6490ab2f923536cb68ac0f1f98b0fded41cb1325804756e"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/old/exit-anchored-pilot.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/old/launcher-anchored-pilot.log",
+      "kind": "file",
+      "bytes": 21335,
+      "sha256": "1a6c4d9906af51680da2e008311d6e33308ee425160f09f8862f0abe58b28584"
+    },
+    {
       "path": "results/raw_research_20260921/dual/old/run-anchored-pilot/assets/learned_0_600/data.npz",
       "kind": "file",
       "bytes": 10854,
@@ -40457,6 +40547,12 @@
       "kind": "file",
       "bytes": 96,
       "sha256": "9a4e1ce3a395531057f1e4c572a221d61eae228abb3843bdb16b59abcfe53518"
+    },
+    {
+      "path": "results/raw_research_20260921/dual/old/tests-anchored-pilot.log",
+      "kind": "file",
+      "bytes": 99,
+      "sha256": "a0746b29e48664e78167722607b2ec0cf1dca292d904c75c415618a3461f053a"
     },
     {
       "path": "results/raw_research_20260921/extension/run/association.txt",
@@ -173395,6 +173491,24 @@
       "sha256": "899a3ce208011aba6ca69d7a49903e20ec32644cf3f36fbf9fa0272c0cb26819"
     },
     {
+      "path": "results/raw_research_20260921/mechanisms/anchored-conditional-audit-main.json",
+      "kind": "file",
+      "bytes": 54487,
+      "sha256": "de5104712c6673c74eeea48d0feec75ca6ac95ec42d97ec852456b7c42f9cbf7"
+    },
+    {
+      "path": "results/raw_research_20260921/mechanisms/anchored-conditional-audit-v1-preaggregation-fix-draft.json",
+      "kind": "file",
+      "bytes": 42459,
+      "sha256": "8e61361911fbe33b6808eee15e48450b367b6004d162c2635734bbe14a31c081"
+    },
+    {
+      "path": "results/raw_research_20260921/mechanisms/anchored-conditional-audit.json",
+      "kind": "file",
+      "bytes": 54487,
+      "sha256": "de5104712c6673c74eeea48d0feec75ca6ac95ec42d97ec852456b7c42f9cbf7"
+    },
+    {
       "path": "results/raw_research_20260921/mechanisms/anchored-conditional/directions.npy",
       "kind": "file",
       "bytes": 640,
@@ -173693,6 +173807,18 @@
       "kind": "file",
       "bytes": 79,
       "sha256": "da64532a83dc4f278e5d87b583cff849e50456f9c70af0b2134fc243d42d9094"
+    },
+    {
+      "path": "results/raw_research_20260921/mechanisms/path-moment-diagnostic-v2.log",
+      "kind": "file",
+      "bytes": 4325,
+      "sha256": "13a5b910b0615790d3ee306967128d62ffa72f33952e2912ba80ec1dbb9a92b3"
+    },
+    {
+      "path": "results/raw_research_20260921/mechanisms/path-moment-diagnostic.log",
+      "kind": "file",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "results/raw_research_20260921/mechanisms/path-moments/done",
@@ -254779,6 +254905,48 @@
       "sha256": "80d7c3c2aa22979386b99f23de9a3b4b2f6a936246d32df02ae7502b5c421da7"
     },
     {
+      "path": "results/raw_research_20260921/paper/new/audit-twist.json",
+      "kind": "file",
+      "bytes": 132441,
+      "sha256": "bcc708d3401d2d47030052f815ea92de0e5f108e8369d9b2d06b9e5cab0b7579"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/exit-anchor.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/exit-matched.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/exit-twist.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/launcher-anchor.log",
+      "kind": "file",
+      "bytes": 65381,
+      "sha256": "a5edbe4a94be16a1961c08740dc4dba9b09fbe969893c17bbd4f15589ac46897"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/launcher-matched.log",
+      "kind": "file",
+      "bytes": 33404,
+      "sha256": "467c782ca2609f09e9b313f75e799c30cc43e4c733666e844a40113fadad3588"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/launcher-twist.log",
+      "kind": "file",
+      "bytes": 8289,
+      "sha256": "9c8ccaa52ba0c8604eed415935b40a05688bc6bf7c34f5435d17e8bc13d6121e"
+    },
+    {
       "path": "results/raw_research_20260921/paper/new/run-anchor/assets/learned_0_800/data.npz",
       "kind": "file",
       "bytes": 10849,
@@ -295242,6 +295410,60 @@
       "sha256": "5d8191912fdfb6dddcbbb5ca5877fc5ee0451296e368e190ed958d2a21a43188"
     },
     {
+      "path": "results/raw_research_20260921/paper/new/tests-anchor.log",
+      "kind": "file",
+      "bytes": 99,
+      "sha256": "a8549c7797027b55506fa39d6348d237f50a75844ea96c99a16a258ad8cfc0f1"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/new/tests-twist.log",
+      "kind": "file",
+      "bytes": 100,
+      "sha256": "1826deff38b3342a4148443fbbb3d202350871423f7e3562da8dde57d2f7a227"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/audit-sensor.json",
+      "kind": "file",
+      "bytes": 1714548,
+      "sha256": "d02cc653e39c17353c8a683b3e8d0359eb21636c274be0e0e60c707b9badce14"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/audit-sensor.log",
+      "kind": "file",
+      "bytes": 162,
+      "sha256": "670213cd32cb8336ddcda6d7dabc1da64d3dacf062b9e24cd5daaf0d19299468"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/exit-sensor-pipeline.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/exit-sensor-prepare.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/exit-sensor-run.txt",
+      "kind": "file",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/hardware-sensor.csv",
+      "kind": "file",
+      "bytes": 152,
+      "sha256": "5ddd382afd5d971fe5c2bda4e82815164bd0cf6102908097091822b2a38907d7"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/launcher-sensor.log",
+      "kind": "file",
+      "bytes": 84399,
+      "sha256": "6d867dce2aa329bc5461c32a905162066e9c597ba6700f45b159a8664799b719"
+    },
+    {
       "path": "results/raw_research_20260921/paper/old/run-sensor/assets/d2_ambiguous_1100/exact.npz",
       "kind": "file",
       "bytes": 83326,
@@ -322120,6 +322342,18 @@
       "kind": "file",
       "bytes": 60,
       "sha256": "163905921e0be5081197bc3c40e086779d79c32b203a6c7c5f013e9312216bd6"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/tests-sensor-prepare.log",
+      "kind": "file",
+      "bytes": 286,
+      "sha256": "0b99709d4fbd3d52fa3ee331663b7ce85118959bdf2b90e9cbeac36ad48550e1"
+    },
+    {
+      "path": "results/raw_research_20260921/paper/old/tests-sensor-run.log",
+      "kind": "file",
+      "bytes": 99,
+      "sha256": "a7c502a13e57d5bf8b00555a8ff67ad41aef842d61a978ba179600f5b9ce8780"
     },
     {
       "path": "results/raw_research_20260921/solid/run/assets/gaussian/reference.npz",
@@ -366834,10 +367068,10 @@
       "sha256": "0782a39554db4cf14ad0765afa9deb1eeeef3e584a658c4a3ade28c8bec70ffe"
     }
   ],
-  "paths": 61139,
-  "total_file_bytes": 25224437027,
-  "unique_sha256_files": 39128,
-  "unique_file_bytes": 9094416010,
+  "paths": 61178,
+  "total_file_bytes": 25226770906,
+  "unique_sha256_files": 39155,
+  "unique_file_bytes": 9096695380,
   "oversized": [],
   "secret_scan": "credential signature scan; text only; no claim of exhaustive secret detection",
   "roots": [
