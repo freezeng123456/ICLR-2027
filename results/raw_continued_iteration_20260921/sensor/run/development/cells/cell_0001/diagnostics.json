@@ -1,0 +1,281 @@
+{
+  "seconds": 0.06902261450886726,
+  "timing": {
+    "total_seconds": 0.06902261450886726,
+    "preparation_seconds": 0.007868286222219467,
+    "initialization_seconds": 0.0010809674859046936,
+    "annealing_seconds": 0.053306695073843,
+    "output_seconds": 0.006766665726900101,
+    "includes_cpu_output_and_statistics": true
+  },
+  "counts": {
+    "factor_preparation_calls": 12,
+    "mode_factor_calls": 11484,
+    "particle_factor_calls": 2555904,
+    "mode_point_evaluations": 957,
+    "target_point_evaluations": 212992,
+    "reference_component_evaluations": 425984,
+    "reference_samples": 16384,
+    "mh_proposals": 147456,
+    "mh_accepted": 104098,
+    "sign_proposals": 49152,
+    "sign_accepted": 18510,
+    "sign_factor_calls": 589824,
+    "resampling_calls": 2,
+    "factor_calls": 2567400
+  },
+  "metadata": {
+    "status": "completed",
+    "method": "tail_informed_annealed_smc",
+    "target": "normalized_prior_times_normalized_sensor_likelihoods",
+    "logZ_semantics": "estimated_log_joint_observed_data_evidence",
+    "reference": "gaussian",
+    "components_requested": 1,
+    "components_actual": 1,
+    "particles": 16384,
+    "groups": 12,
+    "dimension": 2,
+    "seed": 8116000,
+    "device": "cuda:0",
+    "dtype": "float64",
+    "return_numpy": true,
+    "ess_target": 0.8,
+    "moves": 3,
+    "proposal_scale": 1.0,
+    "covariance_scale": 1.0,
+    "covariance_scale_applied": 1.0,
+    "sign_flip": true,
+    "mode_steps": 32,
+    "max_stages": 256,
+    "temperature_strategy": "adaptive_ess",
+    "temperatures": [
+      0.0,
+      0.4775352152786958,
+      0.808506682489195,
+      1.0
+    ],
+    "stages": 3,
+    "records": [
+      {
+        "stage": 0,
+        "beta_previous": 0.0,
+        "beta": 0.4775352152786958,
+        "delta_beta": 0.4775352152786958,
+        "ess_fraction": 0.8000000000000017,
+        "resampled": true,
+        "log_normalizer_increment": -8.224815388376486,
+        "log_normalizer": -8.224815388376486,
+        "acceptance": 0.82952880859375,
+        "mh_proposals": 49152,
+        "mh_accepted": 40773,
+        "sign_acceptance": 0.2969970703125,
+        "sign_proposals": 16384,
+        "sign_accepted": 4866,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -17.069180202813065,
+        "weighted_residual_variance_before_move": 0.858195229631783
+      },
+      {
+        "stage": 1,
+        "beta_previous": 0.4775352152786958,
+        "beta": 0.808506682489195,
+        "delta_beta": 0.3309714672104992,
+        "ess_fraction": 0.8000000000000017,
+        "resampled": true,
+        "log_normalizer_increment": -5.590764765777127,
+        "log_normalizer": -13.815580154153613,
+        "acceptance": 0.6641438802083334,
+        "mh_proposals": 49152,
+        "mh_accepted": 32644,
+        "sign_acceptance": 0.38299560546875,
+        "sign_proposals": 16384,
+        "sign_accepted": 6275,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -16.656760981780437,
+        "weighted_residual_variance_before_move": 1.8629268834080075
+      },
+      {
+        "stage": 2,
+        "beta_previous": 0.808506682489195,
+        "beta": 1.0,
+        "delta_beta": 0.191493317510805,
+        "ess_fraction": 0.8749586818025007,
+        "resampled": false,
+        "log_normalizer_increment": -3.147031910407211,
+        "log_normalizer": -16.962612064560822,
+        "acceptance": 0.62420654296875,
+        "mh_proposals": 49152,
+        "mh_accepted": 30681,
+        "sign_acceptance": 0.44976806640625,
+        "sign_proposals": 16384,
+        "sign_accepted": 7369,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -16.16047753086886,
+        "weighted_residual_variance_before_move": 3.4931906140881397
+      }
+    ],
+    "random_streams": {
+      "motion_seed": 8116000,
+      "auxiliary_seed": 9116003,
+      "resampling_seed": 10116003
+    },
+    "parameter_sha256": "a2c89d07eb6800a3bb3b159e05c689d29396ad4cce4b12efda4b0e63c7b7fcb8",
+    "reference_parameters": {
+      "weights": [
+        1.0
+      ],
+      "means": [
+        [
+          -0.2568085899896282,
+          0.30094912164859006
+        ]
+      ],
+      "covariance": [
+        [
+          0.11493606732515703,
+          0.006698075646126227
+        ],
+        [
+          0.006698075646126227,
+          0.10715855006908645
+        ]
+      ],
+      "tail_precision": [
+        [
+          8.732297758708206,
+          -0.5458229036751348
+        ],
+        [
+          -0.5458229036751348,
+          9.366083830465557
+        ]
+      ]
+    },
+    "mode_search": {
+      "algorithm": "fixed_tail_precision_latent_sign_em",
+      "mode_steps": 32,
+      "starts": 29,
+      "requested_components": 1,
+      "actual_components": 1,
+      "merge_squared_mahalanobis_tolerance": 1e-08,
+      "selected_start_indices": [
+        28
+      ],
+      "selected_log_joint": [
+        -17.519255636367436
+      ],
+      "selected_score_norms": [
+        0.0007452676535918231
+      ],
+      "all_terminal_log_joint": [
+        -17.519271029147134,
+        -17.519268280516783,
+        -17.519275571379595,
+        -17.519273020488964,
+        -17.519267410581282,
+        -17.51932796344188,
+        -17.521733742511596,
+        -17.51932796344188,
+        -17.5193281215826,
+        -17.51932750841885,
+        -17.521733742511596,
+        -17.51926937214,
+        -17.51932796344188,
+        -17.521701043023615,
+        -17.519272144830765,
+        -17.519272144830765,
+        -17.51929218793384,
+        -17.521733742511596,
+        -17.51932796344188,
+        -17.521733742511596,
+        -17.521701043023615,
+        -17.521698222999998,
+        -17.51932796344188,
+        -17.519272144830765,
+        -17.521733742511596,
+        -17.5193281215826,
+        -17.51926937214,
+        -17.51926937214,
+        -17.519255636367436
+      ],
+      "all_terminal_score_norms": [
+        0.005050472771521551,
+        0.004581740730710037,
+        0.005745346877777752,
+        0.005365644786610268,
+        0.004423528488264573,
+        0.011050134685280752,
+        0.04854763714895105,
+        0.011050134685280752,
+        0.011062552002617165,
+        0.011014335215649637,
+        0.04854763714895105,
+        0.004773163668889556,
+        0.011050134685280752,
+        0.04831629707525521,
+        0.0052292810204362435,
+        0.0052292810204362435,
+        0.00779801981417841,
+        0.04854763714895105,
+        0.011050134685280752,
+        0.04854763714895105,
+        0.04831629707525521,
+        0.048296223771481475,
+        0.011050134685280752,
+        0.0052292810204362435,
+        0.04854763714895105,
+        0.011062552002617165,
+        0.004773163668889556,
+        0.004773163668889556,
+        0.0007452676535918231
+      ],
+      "weight_rule": "normalized_target_heights_common_covariance"
+    },
+    "weighted_reference_responsibility_mass": [
+      0.9999999999999993
+    ],
+    "statistics": {
+      "weighted_mean": [
+        -0.1952337354224297,
+        0.2027418164446998
+      ],
+      "weighted_covariance": [
+        [
+          0.17549469383719082,
+          0.06664771546273825
+        ],
+        [
+          0.06664771546273825,
+          0.38095324837653033
+        ]
+      ],
+      "quantile_levels": [
+        0.025,
+        0.05,
+        0.95,
+        0.975
+      ],
+      "weighted_quantiles": [
+        [
+          -1.0254584594369138,
+          -0.8750452319940093,
+          0.478054764833002,
+          0.6047648274581972
+        ],
+        [
+          -1.0361433998592864,
+          -0.8877380824114591,
+          1.1364139372559767,
+          1.2540350762699228
+        ]
+      ],
+      "ess": 14335.32304265216,
+      "weight_min": 4.626032432979492e-05,
+      "weight_max": 0.0004861138265041421
+    },
+    "normalizer_unbiasedness_claim": false
+  }
+}

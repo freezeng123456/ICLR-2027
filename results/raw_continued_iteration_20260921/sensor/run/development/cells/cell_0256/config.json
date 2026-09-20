@@ -1,0 +1,16 @@
+{
+  "dimension": 8,
+  "regime": "ambiguous",
+  "dataset_seed": 1401,
+  "groups": 12,
+  "setting_id": "smc_k128_s0.35",
+  "kind": "smc",
+  "stages": 128,
+  "proposal_scale": 0.35,
+  "moves": 3,
+  "particles": 16384,
+  "role": "baseline",
+  "phase": "development",
+  "repeat": 0,
+  "cell_id": 256
+}

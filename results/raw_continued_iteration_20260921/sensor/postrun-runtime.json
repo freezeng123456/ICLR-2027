@@ -1,0 +1,19 @@
+{
+  "recorded_at_utc": "2026-09-20T21:16:56.673922+00:00",
+  "record_stage": "after_sensor_development",
+  "source_commit": "b7aa4f0ee8d2d80eecbcf9967b820e62597e2d76",
+  "python": "3.12.13",
+  "numpy": "2.2.6",
+  "scipy": "1.17.1",
+  "torch": "2.10.0+cu128",
+  "cuda": "12.8",
+  "available_cpu_count": 384,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": null,
+    "CUDA_VISIBLE_DEVICES": null
+  },
+  "gpu": "GPU-9df139e5-807e-f4ca-de97-58345bc9d01d, NVIDIA H20, 535.247.01, 97871 MiB",
+  "gpu_processes_at_recording": []
+}

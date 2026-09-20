@@ -1,0 +1,269 @@
+{
+  "seconds": 0.030792400240898132,
+  "timing": {
+    "total_seconds": 0.030792400240898132,
+    "preparation_seconds": 0.012497194111347198,
+    "initialization_seconds": 0.0007855482399463654,
+    "annealing_seconds": 0.013733014464378357,
+    "output_seconds": 0.0037766434252262115,
+    "includes_cpu_output_and_statistics": true
+  },
+  "counts": {
+    "factor_preparation_calls": 12,
+    "mode_factor_calls": 11484,
+    "particle_factor_calls": 1769472,
+    "mode_point_evaluations": 957,
+    "target_point_evaluations": 147456,
+    "reference_component_evaluations": 589824,
+    "reference_samples": 16384,
+    "mh_proposals": 98304,
+    "mh_accepted": 82423,
+    "sign_proposals": 32768,
+    "sign_accepted": 5939,
+    "sign_factor_calls": 393216,
+    "resampling_calls": 1,
+    "factor_calls": 1780968
+  },
+  "metadata": {
+    "status": "completed",
+    "method": "tail_informed_annealed_smc",
+    "target": "normalized_prior_times_normalized_sensor_likelihoods",
+    "logZ_semantics": "estimated_log_joint_observed_data_evidence",
+    "reference": "mixture",
+    "components_requested": 2,
+    "components_actual": 2,
+    "particles": 16384,
+    "groups": 12,
+    "dimension": 2,
+    "seed": 8116010,
+    "device": "cuda:0",
+    "dtype": "float64",
+    "return_numpy": true,
+    "ess_target": 0.8,
+    "moves": 3,
+    "proposal_scale": 0.5,
+    "covariance_scale": 4.0,
+    "covariance_scale_applied": 4.0,
+    "sign_flip": true,
+    "mode_steps": 32,
+    "max_stages": 256,
+    "temperature_strategy": "adaptive_ess",
+    "temperatures": [
+      0.0,
+      0.5340756447864088,
+      1.0
+    ],
+    "stages": 2,
+    "records": [
+      {
+        "stage": 0,
+        "beta_previous": 0.0,
+        "beta": 0.5340756447864088,
+        "delta_beta": 0.5340756447864088,
+        "ess_fraction": 0.8000000000000017,
+        "resampled": true,
+        "log_normalizer_increment": -10.366844341055273,
+        "log_normalizer": -10.366844341055273,
+        "acceptance": 0.8741861979166666,
+        "mh_proposals": 49152,
+        "mh_accepted": 42968,
+        "sign_acceptance": 0.17120361328125,
+        "sign_proposals": 16384,
+        "sign_accepted": 2805,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -19.159586684974336,
+        "weighted_residual_variance_before_move": 0.6841912556231621
+      },
+      {
+        "stage": 1,
+        "beta_previous": 0.5340756447864088,
+        "beta": 1.0,
+        "delta_beta": 0.4659243552135912,
+        "ess_fraction": 0.8605822455731345,
+        "resampled": false,
+        "log_normalizer_increment": -8.846971262387163,
+        "log_normalizer": -19.213815603442434,
+        "acceptance": 0.8027140299479166,
+        "mh_proposals": 49152,
+        "mh_accepted": 39455,
+        "sign_acceptance": 0.1912841796875,
+        "sign_proposals": 16384,
+        "sign_accepted": 3134,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -18.83338369891724,
+        "weighted_residual_variance_before_move": 0.6754700754886677
+      }
+    ],
+    "random_streams": {
+      "motion_seed": 8116010,
+      "auxiliary_seed": 9116013,
+      "resampling_seed": 10116013
+    },
+    "parameter_sha256": "99dcdc1adf85626a1ed8214f05185ef3997c56f960f1184809dc78118f6df434",
+    "reference_parameters": {
+      "weights": [
+        0.5000000021901476,
+        0.4999999978098523
+      ],
+      "means": [
+        [
+          -1.0482553881991055,
+          0.3758200598384522
+        ],
+        [
+          -1.04819246750258,
+          0.37587370937051406
+        ]
+      ],
+      "covariance": [
+        [
+          0.5636893593720347,
+          -0.0075159261891222075
+        ],
+        [
+          -0.0075159261891222075,
+          0.3886028969398237
+        ]
+      ],
+      "tail_precision": [
+        [
+          7.0979374066113765,
+          0.1372804321923561
+        ],
+        [
+          0.1372804321923561,
+          10.295939173647334
+        ]
+      ]
+    },
+    "mode_search": {
+      "algorithm": "fixed_tail_precision_latent_sign_em",
+      "mode_steps": 32,
+      "starts": 29,
+      "requested_components": 2,
+      "actual_components": 2,
+      "merge_squared_mahalanobis_tolerance": 1e-08,
+      "selected_start_indices": [
+        6,
+        10
+      ],
+      "selected_log_joint": [
+        -20.016508027885706,
+        -20.016508036646297
+      ],
+      "selected_score_norms": [
+        2.0332952719011206e-06,
+        0.00021350642589738905
+      ],
+      "all_terminal_log_joint": [
+        -20.016508047668705,
+        -20.01650803777385,
+        -20.016509217162266,
+        -20.01652213795215,
+        -22.385183967738133,
+        -20.016508027907264,
+        -20.016508027885706,
+        -20.016512088308907,
+        -20.050623148750397,
+        -20.016508101594535,
+        -20.016508036646297,
+        -20.016508028687838,
+        -20.016508101594535,
+        -20.016508028687838,
+        -20.016508027907264,
+        -20.17816316566771,
+        -20.016508028687838,
+        -20.17816316566771,
+        -20.16865231009988,
+        -22.390816857960083,
+        -20.016508028687838,
+        -20.016508036646297,
+        -20.016508101594535,
+        -20.050623148750397,
+        -20.016508036646297,
+        -20.050623148750397,
+        -20.17816316566771,
+        -20.016508027907264,
+        -20.050623148750397
+      ],
+      "all_terminal_score_norms": [
+        0.00032081500263560453,
+        0.00022682781341095757,
+        0.0024845265228069678,
+        0.00853046533385275,
+        0.23965138543957118,
+        1.07850062082597e-05,
+        2.0332952719011206e-06,
+        0.004585682105568431,
+        0.3149334604812805,
+        0.0006191464374121573,
+        0.00021350642589738905,
+        6.463922702515019e-05,
+        0.0006191464374121573,
+        6.463922702515019e-05,
+        1.07850062082597e-05,
+        0.11852299968704608,
+        6.463922702515019e-05,
+        0.11852299968704608,
+        0.16438054678832872,
+        0.18777646667028036,
+        6.463922702515019e-05,
+        0.00021350642589738905,
+        0.0006191464374121573,
+        0.3149334604812805,
+        0.00021350642589738905,
+        0.3149334604812805,
+        0.11852299968704608,
+        1.07850062082597e-05,
+        0.3149334604812805
+      ],
+      "weight_rule": "normalized_target_heights_common_covariance"
+    },
+    "weighted_reference_responsibility_mass": [
+      0.4999831369067025,
+      0.5000168630932973
+    ],
+    "statistics": {
+      "weighted_mean": [
+        -0.5603030674379075,
+        0.46201651277308126
+      ],
+      "weighted_covariance": [
+        [
+          0.5451689058730284,
+          0.07245828951846851
+        ],
+        [
+          0.0724582895184685,
+          0.32189040635103927
+        ]
+      ],
+      "quantile_levels": [
+        0.025,
+        0.05,
+        0.95,
+        0.975
+      ],
+      "weighted_quantiles": [
+        [
+          -1.8111144068498293,
+          -1.6549555905008875,
+          0.7538317706368775,
+          1.0259591025126649
+        ],
+        [
+          -0.7595937496683962,
+          -0.53854876294716,
+          1.3361319387970847,
+          1.4841272526677465
+        ]
+      ],
+      "ess": 14099.77951147023,
+      "weight_min": 9.15501444787503e-07,
+      "weight_max": 0.000344747253239513
+    },
+    "normalizer_unbiasedness_claim": false
+  }
+}

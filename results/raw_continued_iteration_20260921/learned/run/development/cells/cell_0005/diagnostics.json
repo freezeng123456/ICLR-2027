@@ -1,0 +1,130 @@
+{
+  "seconds": 0.1450474001467228,
+  "preparation_seconds": 0.001397896558046341,
+  "counts": {
+    "factor_preparation_calls": 5,
+    "mode_factor_calls": 0,
+    "particle_factor_calls": 512000,
+    "mode_point_evaluations": 0,
+    "target_point_evaluations": 102400,
+    "reference_component_evaluations": 200704,
+    "reference_samples": 4096,
+    "mh_proposals": 73728,
+    "mh_accepted": 56313,
+    "sign_proposals": 24576,
+    "sign_accepted": 3821,
+    "sign_factor_calls": 122880,
+    "resampling_calls": 5,
+    "factor_calls": 512005
+  },
+  "reference": "prior",
+  "direct_is": false,
+  "proposal_scale": 0.35,
+  "global_probability": 0.0,
+  "target": "prior_corrected_product_of_frozen_learned_projection_posteriors",
+  "logZ_semantics": "composition_normalizer",
+  "parameter_sha256": "8868c1693f289d3b60e01c6ed1c7c2762c0762c89030fa745b43f96a7041fbe2",
+  "mode_search": {
+    "algorithm": "prior",
+    "starts": 0,
+    "steps": 0
+  },
+  "reference_parameters": {
+    "weights": [
+      1.0
+    ],
+    "means": [
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "covariance": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "records": [
+    {
+      "stage": 0,
+      "beta_previous": 0.0,
+      "beta": 0.05328521990312396,
+      "ess_fraction": 0.8000000000000045,
+      "resampled": true,
+      "log_normalizer_increment": -0.48986025826162116,
+      "log_normalizer": -0.48986025826162116,
+      "mh_accepted": 11433,
+      "global_proposals": 0,
+      "sign_accepted": 2429
+    },
+    {
+      "stage": 1,
+      "beta_previous": 0.05328521990312396,
+      "beta": 0.13110879111914092,
+      "ess_fraction": 0.8000000000000058,
+      "resampled": true,
+      "log_normalizer_increment": -0.3462352373108235,
+      "log_normalizer": -0.8360954955724447,
+      "mh_accepted": 10511,
+      "global_proposals": 0,
+      "sign_accepted": 1076
+    },
+    {
+      "stage": 2,
+      "beta_previous": 0.13110879111914092,
+      "beta": 0.24462393522157083,
+      "ess_fraction": 0.8000000000000045,
+      "resampled": true,
+      "log_normalizer_increment": -0.14146300876987183,
+      "log_normalizer": -0.9775585043423165,
+      "mh_accepted": 9833,
+      "global_proposals": 0,
+      "sign_accepted": 282
+    },
+    {
+      "stage": 3,
+      "beta_previous": 0.24462393522157083,
+      "beta": 0.4134827920922719,
+      "ess_fraction": 0.8000000000000016,
+      "resampled": true,
+      "log_normalizer_increment": 0.1733280484167139,
+      "log_normalizer": -0.8042304559256026,
+      "mh_accepted": 8983,
+      "global_proposals": 0,
+      "sign_accepted": 32
+    },
+    {
+      "stage": 4,
+      "beta_previous": 0.4134827920922719,
+      "beta": 0.679835309789167,
+      "ess_fraction": 0.8000000000000002,
+      "resampled": true,
+      "log_normalizer_increment": 0.6984599465024273,
+      "log_normalizer": -0.10577050942317534,
+      "mh_accepted": 8234,
+      "global_proposals": 0,
+      "sign_accepted": 1
+    },
+    {
+      "stage": 5,
+      "beta_previous": 0.679835309789167,
+      "beta": 1.0,
+      "ess_fraction": 0.8575508845235549,
+      "resampled": false,
+      "log_normalizer_increment": 1.1155490284631542,
+      "log_normalizer": 1.0097785190399788,
+      "mh_accepted": 7319,
+      "global_proposals": 0,
+      "sign_accepted": 1
+    }
+  ],
+  "stages": 6,
+  "device": "cuda:0",
+  "normalizer_unbiasedness_claim": false
+}

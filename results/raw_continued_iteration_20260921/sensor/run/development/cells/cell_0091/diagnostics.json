@@ -1,0 +1,229 @@
+{
+  "seconds": 0.045559681951999664,
+  "timing": {
+    "total_seconds": 0.045559681951999664,
+    "preparation_seconds": 0.000995144248008728,
+    "initialization_seconds": 0.0007762014865875244,
+    "annealing_seconds": 0.04043255001306534,
+    "output_seconds": 0.0033557862043380737,
+    "includes_cpu_output_and_statistics": true
+  },
+  "counts": {
+    "factor_preparation_calls": 12,
+    "mode_factor_calls": 0,
+    "particle_factor_calls": 3342336,
+    "mode_point_evaluations": 0,
+    "target_point_evaluations": 278528,
+    "reference_component_evaluations": 557056,
+    "reference_samples": 16384,
+    "mh_proposals": 196608,
+    "mh_accepted": 146778,
+    "sign_proposals": 65536,
+    "sign_accepted": 48465,
+    "sign_factor_calls": 786432,
+    "resampling_calls": 3,
+    "factor_calls": 3342348
+  },
+  "metadata": {
+    "status": "completed",
+    "method": "tail_informed_annealed_smc",
+    "target": "normalized_prior_times_normalized_sensor_likelihoods",
+    "logZ_semantics": "estimated_log_joint_observed_data_evidence",
+    "reference": "prior",
+    "components_requested": 1,
+    "components_actual": 1,
+    "particles": 16384,
+    "groups": 12,
+    "dimension": 2,
+    "seed": 8116030,
+    "device": "cuda:0",
+    "dtype": "float64",
+    "return_numpy": true,
+    "ess_target": 0.8,
+    "moves": 3,
+    "proposal_scale": 0.35,
+    "covariance_scale": 1.0,
+    "covariance_scale_applied": 1.0,
+    "sign_flip": true,
+    "mode_steps": 32,
+    "max_stages": 256,
+    "temperature_strategy": "adaptive_ess",
+    "temperatures": [
+      0.0,
+      0.17292732064579042,
+      0.3766409760164863,
+      0.6541116577602801,
+      1.0
+    ],
+    "stages": 4,
+    "records": [
+      {
+        "stage": 0,
+        "beta_previous": 0.0,
+        "beta": 0.17292732064579042,
+        "delta_beta": 0.17292732064579042,
+        "ess_fraction": 0.8000000000000032,
+        "resampled": true,
+        "log_normalizer_increment": -4.676501957427696,
+        "log_normalizer": -4.676501957427696,
+        "acceptance": 0.8916219075520834,
+        "mh_proposals": 49152,
+        "mh_accepted": 43825,
+        "sign_acceptance": 0.86761474609375,
+        "sign_proposals": 16384,
+        "sign_accepted": 14215,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -26.352250372973266,
+        "weighted_residual_variance_before_move": 7.469057472399345
+      },
+      {
+        "stage": 1,
+        "beta_previous": 0.17292732064579042,
+        "beta": 0.3766409760164863,
+        "delta_beta": 0.20371365537069586,
+        "ess_fraction": 0.8000000000000003,
+        "resampled": true,
+        "log_normalizer_increment": -5.215607915841442,
+        "log_normalizer": -9.892109873269138,
+        "acceptance": 0.7857462565104166,
+        "mh_proposals": 49152,
+        "mh_accepted": 38621,
+        "sign_acceptance": 0.77001953125,
+        "sign_proposals": 16384,
+        "sign_accepted": 12616,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -24.979997825688322,
+        "weighted_residual_variance_before_move": 5.364622579345134
+      },
+      {
+        "stage": 2,
+        "beta_previous": 0.3766409760164863,
+        "beta": 0.6541116577602801,
+        "delta_beta": 0.27747068174379386,
+        "ess_fraction": 0.8000000000000017,
+        "resampled": true,
+        "log_normalizer_increment": -6.766270523861964,
+        "log_normalizer": -16.658380397131104,
+        "acceptance": 0.6894938151041666,
+        "mh_proposals": 49152,
+        "mh_accepted": 33890,
+        "sign_acceptance": 0.70306396484375,
+        "sign_proposals": 16384,
+        "sign_accepted": 11519,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -23.894512721784537,
+        "weighted_residual_variance_before_move": 2.790182462477521
+      },
+      {
+        "stage": 3,
+        "beta_previous": 0.6541116577602801,
+        "beta": 1.0,
+        "delta_beta": 0.34588834223971987,
+        "ess_fraction": 0.8525806203197978,
+        "resampled": false,
+        "log_normalizer_increment": -8.133376719395272,
+        "log_normalizer": -24.791757116526377,
+        "acceptance": 0.6193440755208334,
+        "mh_proposals": 49152,
+        "mh_accepted": 30442,
+        "sign_acceptance": 0.61737060546875,
+        "sign_proposals": 16384,
+        "sign_accepted": 10115,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -23.229433797600088,
+        "weighted_residual_variance_before_move": 1.257001658167198
+      }
+    ],
+    "random_streams": {
+      "motion_seed": 8116030,
+      "auxiliary_seed": 9116033,
+      "resampling_seed": 10116033
+    },
+    "parameter_sha256": "0f7194fff0d8d3d8a2f9b5e990523267dadff1714740c195f7c7753ddd40cf8b",
+    "reference_parameters": {
+      "weights": [
+        1.0
+      ],
+      "means": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "covariance": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "tail_precision": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "mode_search": {
+      "algorithm": "prior_identity",
+      "mode_steps": 0,
+      "starts": 0,
+      "requested_components": 1,
+      "actual_components": 1
+    },
+    "weighted_reference_responsibility_mass": [
+      1.0000000000000004
+    ],
+    "statistics": {
+      "weighted_mean": [
+        -0.2475481287404772,
+        0.04065896435113038
+      ],
+      "weighted_covariance": [
+        [
+          0.9414918007392941,
+          1.1241441479500678
+        ],
+        [
+          1.1241441479500676,
+          2.2410071899787085
+        ]
+      ],
+      "quantile_levels": [
+        0.025,
+        0.05,
+        0.95,
+        0.975
+      ],
+      "weighted_quantiles": [
+        [
+          -1.7811812591937106,
+          -1.6394511039402584,
+          1.3326563897715697,
+          1.5306889658283103
+        ],
+        [
+          -2.014815308563625,
+          -1.8823904951426949,
+          2.003862121411742,
+          2.138925563411611
+        ]
+      ],
+      "ess": 13968.680883319576,
+      "weight_min": 1.3374513785332122e-06,
+      "weight_max": 0.0001058377672062018
+    },
+    "normalizer_unbiasedness_claim": false
+  }
+}

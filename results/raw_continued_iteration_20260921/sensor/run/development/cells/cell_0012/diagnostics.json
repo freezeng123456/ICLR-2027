@@ -1,0 +1,208 @@
+{
+  "seconds": 0.057257030159235,
+  "timing": {
+    "total_seconds": 0.057257030159235,
+    "preparation_seconds": 0.0016012191772460938,
+    "initialization_seconds": 0.001175716519355774,
+    "annealing_seconds": 0.04688122868537903,
+    "output_seconds": 0.007598865777254105,
+    "includes_cpu_output_and_statistics": true
+  },
+  "counts": {
+    "factor_preparation_calls": 12,
+    "mode_factor_calls": 0,
+    "particle_factor_calls": 2555904,
+    "mode_point_evaluations": 0,
+    "target_point_evaluations": 212992,
+    "reference_component_evaluations": 425984,
+    "reference_samples": 16384,
+    "mh_proposals": 147456,
+    "mh_accepted": 133941,
+    "sign_proposals": 49152,
+    "sign_accepted": 32797,
+    "sign_factor_calls": 589824,
+    "resampling_calls": 2,
+    "factor_calls": 2555916
+  },
+  "metadata": {
+    "status": "completed",
+    "method": "tail_informed_annealed_smc",
+    "target": "normalized_prior_times_normalized_sensor_likelihoods",
+    "logZ_semantics": "estimated_log_joint_observed_data_evidence",
+    "reference": "prior",
+    "components_requested": 1,
+    "components_actual": 1,
+    "particles": 16384,
+    "groups": 12,
+    "dimension": 2,
+    "seed": 8116000,
+    "device": "cuda:0",
+    "dtype": "float64",
+    "return_numpy": true,
+    "ess_target": 0.8,
+    "moves": 3,
+    "proposal_scale": 0.15,
+    "covariance_scale": 1.0,
+    "covariance_scale_applied": 1.0,
+    "sign_flip": true,
+    "mode_steps": 32,
+    "max_stages": 256,
+    "temperature_strategy": "adaptive_ess",
+    "temperatures": [
+      0.0,
+      0.19049136911912967,
+      0.5878256388564508,
+      1.0
+    ],
+    "stages": 3,
+    "records": [
+      {
+        "stage": 0,
+        "beta_previous": 0.0,
+        "beta": 0.19049136911912967,
+        "delta_beta": 0.19049136911912967,
+        "ess_fraction": 0.8000000000000017,
+        "resampled": true,
+        "log_normalizer_increment": -3.492140208294469,
+        "log_normalizer": -3.492140208294469,
+        "acceptance": 0.9557291666666666,
+        "mh_proposals": 49152,
+        "mh_accepted": 46976,
+        "sign_acceptance": 0.84552001953125,
+        "sign_proposals": 16384,
+        "sign_accepted": 13853,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -17.531990880733844,
+        "weighted_residual_variance_before_move": 5.207650848263105
+      },
+      {
+        "stage": 1,
+        "beta_previous": 0.19049136911912967,
+        "beta": 0.5878256388564508,
+        "delta_beta": 0.3973342697373211,
+        "ess_fraction": 0.8000000000000003,
+        "resampled": true,
+        "log_normalizer_increment": -6.725605609589744,
+        "log_normalizer": -10.217745817884213,
+        "acceptance": 0.9059651692708334,
+        "mh_proposals": 49152,
+        "mh_accepted": 44530,
+        "sign_acceptance": 0.63232421875,
+        "sign_proposals": 16384,
+        "sign_accepted": 10360,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -16.548179968761882,
+        "weighted_residual_variance_before_move": 1.2180952877924054
+      },
+      {
+        "stage": 2,
+        "beta_previous": 0.5878256388564508,
+        "beta": 1.0,
+        "delta_beta": 0.4121743611435492,
+        "ess_fraction": 0.9080020974905747,
+        "resampled": false,
+        "log_normalizer_increment": -6.741037064814796,
+        "log_normalizer": -16.95878288269901,
+        "acceptance": 0.86334228515625,
+        "mh_proposals": 49152,
+        "mh_accepted": 42435,
+        "sign_acceptance": 0.52392578125,
+        "sign_proposals": 16384,
+        "sign_accepted": 8584,
+        "sign_factor_calls": 196608,
+        "factor_calls": 786432,
+        "weighted_residual_mean_before_move": -16.211221210713255,
+        "weighted_residual_variance_before_move": 0.5344496996963478
+      }
+    ],
+    "random_streams": {
+      "motion_seed": 8116000,
+      "auxiliary_seed": 9116003,
+      "resampling_seed": 10116003
+    },
+    "parameter_sha256": "a2c89d07eb6800a3bb3b159e05c689d29396ad4cce4b12efda4b0e63c7b7fcb8",
+    "reference_parameters": {
+      "weights": [
+        1.0
+      ],
+      "means": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "covariance": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "tail_precision": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "mode_search": {
+      "algorithm": "prior_identity",
+      "mode_steps": 0,
+      "starts": 0,
+      "requested_components": 1,
+      "actual_components": 1
+    },
+    "weighted_reference_responsibility_mass": [
+      1.0000000000000007
+    ],
+    "statistics": {
+      "weighted_mean": [
+        -0.18899133559917186,
+        0.20848846019454476
+      ],
+      "weighted_covariance": [
+        [
+          0.17153869962709953,
+          0.07039955138284461
+        ],
+        [
+          0.07039955138284462,
+          0.399866441284145
+        ]
+      ],
+      "quantile_levels": [
+        0.025,
+        0.05,
+        0.95,
+        0.975
+      ],
+      "weighted_quantiles": [
+        [
+          -0.9914116951888192,
+          -0.8677076449188981,
+          0.48803626440476766,
+          0.6265141411487893
+        ],
+        [
+          -1.0582604570311491,
+          -0.8865644100703903,
+          1.189068017868573,
+          1.326010595114143
+        ]
+      ],
+      "ess": 14876.706365285583,
+      "weight_min": 5.997754786157268e-07,
+      "weight_max": 8.779757055019964e-05
+    },
+    "normalizer_unbiasedness_claim": false
+  }
+}

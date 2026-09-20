@@ -1,0 +1,14 @@
+{
+  "setting_id": "mixture_direct_is",
+  "reference": "mixture",
+  "proposal_scale": 0.5,
+  "global_probability": 0.0,
+  "direct_is": true,
+  "role": "diagnostic",
+  "dataset_seed": 1602,
+  "repeat": 0,
+  "cell_id": 63,
+  "particles": 4096,
+  "phase": "development",
+  "sampler_seed": 9316020
+}

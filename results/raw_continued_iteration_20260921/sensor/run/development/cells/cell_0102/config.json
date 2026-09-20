@@ -1,0 +1,16 @@
+{
+  "dimension": 2,
+  "regime": "ambiguous",
+  "dataset_seed": 1403,
+  "groups": 12,
+  "setting_id": "full",
+  "kind": "diffusion",
+  "method": "full",
+  "particles": 16384,
+  "steps": 2048,
+  "batch": 4,
+  "role": "diagnostic",
+  "phase": "development",
+  "repeat": 0,
+  "cell_id": 102
+}

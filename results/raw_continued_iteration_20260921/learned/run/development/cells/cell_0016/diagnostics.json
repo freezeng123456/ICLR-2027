@@ -1,0 +1,100 @@
+{
+  "seconds": 0.008452154695987701,
+  "preparation_seconds": 0.007185723632574081,
+  "counts": {
+    "factor_preparation_calls": 5,
+    "mode_factor_calls": 4160,
+    "particle_factor_calls": 20480,
+    "mode_point_evaluations": 832,
+    "target_point_evaluations": 4096,
+    "reference_component_evaluations": 4096,
+    "reference_samples": 4096,
+    "mh_proposals": 0,
+    "mh_accepted": 0,
+    "sign_proposals": 0,
+    "sign_accepted": 0,
+    "sign_factor_calls": 0,
+    "resampling_calls": 0,
+    "factor_calls": 24645
+  },
+  "reference": "mixture",
+  "direct_is": true,
+  "proposal_scale": 0.5,
+  "global_probability": 0.0,
+  "target": "prior_corrected_product_of_frozen_learned_projection_posteriors",
+  "logZ_semantics": "composition_normalizer",
+  "parameter_sha256": "8868c1693f289d3b60e01c6ed1c7c2762c0762c89030fa745b43f96a7041fbe2",
+  "mode_search": {
+    "algorithm": "fixed_latent_component_em",
+    "starts": 16,
+    "steps": 50,
+    "initial_seed": 20261020,
+    "selected_indices": [
+      0
+    ],
+    "selected_log_target": [
+      0.7793454540293023
+    ],
+    "selected_gradient_norms": [
+      1.831026719408895e-15
+    ],
+    "all_gradient_norms": [
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15,
+      1.831026719408895e-15
+    ],
+    "merge_distance_squared": 1e-08,
+    "minimum_pre_normalization_weight": 1e-06
+  },
+  "reference_parameters": {
+    "weights": [
+      1.0
+    ],
+    "means": [
+      [
+        2.00471388757164,
+        0.08967817519711126
+      ]
+    ],
+    "covariance": [
+      [
+        0.15390225506097915,
+        -0.02737946660646731
+      ],
+      [
+        -0.02737946660646731,
+        0.19297075750236564
+      ]
+    ]
+  },
+  "records": [
+    {
+      "stage": 0,
+      "beta_previous": 0.0,
+      "beta": 1.0,
+      "ess_fraction": 0.871601592649374,
+      "resampled": false,
+      "log_normalizer_increment": 1.0427784592248717,
+      "log_normalizer": 1.0427784592248717,
+      "mh_accepted": 0,
+      "global_proposals": 0,
+      "sign_accepted": 0
+    }
+  ],
+  "stages": 1,
+  "device": "cuda:0",
+  "normalizer_unbiasedness_claim": false
+}

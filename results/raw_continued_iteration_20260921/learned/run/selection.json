@@ -1,0 +1,41 @@
+{
+  "baseline": "prior_s0.65",
+  "candidate": "mixture",
+  "means": {
+    "prior_s0.15": {
+      "sliced_w1_32": 0.012943192676965363,
+      "seconds": 0.1193175654237469
+    },
+    "prior_s0.35": {
+      "sliced_w1_32": 0.009714033776784082,
+      "seconds": 0.1246816273778677
+    },
+    "prior_s0.65": {
+      "sliced_w1_32": 0.010055556095775473,
+      "seconds": 0.11895478206376235
+    },
+    "gaussian": {
+      "sliced_w1_32": 0.010712692460303012,
+      "seconds": 0.08650055744995673
+    },
+    "mixture": {
+      "sliced_w1_32": 0.010712692460303009,
+      "seconds": 0.1000448598836859
+    },
+    "mixture_direct_is": {
+      "sliced_w1_32": 0.012924086573069357,
+      "seconds": 0.06959484548618396
+    },
+    "mixture_global": {
+      "sliced_w1_32": 0.010864906588469427,
+      "seconds": 0.08679468215753634
+    },
+    "exact_enumeration": {
+      "sliced_w1_32": 0.011157104298701336,
+      "seconds": 0.06376133455584447
+    }
+  },
+  "expand_confirmation": false,
+  "development_only": true,
+  "comparison_scope": "against prior-SMC; exact enumeration also reported"
+}

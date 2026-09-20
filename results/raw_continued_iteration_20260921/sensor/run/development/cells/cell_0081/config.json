@@ -1,0 +1,20 @@
+{
+  "dimension": 2,
+  "regime": "ambiguous",
+  "dataset_seed": 1403,
+  "groups": 12,
+  "setting_id": "bridge_gaussian1_cov4_s1",
+  "kind": "bridge",
+  "reference": "gaussian",
+  "components": 1,
+  "covariance_scale": 4.0,
+  "proposal_scale": 1.0,
+  "ess_target": 0.8,
+  "moves": 3,
+  "mode_steps": 32,
+  "particles": 16384,
+  "role": "candidate",
+  "phase": "development",
+  "repeat": 0,
+  "cell_id": 81
+}

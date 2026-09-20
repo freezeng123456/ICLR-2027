@@ -1,0 +1,14 @@
+{
+  "setting_id": "prior_s0.35",
+  "reference": "prior",
+  "proposal_scale": 0.35,
+  "global_probability": 0.0,
+  "direct_is": false,
+  "role": "baseline",
+  "dataset_seed": 1600,
+  "repeat": 1,
+  "cell_id": 4,
+  "particles": 4096,
+  "phase": "development",
+  "sampler_seed": 9316001
+}

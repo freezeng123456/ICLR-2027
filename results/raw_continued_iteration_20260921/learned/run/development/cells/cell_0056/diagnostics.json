@@ -1,0 +1,94 @@
+{
+  "seconds": 0.03870592638850212,
+  "preparation_seconds": 0.0019373148679733276,
+  "counts": {
+    "factor_preparation_calls": 5,
+    "mode_factor_calls": 0,
+    "particle_factor_calls": 266240,
+    "mode_point_evaluations": 0,
+    "target_point_evaluations": 53248,
+    "reference_component_evaluations": 102400,
+    "reference_samples": 4096,
+    "mh_proposals": 36864,
+    "mh_accepted": 24817,
+    "sign_proposals": 12288,
+    "sign_accepted": 8403,
+    "sign_factor_calls": 61440,
+    "resampling_calls": 2,
+    "factor_calls": 266245
+  },
+  "reference": "prior",
+  "direct_is": false,
+  "proposal_scale": 0.65,
+  "global_probability": 0.0,
+  "target": "prior_corrected_product_of_frozen_learned_projection_posteriors",
+  "logZ_semantics": "composition_normalizer",
+  "parameter_sha256": "5bc46436e6d205ae4a423bcccc5b57814e7e2ad10c7b62275dea1fb2105572d2",
+  "mode_search": {
+    "algorithm": "prior",
+    "starts": 0,
+    "steps": 0
+  },
+  "reference_parameters": {
+    "weights": [
+      1.0
+    ],
+    "means": [
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "covariance": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "records": [
+    {
+      "stage": 0,
+      "beta_previous": 0.0,
+      "beta": 0.2281560074487352,
+      "ess_fraction": 0.8000000000000016,
+      "resampled": true,
+      "log_normalizer_increment": -0.3864157269366597,
+      "log_normalizer": -0.3864157269366597,
+      "mh_accepted": 10001,
+      "global_proposals": 0,
+      "sign_accepted": 3436
+    },
+    {
+      "stage": 1,
+      "beta_previous": 0.2281560074487352,
+      "beta": 0.6680289260269453,
+      "ess_fraction": 0.8000000000000002,
+      "resampled": true,
+      "log_normalizer_increment": -0.22612340357507943,
+      "log_normalizer": -0.6125391305117391,
+      "mh_accepted": 7892,
+      "global_proposals": 0,
+      "sign_accepted": 2635
+    },
+    {
+      "stage": 2,
+      "beta_previous": 0.6680289260269453,
+      "beta": 1.0,
+      "ess_fraction": 0.940411653297834,
+      "resampled": false,
+      "log_normalizer_increment": -0.006817912607290921,
+      "log_normalizer": -0.6193570431190301,
+      "mh_accepted": 6924,
+      "global_proposals": 0,
+      "sign_accepted": 2332
+    }
+  ],
+  "stages": 3,
+  "device": "cuda:0",
+  "normalizer_unbiasedness_claim": false
+}

@@ -1,0 +1,112 @@
+{
+  "seconds": 0.033632297068834305,
+  "preparation_seconds": 0.012730829417705536,
+  "counts": {
+    "factor_preparation_calls": 5,
+    "mode_factor_calls": 4160,
+    "particle_factor_calls": 184320,
+    "mode_point_evaluations": 832,
+    "target_point_evaluations": 36864,
+    "reference_component_evaluations": 69632,
+    "reference_samples": 4096,
+    "mh_proposals": 24576,
+    "mh_accepted": 22069,
+    "sign_proposals": 8192,
+    "sign_accepted": 17,
+    "sign_factor_calls": 40960,
+    "resampling_calls": 1,
+    "factor_calls": 188485
+  },
+  "reference": "gaussian",
+  "direct_is": false,
+  "proposal_scale": 0.5,
+  "global_probability": 0.0,
+  "target": "prior_corrected_product_of_frozen_learned_projection_posteriors",
+  "logZ_semantics": "composition_normalizer",
+  "parameter_sha256": "0fb00aedb9f011284f9df918f1b1746992f0701ba7482d6fac2a8a64dd12ef4c",
+  "mode_search": {
+    "algorithm": "fixed_latent_component_em",
+    "starts": 16,
+    "steps": 50,
+    "initial_seed": 20261020,
+    "selected_indices": [
+      0
+    ],
+    "selected_log_target": [
+      -0.05382906014158895
+    ],
+    "selected_gradient_norms": [
+      8.881784197001252e-16
+    ],
+    "all_gradient_norms": [
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16,
+      8.881784197001252e-16
+    ],
+    "merge_distance_squared": 1e-08,
+    "minimum_pre_normalization_weight": 1e-06
+  },
+  "reference_parameters": {
+    "weights": [
+      1.0
+    ],
+    "means": [
+      [
+        0.8139277116263473,
+        1.0213786375357548
+      ]
+    ],
+    "covariance": [
+      [
+        0.15460432136469052,
+        -0.029182382874002856
+      ],
+      [
+        -0.029182382874002856,
+        0.1922966094070628
+      ]
+    ]
+  },
+  "records": [
+    {
+      "stage": 0,
+      "beta_previous": 0.0,
+      "beta": 0.938404953264957,
+      "ess_fraction": 0.8000000000000016,
+      "resampled": true,
+      "log_normalizer_increment": 0.404368852541098,
+      "log_normalizer": 0.404368852541098,
+      "mh_accepted": 10993,
+      "global_proposals": 0,
+      "sign_accepted": 11
+    },
+    {
+      "stage": 1,
+      "beta_previous": 0.938404953264957,
+      "beta": 1.0,
+      "ess_fraction": 0.9989964455309556,
+      "resampled": false,
+      "log_normalizer_increment": 0.032762811711902984,
+      "log_normalizer": 0.437131664253001,
+      "mh_accepted": 11076,
+      "global_proposals": 0,
+      "sign_accepted": 6
+    }
+  ],
+  "stages": 2,
+  "device": "cuda:0",
+  "normalizer_unbiasedness_claim": false
+}
