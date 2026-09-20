@@ -1,0 +1,65 @@
+{
+  "selected": {
+    "particles": 8192,
+    "steps": 512,
+    "batch": 4,
+    "method": "certified",
+    "table_nodes": 129,
+    "eta_total": 4.0,
+    "setting_id": "explore_09"
+  },
+  "development_eligible": true,
+  "baseline": {
+    "particles": 8192,
+    "steps": 512,
+    "batch": 4,
+    "method": "full",
+    "table_nodes": 129,
+    "eta_total": 1.0,
+    "setting_id": "explore_00"
+  },
+  "setting_means": {
+    "explore_00": {
+      "w1": 0.019143587806717717,
+      "seconds": 0.7068999786861241
+    },
+    "explore_01": {
+      "w1": 0.14836574931348084,
+      "seconds": 0.6270917705260217
+    },
+    "explore_02": {
+      "w1": 0.018867668326185437,
+      "seconds": 0.8172512128949165
+    },
+    "explore_03": {
+      "w1": 0.015860082192755146,
+      "seconds": 1.6433145026676357
+    },
+    "explore_04": {
+      "w1": 0.018190544886842103,
+      "seconds": 1.5010948795825243
+    },
+    "explore_05": {
+      "w1": 0.015197247406405042,
+      "seconds": 1.4558203681372106
+    },
+    "explore_06": {
+      "w1": 0.01672187979833991,
+      "seconds": 0.8167746639810503
+    },
+    "explore_07": {
+      "w1": 0.017858521598147107,
+      "seconds": 1.6172272879630327
+    },
+    "explore_08": {
+      "w1": 0.022498476882639375,
+      "seconds": 1.4643238415010273
+    },
+    "explore_09": {
+      "w1": 0.016179783936406365,
+      "seconds": 1.4338260376825929
+    }
+  },
+  "selection_data": "training seeds 0,1; dataset seeds 200..203",
+  "criterion": "mean W1 <= baseline+0.002, then minimum mean seconds"
+}

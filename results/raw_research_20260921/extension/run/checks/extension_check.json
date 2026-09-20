@@ -1,0 +1,11 @@
+{
+  "extension": {
+    "status": "passed",
+    "wor_unbiased_max_error": 7.105427357601002e-15,
+    "prefix_suffix_vs_exhaustive_paths": 252
+  },
+  "posterior": {
+    "status": "passed",
+    "bayes_identity_max_nonconstant_error": 7.105427357601002e-14
+  }
+}

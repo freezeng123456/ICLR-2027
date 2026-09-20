@@ -1,0 +1,20 @@
+{
+  "family": "gaussian",
+  "training_seed": -1,
+  "dataset_seed": -1,
+  "repeat": 60,
+  "method": "factorized_full",
+  "setting_id": "factorized_full",
+  "particles": 8192,
+  "steps": 512,
+  "groups": 64,
+  "dimension": 8,
+  "diffusion": 1.0,
+  "u_max": 20.0,
+  "batch": 4,
+  "ess_threshold": 0.5,
+  "line": "factorization",
+  "phase": "development",
+  "seed": 21000060,
+  "cell_id": 1
+}

@@ -1,0 +1,21 @@
+{
+  "family": "learned",
+  "training_seed": 0,
+  "dataset_seed": 601,
+  "repeat": 0,
+  "method": "tail_anchored",
+  "setting_id": "tail_anchored",
+  "groups": 64,
+  "dimension": 8,
+  "particles": 4096,
+  "steps": 1024,
+  "batch": 4,
+  "u_max": 20.0,
+  "diffusion": 1.0,
+  "ess_threshold": 0.5,
+  "device": "cpu",
+  "seed": 21016020,
+  "phase": "development",
+  "line": "anchored_pilot",
+  "cell_id": 5
+}
