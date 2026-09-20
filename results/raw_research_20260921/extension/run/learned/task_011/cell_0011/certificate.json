@@ -1,0 +1,87 @@
+{
+  "finite_normalizer": false,
+  "coordinates": [
+    {
+      "finite_normalizer": false,
+      "failure_step": 399,
+      "u": 0.9915161132812502,
+      "h": 0.017318725585937722,
+      "variance_before": 6.852169402665487,
+      "minimum_denominator": -4.758696212496543,
+      "smallest_denominator": -4.758696212496543,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 399,
+      "u": 0.9915161132812502,
+      "h": 0.017318725585937722,
+      "variance_before": 1.3313214221472498,
+      "minimum_denominator": -0.10285710608775323,
+      "smallest_denominator": -0.10285710608775323,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 399,
+      "u": 0.9915161132812502,
+      "h": 0.017318725585937722,
+      "variance_before": 49.474974048181195,
+      "minimum_denominator": -40.35815852829545,
+      "smallest_denominator": -40.35815852829545,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 399,
+      "u": 0.9915161132812502,
+      "h": 0.017318725585937722,
+      "variance_before": 3.516712405600165,
+      "minimum_denominator": -1.9301262201361307,
+      "smallest_denominator": -1.9301262201361307,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 400,
+      "u": 0.9741973876953125,
+      "h": 0.017166137695311945,
+      "variance_before": 17.542925079943263,
+      "minimum_denominator": -14.122560564059699,
+      "smallest_denominator": -14.122560564059699,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 398,
+      "u": 1.0089874267578123,
+      "h": 0.017471313476562056,
+      "variance_before": 1.505294143303375,
+      "minimum_denominator": -0.2090604202649693,
+      "smallest_denominator": -0.2090604202649693,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 399,
+      "u": 0.9915161132812502,
+      "h": 0.017318725585937722,
+      "variance_before": 2.159038731540171,
+      "minimum_denominator": -0.8106483583155224,
+      "smallest_denominator": -0.8106483583155224,
+      "coefficient_count": 2
+    },
+    {
+      "finite_normalizer": false,
+      "failure_step": 399,
+      "u": 0.9915161132812502,
+      "h": 0.017318725585937722,
+      "variance_before": 1.2879141385452848,
+      "minimum_denominator": -0.07154586571789179,
+      "smallest_denominator": -0.07154586571789179,
+      "coefficient_count": 2
+    }
+  ],
+  "certificate_method": "unbiased",
+  "scope": "Gaussian exact; equal-component-variance mixtures strict tail-envelope certificate"
+}
