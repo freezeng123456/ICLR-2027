@@ -1,0 +1,42 @@
+{
+  "batches": [
+    {
+      "index": 0,
+      "files": 3728,
+      "commit": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "remote_commit": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "seconds": 114.13791845808737
+    }
+  ],
+  "status": "published_and_verified",
+  "total_batches": 1,
+  "expected_paths": 3726,
+  "manifest_sha256": "067517fa8300de13f22f0570d087562cad5d04308b81d20a4d189496f1f48f45",
+  "download_revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+  "fresh_github_downloads": [
+    {
+      "path": "results/raw_continued_iteration_20260921/sensor/run/development/cells/cell_0000/samples.npz",
+      "sha256": "748a991a7324d39b3cc54838209bb27923ea6548a478e3ecc7ab3b97073068e3",
+      "github_blob": "c44dc9c116b4493a599aa9aa383ceeab1e9f42f9"
+    },
+    {
+      "path": "results/raw_continued_iteration_20260921/sensor/audits/development.json",
+      "sha256": "afdf8df06abd1579c8e9ac9df172d07d4982ecbc9176ebe3fe53f967b9a9efde",
+      "github_blob": "da353d5397c5db2422c312358841d80a69b5bbd6"
+    },
+    {
+      "path": "results/raw_continued_iteration_20260921/learned/run/development/cells/cell_0000/samples.npz",
+      "sha256": "133357a4d3a634fd0102408403d1fdc1ac2427107b525e6b442cc755691bfa88",
+      "github_blob": "687cb7285d51afa328c2f5d8fa44635f1f1aaada"
+    },
+    {
+      "path": "results/raw_continued_iteration_20260921/learned/audit-independent/audit.json",
+      "sha256": "f494c7e7e78389d29964b406cb0398a9a81591342e2dcfd0945fc4fb48d7a301",
+      "github_blob": "631b3e8016ff03c31c6ed67d207e55637d02726e"
+    }
+  ],
+  "commit": "b6b16576770d86d39d547b52d80e5a997bbde558",
+  "remote_commit": "b6b16576770d86d39d547b52d80e5a997bbde558",
+  "published_manifest_paths": 3726,
+  "tree_entries": 3728
+}

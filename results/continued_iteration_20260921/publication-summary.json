@@ -1,0 +1,80 @@
+{
+  "status": "published_and_verified",
+  "research_content_snapshot": "1376aff174125daaf1de9dc9ac5ecc5599d61efd",
+  "raw_branch_revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+  "raw_manifest_paths": 64904,
+  "raw_tree_entries_including_indexes": 64908,
+  "regular_files": 64902,
+  "symlinks": 2,
+  "logical_bytes": 25616807828,
+  "unique_sha256_files": 41825,
+  "unique_file_bytes": 9472462470,
+  "complete_nonempty_roots_sampled": 24,
+  "additional_fresh_downloads": [
+    {
+      "revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "path": "results/raw_research_20260921/extension/run/training/training_0/final.pt",
+      "github_blob": "30e3da45aeee30826f7c4be02dae5f28e04215bc",
+      "bytes": 138319,
+      "sha256": "ce9344dce5f56b4cda176bcdb36371f48911618aa600da1465617419b4995b69"
+    },
+    {
+      "revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "path": "results/raw_research_20260921/extension/run/training/training_1/final.pt",
+      "github_blob": "c33782396974029c38ebf7bcc3bf5a8fe42af7c2",
+      "bytes": 138319,
+      "sha256": "642c9ac8b37cc879a46c5dc332c9d99eb4ae9d0bd2c4b38a1ce3bbe1af22951a"
+    },
+    {
+      "revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "path": "results/raw_research_20260921/extension/run/training/training_2/final.pt",
+      "github_blob": "6c70629d99e4d24b1deee8f03ef41dcedc3c7725",
+      "bytes": 138319,
+      "sha256": "4ad56f1f2de8ac7e99a997dc798fcc9a82d5e41bcaa01483fa8161ba24fa2737"
+    },
+    {
+      "revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "path": "results/raw_research_20260921/extension/run/training/training_3/final.pt",
+      "github_blob": "11577f34a7fe5375b7e23bc5e4311d89e2faa0dc",
+      "bytes": 138319,
+      "sha256": "40d2f60f7b01b721909df18cdd26cc0bda1e28ef62dd47bb3bc9b7acfaa1fbc4"
+    },
+    {
+      "revision": "b6b16576770d86d39d547b52d80e5a997bbde558",
+      "path": "results/raw_research_20260921/extension/run/training/training_4/final.pt",
+      "github_blob": "e87eff92e987d2639a885a43b8df174750fd88ab",
+      "bytes": 138319,
+      "sha256": "4f8f7d024dee2ba1d205fcf59f39c4f32d87524ab703a9051d4ad4e7ca38f59f"
+    },
+    {
+      "revision": "1376aff174125daaf1de9dc9ac5ecc5599d61efd",
+      "path": "output/pdf/ICLR_2027_research_draft_continued_20260921.pdf",
+      "github_blob": "288c154ff43e4e5768ae8b6a989ec992301ae41e",
+      "bytes": 513191,
+      "sha256": "3d5a076d2695c56ecc95dd62e3ca2826b15edbf60910a1d2494bfe7c31104cd8"
+    },
+    {
+      "revision": "1376aff174125daaf1de9dc9ac5ecc5599d61efd",
+      "path": "results/continued_iteration_20260921/delivery-verification.json",
+      "github_blob": "1b13daad4d00243277508cfbdb3ebc16200cc61c",
+      "bytes": 4003,
+      "sha256": "8ade3567657a7abe51d7a9583d6e63d72340cc683e364ffab8f4148adac5a1da"
+    },
+    {
+      "revision": "1376aff174125daaf1de9dc9ac5ecc5599d61efd",
+      "path": "results/continued_iteration_20260921/learned-independent-audit.json",
+      "github_blob": "631b3e8016ff03c31c6ed67d207e55637d02726e",
+      "bytes": 290230,
+      "sha256": "f494c7e7e78389d29964b406cb0398a9a81591342e2dcfd0945fc4fb48d7a301"
+    },
+    {
+      "revision": "1376aff174125daaf1de9dc9ac5ecc5599d61efd",
+      "path": "results/continued_iteration_20260921/sensor-independent-audit.json",
+      "github_blob": "da353d5397c5db2422c312358841d80a69b5bbd6",
+      "bytes": 1183034,
+      "sha256": "afdf8df06abd1579c8e9ac9df172d07d4982ecbc9176ebe3fe53f967b9a9efde"
+    }
+  ],
+  "verification_scope": "All manifest paths checked against Git tree anchored by matching GitHub commit; one fresh object per nonempty canonical root, five checkpoints and four research artifacts downloaded and SHA-256 checked. Not a full redownload of all raw bytes.",
+  "exclusions": "Credentials, dependencies, caches and duplicate transport containers; unique retained scientific contents are indexed."
+}
