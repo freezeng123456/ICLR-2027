@@ -1,0 +1,20 @@
+{
+  "family": "learned",
+  "training_seed": 3,
+  "dataset_seed": 708,
+  "repeat": 0,
+  "method": "full",
+  "particles": 32768,
+  "steps": 2048,
+  "batch": 4,
+  "groups": 64,
+  "dimension": 8,
+  "u_max": 20.0,
+  "diffusion": 1.0,
+  "ess_fraction": 0.5,
+  "setting_id": "full",
+  "line": "anchored_equivalent_replay",
+  "phase": "confirmation",
+  "seed": 21047090,
+  "cell_id": 114
+}
