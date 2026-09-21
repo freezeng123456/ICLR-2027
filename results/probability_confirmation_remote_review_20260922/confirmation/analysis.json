@@ -1,0 +1,606 @@
+{
+  "audited_cells": 20000,
+  "audit_passed": true,
+  "total_queries": 56508596,
+  "official_replay_checkpoints": 4478,
+  "official_replay_scope": "seeds 9000, 9249, 9499 per problem; seed8000 for smoke",
+  "statistics": [
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 1757.552,
+      "median_calls": 1316.0,
+      "certified": 466,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 1.3341398290768265
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 1022.648,
+      "median_calls": 844.0,
+      "certified": 499,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.23427401128411293
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 1693.864,
+      "median_calls": 1428.0,
+      "certified": 485,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.03826517163962126
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 1738.448,
+      "median_calls": 1460.0,
+      "certified": 478,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.06537695971131324
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 3437.176,
+      "median_calls": 4096.0,
+      "certified": 222,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.16356035208702088
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 3908.536,
+      "median_calls": 4096.0,
+      "certified": 63,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 4.45603937907517
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 3151.024,
+      "median_calls": 3988.0,
+      "certified": 254,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.8489365910515189
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 3785.472,
+      "median_calls": 4096.0,
+      "certified": 141,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.08883805005252361
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 3785.08,
+      "median_calls": 4096.0,
+      "certified": 131,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.13939638936519622
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 3980.888,
+      "median_calls": 4096.0,
+      "certified": 67,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.1878812563493848
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 4.672183820948005
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 4043.888,
+      "median_calls": 4096.0,
+      "certified": 14,
+      "wrong": 14,
+      "wrong_interval_95": [
+        0.015390600673838111,
+        0.04653332699148415
+      ],
+      "mean_runtime_seconds": 1.059061872906983
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 4052.192,
+      "median_calls": 4096.0,
+      "certified": 8,
+      "wrong": 8,
+      "wrong_interval_95": [
+        0.0069323212024836,
+        0.03128200168985308
+      ],
+      "mean_runtime_seconds": 0.0930139167830348
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 4085.376,
+      "median_calls": 4096.0,
+      "certified": 4,
+      "wrong": 4,
+      "wrong_interval_95": [
+        0.0021839081083421838,
+        0.020355632593743928
+      ],
+      "mean_runtime_seconds": 0.14676494573056698
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.18907819261401893
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 4.972641687557101
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 3939.664,
+      "median_calls": 4096.0,
+      "certified": 26,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 1.0944235383942724
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 3953.64,
+      "median_calls": 4096.0,
+      "certified": 25,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.09739437548071146
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 4037.68,
+      "median_calls": 4096.0,
+      "certified": 14,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.15634295847266913
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 4050.224,
+      "median_calls": 4096.0,
+      "certified": 14,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.20020619654655455
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 202.816,
+      "median_calls": 164.0,
+      "certified": 500,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.08063144639879465
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 166.848,
+      "median_calls": 132.0,
+      "certified": 500,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.0328195576146245
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 175.552,
+      "median_calls": 148.0,
+      "certified": 500,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.004058192260563373
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 205.504,
+      "median_calls": 164.0,
+      "certified": 500,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.00821532667428255
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 738.496,
+      "median_calls": 612.0,
+      "certified": 500,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.033571218349039554
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 1813.84,
+      "median_calls": 1644.0,
+      "certified": 479,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 1.9456095099374653
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 990.096,
+      "median_calls": 676.0,
+      "certified": 486,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.2904235558360815
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 957.664,
+      "median_calls": 668.0,
+      "certified": 492,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.022137033626437187
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 1124.808,
+      "median_calls": 788.0,
+      "certified": 478,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.0439112169444561
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 1375.728,
+      "median_calls": 1172.0,
+      "certified": 490,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.06368419121950865
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 4089.04,
+      "median_calls": 4096.0,
+      "certified": 2,
+      "wrong": 2,
+      "wrong_interval_95": [
+        0.0004847861762900009,
+        0.014374078562200309
+      ],
+      "mean_runtime_seconds": 5.909524959392845
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 3986.024,
+      "median_calls": 4096.0,
+      "certified": 17,
+      "wrong": 17,
+      "wrong_interval_95": [
+        0.019928600046206307,
+        0.0538803507360769
+      ],
+      "mean_runtime_seconds": 1.2421255056411027
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 4018.48,
+      "median_calls": 4096.0,
+      "certified": 14,
+      "wrong": 14,
+      "wrong_interval_95": [
+        0.015390600673838111,
+        0.04653332699148415
+      ],
+      "mean_runtime_seconds": 0.09852773811668157
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 3912.2,
+      "median_calls": 4096.0,
+      "certified": 33,
+      "wrong": 33,
+      "wrong_interval_95": [
+        0.045863357110587734,
+        0.09144289861086634
+      ],
+      "mean_runtime_seconds": 0.15176532127708198
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 3965.512,
+      "median_calls": 4096.0,
+      "certified": 25,
+      "wrong": 25,
+      "wrong_interval_95": [
+        0.03261518014933006,
+        0.07292762165047896
+      ],
+      "mean_runtime_seconds": 0.19837525583058596
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "betting",
+      "repetitions": 500,
+      "mean_calls": 3494.856,
+      "median_calls": 4096.0,
+      "certified": 205,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 4.7872685427293185
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "growth",
+      "repetitions": 500,
+      "mean_calls": 3146.616,
+      "median_calls": 4096.0,
+      "certified": 192,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.969313930824399
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "paired",
+      "repetitions": 500,
+      "mean_calls": 3445.648,
+      "median_calls": 4096.0,
+      "certified": 122,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.0840466111600399
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "uniform",
+      "repetitions": 500,
+      "mean_calls": 3358.632,
+      "median_calls": 4096.0,
+      "certified": 145,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.13016268468648196
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "variance",
+      "repetitions": 500,
+      "mean_calls": 3137.48,
+      "median_calls": 4096.0,
+      "certified": 213,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.007350610051907784
+      ],
+      "mean_runtime_seconds": 0.15467657756060363
+    }
+  ],
+  "primary_comparisons": [
+    {
+      "control": "uniform",
+      "relative_query_reduction": 0.4117465693538144,
+      "paired_mean_difference": -715.8,
+      "bonferroni_one_sided_t_upper": -624.6190274779234,
+      "bonferroni_bootstrap_upper": -624.9221333333335,
+      "observed_certification_rate_loss": -0.042,
+      "certification_loss_bootstrap_upper_95": -0.028,
+      "protocol_comparison_pass": true,
+      "bootstrap_supports_reduction": true
+    },
+    {
+      "control": "paired",
+      "relative_query_reduction": 0.39626321829851746,
+      "paired_mean_difference": -671.216,
+      "bonferroni_one_sided_t_upper": -581.2021472754354,
+      "bonferroni_bootstrap_upper": -581.5828000000001,
+      "observed_certification_rate_loss": -0.028,
+      "certification_loss_bootstrap_upper_95": -0.016,
+      "protocol_comparison_pass": true,
+      "bootstrap_supports_reduction": true
+    },
+    {
+      "control": "betting",
+      "relative_query_reduction": 0.4181406865913498,
+      "paired_mean_difference": -734.904,
+      "bonferroni_one_sided_t_upper": -648.9247125881063,
+      "bonferroni_bootstrap_upper": -648.7812000000004,
+      "observed_certification_rate_loss": -0.066,
+      "certification_loss_bootstrap_upper_95": -0.048,
+      "protocol_comparison_pass": true,
+      "bootstrap_supports_reduction": true
+    }
+  ],
+  "formal_matrix": true,
+  "application_exploration_gate": true
+}
