@@ -10,6 +10,7 @@ from decision_evidence_20260922 import (
     oracle_bet,
     oracle_growth,
     run_bounded_trial,
+    run_stratified_trial,
 )
 
 
@@ -73,3 +74,14 @@ def test_inputs_fail_fast():
         growth_optimal_mass(0, 1)
     with pytest.raises(ValueError):
         BoundedStratumProblem("bad", 1, 0, (1, 1), (1, 1))
+
+
+@pytest.mark.parametrize("method", ["paired", "upper_bound"])
+@pytest.mark.parametrize("ratio", [0.1, 1, 9])
+def test_stratified_trace_and_cost(method, ratio):
+    problem = BoundedStratumProblem("stratified", ratio, 1, (8, 2), (8, 2))
+    result = run_stratified_trial(problem, method, 51, max_samples=100)
+    per_step = 2 if method == "paired" else 1
+    assert result["calls"] == len(result["trace"]) * per_step + 4
+    assert result["calls"] <= 100
+    assert all(1 + row[2] * row[4] > 0 and 1 - row[3] * row[4] > 0 for row in result["trace"])

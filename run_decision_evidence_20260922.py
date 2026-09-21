@@ -17,6 +17,7 @@ from decision_evidence_20260922 import (
     numerical_oracle_mass,
     oracle_growth,
     run_bounded_trial,
+    run_stratified_trial,
 )
 
 
@@ -45,7 +46,8 @@ def run_one(arguments):
     config = {"problem": asdict(problem), "method": method, "seed": seed, "max_samples": budget, "alpha": alpha}
     (directory / "config.json").write_text(json.dumps(config, indent=2) + "\n")
     started = time.perf_counter()
-    result = run_bounded_trial(problem, method, seed, max_samples=budget, alpha=alpha)
+    runner = run_stratified_trial if method in {"paired", "upper_bound"} else run_bounded_trial
+    result = runner(problem, method, seed, max_samples=budget, alpha=alpha)
     result["runtime_seconds"] = time.perf_counter() - started
     trace = np.asarray(result.pop("trace"), dtype=np.float64)
     np.savez_compressed(directory / "trace.npz", trace=trace)
@@ -62,6 +64,7 @@ def main():
     parser.add_argument("--max-samples", type=int, default=4096)
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--problem", action="append")
+    parser.add_argument("--method", action="append", choices=["uniform", "variance", "growth", "paired", "upper_bound"])
     args = parser.parse_args()
     if args.repetitions < 1 or args.workers < 1:
         raise ValueError("Positive repetitions and workers required")
@@ -80,7 +83,7 @@ def main():
         "numpy": np.__version__,
         "scipy": scipy.__version__,
         "platform": platform.platform(),
-        "expected_cells": len(selected) * 3 * args.repetitions,
+        "expected_cells": len(selected) * len(args.method or ["uniform", "variance", "growth", "paired", "upper_bound"]) * args.repetitions,
         "scope": "synthetic bounded-stratum development; not an application benchmark",
         "arguments": {**vars(args), "output": str(root)},
     }
@@ -100,7 +103,7 @@ def main():
         (problem, method, seed, args.max_samples, 0.05, str(root))
         for problem in selected
         for seed in range(args.seed_start, args.seed_start + args.repetitions)
-        for method in ["uniform", "variance", "growth"]
+        for method in (args.method or ["uniform", "variance", "growth", "paired", "upper_bound"])
     ]
     started = time.perf_counter()
     with ProcessPoolExecutor(max_workers=args.workers) as executor:

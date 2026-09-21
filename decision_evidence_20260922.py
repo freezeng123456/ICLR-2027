@@ -209,3 +209,67 @@ def run_bounded_trial(problem, method, seed, max_samples=4096, alpha=0.05, batch
         "log_negative": evidence.log_negative,
         "trace": trace,
     }
+
+
+def bounded_empirical_bet(values, lower_bound):
+    if lower_bound >= 0:
+        raise ValueError("A strictly negative lower bound is required")
+    bets = np.linspace(0, 0.99, 32) / -lower_bound
+    growth = np.log1p(bets[:, None] * np.asarray(values[-64:])[None, :]).mean(axis=1)
+    index = int(growth.argmax())
+    return float(bets[index]), float(growth[index])
+
+
+def run_stratified_trial(problem, method, seed, max_samples=4096, alpha=0.05, batch_size=32):
+    if method not in {"paired", "upper_bound"}:
+        raise ValueError("Unknown stratified method")
+    rng = np.random.default_rng(seed)
+    positive = list(problem.sample(rng, True, 2))
+    negative = list(problem.sample(rng, False, 2))
+    a, b = problem.positive_scale, problem.negative_scale
+    differences = list(a * np.asarray(positive) - b * np.asarray(negative))
+    evidence = EvidenceState(alpha)
+    calls = 4
+    trace = []
+    while calls < max_samples and evidence.decision == 0:
+        if method == "paired":
+            if calls + 2 > max_samples:
+                break
+            plus_bet, _ = bounded_empirical_bet(differences, -b)
+            minus_bet, _ = bounded_empirical_bet([-value for value in differences], -a)
+            for _ in range(min(batch_size // 2, (max_samples - calls) // 2)):
+                value = a * float(problem.sample(rng, True, 1)[0]) - b * float(problem.sample(rng, False, 1)[0])
+                differences.append(value)
+                calls += 2
+                evidence.observe(value, plus_bet, minus_bet)
+                trace.append((calls, 0.5, plus_bet, minus_bet, value, evidence.log_positive, evidence.log_negative))
+                if evidence.decision:
+                    break
+        else:
+            plus_bet, plus_growth = bounded_empirical_bet([a * value - b for value in positive], -b)
+            minus_bet, minus_growth = bounded_empirical_bet([b * value - a for value in negative], -a)
+            select_positive = plus_growth > minus_growth or (plus_growth == minus_growth and len(positive) <= len(negative))
+            for _ in range(min(batch_size, max_samples - calls)):
+                value = float(problem.sample(rng, select_positive, 1)[0])
+                if select_positive:
+                    positive.append(value)
+                    weighted = a * value - b
+                    evidence.observe(weighted, plus_bet, 0)
+                    used_plus, used_minus = plus_bet, 0.0
+                else:
+                    negative.append(value)
+                    weighted = a - b * value
+                    evidence.observe(weighted, 0, minus_bet)
+                    used_plus, used_minus = 0.0, minus_bet
+                calls += 1
+                trace.append((calls, float(select_positive), used_plus, used_minus, weighted, evidence.log_positive, evidence.log_negative))
+                if evidence.decision:
+                    break
+    truth = int(np.sign(problem.integral))
+    wrong = evidence.decision != 0 and (truth == 0 or evidence.decision != truth)
+    return {
+        "problem": problem.name, "method": method, "seed": seed, "calls": calls,
+        "decision": evidence.decision, "truth": truth, "wrong": bool(wrong),
+        "certified": evidence.decision != 0, "log_positive": evidence.log_positive,
+        "log_negative": evidence.log_negative, "trace": trace,
+    }
