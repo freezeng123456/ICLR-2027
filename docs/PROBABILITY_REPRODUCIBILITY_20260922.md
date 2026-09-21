@@ -60,4 +60,8 @@ SCNet启动脚本位于 `scripts/prepare_probability_confirmation_scnet_20260922
 
 回收包名称为 `probability_confirmation_20260922.recovery.tar.gz`，与同名校验回执保存在服务器用户目录；流程状态和日志为 `probability_confirmation_recovery_20260922.status` 与 `.log`。各步骤拒绝覆盖已有结果，异常时先检查持久状态和日志。完整数据包包含两个原始结果目录、日志、源码归档、独立审计、报告和逐文件SHA-256清单；环境安装目录 `code/` 不重复归档，其实验源码由固定提交的 `source.tar.gz` 保存。
 
+已结束的审计不再运行。归档续接入口为 `scripts/resume_probability_packaging_scnet_20260922.sh`，使用独立状态 `probability_confirmation_packaging_20260922.status` 和日志 `.log`；旧流程的FAILED状态及原始日志保持不变。续接要求审计为COMPLETE、既有报告存在、归档与 `recovery_evidence` 均不存在，并将旧流程文件保存到 `recovery_history/`。服务器部署文件为 `package_probability_confirmation_20260922_timelimit.py`，SHA-256为 `5e2bac53a11dfc9e5bcf0f05c153b25c40f0f437955103e66d54025f72957047`；续接入口SHA-256为 `62ee330ea8b24347f8956aa1d2e20a2e38233908351c406be53bd26d3d8a239a`，来源提交为 `c60690f6a719fb2c2023e703019d16ead079a567`。资源核验使用实际 `sacct` 输出中的 `Timelimit` 列名，并检查主作业及两个步骤的完整集合。真实记录及破坏条件测试共10项通过，命令为 `python -m pytest -q tests/test_probability_recovery_20260922.py`。此测试只检查保存的资源记录，不生成实验样本。
+
+后续跟进首先读取新的归档状态和日志；若状态文件、归档或恢复目录已存在，只检查进度，禁止再次启动。归档进程日志在原始结果目录之外，以保持包内清单稳定；完成后还须单独保留续接状态与日志。
+
 该数据包仅用于传输。收到后必须核对归档哈希、逐文件清单、全部20005个单元的配置/原始轨迹/汇总/完成标记，再将展开后的完整结果通过普通Git推送至指定仓库。只有远端引用、文件清单及本地恢复均核实后，才能将本轮标记为已完整发布。服务器目前没有可用的GitHub推送认证；本地仓库可以正常推送，完整数据回收尚未完成。
