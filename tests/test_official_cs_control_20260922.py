@@ -29,5 +29,5 @@ def test_official_root_corresponds_to_threshold():
     values = np.repeat(0.001, 300)
     lower, upper = official_interval(values, "betting")
     assert lower == 0
-    wealth = betting_mart(values, upper, alpha=0.0125, theta=0)[-1]
+    wealth = betting_mart(values, upper, alpha=0.0125, theta=0, trunc_scale=0.99)[-1]
     assert wealth == pytest.approx(80, rel=1e-5)

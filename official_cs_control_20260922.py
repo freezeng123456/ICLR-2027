@@ -6,8 +6,10 @@ import json
 from pathlib import Path
 import subprocess
 import time
+import platform
 
 import numpy as np
+import scipy
 from scipy.optimize import brentq
 
 from confseq.betting import betting_mart
@@ -28,7 +30,7 @@ def official_interval(values, method, alpha=0.025):
 
     def excess(mean, orientation):
         with np.errstate(over="ignore"):
-            wealth = betting_mart(values, mean, alpha=tail_alpha, theta=orientation, trunc_scale=0.5)
+            wealth = betting_mart(values, mean, alpha=tail_alpha, theta=orientation, trunc_scale=0.99)
         return float(wealth[-1] - threshold)
 
     lower = 0.0 if excess(0, 1) <= 0 else brentq(lambda mean: excess(mean, 1), 0, 1, xtol=1e-10)
@@ -127,6 +129,7 @@ if __name__ == "__main__":
         "allocation": "maximum scaled CS width", "check_batch_size": 16,
         "initial_observations": "included in official confidence sequences and total cost",
         "method": args.method,
+        "python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__,
     }
     (root / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
     with ProcessPoolExecutor(max_workers=args.workers) as executor:
