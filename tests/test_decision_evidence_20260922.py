@@ -29,6 +29,17 @@ def test_near_equal_and_scale_invariance():
     assert growth_optimal_mass(1, 9) == pytest.approx(1 - growth_optimal_mass(9, 1))
 
 
+@pytest.mark.parametrize("ratio", [1.01, 1.1, 2, 4, 9, 100, 10000])
+def test_oracle_matches_classical_specht_ratio(ratio):
+    mass = float(growth_optimal_mass(ratio, 1))
+    logarithmic_mean = (ratio - 1) / np.log(ratio)
+    geometric_mean = np.exp(1 - np.log(ratio) / (ratio - 1))
+    log_specht = np.log(logarithmic_mean) + np.log(ratio) / (ratio - 1) - 1
+    assert ratio * (1 - mass) + mass == pytest.approx(logarithmic_mean, rel=1e-12)
+    assert ratio ** (1 - mass) == pytest.approx(geometric_mean, rel=1e-12)
+    assert oracle_growth(ratio, 1, mass) == pytest.approx(log_specht, abs=1e-12)
+
+
 @pytest.mark.parametrize("ratio", [1.1, 2, 9, 1000])
 def test_wealth_formula(ratio):
     mass = float(growth_optimal_mass(ratio, 1))

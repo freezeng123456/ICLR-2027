@@ -1,6 +1,6 @@
 # Growth-optimal proposals for a signed integral
 
-Status: a derived proposition and an implementable development experiment. Novelty is unresolved. Optimality below concerns a specific randomized importance-sampling and linear-betting class, not all integration, stratification, or decision algorithms.
+Status: a derived signed-integral specialization of a classical scalar extremal problem, and an implementable development experiment. The scalar maximum is the logarithm of Specht's ratio. Novelty of the complete sampling method is unresolved. Optimality below concerns a specific randomized importance-sampling and linear-betting class, not all integration, stratification, or decision algorithms.
 
 ## Mathematical setting
 
@@ -56,6 +56,31 @@ The derivative is $(B-A)/(A(1-w)+Bw)+\log(A/B)$, and the second derivative is st
 If a density puts mass $c$ on $\{f=0\}$, normalize its restriction to the complement as $\bar q=q/(1-c)$. Its objective equals $(1-c)G(\bar q,\lambda/(1-c))$. Since the optimum for $A>B$ is positive, allocating $c>0$ cannot improve it. This completes the optimization argument.
 
 For $A=B$, the maximum is zero at $\lambda=0$; uniqueness does not hold. The continuous formula for $w_*$ tends to $1/2$. For $A<B$, apply the proposition to $-f$ and exchange the two regions.
+
+## Classical scalar identity
+
+The reduced objective satisfies
+
+\[
+g(w)=\log\frac{(1-w)A+wB}{A^{1-w}B^w}.
+\]
+
+It is the logarithm of a weighted arithmetic-to-geometric mean ratio. The classical reverse Young bound gives $g(w)\le\log S(A/B)$, where
+
+\[
+S(h)=\frac{(h-1)h^{1/(h-1)}}{e\log h},\qquad h>1.
+\]
+
+See [Tominaga (2004), Corollary 2.5, equation (2.5)](https://files.ele-math.com/articles/mia-07-13.pdf), and [Furuichi, equation (2) and the following definition](https://arxiv.org/html/1004.0581). Tominaga's paper refers to his earlier 2002 result and to Specht's 1960 work.
+
+For completeness, direct substitution at our optimizer gives
+
+\[
+(1-w_*)A+w_*B=B\frac{h-1}{\log h},\qquad
+A^{1-w_*}B^{w_*}=B\exp\left(1-\frac{\log h}{h-1}\right),
+\]
+
+and therefore $g(w_*)=\log S(h)$. The scalar optimum and its maximizing weight are classical consequences of the weighted mean ratio. The signed-integral reduction and its equality conditions identify an oracle within the specified algorithm class; they do not establish originality, attainable learning efficiency, or optimal stopping complexity for the implemented method.
 
 ## Difference from variance minimization
 
