@@ -1,0 +1,50 @@
+2026-09-21T22:01:51Z
+{"audited_cells": 5, "audit_passed": true, "formal_matrix": false, "application_exploration_gate": false}
+	Command being timed: "/work/home/zenghang/miniconda3/envs/pytorch/bin/python /work/home/zenghang/audit_matched_confirmation_20260922.py /work/home/zenghang/probability_confirmation_20260922/smoke"
+	User time (seconds): 2.34
+	System time (seconds): 1.20
+	Percent of CPU this job got: 9%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:39.07
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 89176
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 114
+	Minor (reclaiming a frame) page faults: 34301
+	Voluntary context switches: 4535
+	Involuntary context switches: 507
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+{"audited_cells": 20000, "audit_passed": true, "formal_matrix": true, "application_exploration_gate": true}
+	Command being timed: "/work/home/zenghang/miniconda3/envs/pytorch/bin/python /work/home/zenghang/audit_matched_confirmation_20260922.py /work/home/zenghang/probability_confirmation_20260922/confirmation"
+	User time (seconds): 375.10
+	System time (seconds): 114.00
+	Percent of CPU this job got: 10%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:17:06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 492232
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 660
+	Minor (reclaiming a frame) page faults: 464641
+	Voluntary context switches: 677267
+	Involuntary context switches: 48569
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+2026-09-21T23:19:37Z

@@ -32,6 +32,20 @@ def digest(path):
     return result.hexdigest()
 
 
+def validate_resources(resource_text):
+    resources = list(csv.DictReader(io.StringIO(resource_text), delimiter="|"))
+    if len(resources) != 3 or {row["JobID"] for row in resources} != {"24232628", "24232628.batch", "24232628.extern"}:
+        raise ValueError("Slurm accounting must include the job and both expected steps")
+    primary = next(row for row in resources if row["JobID"] == "24232628")
+    if primary["State"] != "COMPLETED" or primary["ExitCode"] != "0:0" or primary["AllocCPUS"] != "4":
+        raise ValueError("Slurm does not confirm a successful four-CPU job")
+    if primary["Timelimit"] != "01:30:00" or primary["ReqMem"] != "8G":
+        raise ValueError("Slurm resource request differs from the authorized budget")
+    if any(row["State"] != "COMPLETED" or row["ExitCode"] != "0:0" for row in resources):
+        raise ValueError("A Slurm job step did not exit successfully")
+    return primary
+
+
 def validate_directory(root, smoke=False):
     provenance = json.loads((root / "provenance.json").read_text())
     completion = json.loads((root / "completion.json").read_text())
@@ -95,14 +109,7 @@ def main():
         "sacct", "-j", "24232628", "-P", "-o",
         "JobID,State,ExitCode,Start,End,Elapsed,TimeLimit,TotalCPU,AllocCPUS,ReqMem,MaxRSS,ReqTRES,AllocTRES,NodeList",
     ], text=True)
-    resources = list(csv.DictReader(io.StringIO(resource_text), delimiter="|"))
-    primary = next(row for row in resources if row["JobID"] == "24232628")
-    if primary["State"] != "COMPLETED" or primary["ExitCode"] != "0:0" or primary["AllocCPUS"] != "4":
-        raise ValueError("Slurm does not confirm a successful four-CPU job")
-    if primary["TimeLimit"] != "01:30:00" or primary["ReqMem"] != "8G":
-        raise ValueError("Slurm resource request differs from the authorized budget")
-    if any(row["State"] != "COMPLETED" or row["ExitCode"] != "0:0" for row in resources):
-        raise ValueError("A Slurm job step did not exit successfully")
+    validate_resources(resource_text)
     checks = {name: validate_directory(root / name, smoke=name == "smoke") for name in ["confirmation", "smoke"]}
     source_hash = digest(root / "source.tar.gz")
     for name in checks:
