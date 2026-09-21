@@ -17,10 +17,12 @@ export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 官方库的提交必须等于 `5ffe733ca2447a2e28c2c91f3b00086173f2ab2c`，并保持工作目录无修改；若上游HEAD变化，使用该固定提交的独立检出。实验入口会核验提交和工作区状态。Python源文件必须已经提交，入口还会将实际文件的SHA-256与所记录Git提交逐一核对。
 
 ```bash
-work/probability-venv/bin/python -m pytest -q tests/test_decision_evidence_20260922.py tests/test_official_cs_control_20260922.py tests/test_matched_confirmation_20260922.py tests/test_audit_matched_confirmation_20260922.py
+work/probability-venv/bin/python -m pytest -q tests/test_decision_evidence_20260922.py tests_probability
 ```
 
 ## 重现开发实验
+
+原项目的默认 `pytest` 仅收集 `tests/`，使用原项目NumPy2环境；官方库相关测试位于 `tests_probability/`，按上述命令在NumPy1环境显式执行。已提交SCNet作业使用冻结提交9b037725中的测试路径与46项服务器测试，后续测试目录组织不改变该作业的源码。
 
 每次指定全新的结果目录，禁止覆盖已有输出。以下命令以复现目录为例；原始开发结果保留在同名20260922目录。
 
