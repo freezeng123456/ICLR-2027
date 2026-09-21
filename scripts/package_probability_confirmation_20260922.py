@@ -110,7 +110,7 @@ def main():
         "source_archive_sha256": source_hash,
         "scope": "complete files, exact configurations and successful job exit; numerical trace audit remains pending",
     }, indent=2) + "\n")
-    names = ["confirmation", "smoke", "prepare.log", "prepare.status", "job.status", "job_id", "job-24232628.log", "source.tar.gz", "source.sha256", "recovery_evidence"]
+    names = [path.name for path in sorted(root.iterdir()) if path.name != "code"]
     files = []
     for name in names:
         path = root / name
