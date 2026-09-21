@@ -93,12 +93,14 @@ def main():
             raise ValueError("The independent audit does not cover the complete directory")
     resource_text = subprocess.check_output([
         "sacct", "-j", "24232628", "-P", "-o",
-        "JobID,State,ExitCode,Start,End,Elapsed,TotalCPU,AllocCPUS,ReqMem,MaxRSS,ReqTRES,AllocTRES,NodeList",
+        "JobID,State,ExitCode,Start,End,Elapsed,TimeLimit,TotalCPU,AllocCPUS,ReqMem,MaxRSS,ReqTRES,AllocTRES,NodeList",
     ], text=True)
     resources = list(csv.DictReader(io.StringIO(resource_text), delimiter="|"))
     primary = next(row for row in resources if row["JobID"] == "24232628")
     if primary["State"] != "COMPLETED" or primary["ExitCode"] != "0:0" or primary["AllocCPUS"] != "4":
         raise ValueError("Slurm does not confirm a successful four-CPU job")
+    if primary["TimeLimit"] != "01:30:00" or primary["ReqMem"] != "8G":
+        raise ValueError("Slurm resource request differs from the authorized budget")
     if any(row["State"] != "COMPLETED" or row["ExitCode"] != "0:0" for row in resources):
         raise ValueError("A Slurm job step did not exit successfully")
     checks = {name: validate_directory(root / name, smoke=name == "smoke") for name in ["confirmation", "smoke"]}
