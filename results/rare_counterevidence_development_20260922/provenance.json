@@ -1,0 +1,23 @@
+{
+  "source_commit": "1effc0472ce09e6fe8613983398bb19f5e74db85",
+  "source_hashes": {
+    "run_decision_evidence_20260922.py": "02612280865b998f11b282a2a56e8c1a111bffbbcc8ffd92a65f90b35d52aa26",
+    "decision_evidence_20260922.py": "5b74909914009a719b05464e0144e246f60b00c984274db3b3b1935a4349eaeb"
+  },
+  "python": "3.12.4",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "expected_cells": 4000,
+  "scope": "synthetic bounded-stratum development; not an application benchmark",
+  "arguments": {
+    "output": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/pivot-20260922/results/rare_counterevidence_development_20260922",
+    "repetitions": 100,
+    "seed_start": 2000,
+    "max_samples": 4096,
+    "workers": 4,
+    "problem": null,
+    "suite": "rare",
+    "method": null
+  }
+}

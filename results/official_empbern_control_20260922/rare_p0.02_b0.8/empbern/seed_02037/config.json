@@ -1,0 +1,18 @@
+{
+  "problem": {
+    "name": "rare_p0.02_b0.8",
+    "positive_scale": 1,
+    "negative_scale": 40.0,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      0.02,
+      0.98
+    ]
+  },
+  "method": "empbern",
+  "seed": 2037,
+  "budget": 4096
+}

@@ -1,0 +1,15 @@
+{
+  "problem": "rare_p0.002_b0.2",
+  "method": "growth",
+  "seed": 8000,
+  "calls": 100,
+  "decision": 0,
+  "truth": 1,
+  "wrong": false,
+  "certified": false,
+  "design_updates": 6,
+  "certificate_checks": 6,
+  "positive_queries": 5,
+  "negative_queries": 95,
+  "runtime_seconds": 0.002911583986133337
+}

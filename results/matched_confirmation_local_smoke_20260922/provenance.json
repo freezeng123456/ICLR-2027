@@ -1,0 +1,31 @@
+{
+  "source_commit": "9b03772540d0e9f5710de1f26c3f96a7b8408215",
+  "source_hashes": {
+    "run_matched_confirmation_20260922.py": "205257fa9ef95289de740b761f2ee72f87f19d847bf4b7975ff6feb26ca5f130",
+    "decision_evidence_20260922.py": "5b74909914009a719b05464e0144e246f60b00c984274db3b3b1935a4349eaeb",
+    "official_cs_control_20260922.py": "ead501776cc81eeaf2e3d4faa0a4aeb9378ec0cd8d1eec1c252a3140764fee68",
+    "run_decision_evidence_20260922.py": "02612280865b998f11b282a2a56e8c1a111bffbbcc8ffd92a65f90b35d52aa26"
+  },
+  "confseq_commit": "5ffe733ca2447a2e28c2c91f3b00086173f2ab2c",
+  "source_archive_sha256": null,
+  "expected_cells": 5,
+  "arguments": {
+    "output": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/pivot-20260922/results/matched_confirmation_local_smoke_20260922",
+    "workers": 1,
+    "repetitions": 1,
+    "seed_start": 8000,
+    "budget": 100,
+    "problem": [
+      "rare_p0.002_b0.2"
+    ],
+    "method": null
+  },
+  "python": "3.12.4",
+  "python_executable": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "hostname": "FREEZENG-MC0",
+  "slurm_job_id": null,
+  "slurm_cpus": null,
+  "scope": "fresh seeds for previously selected synthetic problem family; matched checkpoint protocol"
+}

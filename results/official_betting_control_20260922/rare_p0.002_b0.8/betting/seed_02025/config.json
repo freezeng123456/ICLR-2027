@@ -1,0 +1,18 @@
+{
+  "problem": {
+    "name": "rare_p0.002_b0.8",
+    "positive_scale": 1,
+    "negative_scale": 400.0,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      0.002,
+      0.998
+    ]
+  },
+  "method": "betting",
+  "seed": 2025,
+  "budget": 4096
+}

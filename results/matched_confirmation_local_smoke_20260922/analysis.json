@@ -1,0 +1,82 @@
+{
+  "audited_cells": 5,
+  "audit_passed": true,
+  "total_queries": 500,
+  "official_replay_checkpoints": 6,
+  "official_replay_scope": "seeds 9000, 9249, 9499 per problem; seed8000 for smoke",
+  "statistics": [
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "betting",
+      "repetitions": 1,
+      "mean_calls": 100.0,
+      "median_calls": 100.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.975
+      ],
+      "mean_runtime_seconds": 0.0039046669844537973
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "growth",
+      "repetitions": 1,
+      "mean_calls": 100.0,
+      "median_calls": 100.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.975
+      ],
+      "mean_runtime_seconds": 0.002911583986133337
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "paired",
+      "repetitions": 1,
+      "mean_calls": 100.0,
+      "median_calls": 100.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.975
+      ],
+      "mean_runtime_seconds": 0.0003648749552667141
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "uniform",
+      "repetitions": 1,
+      "mean_calls": 100.0,
+      "median_calls": 100.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.975
+      ],
+      "mean_runtime_seconds": 0.000630292110145092
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "variance",
+      "repetitions": 1,
+      "mean_calls": 100.0,
+      "median_calls": 100.0,
+      "certified": 0,
+      "wrong": 0,
+      "wrong_interval_95": [
+        0,
+        0.975
+      ],
+      "mean_runtime_seconds": 0.0007195000071078539
+    }
+  ],
+  "primary_comparisons": [],
+  "formal_matrix": false,
+  "application_exploration_gate": false
+}

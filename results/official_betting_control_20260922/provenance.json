@@ -1,0 +1,16 @@
+{
+  "source_commit": "e46b7dc2eff86ba6f4a355ce65bb71f6e6d6aa86",
+  "confseq_commit": "5ffe733ca2447a2e28c2c91f3b00086173f2ab2c",
+  "confseq_repository": "https://github.com/gostevehoward/confseq",
+  "source_sha256": "ead501776cc81eeaf2e3d4faa0a4aeb9378ec0cd8d1eec1c252a3140764fee68",
+  "expected_cells": 800,
+  "alpha_total": 0.05,
+  "alpha_per_stratum": 0.025,
+  "allocation": "maximum scaled CS width",
+  "check_batch_size": 16,
+  "initial_observations": "included in official confidence sequences and total cost",
+  "method": "betting",
+  "python": "3.12.4",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1"
+}

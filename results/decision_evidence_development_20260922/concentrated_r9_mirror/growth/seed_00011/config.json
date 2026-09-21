@@ -1,0 +1,19 @@
+{
+  "problem": {
+    "name": "concentrated_r9_mirror",
+    "positive_scale": 1,
+    "negative_scale": 9.0,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      8,
+      2
+    ]
+  },
+  "method": "growth",
+  "seed": 11,
+  "max_samples": 4096,
+  "alpha": 0.05
+}

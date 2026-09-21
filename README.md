@@ -1,6 +1,16 @@
 # ICLR 2027 research
 
-当前论文：[Integrability of Subsampled Compositional Diffusions](output/pdf/ICLR_2027_research_draft_continued_20260921.pdf)。论文研究小批量组合扩散的指数权重可积性，包含有放回与无放回的完整证明、原 SCNet 4,060 个采样实验单元、五次完整条件密度网络训练及后续 H20 实验。另有 936 个确定性批量判定配置。最新一轮增加 512 个开发配置，两组新方案均未通过预设联合门槛，全部负面结果保留。论文采用 ICLR 2027 格式，状态为研究稿、尚未投稿；当前证据不支持通用高性能采样算法的主张。
+2026-09-22 当前探索方向：**带错误概率保证的自适应概率计算**。研究如何用更少的函数查询确定两个期望损失的大小。已推导限定算法类内的证据增长最优采样比例，完成12100个开发实验单元；已在SCNet启动统一检查频率的20000单元新种子确认。当前属于方法候选和合成机制实验，创新性与真实应用价值仍需验证。
+
+- [问题、推导、全部开发结果与论文证据边界](docs/PROBABILITY_RESEARCH_STATUS_20260922.md)
+- [限定算法类的数学命题与证明](docs/SIGNED_EVIDENCE_THEORY_20260922.md)
+- [新种子确认的冻结协议](docs/MATCHED_CONFIRMATION_PROTOCOL_20260922.md)
+- [全部稀有事件开发配置及比较](results/probability_pivot_development_review_20260922/analysis.md)
+- [当前方向的复现说明](docs/PROBABILITY_REPRODUCIBILITY_20260922.md)
+
+## 组合扩散研究归档
+
+已有论文：[Integrability of Subsampled Compositional Diffusions](output/pdf/ICLR_2027_research_draft_continued_20260921.pdf)。论文研究小批量组合扩散的指数权重可积性，包含有放回与无放回的完整证明、原 SCNet 4,060 个采样实验单元、五次完整条件密度网络训练及后续 H20 实验。另有 936 个确定性批量判定配置。2026-09-21一轮增加512个开发配置，两组新方案均未通过预设联合门槛，全部负面结果保留。论文采用ICLR 2027格式，状态为研究稿、尚未投稿；当前证据不支持通用高性能采样算法的主张。
 
 - [2026-09-21 最新结果、限制与完整成果入口](docs/CONTINUED_ITERATION_RESULTS_20260921.md)
 - [本轮分析、数值审计、测试与发布回执](results/continued_iteration_20260921/)

@@ -1,0 +1,80 @@
+[
+  {
+    "problem": "concentrated_r1",
+    "method": "uniform",
+    "seed": 0,
+    "calls": 256,
+    "decision": 0,
+    "truth": 0,
+    "wrong": false,
+    "certified": false,
+    "log_positive": 0.0,
+    "log_negative": 0.3631347705980173,
+    "runtime_seconds": 0.0022979581262916327
+  },
+  {
+    "problem": "concentrated_r1",
+    "method": "variance",
+    "seed": 0,
+    "calls": 256,
+    "decision": 0,
+    "truth": 0,
+    "wrong": false,
+    "certified": false,
+    "log_positive": 0.0,
+    "log_negative": 0.19574272069975843,
+    "runtime_seconds": 0.002372083952650428
+  },
+  {
+    "problem": "concentrated_r1",
+    "method": "growth",
+    "seed": 0,
+    "calls": 256,
+    "decision": 0,
+    "truth": 0,
+    "wrong": false,
+    "certified": false,
+    "log_positive": 0.0,
+    "log_negative": 0.25246243854066186,
+    "runtime_seconds": 0.007435250096023083
+  },
+  {
+    "problem": "concentrated_r9",
+    "method": "uniform",
+    "seed": 0,
+    "calls": 10,
+    "decision": 1,
+    "truth": 1,
+    "wrong": false,
+    "certified": true,
+    "log_positive": 4.683869502030949,
+    "log_negative": 0.0,
+    "runtime_seconds": 0.0001284999307245016
+  },
+  {
+    "problem": "concentrated_r9",
+    "method": "variance",
+    "seed": 0,
+    "calls": 10,
+    "decision": 1,
+    "truth": 1,
+    "wrong": false,
+    "certified": true,
+    "log_positive": 3.7921652039743186,
+    "log_negative": 0.0,
+    "runtime_seconds": 0.00012808386236429214
+  },
+  {
+    "problem": "concentrated_r9",
+    "method": "growth",
+    "seed": 0,
+    "calls": 9,
+    "decision": 1,
+    "truth": 1,
+    "wrong": false,
+    "certified": true,
+    "log_positive": 4.107745349916119,
+    "log_negative": 0.0,
+    "runtime_seconds": 0.000203415984287858
+  }
+]

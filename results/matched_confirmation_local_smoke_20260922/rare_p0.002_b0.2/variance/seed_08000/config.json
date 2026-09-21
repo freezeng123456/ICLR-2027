@@ -1,0 +1,21 @@
+{
+  "problem": {
+    "name": "rare_p0.002_b0.2",
+    "positive_scale": 1,
+    "negative_scale": 100.0,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      0.002,
+      0.998
+    ]
+  },
+  "method": "variance",
+  "seed": 8000,
+  "budget": 100,
+  "check_every_queries": 16,
+  "pilot_queries": 4,
+  "alpha": 0.05
+}

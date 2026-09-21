@@ -1,0 +1,24 @@
+{
+  "source_commit": "20b37dffb124665b85b6577a315e64874b2b0bb1",
+  "source_hashes": {
+    "run_decision_evidence_20260922.py": "c0a52a9dc25f2f0952a2920d85bc75526401808cf2951061f669b1e131a4339b",
+    "decision_evidence_20260922.py": "fbfdd01f6f3d776314187d7eb2cebb5b33c2acc7f899441e5b99d3f2b974aee2"
+  },
+  "python": "3.12.4",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "platform": "macOS-26.5-arm64-arm-64bit",
+  "expected_cells": 6,
+  "scope": "synthetic bounded-stratum development; not an application benchmark",
+  "arguments": {
+    "output": "/Users/zenghang/Documents/Codex/2026-08-24/https-github-com-freezeng123456-iclr-2027/work/pivot-20260922/results/decision_evidence_smoke_20260922",
+    "repetitions": 1,
+    "seed_start": 0,
+    "max_samples": 256,
+    "workers": 2,
+    "problem": [
+      "concentrated_r9",
+      "concentrated_r1"
+    ]
+  }
+}

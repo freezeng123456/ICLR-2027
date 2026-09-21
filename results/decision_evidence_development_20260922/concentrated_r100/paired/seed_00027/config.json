@@ -1,0 +1,19 @@
+{
+  "problem": {
+    "name": "concentrated_r100",
+    "positive_scale": 100.0,
+    "negative_scale": 1,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      8,
+      2
+    ]
+  },
+  "method": "paired",
+  "seed": 27,
+  "max_samples": 4096,
+  "alpha": 0.05
+}

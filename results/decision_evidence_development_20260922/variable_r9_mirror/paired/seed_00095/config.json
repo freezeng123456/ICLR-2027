@@ -1,0 +1,19 @@
+{
+  "problem": {
+    "name": "variable_r9_mirror",
+    "positive_scale": 1,
+    "negative_scale": 9.0,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      0.4,
+      0.1
+    ]
+  },
+  "method": "paired",
+  "seed": 95,
+  "max_samples": 4096,
+  "alpha": 0.05
+}

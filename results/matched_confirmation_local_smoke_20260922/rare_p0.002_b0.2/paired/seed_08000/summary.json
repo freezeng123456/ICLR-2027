@@ -1,0 +1,15 @@
+{
+  "problem": "rare_p0.002_b0.2",
+  "method": "paired",
+  "seed": 8000,
+  "calls": 100,
+  "decision": 0,
+  "truth": 1,
+  "wrong": false,
+  "certified": false,
+  "design_updates": 6,
+  "certificate_checks": 6,
+  "positive_queries": 50,
+  "negative_queries": 50,
+  "runtime_seconds": 0.0003648749552667141
+}

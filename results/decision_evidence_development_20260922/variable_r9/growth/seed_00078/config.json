@@ -1,0 +1,19 @@
+{
+  "problem": {
+    "name": "variable_r9",
+    "positive_scale": 9.0,
+    "negative_scale": 1,
+    "positive_beta": [
+      0.4,
+      0.1
+    ],
+    "negative_beta": [
+      8,
+      2
+    ]
+  },
+  "method": "growth",
+  "seed": 78,
+  "max_samples": 4096,
+  "alpha": 0.05
+}

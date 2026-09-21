@@ -1,0 +1,19 @@
+{
+  "problem": {
+    "name": "concentrated_r2_mirror",
+    "positive_scale": 1,
+    "negative_scale": 2.0,
+    "positive_beta": [
+      8,
+      2
+    ],
+    "negative_beta": [
+      8,
+      2
+    ]
+  },
+  "method": "paired",
+  "seed": 74,
+  "max_samples": 4096,
+  "alpha": 0.05
+}

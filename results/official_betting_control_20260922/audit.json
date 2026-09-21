@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "audited_cells": 800,
+  "total_queries": 2314272,
+  "official_replay_checkpoints": 4243,
+  "official_replay_scope": "seeds 2000, 2049, 2099 for every problem",
+  "full_coverage": "all raw observations, allocation choices, count accounting, interval arithmetic, stopping, summaries"
+}

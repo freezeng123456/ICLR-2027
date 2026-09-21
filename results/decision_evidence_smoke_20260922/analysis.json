@@ -1,0 +1,132 @@
+{
+  "audit_passed": true,
+  "audited_cells": 6,
+  "total_recorded_queries": 797,
+  "statistics": [
+    {
+      "problem": "concentrated_r1",
+      "method": "growth",
+      "repetitions": 1,
+      "mean_calls": 256.0,
+      "median_calls": 256.0,
+      "mean_runtime_seconds": 0.007435250096023083,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.975
+      ]
+    },
+    {
+      "problem": "concentrated_r1",
+      "method": "uniform",
+      "repetitions": 1,
+      "mean_calls": 256.0,
+      "median_calls": 256.0,
+      "mean_runtime_seconds": 0.0022979581262916327,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.975
+      ]
+    },
+    {
+      "problem": "concentrated_r1",
+      "method": "variance",
+      "repetitions": 1,
+      "mean_calls": 256.0,
+      "median_calls": 256.0,
+      "mean_runtime_seconds": 0.002372083952650428,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.975
+      ]
+    },
+    {
+      "problem": "concentrated_r9",
+      "method": "growth",
+      "repetitions": 1,
+      "mean_calls": 9.0,
+      "median_calls": 9.0,
+      "mean_runtime_seconds": 0.000203415984287858,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.975
+      ]
+    },
+    {
+      "problem": "concentrated_r9",
+      "method": "uniform",
+      "repetitions": 1,
+      "mean_calls": 10.0,
+      "median_calls": 10.0,
+      "mean_runtime_seconds": 0.0001284999307245016,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.975
+      ]
+    },
+    {
+      "problem": "concentrated_r9",
+      "method": "variance",
+      "repetitions": 1,
+      "mean_calls": 10.0,
+      "median_calls": 10.0,
+      "mean_runtime_seconds": 0.00012808386236429214,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.975
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "problem": "concentrated_r1",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": 0.0,
+      "paired_interval_95": null,
+      "relative_call_reduction": -0.0,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "concentrated_r1",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": 0.0,
+      "paired_interval_95": null,
+      "relative_call_reduction": -0.0,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "concentrated_r9",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -1.0,
+      "paired_interval_95": null,
+      "relative_call_reduction": 0.1,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "concentrated_r9",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -1.0,
+      "paired_interval_95": null,
+      "relative_call_reduction": 0.1,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    }
+  ],
+  "scope": "bounded synthetic strata; development only"
+}

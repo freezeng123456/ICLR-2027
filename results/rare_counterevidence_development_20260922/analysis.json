@@ -1,0 +1,962 @@
+{
+  "audit_passed": true,
+  "audited_cells": 4000,
+  "total_recorded_queries": 12110803,
+  "statistics": [
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 1062.99,
+      "median_calls": 835.5,
+      "mean_runtime_seconds": 0.029037987124174835,
+      "certified_fraction": 0.99,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 1679.2,
+      "median_calls": 1411.0,
+      "mean_runtime_seconds": 0.0037557916925288737,
+      "certified_fraction": 0.97,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 1741.21,
+      "median_calls": 1472.0,
+      "mean_runtime_seconds": 0.006150460361968726,
+      "certified_fraction": 0.95,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01617596832336858,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 3446.67,
+      "median_calls": 4094.0,
+      "mean_runtime_seconds": 0.015377265424467624,
+      "certified_fraction": 0.5,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 3344.72,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.10781689919531345,
+      "certified_fraction": 0.45,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 3753.22,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.009398881194647402,
+      "certified_fraction": 0.3,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 3824.32,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.013870093754958361,
+      "certified_fraction": 0.26,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.016619813737925142,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 3963.27,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.018544751619920134,
+      "certified_fraction": 0.14,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 4046.28,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.13020418297033756,
+      "certified_fraction": 0.02,
+      "wrong": 2,
+      "wrong_fraction": 0.02,
+      "wrong_probability_interval_95": [
+        0.002431336823942542,
+        0.07038393247107011
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 4060.62,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01002267087576911,
+      "certified_fraction": 0.01,
+      "wrong": 1,
+      "wrong_fraction": 0.01,
+      "wrong_probability_interval_95": [
+        0.00025314603297742064,
+        0.054459385392080645
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 3987.52,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.0149568783165887,
+      "certified_fraction": 0.03,
+      "wrong": 3,
+      "wrong_fraction": 0.03,
+      "wrong_probability_interval_95": [
+        0.006229971538306393,
+        0.08517605297428002
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.017083267909474672,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.019540730870794505,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 3777.32,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.11797515752259642,
+      "certified_fraction": 0.11,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 3993.3,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.009722544581163674,
+      "certified_fraction": 0.03,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 3985.23,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01420729456236586,
+      "certified_fraction": 0.03,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4063.76,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01592914461158216,
+      "certified_fraction": 0.01,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 4052.12,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.019560687441844492,
+      "certified_fraction": 0.02,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 139.59,
+      "median_calls": 119.5,
+      "mean_runtime_seconds": 0.002998287072405219,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 169.22,
+      "median_calls": 143.0,
+      "mean_runtime_seconds": 0.0003972187405452132,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 161.95,
+      "median_calls": 130.0,
+      "mean_runtime_seconds": 0.0006233574845828115,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.016110585385467856,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 711.7,
+      "median_calls": 645.0,
+      "mean_runtime_seconds": 0.002706704626325518,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 962.67,
+      "median_calls": 647.0,
+      "mean_runtime_seconds": 0.030225959992967545,
+      "certified_fraction": 0.97,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 860.34,
+      "median_calls": 635.0,
+      "mean_runtime_seconds": 0.0019198625767603518,
+      "certified_fraction": 1.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 996.52,
+      "median_calls": 658.0,
+      "mean_runtime_seconds": 0.0036141491564922034,
+      "certified_fraction": 0.97,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4096.0,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01624263540841639,
+      "certified_fraction": 0.0,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 1257.23,
+      "median_calls": 985.0,
+      "mean_runtime_seconds": 0.005220798698719591,
+      "certified_fraction": 0.98,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 3944.68,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.13270106251118705,
+      "certified_fraction": 0.05,
+      "wrong": 5,
+      "wrong_fraction": 0.05,
+      "wrong_probability_interval_95": [
+        0.016431879182052155,
+        0.11283491110546275
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 4051.7,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01009965248638764,
+      "certified_fraction": 0.02,
+      "wrong": 2,
+      "wrong_fraction": 0.02,
+      "wrong_probability_interval_95": [
+        0.002431336823942542,
+        0.07038393247107011
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 4034.28,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.014550327539909631,
+      "certified_fraction": 0.02,
+      "wrong": 2,
+      "wrong_fraction": 0.02,
+      "wrong_probability_interval_95": [
+        0.002431336823942542,
+        0.07038393247107011
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 4056.09,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01631271671038121,
+      "certified_fraction": 0.01,
+      "wrong": 1,
+      "wrong_fraction": 0.01,
+      "wrong_probability_interval_95": [
+        0.00025314603297742064,
+        0.054459385392080645
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 4060.07,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.01957716960925609,
+      "certified_fraction": 0.01,
+      "wrong": 1,
+      "wrong_fraction": 0.01,
+      "wrong_probability_interval_95": [
+        0.00025314603297742064,
+        0.054459385392080645
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "growth",
+      "repetitions": 100,
+      "mean_calls": 2943.57,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.09592358171008528,
+      "certified_fraction": 0.48,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "paired",
+      "repetitions": 100,
+      "mean_calls": 3371.3,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.008265825035050512,
+      "certified_fraction": 0.27,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "uniform",
+      "repetitions": 100,
+      "mean_calls": 3290.76,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.011515815411694347,
+      "certified_fraction": 0.29,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "upper_bound",
+      "repetitions": 100,
+      "mean_calls": 3780.32,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.014680127063766122,
+      "certified_fraction": 0.12,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "method": "variance",
+      "repetitions": 100,
+      "mean_calls": 2958.29,
+      "median_calls": 4096.0,
+      "mean_runtime_seconds": 0.013418525829911232,
+      "certified_fraction": 0.46,
+      "wrong": 0,
+      "wrong_fraction": 0.0,
+      "wrong_probability_interval_95": [
+        0.0,
+        0.03621669264517641
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "problem": "rare_p0.002_b0.2",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -678.22,
+      "paired_interval_95": [
+        -866.3682837469478,
+        -490.0717162530523
+      ],
+      "relative_call_reduction": 0.3895107425296202,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -2383.68,
+      "paired_interval_95": [
+        -2630.233695376831,
+        -2137.126304623169
+      ],
+      "relative_call_reduction": 0.691589273124494,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -616.21,
+      "paired_interval_95": [
+        -799.5371111703658,
+        -432.8828888296342
+      ],
+      "relative_call_reduction": 0.36696641257741786,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.2",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -3033.01,
+      "paired_interval_95": [
+        -3175.9255172210205,
+        -2890.09448277898
+      ],
+      "relative_call_reduction": 0.74048095703125,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -479.6,
+      "paired_interval_95": [
+        -700.6366767372058,
+        -258.5633232627942
+      ],
+      "relative_call_reduction": 0.12540791565559367,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -618.55,
+      "paired_interval_95": [
+        -847.5423658043326,
+        -389.55763419566733
+      ],
+      "relative_call_reduction": 0.15607061845395342,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -408.5,
+      "paired_interval_95": [
+        -626.2711507674773,
+        -190.72884923252272
+      ],
+      "relative_call_reduction": 0.1088398761596709,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.4",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -751.28,
+      "paired_interval_95": [
+        -962.0253256558867,
+        -540.5346743441132
+      ],
+      "relative_call_reduction": 0.18341796875,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": 58.76,
+      "paired_interval_95": [
+        -85.82526419488534,
+        203.34526419488532
+      ],
+      "relative_call_reduction": -0.014735976245887168,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -49.72,
+      "paired_interval_95": [
+        -122.64082759842488,
+        23.20082759842488
+      ],
+      "relative_call_reduction": 0.012138671875,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -14.34,
+      "paired_interval_95": [
+        -116.24988877019517,
+        87.56988877019516
+      ],
+      "relative_call_reduction": 0.003531480414320966,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b0.8",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -49.72,
+      "paired_interval_95": [
+        -122.64082759842488,
+        23.20082759842488
+      ],
+      "relative_call_reduction": 0.012138671875,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -207.91,
+      "paired_interval_95": [
+        -442.6291936456929,
+        26.809193645692943
+      ],
+      "relative_call_reduction": 0.052170138235434343,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -274.8,
+      "paired_interval_95": [
+        -478.15996361706584,
+        -71.44003638293415
+      ],
+      "relative_call_reduction": 0.06781635292143372,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -215.98,
+      "paired_interval_95": [
+        -424.5239867320338,
+        -7.43601326796616
+      ],
+      "relative_call_reduction": 0.05408559336889289,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.002_b1.2",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -286.44,
+      "paired_interval_95": [
+        -489.8616126746,
+        -83.01838732539997
+      ],
+      "relative_call_reduction": 0.07048644604996358,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -22.36,
+      "paired_interval_95": [
+        -44.316829638780064,
+        -0.4031703612199351
+      ],
+      "relative_call_reduction": 0.13806730472368015,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -572.11,
+      "paired_interval_95": [
+        -676.3560148153372,
+        -467.8639851846629
+      ],
+      "relative_call_reduction": 0.8038639876352396,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -29.63,
+      "paired_interval_95": [
+        -51.851469887138464,
+        -7.408530112861531
+      ],
+      "relative_call_reduction": 0.1750975062049403,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.2",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -3956.41,
+      "paired_interval_95": [
+        -3973.8914609321196,
+        -3938.92853906788
+      ],
+      "relative_call_reduction": 0.96592041015625,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -33.85,
+      "paired_interval_95": [
+        -319.798748851755,
+        252.098748851755
+      ],
+      "relative_call_reduction": 0.03396820936860274,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -294.56,
+      "paired_interval_95": [
+        -560.9057946117782,
+        -28.21420538822173
+      ],
+      "relative_call_reduction": 0.2342928501547052,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": 102.33,
+      "paired_interval_95": [
+        -119.29152560597187,
+        323.9515256059719
+      ],
+      "relative_call_reduction": -0.11894134876909128,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.4",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -3133.33,
+      "paired_interval_95": [
+        -3323.454463121614,
+        -2943.205536878386
+      ],
+      "relative_call_reduction": 0.76497314453125,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -89.6,
+      "paired_interval_95": [
+        -254.28739176441493,
+        75.08739176441495
+      ],
+      "relative_call_reduction": 0.022209663186491764,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -115.39,
+      "paired_interval_95": [
+        -271.62697110829276,
+        40.84697110829278
+      ],
+      "relative_call_reduction": 0.028420692254074436,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -107.02,
+      "paired_interval_95": [
+        -217.35777449321586,
+        3.317774493215879
+      ],
+      "relative_call_reduction": 0.02641360416615248,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b0.8",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -111.41,
+      "paired_interval_95": [
+        -271.5545752552731,
+        48.734575255273114
+      ],
+      "relative_call_reduction": 0.027467339235569228,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "control": "uniform",
+      "mean_candidate_minus_control_calls": -347.19,
+      "paired_interval_95": [
+        -690.0192558664035,
+        -4.360744133596484
+      ],
+      "relative_call_reduction": 0.10550450351894394,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "control": "variance",
+      "mean_candidate_minus_control_calls": -14.72,
+      "paired_interval_95": [
+        -374.4212459497266,
+        344.98124594972654
+      ],
+      "relative_call_reduction": 0.004975847533541336,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "control": "paired",
+      "mean_candidate_minus_control_calls": -427.73,
+      "paired_interval_95": [
+        -795.4602035978039,
+        -59.999796402196125
+      ],
+      "relative_call_reduction": 0.1268739062082876,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    },
+    {
+      "problem": "rare_p0.02_b1.2",
+      "control": "upper_bound",
+      "mean_candidate_minus_control_calls": -836.75,
+      "paired_interval_95": [
+        -1163.5966629952864,
+        -509.90333700471353
+      ],
+      "relative_call_reduction": 0.2213436957717865,
+      "interval_scope": "descriptive development comparison; no multiplicity correction"
+    }
+  ],
+  "scope": "bounded synthetic strata; development only"
+}

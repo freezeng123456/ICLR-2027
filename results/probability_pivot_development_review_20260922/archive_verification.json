@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "covered_cells_including_smoke": 12111,
+  "experiment_files": 48484,
+  "runs": [
+    {
+      "run": "decision_evidence_development_20260922",
+      "cells": 6500,
+      "files": 26008,
+      "bytes": 59604448,
+      "all_hashes_verified": true,
+      "all_files_in_git_index": true
+    },
+    {
+      "run": "decision_evidence_smoke_20260922",
+      "cells": 6,
+      "files": 32,
+      "bytes": 27834,
+      "all_hashes_verified": true,
+      "all_files_in_git_index": true
+    },
+    {
+      "run": "rare_counterevidence_development_20260922",
+      "cells": 4000,
+      "files": 16008,
+      "bytes": 149836606,
+      "all_hashes_verified": true,
+      "all_files_in_git_index": true
+    },
+    {
+      "run": "official_betting_control_20260922",
+      "cells": 800,
+      "files": 3205,
+      "bytes": 22010729,
+      "all_hashes_verified": true,
+      "all_files_in_git_index": true
+    },
+    {
+      "run": "official_empbern_control_20260922",
+      "cells": 800,
+      "files": 3205,
+      "bytes": 24186824,
+      "all_hashes_verified": true,
+      "all_files_in_git_index": true
+    },
+    {
+      "run": "matched_confirmation_local_smoke_20260922",
+      "cells": 5,
+      "files": 26,
+      "bytes": 24084,
+      "all_hashes_verified": true,
+      "all_files_in_git_index": true
+    }
+  ]
+}
