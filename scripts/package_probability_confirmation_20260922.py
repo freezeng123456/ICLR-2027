@@ -85,6 +85,12 @@ def main():
         raise FileExistsError("Recovery artifacts already exist; inspect them before retrying")
     if (root / "job.status").read_text().strip() != "COMPLETE_PENDING_AUDIT":
         raise ValueError("The experiment has not completed")
+    if (root / "audit.status").read_text().strip() != "COMPLETE":
+        raise ValueError("The independent audit has not completed")
+    for name, expected in [("confirmation", 20000), ("smoke", 5)]:
+        analysis = json.loads((root / name / "analysis.json").read_text())
+        if not analysis["audit_passed"] or analysis["audited_cells"] != expected:
+            raise ValueError("The independent audit does not cover the complete directory")
     resource_text = subprocess.check_output([
         "sacct", "-j", "24232628", "-P", "-o",
         "JobID,State,ExitCode,Start,End,Elapsed,TotalCPU,AllocCPUS,ReqMem,MaxRSS,ReqTRES,AllocTRES,NodeList",
@@ -108,7 +114,7 @@ def main():
         "recorded_utc": datetime.now(timezone.utc).isoformat(),
         "checks": checks,
         "source_archive_sha256": source_hash,
-        "scope": "complete files, exact configurations and successful job exit; numerical trace audit remains pending",
+        "scope": "complete files, exact configurations and successful job exit; independent trace audit recorded in confirmation/analysis.json, smoke/analysis.json and audit.log",
     }, indent=2) + "\n")
     names = [path.name for path in sorted(root.iterdir()) if path.name != "code"]
     files = []
