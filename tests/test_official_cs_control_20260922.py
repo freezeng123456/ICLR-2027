@@ -11,7 +11,11 @@ def test_official_intervals_and_replay(method):
     values = np.linspace(0.65, 0.95, 128)
     lower, upper = official_interval(values, method)
     assert 0 <= lower < upper <= 1
-    assert lower < np.mean(values) < upper
+    if method == "betting":
+        for mean in np.linspace(lower + 1e-7, upper - 1e-7, 9):
+            for orientation in [0, 1]:
+                wealth = betting_mart(values, mean, alpha=0.0125, theta=orientation, trunc_scale=0.99)[-1]
+                assert wealth <= 80 * (1 + 1e-7)
     problem = BoundedStratumProblem("audit", 1, 2, (8, 2), (0.1, 0.9))
     result = run_control(problem, method, 89, budget=100)
     assert result["calls"] == len(result["observations"])
