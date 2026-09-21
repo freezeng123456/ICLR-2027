@@ -39,6 +39,14 @@ def problems():
     return items
 
 
+def rare_problems():
+    return [
+        BoundedStratumProblem(f"rare_p{probability:g}_b{contribution:g}", 1, contribution / probability, (8, 2), (probability, 1 - probability))
+        for probability in [0.002, 0.02]
+        for contribution in [0.2, 0.4, 0.8, 1.2]
+    ]
+
+
 def run_one(arguments):
     problem, method, seed, budget, alpha, root = arguments
     directory = Path(root) / problem.name / method / f"seed_{seed:05d}"
@@ -64,13 +72,15 @@ def main():
     parser.add_argument("--max-samples", type=int, default=4096)
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--problem", action="append")
+    parser.add_argument("--suite", choices=["ordinary", "rare"], default="ordinary")
     parser.add_argument("--method", action="append", choices=["uniform", "variance", "growth", "paired", "upper_bound"])
     args = parser.parse_args()
     if args.repetitions < 1 or args.workers < 1:
         raise ValueError("Positive repetitions and workers required")
     root = args.output.resolve()
     root.mkdir(parents=True, exist_ok=False)
-    selected = [item for item in problems() if not args.problem or item.name in args.problem]
+    available = rare_problems() if args.suite == "rare" else problems()
+    selected = [item for item in available if not args.problem or item.name in args.problem]
     if not selected or (args.problem and len(selected) != len(set(args.problem))):
         raise ValueError("Unknown or empty problem selection")
     source_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
