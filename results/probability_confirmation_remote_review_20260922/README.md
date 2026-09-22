@@ -1,6 +1,6 @@
 # SCNet确认结果：统计分析回收
 
-本目录保存服务器原始统计分析、审计日志、Slurm记录的逐字节恢复副本，以及确定性排版报告。完整实验数据的回收仍在进行，不能将本目录视为20000个实验单元的完整原始记录。
+本目录保存服务器原始统计分析、审计日志、Slurm记录、归档回执、结构核验和收尾日志的逐字节恢复副本，以及确定性排版报告。完整实验数据的回收仍在进行，不能将本目录视为20000个实验单元的完整原始记录。
 
 ## 来源与核验
 
@@ -11,9 +11,29 @@
 - 审计于2026-09-22 07:19:37（北京时间）完成，`audit.status` 为COMPLETE；正式实验与5个冒烟单元均审计通过并退出0。正式审计耗时77分6秒、最大驻留内存492232KB。
 - [审计原始日志](workflow_evidence/audit.log)：2064字节，SHA-256为 `24efe1df69a4c54cdd6e96954a1f2c8b845027b9aeecc5a0fa5a02a4de070005`。
 - [Slurm原始记录](workflow_evidence/slurm_accounting.psv)：545字节，SHA-256为 `f6a3aaa1d7d400083eb3cdad3089c85b11ae025284d9a16470bf498008b14306`。两个文件均通过SCNet文件预览回收，并核对服务器哈希；日志预览中的制表符依据可见 `cm-tab` 标记恢复。
-- 服务器正式审计清单 `confirmation/SHA256.json` 已生成，9464434字节，SHA-256为 `fe9958491263f96fe41567a5e583fe8007a3136df35ea79e822bee871ae6c333`；冒烟清单为2810字节，SHA-256为 `df7ffd33bfe54c2e347895edf8d081ffbe91a4166a39c2a01a40209c339bfdf1`。这两个清单尚未回收到本地，完整归档、原始数据回传及发布验证仍未完成。
+- 服务器正式审计清单 `confirmation/SHA256.json` 已生成，9464434字节，SHA-256为 `fe9958491263f96fe41567a5e583fe8007a3136df35ea79e822bee871ae6c333`；冒烟清单为2810字节，SHA-256为 `df7ffd33bfe54c2e347895edf8d081ffbe91a4166a39c2a01a40209c339bfdf1`。这两个清单已包含在服务器完成的归档中，尚未回收到本地；完整原始数据回传及发布验证仍未完成。
 
 [全部40项配置与三项主比较](decision_review/analysis.md)由已发布的 `report_probability_confirmation_20260922.py` 直接生成。`confirmation/analysis.json` 是服务器文件原样副本；没有重新抽样或调整统计终点。本地恢复的汇总不能替代逐种子原始轨迹审计，也尚未在本地重复计算逐种子bootstrap。
+
+## 已完成归档与待传输文件
+
+服务器归档于2026-09-22 09:27:51（北京时间）完成，续接状态COMPLETE、退出0。归档阶段经过时间1小时41分55秒，用户CPU时间226.91秒、系统CPU时间181.96秒、最大驻留内存183364KB；这些是文件核验与归档开销，单独于实验和审计耗时记录。
+
+待传输文件为 `/work/home/zenghang/probability_confirmation_20260922.recovery.tar.gz`，1185568247字节，回执记录80057个文件、20005个完整单元。归档SHA-256为 `9b9d0ffe3eeff6ec537b1d8a4d9f26d9faced70c2df1bfda541fc64f318998f9`，服务器完成后独立重新计算一致。逐文件清单SHA-256为 `bde240eb8daa7e9720324093be37148ae4351fb98c1eb89e9d9206e78cce120a`；清单记录80056个文件，另加清单自身，共80057个归档文件。
+
+以下五个原始文件已通过已登录SCNet页面恢复，保留末尾换行和可见制表符对应的原始字节，全部与服务器SHA-256一致：
+
+| 文件 | 字节数 | SHA-256 |
+|---|---:|---|
+| [归档回执](workflow_evidence/probability_confirmation_20260922.recovery.tar.gz.receipt.json) | 208 | `b360bc4d9ed35cb834726b4c7709c3a3e37d5b44b7b7d710ce95dbad3d6a955d` |
+| [完成状态](workflow_evidence/probability_confirmation_packaging_20260922.status) | 9 | `a4bccf5c13ef5ff8311e59b34d492bc7072a55298723601a6a9c127053aee8fc` |
+| [归档进程日志](workflow_evidence/probability_confirmation_packaging_20260922.log) | 1242 | `fcc8c5b9182471be7333069a0214d687df8a854bb517f1939258f30523965ae2` |
+| [启动日志](workflow_evidence/probability_confirmation_packaging_launch_20260922.log) | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| [结构核验](workflow_evidence/structural_validation.json) | 706 | `38b9d000011850de2792c281ac50ebed4619b42cc987a57cb0b00404af66589f` |
+
+结构核验程序检查了全部20005个单元的文件集合、固定配置、汇总一致性、Slurm正常退出和资源限制；实验源码归档SHA-256为 `f9c602af70b3bfd31783eb9edeb67d5790ac7ee52b8a10754da96b5fdaa666ea`。该记录与已结束的轨迹审计分别保留，没有重新运行实验或审计。
+
+本地Downloads中尚未找到完整归档，已请求用户下载后提供路径。收到归档后须核对传输哈希、安全展开到新的结果目录、复核逐文件清单与两个审计清单，保留全部原始单元及旧流程文件，再通过普通Git推送完整明细并验证远端引用与文件集合。此前的统计分析发布和本次小文件恢复不代表完整原始数据已经发布。
 
 ## 当前证据的含义
 

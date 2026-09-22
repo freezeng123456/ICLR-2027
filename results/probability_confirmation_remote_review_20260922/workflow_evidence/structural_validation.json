@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-09-22T00:01:08.372737+00:00",
+  "checks": {
+    "confirmation": {
+      "cells": 20000,
+      "source_commit": "9b03772540d0e9f5710de1f26c3f96a7b8408215",
+      "queries": 56508596,
+      "runtime_seconds": 4684.260069627315
+    },
+    "smoke": {
+      "cells": 5,
+      "source_commit": "9b03772540d0e9f5710de1f26c3f96a7b8408215",
+      "queries": 500,
+      "runtime_seconds": 0.34058478847146034
+    }
+  },
+  "source_archive_sha256": "f9c602af70b3bfd31783eb9edeb67d5790ac7ee52b8a10754da96b5fdaa666ea",
+  "scope": "complete files, exact configurations and successful job exit; independent trace audit recorded in confirmation/analysis.json, smoke/analysis.json and audit.log"
+}
